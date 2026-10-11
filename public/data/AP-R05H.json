@@ -1,0 +1,4780 @@
+[
+ {
+  "id": "AP-R05H-AM-01",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 1,
+  "stem": "0 以上 255 以下の整数 n に対して，\n　next(n)＝n＋1（0≦n＜255），0（n＝255）\nと定義する。next(n) と等しい式はどれか。ここで，x AND y 及び x OR y は，それぞれ x と y を 2 進数表現にして，桁ごとの論理積及び論理和をとったものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "(n＋1) AND 255"
+   },
+   {
+    "label": "イ",
+    "text": "(n＋1) AND 256"
+   },
+   {
+    "label": "ウ",
+    "text": "(n＋1) OR 255"
+   },
+   {
+    "label": "エ",
+    "text": "(n＋1) OR 256"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "離散数学",
+  "topicIds": [
+   "bit-operation"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "255 は 2 進数で 11111111（下位 8 ビットがすべて 1）。AND 255 は下位 8 ビットだけを取り出す。n＜255 なら n＋1 はそのまま、n＝255 なら n＋1＝256（100000000）の下位 8 ビットは 0 になる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "256 との AND では、n＋1＜256 のとき常に 0 になる。",
+    "ウ": "OR 255 では結果が常に 255 以上になる。",
+    "エ": "OR 256 では結果が 256 以上になる。"
+   },
+   "pitfalls": "AND で「マスク」して下位ビットだけを残すのは、256 で割った余り（mod 256）と同じ。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問1",
+   "short": "R5春 午前 問1",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-02",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 2,
+  "stem": "平均が 60，標準偏差が 10 の正規分布を表すグラフはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-r05h/q02a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-r05h/q02i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-r05h/q02u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-r05h/q02e.png"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "応用数学",
+  "topicIds": [
+   "statistics"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "正規分布は平均を中心に左右対称な釣鐘型の分布。平均 60 を頂点とし、頂点から 10 離れた 70 付近（変曲点）までの幅が標準偏差 10 を示すアが該当する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "標準偏差が 5 程度の分布（55〜65 の幅）。",
+    "ウ": "山が 2 つあり正規分布ではない。",
+    "エ": "左右非対称で正規分布ではない。"
+   },
+   "pitfalls": "正規分布の特徴は「左右対称・山が 1 つ」。標準偏差は山の広がりを表す。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問2",
+   "short": "R5春 午前 問2",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-03",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 3,
+  "stem": "AI における機械学習で，2 クラス分類モデルの評価方法として用いられる ROC 曲線の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "真陽性率と偽陽性率の関係を示す曲線である。"
+   },
+   {
+    "label": "イ",
+    "text": "真陽性率と適合率の関係を示す曲線である。"
+   },
+   {
+    "label": "ウ",
+    "text": "正解率と適合率の関係を示す曲線である。"
+   },
+   {
+    "label": "エ",
+    "text": "適合率と偽陽性率の関係を示す曲線である。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "情報に関する理論",
+  "topicIds": [
+   "ml-evaluation"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ROC 曲線は、横軸に偽陽性率、縦軸に真陽性率をとり、判定のしきい値を変えたときの関係を描いた曲線。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "真陽性率（再現率）と適合率の関係は PR 曲線。",
+    "ウ": "このような標準的な曲線はない。",
+    "エ": "このような標準的な曲線はない。"
+   },
+   "pitfalls": "ROC＝真陽性率 vs 偽陽性率、PR 曲線＝適合率 vs 再現率。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問3",
+   "short": "R5春 午前 問3",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-04",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 4,
+  "stem": "ドップラー効果を応用したセンサーで測定できるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "血中酸素飽和度"
+   },
+   {
+    "label": "イ",
+    "text": "血糖値"
+   },
+   {
+    "label": "ウ",
+    "text": "血流量"
+   },
+   {
+    "label": "エ",
+    "text": "体内水分量"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "sensor-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "ドップラー効果は、動いている物体に当たって反射した波の周波数が変化する現象。血液の流れ（動き）を測る血流計に使われる。",
+   "perChoice": {
+    "ア": "光の吸収の違い（パルスオキシメーター）で測る。",
+    "イ": "血液成分の化学的な測定などで測る。",
+    "ウ": "正しい。",
+    "エ": "電気抵抗（生体インピーダンス）などで測る。"
+   },
+   "pitfalls": "ドップラー効果＝「動いているもの」の速さを測る（救急車のサイレンの音の変化と同じ）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問4",
+   "short": "R5春 午前 問4",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-05",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 5,
+  "stem": "要求に応じて可変量のメモリを割り当てるメモリ管理方式がある。要求量以上の大きさをもつ空き領域のうちで最小のものを割り当てる最適適合（best-fit）アルゴリズムを用いる場合，空き領域を管理するためのデータ構造として，メモリ割当て時の平均処理時間が最も短いものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "空き領域のアドレスをキーとする 2 分探索木"
+   },
+   {
+    "label": "イ",
+    "text": "空き領域の大きさが小さい順の片方向連結リスト"
+   },
+   {
+    "label": "ウ",
+    "text": "空き領域の大きさをキーとする 2 分探索木"
+   },
+   {
+    "label": "エ",
+    "text": "アドレスに対応したビットマップ"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "memory-alloc",
+   "tree-structure"
+  ],
+  "questionType": "applied",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "最適適合では「要求量以上で最小の空き領域」を探す。大きさをキーとする 2 分探索木なら、平均 O(log n) で目的の領域にたどり着ける。",
+   "perChoice": {
+    "ア": "アドレス順では大きさで探せず、全体を調べる必要がある。",
+    "イ": "先頭から順に探すので平均 O(n) かかる。",
+    "ウ": "正しい。",
+    "エ": "ビットマップでは連続した空きを探すのに全体を走査する必要がある。"
+   },
+   "pitfalls": "「大きさ」で探すなら「大きさ」をキーにした探索木が速い。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問5",
+   "short": "R5春 午前 問5",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-06",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 6,
+  "stem": "従業員番号と氏名の対が n 件格納されている表に線形探索法を用いて，与えられた従業員番号から氏名を検索する。この処理における平均比較回数を求める式はどれか。ここで，検索する従業員番号はランダムに出現し，探索は常に表の先頭から行う。また，与えられた従業員番号がこの表に存在しない確率を a とする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "(n＋1)na/2"
+   },
+   {
+    "label": "イ",
+    "text": "(n＋1)(1−a)/2"
+   },
+   {
+    "label": "ウ",
+    "text": "(n＋1)(1−a)/2 ＋ n/2"
+   },
+   {
+    "label": "エ",
+    "text": "(n＋1)(1−a)/2 ＋ na"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "search-algo"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "存在する場合（確率 1−a）の平均比較回数は (n＋1)/2、存在しない場合（確率 a）は全件 n 回比較する。期待値は (n＋1)(1−a)/2＋na。",
+   "perChoice": {
+    "ア": "計算を誤った式。",
+    "イ": "存在しない場合の比較回数を含めていない。",
+    "ウ": "存在しない場合の比較回数を n/2 としている。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "見つからない場合は最後まで（n 回）比較する。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問6",
+   "short": "R5春 午前 問6",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-07",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 7,
+  "stem": "配列に格納されたデータ 2，3，5，4，1 に対して，クイックソートを用いて昇順に並べ替える。2 回目の分割が終わった状態はどれか。ここで，分割は基準値より小さい値と大きい値のグループに分けるものとする。また，分割のたびに基準値はグループ内の配列の左端の値とし，グループ内の配列の値の順番は元の配列と同じとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1，2，3，5，4"
+   },
+   {
+    "label": "イ",
+    "text": "1，2，5，4，3"
+   },
+   {
+    "label": "ウ",
+    "text": "2，3，1，4，5"
+   },
+   {
+    "label": "エ",
+    "text": "2，3，4，5，1"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "sort-algo"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "1 回目：基準値 2 で、小さいグループ (1)、2、大きいグループ (3，5，4) → 1，2，3，5，4。2 回目：(3，5，4) を基準値 3 で分けると、小さいものはなく、大きいグループ (5，4) → 1，2，3，5，4。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "大きいグループの順番が元の配列と異なる。",
+    "ウ": "分割の手順と合わない。",
+    "エ": "分割の手順と合わない。"
+   },
+   "pitfalls": "「グループ内の順番は元の配列と同じ」という条件を守って、1 回ずつ書き出す。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問7",
+   "short": "R5春 午前 問7",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-08",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 8,
+  "stem": "動作周波数 1.25GHz のシングルコア CPU が 1 秒間に 10 億回の命令を実行するとき，この CPU の平均 CPI（Cycles Per Instruction）として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.8"
+   },
+   {
+    "label": "イ",
+    "text": "1.25"
+   },
+   {
+    "label": "ウ",
+    "text": "2.5"
+   },
+   {
+    "label": "エ",
+    "text": "10"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "performance-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "CPI＝1 秒間のクロック数÷1 秒間の命令数＝1.25×10⁹÷10×10⁸＝1.25。",
+   "perChoice": {
+    "ア": "逆数（IPC）を求めた値。",
+    "イ": "正しい。",
+    "ウ": "計算を誤った値。",
+    "エ": "計算を誤った値。"
+   },
+   "pitfalls": "CPI＝クロック周波数÷命令実行数（MIPS）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問8",
+   "short": "R5春 午前 問8",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-09",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 9,
+  "stem": "全ての命令が 5 ステージで完了するように設計された，パイプライン制御の CPU がある。20 命令を実行するには何サイクル必要となるか。ここで，全ての命令は途中で停止することなく実行でき，パイプラインの各ステージは 1 サイクルで動作を完了するものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "20"
+   },
+   {
+    "label": "イ",
+    "text": "21"
+   },
+   {
+    "label": "ウ",
+    "text": "24"
+   },
+   {
+    "label": "エ",
+    "text": "25"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "processor-arch"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "最初の命令が終わるまで 5 サイクル、以降は 1 サイクルごとに 1 命令ずつ終わる。5＋(20−1)＝24 サイクル。",
+   "perChoice": {
+    "ア": "パイプラインが最初から満たされていると考えた値。",
+    "イ": "計算を誤った値。",
+    "ウ": "正しい。",
+    "エ": "5＋20 と数えた値。"
+   },
+   "pitfalls": "パイプラインの実行サイクル数＝ステージ数＋(命令数−1)。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問9",
+   "short": "R5春 午前 問9",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-10",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 10,
+  "stem": "キャッシュメモリへの書込み動作には，ライトスルー方式とライトバック方式がある。それぞれの特徴のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ライトスルー方式では，データをキャッシュメモリだけに書き込むので，高速に書込みができる。"
+   },
+   {
+    "label": "イ",
+    "text": "ライトスルー方式では，データをキャッシュメモリと主記憶の両方に同時に書き込むので，主記憶の内容は常にキャッシュメモリの内容と一致する。"
+   },
+   {
+    "label": "ウ",
+    "text": "ライトバック方式では，データをキャッシュメモリと主記憶の両方に同時に書き込むので，速度が遅い。"
+   },
+   {
+    "label": "エ",
+    "text": "ライトバック方式では，読出し時にキャッシュミスが発生してキャッシュメモリの内容が追い出されるときに，主記憶に書き戻す必要が生じることはない。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "memory-calc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ライトスルー方式はキャッシュと主記憶の両方に書き込むので、内容は常に一致する（その分書込みは遅い）。",
+   "perChoice": {
+    "ア": "キャッシュだけに書き込むのはライトバック方式。",
+    "イ": "正しい。",
+    "ウ": "両方に同時に書き込むのはライトスルー方式。",
+    "エ": "ライトバック方式では、追い出されるブロックが更新されていれば主記憶に書き戻す必要がある。"
+   },
+   "pitfalls": "スルー＝通り抜けて主記憶まで書く、バック＝後で書き戻す。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問10",
+   "short": "R5春 午前 問10",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-11",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 11,
+  "stem": "フラッシュメモリにおけるウェアレベリングの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "各ブロックの書込み回数がなるべく均等になるように，物理的な書込み位置を選択する。"
+   },
+   {
+    "label": "イ",
+    "text": "記憶するセルの電子の量に応じて，複数のビット情報を記録する。"
+   },
+   {
+    "label": "ウ",
+    "text": "不良のブロックを検出し，交換領域にある正常な別のブロックで置き換える。"
+   },
+   {
+    "label": "エ",
+    "text": "ブロック単位でデータを消去し，新しいデータを書き込む。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "storage"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ウェアレベリングは、書込みが特定のブロックに集中しないように分散させ、寿命を延ばす技術。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "MLC・TLC（多値記録）の説明。",
+    "ウ": "不良ブロック管理の説明。",
+    "エ": "フラッシュメモリの基本的な書込み動作の説明。"
+   },
+   "pitfalls": "wear（摩耗）を level（平らに）する。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問11",
+   "short": "R5春 午前 問11",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-12",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 12,
+  "stem": "有機 EL ディスプレイの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "電圧をかけて発光素子を発光させて表示する。"
+   },
+   {
+    "label": "イ",
+    "text": "電子ビームが発光体に衝突して生じる発光で表示する。"
+   },
+   {
+    "label": "ウ",
+    "text": "透過する光の量を制御することで表示する。"
+   },
+   {
+    "label": "エ",
+    "text": "放電によって発生した紫外線で，蛍光体を発光させて表示する。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "display-memory"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "有機 EL は、有機物の発光素子に電圧をかけて自ら発光させる。バックライトが不要。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "CRT（ブラウン管）の説明。",
+    "ウ": "液晶ディスプレイの説明。",
+    "エ": "プラズマディスプレイの説明。"
+   },
+   "pitfalls": "有機 EL＝自発光、液晶＝バックライトの光を透過させる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問12",
+   "short": "R5春 午前 問12",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-13",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 13,
+  "stem": "スケールインの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "想定される CPU 使用率に対して，サーバの能力が過剰なとき，CPU の能力を減らすこと"
+   },
+   {
+    "label": "イ",
+    "text": "想定されるシステムの処理量に対して，サーバの台数が過剰なとき，サーバの台数を減らすこと"
+   },
+   {
+    "label": "ウ",
+    "text": "想定されるシステムの処理量に対して，サーバの台数が不足するとき，サーバの台数を増やすこと"
+   },
+   {
+    "label": "エ",
+    "text": "想定されるメモリ使用率に対して，サーバの能力が不足するとき，メモリの容量を増やすこと"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "scale"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "スケールインは、サーバの台数を減らすこと。スケールアウトの逆。",
+   "perChoice": {
+    "ア": "スケールダウンの説明。",
+    "イ": "正しい。",
+    "ウ": "スケールアウトの説明。",
+    "エ": "スケールアップの説明。"
+   },
+   "pitfalls": "アウト/イン＝台数を増やす/減らす、アップ/ダウン＝1 台の性能を上げる/下げる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問13",
+   "short": "R5春 午前 問13",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-14",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 14,
+  "stem": "CPU と磁気ディスク装置で構成されるシステムで，表に示すジョブ A，B を実行する。この二つのジョブが実行を終了するまでの CPU の使用率と磁気ディスク装置の使用率との組合せのうち，適切なものはどれか。ここで，ジョブ A，B はシステムの動作開始時点ではいずれも実行可能状態にあり，A，B の順で実行される。CPU 及び磁気ディスク装置は，ともに一つの要求だけを発生順に処理する。ジョブ A，B とも，CPU の処理を終了した後，磁気ディスク装置の処理を実行する。\n\n（単位 秒）\nジョブ　CPU の処理時間　磁気ディスク装置の処理時間\n　A　　　3　　　　　　　7\n　B　　　12　　　　　　 10",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CPU 0.47，磁気ディスク装置 0.53"
+   },
+   {
+    "label": "イ",
+    "text": "CPU 0.60，磁気ディスク装置 0.68"
+   },
+   {
+    "label": "ウ",
+    "text": "CPU 0.79，磁気ディスク装置 0.89"
+   },
+   {
+    "label": "エ",
+    "text": "CPU 0.88，磁気ディスク装置 1.00"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "scheduling",
+   "performance-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "A は CPU 0〜3 秒、ディスク 3〜10 秒。B は CPU 3〜15 秒、ディスク 15〜25 秒。全体は 25 秒で、CPU は 15 秒（0.60）、ディスクは 17 秒（0.68）使われる。",
+   "perChoice": {
+    "ア": "計算を誤った値。",
+    "イ": "正しい。",
+    "ウ": "全体の時間を誤った値。",
+    "エ": "全体の時間を誤った値。"
+   },
+   "pitfalls": "時間軸を書いて、全体の時間と各装置が動いている時間を数える。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問14",
+   "short": "R5春 午前 問14",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-15",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 15,
+  "stem": "コンピュータシステムの信頼性を高める技術に関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "フェールセーフは，構成部品の信頼性を高めて，故障が起きないようにする技術である。"
+   },
+   {
+    "label": "イ",
+    "text": "フェールソフトは，ソフトウェアに起因するシステムフォールトに対処するための技術である。"
+   },
+   {
+    "label": "ウ",
+    "text": "フォールトアボイダンスは，構成部品に故障が発生しても運用を継続できるようにする技術である。"
+   },
+   {
+    "label": "エ",
+    "text": "フォールトトレランスは，システムを構成する重要部品を多重化して，故障に備える技術である。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "fault-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "フォールトトレランスは、部品を多重化するなどして、故障が起きてもシステム全体は正常に動き続けられるようにする技術。",
+   "perChoice": {
+    "ア": "フォールトアボイダンスの説明。",
+    "イ": "フェールソフトは、故障した部分を切り離し、機能を縮退させて運用を続ける技術。ソフトウェア限定ではない。",
+    "ウ": "フォールトトレランスの説明。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "アボイダンス＝故障を避ける、トレランス＝故障に耐える。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問15",
+   "short": "R5春 午前 問15",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-16",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 16,
+  "stem": "3 台の装置 X〜Z を接続したシステム A，B の稼働率に関する記述のうち，適切なものはどれか。ここで，3 台の装置の稼働率は，いずれも 0 より大きく 1 より小さいものとし，並列に接続されている部分は，どちらか一方が稼働していればよいものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "各装置の稼働率の値によって，A と B の稼働率のどちらが高いかは変化する。"
+   },
+   {
+    "label": "イ",
+    "text": "常に A と B の稼働率は等しい。"
+   },
+   {
+    "label": "ウ",
+    "text": "常に A の稼働率は B より高い。"
+   },
+   {
+    "label": "エ",
+    "text": "常に B の稼働率は A より高い。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "availability"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "A＝(x＋y−xy)z、B＝1−(1−xz)(1−y)＝xz＋y−xyz。B−A＝y−yz＝y(1−z)。0＜y＜1、0＜z＜1 なので常に正で、B の方が高い。",
+   "perChoice": {
+    "ア": "差は y(1−z) で常に正なので、値によって逆転することはない。",
+    "イ": "差は 0 にならない。",
+    "ウ": "逆。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "式の差をとって符号を調べる。具体的な値（すべて 0.9 など）で確かめてもよい。",
+   "altCalc": "すべて 0.9 のとき、A＝0.99×0.9＝0.891、B＝1−(1−0.81)×0.1＝0.981。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問16",
+   "short": "R5春 午前 問16",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q16.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-17",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 17,
+  "stem": "仮想記憶システムにおいて，ページ置換えアルゴリズムとして FIFO を採用して，仮想ページ参照列 1，4，2，4，1，3 を 3 ページ枠の実記憶に割り当てて処理を行った。割当てステップ“3”までは，仮想ページ参照列中の最初の 1，4，2 をそれぞれ実記憶に割り当てた直後の実記憶ページの状態（1，4，2）である。残りを全て参照した直後の実記憶ページの状態はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1，3，4"
+   },
+   {
+    "label": "イ",
+    "text": "1，4，3"
+   },
+   {
+    "label": "ウ",
+    "text": "3，4，2"
+   },
+   {
+    "label": "エ",
+    "text": "4，1，3"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "cache-replace"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "ステップ 4（ページ 4）と 5（ページ 1）は実記憶にあるので置換えなし。ステップ 6（ページ 3）で、最も早く読み込まれたページ 1 を置き換える。ページ 1 の枠に 3 が入り、3，4，2 になる。",
+   "perChoice": {
+    "ア": "FIFO で追い出すべきページ 1 が残っている。",
+    "イ": "追い出すページを誤っている（2 を追い出した）。",
+    "ウ": "正しい。",
+    "エ": "LRU のように並べ直した状態で、枠の位置も誤っている。"
+   },
+   "pitfalls": "FIFO は「読み込まれた順」で追い出す。参照されても順番は変わらない（LRU との違い）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問17",
+   "short": "R5春 午前 問17",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-18",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 18,
+  "stem": "仮想記憶方式に関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "LRU アルゴリズムは，使用後の経過時間が最長のページを置換対象とするページ置換アルゴリズムである。"
+   },
+   {
+    "label": "イ",
+    "text": "アドレス変換をインデックス方式で行う場合は，主記憶に存在する全ページ分のページテーブルが必要になる。"
+   },
+   {
+    "label": "ウ",
+    "text": "ページフォールトが発生した場合は，ガーベジコレクションが必要である。"
+   },
+   {
+    "label": "エ",
+    "text": "ページングが繰り返されるうちに多数の小さな空きメモリ領域が発生することを，フラグメンテーションという。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "cache-replace"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "LRU（Least Recently Used）は、最後に使われてから最も時間が経ったページを置き換える。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "ページテーブルは仮想記憶上の全ページ分が必要で、主記憶に存在するページ分ではない。",
+    "ウ": "ページフォールトではページインを行う。ガーベジコレクションは不要な領域の回収で別の処理。",
+    "エ": "ページングは固定長なので外部断片化は起きない。説明はセグメンテーションなど可変長の割当てで起きる現象。"
+   },
+   "pitfalls": "LRU＝最も長く使われていない、FIFO＝最も古く読み込まれた、LFU＝使用回数が最も少ない。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問18",
+   "short": "R5春 午前 問18",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-19",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 19,
+  "stem": "ハッシュ表の理論的な探索時間を示すグラフはどれか。ここで，複数のデータが同じハッシュ値になることはないものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-r05h/q19a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-r05h/q19i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-r05h/q19u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-r05h/q19e.png"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "hash"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "衝突がなければ、ハッシュ表はキーから格納位置を直接計算できるので、データの個数に関係なく探索時間は一定。",
+   "perChoice": {
+    "ア": "データが増えると急増するグラフ。",
+    "イ": "データ数に比例するグラフ（線形探索）。",
+    "ウ": "データ数の対数に近いグラフ（2 分探索など）。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "ハッシュ法の探索は O(1)（データ数によらず一定）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問19",
+   "short": "R5春 午前 問19",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-20",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 20,
+  "stem": "コンテナ型仮想化の環境であって，アプリケーションソフトウェアの構築，実行，管理を行うためのプラットフォームを提供する OSS はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "Docker"
+   },
+   {
+    "label": "イ",
+    "text": "KVM"
+   },
+   {
+    "label": "ウ",
+    "text": "QEMU"
+   },
+   {
+    "label": "エ",
+    "text": "Xen"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "virtualization"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "Docker はコンテナ型仮想化のプラットフォーム。アプリケーションと実行環境をコンテナにまとめて動かせる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "Linux カーネルに組み込まれたハイパーバイザ型の仮想化。",
+    "ウ": "ハードウェアをエミュレーションする仮想化ソフト。",
+    "エ": "ハイパーバイザ型の仮想化ソフト。"
+   },
+   "pitfalls": "コンテナ型＝Docker・Kubernetes、ハイパーバイザ型＝KVM・Xen・VMware など。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問20",
+   "short": "R5春 午前 問20",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-21",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 21,
+  "stem": "NAND 素子を用いた次の組合せ回路の出力 Z を表す式はどれか。ここで，論理式中の“・”は論理積，“＋”は論理和，“X̅”は X の否定を表す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "X・Y"
+   },
+   {
+    "label": "イ",
+    "text": "X＋Y"
+   },
+   {
+    "label": "ウ",
+    "text": "X̅・̅Y̅"
+   },
+   {
+    "label": "エ",
+    "text": "X̅＋̅Y̅"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "logic-circuit"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "入力を両方とも X にした NAND は NOT X（X̅）、同様に Y̅。最後の NAND は NOT(X̅・Y̅)＝X＋Y（ド・モルガンの法則）。",
+   "perChoice": {
+    "ア": "NAND を 2 段重ねると AND になるが、この回路は入力側で否定している。",
+    "イ": "正しい。",
+    "ウ": "NAND そのもの。",
+    "エ": "NOR。"
+   },
+   "pitfalls": "NAND の入力を 1 本にまとめると NOT になる。ド・モルガン：NOT(A̅・B̅)＝A＋B。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問21",
+   "short": "R5春 午前 問21",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q21.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-22",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 22,
+  "stem": "図 1 の電圧波形の信号を，図 2 の回路に入力したときの出力電圧の波形はどれか。ここで，ダイオードの順電圧は 0V であるとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-r05h/q22a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-r05h/q22i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-r05h/q22u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-r05h/q22e.png"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "electric-circuit"
+  ],
+  "questionType": "applied",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "ダイオードはアノードがグラウンド側、カソードが出力側に向いている。入力が正のときは逆方向でダイオードに電流が流れず、出力は入力どおり正の電圧になる。入力が負のときは順方向になり、出力は 0V に固定される。よって正の半波だけが出る。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "負の半波だけが出る波形。ダイオードの向きが逆の場合。",
+    "ウ": "負側で値をとる別の回路の波形。",
+    "エ": "全波整流の波形。"
+   },
+   "pitfalls": "ダイオードは順方向で導通（電圧 0V）、逆方向で遮断。向きを確認して、正・負それぞれの半周期で考える。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問22",
+   "short": "R5春 午前 問22",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q22.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-23",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 23,
+  "stem": "車の自動運転に使われるセンサーの一つである LiDAR の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "超音波を送出し，その反射波を測定することによって，対象物の有無の検知及び対象物までの距離の計測を行う。"
+   },
+   {
+    "label": "イ",
+    "text": "道路の幅及び車線は無限遠の地平線で一点（消失点）に収束する，という遠近法の原理を利用して，対象物までの距離を計測する。"
+   },
+   {
+    "label": "ウ",
+    "text": "ミリ波帯の電磁波を送出し，その反射波を測定することによって，対象物の有無の検知及び対象物までの距離の計測を行う。"
+   },
+   {
+    "label": "エ",
+    "text": "レーザー光をパルス状に照射し，その反射光を測定することによって，対象物の方向，距離及び形状を計測する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "sensor-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "LiDAR（Light Detection and Ranging）は、レーザー光を照射して反射光を測り、対象物までの距離や形状を高精度に計測するセンサー。",
+   "perChoice": {
+    "ア": "超音波センサーの説明。",
+    "イ": "単眼カメラによる距離推定の説明。",
+    "ウ": "ミリ波レーダーの説明。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "Li＝Light（光）。光を使うレーダー。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問23",
+   "short": "R5春 午前 問23",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-24",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 24,
+  "stem": "NFC（Near Field Communication）の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "静電容量式のタッチセンサーで，位置情報を検出するために用いられる。"
+   },
+   {
+    "label": "イ",
+    "text": "接触式 IC カードの通信方法として利用される。"
+   },
+   {
+    "label": "ウ",
+    "text": "通信距離は最大 10m 程度である。"
+   },
+   {
+    "label": "エ",
+    "text": "ピアツーピアで通信する機能を備えている。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "wireless"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "NFC は 10cm 程度の近距離で通信する無線規格。カード読取りのほか、機器どうしが直接通信する P2P モードも備えている。",
+   "perChoice": {
+    "ア": "NFC は通信技術で、タッチセンサーではない。",
+    "イ": "NFC は非接触式の通信。",
+    "ウ": "通信距離は 10cm 程度。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "NFC の通信モード：カードエミュレーション、リーダー/ライター、P2P。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問24",
+   "short": "R5春 午前 問24",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-25",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 25,
+  "stem": "コンピュータグラフィックスに関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "テクスチャマッピングは，全てのピクセルについて，視線と全ての物体との交点を計算し，その中から視点に最も近い交点を選択することによって，隠面消去を行う。"
+   },
+   {
+    "label": "イ",
+    "text": "メタボールは，反射・透過方向への視線追跡を行わず，与えられた空間中のデータから輝度を計算する。"
+   },
+   {
+    "label": "ウ",
+    "text": "ラジオシティ法は，拡散反射面間の相互反射による効果を考慮して拡散反射面の輝度を決める。"
+   },
+   {
+    "label": "エ",
+    "text": "レイトレーシングは，形状が定義された物体の表面に，別に定義された模様を張り付けて画像を作成する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "情報メディア",
+  "topicIds": [
+   "media-format"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "ラジオシティ法は、物体の面どうしの光の相互反射（拡散反射）を計算して、柔らかい陰影を表現する手法。",
+   "perChoice": {
+    "ア": "レイトレーシング（Z バッファ法に近い隠面消去）の説明。",
+    "イ": "ボリュームレンダリングの説明に近い。メタボールは球などを滑らかにつなげて形状を作る手法。",
+    "ウ": "正しい。",
+    "エ": "テクスチャマッピングの説明。"
+   },
+   "pitfalls": "テクスチャマッピング＝模様を貼る、レイトレーシング＝光線を追跡する、ラジオシティ＝面どうしの相互反射。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問25",
+   "short": "R5春 午前 問25",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-26",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 26,
+  "stem": "JSON 形式で表現される図 1，図 2 のような商品データを複数の Web サービスから取得し，商品データベースとして蓄積する際のデータの格納方法に関する記述のうち，適切なものはどれか。ここで，商品データの取得元となる Web サービスは随時変更され，項目数や内容は予測できない。したがって，商品データベースの検索時に使用するキーにはあらかじめ制限を設けない。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "階層型データベースを使用し，項目名を上位階層とし，値を下位階層とした 2 階層でデータを格納する。"
+   },
+   {
+    "label": "イ",
+    "text": "グラフデータベースを使用し，商品データの項目名の集合から成るノードと値の集合から成るノードを作り，二つのノードを関係付けたグラフとしてデータを格納する。"
+   },
+   {
+    "label": "ウ",
+    "text": "ドキュメントデータベースを使用し，項目構成の違いを区別せず，商品データ単位にデータを格納する。"
+   },
+   {
+    "label": "エ",
+    "text": "関係データベースを使用し，商品データの各項目名を個別の列名とした表を定義してデータを格納する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "nosql"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "項目の構成が商品ごとに異なり、事前に予測できない JSON データは、スキーマを決めずに 1 件ずつ文書として保存できるドキュメントデータベースが適する。",
+   "perChoice": {
+    "ア": "項目と値の対応が崩れ、商品単位での管理ができない。",
+    "イ": "商品単位のまとまりが失われ、検索も複雑になる。",
+    "ウ": "正しい。",
+    "エ": "項目が予測できないので、事前に列を定義できない。"
+   },
+   "pitfalls": "構造が決まっていない JSON データ＝ドキュメント型 DB（MongoDB など）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問26",
+   "short": "R5春 午前 問26",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q26.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-27",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 27,
+  "stem": "クライアントサーバシステムにおけるストアドプロシージャの記述として，誤っているものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アプリケーションから一つずつ SQL 文を送信する必要がなくなる。"
+   },
+   {
+    "label": "イ",
+    "text": "クライアント側の CALL 文によって実行される。"
+   },
+   {
+    "label": "ウ",
+    "text": "サーバとクライアントの間での通信トラフィックを軽減することができる。"
+   },
+   {
+    "label": "エ",
+    "text": "データの変更を行うときに，あらかじめ DBMS に定義しておいた処理を自動的に起動・実行するものである。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "db-view-sql"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "データの変更をきっかけに自動で処理を実行するのはトリガー。ストアドプロシージャはクライアントから CALL 文で呼び出して実行する。",
+   "perChoice": {
+    "ア": "正しい記述。一連の SQL をまとめて実行できる。",
+    "イ": "正しい記述。",
+    "ウ": "正しい記述。",
+    "エ": "誤り（トリガーの説明）。これが正解。"
+   },
+   "pitfalls": "ストアドプロシージャ＝呼び出して実行、トリガー＝データ変更で自動実行。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問27",
+   "short": "R5春 午前 問27",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-28",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 28,
+  "stem": "データベースシステムの操作の説明のうち，べき等（idempotent）な操作の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "同一の操作を複数回実行した結果と，一回しか実行しなかった結果が同一になる操作"
+   },
+   {
+    "label": "イ",
+    "text": "トランザクション内の全ての処理が成功したか，何も実行されなかったかのいずれかの結果にしかならない操作"
+   },
+   {
+    "label": "ウ",
+    "text": "一つのノードへのレコードの挿入処理を，他のノードでも実行する操作"
+   },
+   {
+    "label": "エ",
+    "text": "複数のトランザクションを同時に実行した結果と，順番に実行した結果が同一になる操作"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "transaction"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "べき等とは、同じ操作を何回実行しても、1 回実行したときと結果が変わらない性質。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "原子性（Atomicity）の説明。",
+    "ウ": "レプリケーションの説明。",
+    "エ": "直列化可能性（独立性）の説明。"
+   },
+   "pitfalls": "例：「値を 5 にする」はべき等、「値を 1 増やす」はべき等でない。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問28",
+   "short": "R5春 午前 問28",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-29",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 29,
+  "stem": "UML を用いて表した図のデータモデルの a，b に入れる多重度はどれか。\n\n〔条件〕\n(1) 部門には 1 人以上の社員が所属する。\n(2) 社員はいずれか一つの部門に所属する。\n(3) 社員が部門に所属した履歴を所属履歴として記録する。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "a：0..*，b：0..*"
+   },
+   {
+    "label": "イ",
+    "text": "a：0..*，b：1..*"
+   },
+   {
+    "label": "ウ",
+    "text": "a：1..*，b：0..*"
+   },
+   {
+    "label": "エ",
+    "text": "a：1..*，b：1..*"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "data-model",
+   "uml"
+  ],
+  "questionType": "reading",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "部門には必ず 1 人以上の社員が所属するので、1 つの部門に対する所属履歴は 1 件以上（a＝1..*）。社員は必ずどこかの部門に所属するので、1 人の社員の所属履歴も 1 件以上（b＝1..*）。",
+   "perChoice": {
+    "ア": "条件 (1)(2) より 0 件はありえない。",
+    "イ": "部門側の所属履歴も 1 件以上必要。",
+    "ウ": "社員側の所属履歴も 1 件以上必要。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "「必ず 1 つ以上ある」なら 1..*、「なくてもよい」なら 0..*。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問29",
+   "short": "R5春 午前 問29",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q29.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-30",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 30,
+  "stem": "図のような関係データベースの“注文”表と“注文明細”表がある。“注文”表の行を削除すると，対応する“注文明細”表の行が，自動的に削除されるようにしたい。参照制約定義の削除規則（ON DELETE）に指定する語句はどれか。ここで，図中の実線の下線は主キーを，破線の下線は外部キーを表す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CASCADE"
+   },
+   {
+    "label": "イ",
+    "text": "INTERSECT"
+   },
+   {
+    "label": "ウ",
+    "text": "RESTRICT"
+   },
+   {
+    "label": "エ",
+    "text": "UNIQUE"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "db-view-sql"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ON DELETE CASCADE を指定すると、参照される行の削除に連鎖して、参照している行も削除される。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "集合演算（積）の SQL 句で、削除規則ではない。",
+    "ウ": "参照する行があれば削除を拒否する規則。",
+    "エ": "一意性制約で、削除規則ではない。"
+   },
+   "pitfalls": "cascade＝連鎖して削除。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問30",
+   "short": "R5春 午前 問30",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q30.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-31",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 31,
+  "stem": "通信技術の一つである PLC の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "音声データを IP ネットワークで伝送する技術"
+   },
+   {
+    "label": "イ",
+    "text": "電力線を通信回線として利用する技術"
+   },
+   {
+    "label": "ウ",
+    "text": "無線 LAN の標準規格である IEEE 802.11 シリーズの総称"
+   },
+   {
+    "label": "エ",
+    "text": "無線通信における暗号化技術"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "lan-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "PLC（Power Line Communication）は、家庭やビルの電力線を通信回線として使う技術。",
+   "perChoice": {
+    "ア": "VoIP の説明。",
+    "イ": "正しい。",
+    "ウ": "Wi-Fi の説明。",
+    "エ": "WPA などの説明。"
+   },
+   "pitfalls": "PLC は文脈で意味が変わる：通信なら電力線通信、制御装置ならプログラマブルロジックコントローラ。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問31",
+   "short": "R5春 午前 問31",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-32",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 32,
+  "stem": "100M ビット／秒の LAN と 1G ビット／秒の LAN がある。ヘッダーを含めて 1,250 バイトのパケットを N 個送付するときに，100M ビット／秒の LAN の送信時間が 1G ビット／秒の LAN より 9 ミリ秒多く掛かった。N は幾らか。ここで，いずれの LAN においても，パケットの送信間隔（パケットの送信が完了してから次のパケットを送信開始するまでの時間）は 1 ミリ秒であり，パケット送信間隔も送信時間に含める。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "10"
+   },
+   {
+    "label": "イ",
+    "text": "80"
+   },
+   {
+    "label": "ウ",
+    "text": "100"
+   },
+   {
+    "label": "エ",
+    "text": "800"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "transmission-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "1 パケット 10,000 ビットの送信時間は、100Mbps で 0.1ms、1Gbps で 0.01ms。差は 0.09ms。送信間隔は両方同じなので差に影響しない。9÷0.09＝100。",
+   "perChoice": {
+    "ア": "計算を誤った値。",
+    "イ": "計算を誤った値。",
+    "ウ": "正しい。",
+    "エ": "計算を誤った値。"
+   },
+   "pitfalls": "両方に共通の時間（送信間隔）は差を取ると消える。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問32",
+   "short": "R5春 午前 問32",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-33",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 33,
+  "stem": "1 個の TCP パケットをイーサネットに送出したとき，イーサネットフレームに含まれる宛先情報の，送出順序はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "宛先 IP アドレス，宛先 MAC アドレス，宛先ポート番号"
+   },
+   {
+    "label": "イ",
+    "text": "宛先 IP アドレス，宛先ポート番号，宛先 MAC アドレス"
+   },
+   {
+    "label": "ウ",
+    "text": "宛先 MAC アドレス，宛先 IP アドレス，宛先ポート番号"
+   },
+   {
+    "label": "エ",
+    "text": "宛先 MAC アドレス，宛先ポート番号，宛先 IP アドレス"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "tcp-udp",
+   "lan-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "フレームの先頭はイーサネットヘッダー（MAC アドレス）、次に IP ヘッダー（IP アドレス）、その次に TCP ヘッダー（ポート番号）が続く。",
+   "perChoice": {
+    "ア": "順序が誤り。",
+    "イ": "順序が誤り。",
+    "ウ": "正しい。",
+    "エ": "順序が誤り。"
+   },
+   "pitfalls": "下位層のヘッダーほど外側（先頭）にある。L2→L3→L4 の順。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問33",
+   "short": "R5春 午前 問33",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-34",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 34,
+  "stem": "IP ネットワークのプロトコルのうち，OSI 基本参照モデルのトランスポート層に位置するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "HTTP"
+   },
+   {
+    "label": "イ",
+    "text": "ICMP"
+   },
+   {
+    "label": "ウ",
+    "text": "SMTP"
+   },
+   {
+    "label": "エ",
+    "text": "UDP"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "tcp-udp"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "UDP は TCP と同じトランスポート層のプロトコル。",
+   "perChoice": {
+    "ア": "アプリケーション層。",
+    "イ": "ネットワーク層。",
+    "ウ": "アプリケーション層。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "トランスポート層＝TCP と UDP。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問34",
+   "short": "R5春 午前 問34",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-35",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 35,
+  "stem": "モバイル通信サービスにおいて，移動中のモバイル端末が通信相手との接続を維持したまま，ある基地局経由から別の基地局経由の通信へ切り替えることを何と呼ぶか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "テザリング"
+   },
+   {
+    "label": "イ",
+    "text": "ハンドオーバー"
+   },
+   {
+    "label": "ウ",
+    "text": "フォールバック"
+   },
+   {
+    "label": "エ",
+    "text": "ローミング"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "wireless"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ハンドオーバーは、移動中の端末が通信を切らずに接続先の基地局を切り替えること。",
+   "perChoice": {
+    "ア": "スマートフォンを経由して他の機器をインターネットに接続すること。",
+    "イ": "正しい。",
+    "ウ": "障害時などに、機能や性能を落として運用を続けること。",
+    "エ": "契約している事業者のエリア外で、他の事業者の設備を使って通信すること。"
+   },
+   "pitfalls": "hand over＝手渡す。基地局間で通信を引き継ぐ。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問35",
+   "short": "R5春 午前 問35",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-36",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 36,
+  "stem": "ボットネットにおいて C&C サーバが担う役割はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "遠隔操作が可能なマルウェアに，情報収集及び攻撃活動を指示する。"
+   },
+   {
+    "label": "イ",
+    "text": "攻撃の踏み台となった複数のサーバからの通信を制御して遮断する。"
+   },
+   {
+    "label": "ウ",
+    "text": "電子商取引事業者などへの偽のデジタル証明書の発行を命令する。"
+   },
+   {
+    "label": "エ",
+    "text": "不正な Web コンテンツのテキスト，画像及びレイアウト情報を一元的に管理する。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "cyber-attack"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "C&C（Command and Control）サーバは、ボット（感染した端末）に指令を出し、情報収集や攻撃などを行わせるサーバ。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "通信の遮断は防御側の機能。",
+    "ウ": "偽の証明書の発行命令は C&C サーバの役割ではない。",
+    "エ": "コンテンツ管理（CMS）の説明。"
+   },
+   "pitfalls": "C&C＝指令を出す司令塔。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問36",
+   "short": "R5春 午前 問36",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-37",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 37,
+  "stem": "セキュア OS を利用することによって期待できるセキュリティ上の効果はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1 回の利用者認証で複数のシステムを利用できるので，強固なパスワードを一つだけ管理すればよくなり，脆弱なパスワードを設定しにくくなる。"
+   },
+   {
+    "label": "イ",
+    "text": "Web サイトへの通信路上に配置して通信を解析し，攻撃をブロックすることができるので，Web アプリケーションソフトウェアの脆弱性を悪用する攻撃から Web サイトを保護できる。"
+   },
+   {
+    "label": "ウ",
+    "text": "強制アクセス制御を設定することによって，ファイルの更新が禁止できるので，システムに侵入されてもファイルの改ざんを防止できる。"
+   },
+   {
+    "label": "エ",
+    "text": "システムへのログイン時に，パスワードのほかに専用トークンを用いて認証が行えるので，パスワードが漏えいしても，システムへの侵入を防止できる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "endpoint-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "セキュア OS は、強制アクセス制御（MAC）や最小特権によって、管理者権限を奪われても許可されていない操作をできないようにする OS。侵入されてもファイルの改ざんを防げる。",
+   "perChoice": {
+    "ア": "シングルサインオンの効果。",
+    "イ": "WAF の効果。",
+    "ウ": "正しい。",
+    "エ": "二要素認証の効果。"
+   },
+   "pitfalls": "セキュア OS の特徴＝強制アクセス制御と最小特権（root でも制限される）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問37",
+   "short": "R5春 午前 問37",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-38",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 38,
+  "stem": "メッセージに RSA 方式のデジタル署名を付与して 2 者間で送受信する。そのときのデジタル署名の検証鍵と使用方法はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "受信者の公開鍵であり，送信者がメッセージダイジェストからデジタル署名を作成する際に使用する。"
+   },
+   {
+    "label": "イ",
+    "text": "受信者の秘密鍵であり，受信者がデジタル署名からメッセージダイジェストを取り出す際に使用する。"
+   },
+   {
+    "label": "ウ",
+    "text": "送信者の公開鍵であり，受信者がデジタル署名からメッセージダイジェストを取り出す際に使用する。"
+   },
+   {
+    "label": "エ",
+    "text": "送信者の秘密鍵であり，送信者がメッセージダイジェストからデジタル署名を作成する際に使用する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "crypto-tech",
+   "pki"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "デジタル署名は送信者の秘密鍵で作成し、受信者が送信者の公開鍵（検証鍵）で検証する。検証では署名からメッセージダイジェストを取り出し、受信したメッセージから計算したダイジェストと比較する。",
+   "perChoice": {
+    "ア": "署名に受信者の鍵は使わない。",
+    "イ": "受信者の秘密鍵は暗号文の復号に使うもの。",
+    "ウ": "正しい。",
+    "エ": "署名の作成に使う鍵（署名鍵）で、検証鍵ではない。"
+   },
+   "pitfalls": "署名＝送信者の秘密鍵で作る、検証＝送信者の公開鍵で確かめる。暗号化とは鍵の使い方が逆。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問38",
+   "short": "R5春 午前 問38",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-39",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 39,
+  "stem": "“政府情報システムのためのセキュリティ評価制度（ISMAP）”の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "個人情報の取扱いについて政府が求める保護措置を講じる体制を整備している事業者などを評価して，適合を示すマークを付与し，個人情報を取り扱う政府情報システムの運用について，当該マークを付与された者への委託を認める制度"
+   },
+   {
+    "label": "イ",
+    "text": "個人データを海外に移転する際に，移転先の国の政府が定めた情報システムのセキュリティ基準を評価して，日本が求めるセキュリティ水準が確保されている場合には，本人の同意なく移転できるとする制度"
+   },
+   {
+    "label": "ウ",
+    "text": "政府が求めるセキュリティ要求を満たしているクラウドサービスをあらかじめ評価，登録することによって，政府のクラウドサービス調達におけるセキュリティ水準の確保を図る制度"
+   },
+   {
+    "label": "エ",
+    "text": "プライベートクラウドの情報セキュリティ全般に関するマネジメントシステムの規格にパブリッククラウドサービスに特化した管理策を追加した国際規格を基準にして，政府情報システムにおける情報セキュリティ管理体制を評価する制度"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "cloud-gov",
+   "cloud-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "ISMAP は、政府が求めるセキュリティ要求を満たすクラウドサービスを事前に評価・登録し、政府機関がクラウドサービスを調達する際のセキュリティ水準を確保する制度。",
+   "perChoice": {
+    "ア": "プライバシーマーク制度に近い説明。",
+    "イ": "十分性認定などの越境移転の制度に近い説明。",
+    "ウ": "正しい。",
+    "エ": "ISO/IEC 27017 による認証の説明に近い。"
+   },
+   "pitfalls": "ISMAP＝政府調達向けの「クラウドサービスの登録簿」。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問39",
+   "short": "R5春 午前 問39",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-40",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 40,
+  "stem": "ソフトウェアの既知の脆弱性を一意に識別するために用いる情報はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CCE（Common Configuration Enumeration）"
+   },
+   {
+    "label": "イ",
+    "text": "CVE（Common Vulnerabilities and Exposures）"
+   },
+   {
+    "label": "ウ",
+    "text": "CVSS（Common Vulnerability Scoring System）"
+   },
+   {
+    "label": "エ",
+    "text": "CWE（Common Weakness Enumeration）"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "vuln-info"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "CVE は、個々の脆弱性に付けられる一意の識別番号。",
+   "perChoice": {
+    "ア": "セキュリティ設定項目の識別子。",
+    "イ": "正しい。",
+    "ウ": "脆弱性の深刻度を評価する指標。",
+    "エ": "脆弱性の種類（タイプ）を分類した一覧。"
+   },
+   "pitfalls": "CVE＝個々の脆弱性の ID、CWE＝脆弱性の種類、CVSS＝深刻度。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問40",
+   "short": "R5春 午前 問40",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-41",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 41,
+  "stem": "TPM（Trusted Platform Module）に該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "PC などの機器に搭載され，鍵生成，ハッシュ演算及び暗号処理を行うセキュリティチップ"
+   },
+   {
+    "label": "イ",
+    "text": "受信した電子メールが正当な送信者から送信されたものであることを保証する送信ドメイン認証技術"
+   },
+   {
+    "label": "ウ",
+    "text": "ファイアウォール，侵入検知，マルウェア対策など，複数のセキュリティ機能を統合したネットワーク監視装置"
+   },
+   {
+    "label": "エ",
+    "text": "ログデータを一元的に管理し，セキュリティイベントの監視者への通知及び相関分析を行うシステム"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "endpoint-security",
+   "tamper"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "TPM は PC などに搭載されるセキュリティチップで、鍵の生成・保管やハッシュ演算、暗号処理を耐タンパ性のある環境で行う。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "SPF・DKIM などの説明。",
+    "ウ": "UTM の説明。",
+    "エ": "SIEM の説明。"
+   },
+   "pitfalls": "TPM＝PC に載っている「鍵の金庫」チップ。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問41",
+   "short": "R5春 午前 問41",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-42",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 42,
+  "stem": "デジタルフォレンジックスの手順は収集，検査，分析及び報告から成る。このとき，デジタルフォレンジックスの手順に含まれるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サーバとネットワーク機器のログをログ管理サーバに集約し，リアルタイムに相関分析することによって，不正アクセスを検出する。"
+   },
+   {
+    "label": "イ",
+    "text": "サーバのハードディスクを解析し，削除されたログファイルを復元することによって，不正アクセスの痕跡を発見する。"
+   },
+   {
+    "label": "ウ",
+    "text": "電子メールを外部に送る際に，本文及び添付ファイルを暗号化することによって，情報漏えいを防ぐ。"
+   },
+   {
+    "label": "エ",
+    "text": "プログラムを実行する際に，プログラムファイルのハッシュ値と脅威情報を突き合わせることによって，プログラムがマルウェアかどうかを検査する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "forensics"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "デジタルフォレンジックスは、事後に電子的な証拠を収集・解析して事実を明らかにする手法。削除ファイルの復元による痕跡の発見が該当する。",
+   "perChoice": {
+    "ア": "SIEM によるリアルタイム検知。",
+    "イ": "正しい。",
+    "ウ": "暗号化による予防策。",
+    "エ": "マルウェア検知。"
+   },
+   "pitfalls": "フォレンジックス＝事後の証拠調査。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問42",
+   "short": "R5春 午前 問42",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-43",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 43,
+  "stem": "公衆無線 LAN のアクセスポイントを設置するときのセキュリティ対策とその効果の組みとして，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "対策：MAC アドレスフィルタリングを設定する。　効果：正規の端末の MAC アドレスに偽装した攻撃者の端末からの接続を遮断し，利用者のなりすましを防止する。"
+   },
+   {
+    "label": "イ",
+    "text": "対策：SSID を暗号化する。　効果：SSID を秘匿して，SSID の盗聴を防止する。"
+   },
+   {
+    "label": "ウ",
+    "text": "対策：自社がレジストラに登録したドメインを，アクセスポイントの SSID に設定する。　効果：正規のアクセスポイントと同一の SSID を設定した，悪意のあるアクセスポイントの設置を防止する。"
+   },
+   {
+    "label": "エ",
+    "text": "対策：同一のアクセスポイントに無線で接続している端末同士のアクセスポイント経由の通信を遮断する。　効果：同一のアクセスポイントに無線で接続している他の端末に，公衆無線 LAN の利用者がアクセスポイントを経由してアクセスすることを防止する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "wireless",
+   "security-mgmt"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "プライバシーセパレーター（端末間通信の遮断）を設定すると、同じアクセスポイントにつながった他の利用者の端末へアクセスできなくなる。",
+   "perChoice": {
+    "ア": "MAC アドレスは偽装できるので、偽装した端末の接続は防げない。",
+    "イ": "SSID は暗号化できない（ビーコンで平文で送られる）。",
+    "ウ": "SSID は誰でも自由に設定できるので、同じ SSID の偽アクセスポイントは防げない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "公衆無線 LAN では「他の利用者から見えない」ようにする設定が重要。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問43",
+   "short": "R5春 午前 問43",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-44",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 44,
+  "stem": "スパムメール対策として，サブミッションポート（ポート番号 587）を導入する目的はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "DNS サーバに SPF レコードを問い合わせる。"
+   },
+   {
+    "label": "イ",
+    "text": "DNS サーバに登録されている公開鍵を使用して，デジタル署名を検証する。"
+   },
+   {
+    "label": "ウ",
+    "text": "POP before SMTP を使用して，メール送信者を認証する。"
+   },
+   {
+    "label": "エ",
+    "text": "SMTP-AUTH を使用して，メール送信者を認証する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "mail-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "サブミッションポート（587 番）では SMTP-AUTH による送信者認証を行い、認証された利用者だけがメールを送信できるようにする。OP25B と組み合わせてスパム送信を防ぐ。",
+   "perChoice": {
+    "ア": "SPF の動作で、サブミッションポートの目的ではない。",
+    "イ": "DKIM の動作。",
+    "ウ": "POP before SMTP は POP の認証を利用する古い方式で、サブミッションポートの仕組みではない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "587 番ポート＝送信者を認証してから受け付ける投稿用ポート。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問44",
+   "short": "R5春 午前 問44",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-45",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 45,
+  "stem": "次に示すような組織の業務環境において，特定の IP セグメントの IP アドレスを幹部の PC に動的に割り当て，一部のサーバへのアクセスをその IP セグメントからだけ許可することによって，幹部の PC だけが当該サーバにアクセスできるようにしたい。利用するセキュリティ技術として，適切なものはどれか。\n\n〔組織の業務環境〕\n・業務ではサーバにアクセスする。サーバは，組織の内部ネットワークからだけアクセスできる。\n・幹部及び一般従業員は同一フロアで業務を行っており，日によって席が異なるフリーアドレス制を取っている。\n・各席には有線 LAN ポートが設置されており，PC を接続して組織の内部ネットワークに接続する。\n・ネットワークスイッチ 1 台に全ての PC とサーバが接続される。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "IDS"
+   },
+   {
+    "label": "イ",
+    "text": "IP マスカレード"
+   },
+   {
+    "label": "ウ",
+    "text": "スタティック VLAN"
+   },
+   {
+    "label": "エ",
+    "text": "認証 VLAN"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "vlan",
+   "authentication"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "認証 VLAN は、接続した利用者（または端末）を認証し、その結果に応じて所属する VLAN を動的に割り当てる。席が日によって変わっても、幹部の PC を幹部用のセグメントに入れられる。",
+   "perChoice": {
+    "ア": "侵入を検知する仕組みで、セグメントの割当てはできない。",
+    "イ": "IP アドレスとポート番号を変換する仕組み。",
+    "ウ": "ポートごとに VLAN を固定するので、フリーアドレス制では幹部の席を特定できない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "スタティック VLAN＝ポートで決まる、認証 VLAN＝利用者で決まる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問45",
+   "short": "R5春 午前 問45",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-46",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 46,
+  "stem": "モジュールの独立性を高めるには，モジュール結合度を低くする必要がある。モジュール間の情報の受渡し方法のうち，モジュール結合度が最も低いものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "共通域に定義したデータを関係するモジュールが参照する。"
+   },
+   {
+    "label": "イ",
+    "text": "制御パラメータを引数として渡し，モジュールの実行順序を制御する。"
+   },
+   {
+    "label": "ウ",
+    "text": "入出力に必要なデータ項目だけをモジュール間の引数として渡す。"
+   },
+   {
+    "label": "エ",
+    "text": "必要なデータを外部宣言して共有する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "module-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "必要なデータ項目だけを引数で渡すデータ結合が、最も結合度が低い（独立性が高い）。",
+   "perChoice": {
+    "ア": "共通結合。",
+    "イ": "制御結合。",
+    "ウ": "正しい。データ結合。",
+    "エ": "外部結合。"
+   },
+   "pitfalls": "結合度（低い順）：データ＜スタンプ＜制御＜外部＜共通＜内容。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問46",
+   "short": "R5春 午前 問46",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-47",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 47,
+  "stem": "値引き条件に従って，商品を販売する。決定表の動作指定部のうち，適切なものはどれか。\n\n〔値引き条件〕\n① 上得意客（前年度の販売金額の合計が 800 万円以上の顧客）であれば，元値の 3％を値引きする。\n② 高額取引（販売金額が 100 万円以上の取引）であれば，元値の 3％を値引きする。\n③ 現金取引であれば，元値の 3％を値引きする。\n④ ①〜③の値引き条件は同時に適用する。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-r05h/q47a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-r05h/q47i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-r05h/q47u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-r05h/q47e.png"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "decision-table"
+  ],
+  "questionType": "reading",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "各列で Y の数×3% が値引き率になる。左の列から 9%、6%、6%、3%、6%、3%、3%、値引きなし。これと一致する動作指定部はウ。",
+   "perChoice": {
+    "ア": "2 列目と 3 列目などの値引き率が条件と一致しない。",
+    "イ": "値引き率の対応が条件と一致しない。",
+    "ウ": "正しい。",
+    "エ": "値引き率の対応が条件と一致しない。"
+   },
+   "pitfalls": "条件の Y の数を数えれば、各列の値引き率がすぐに決まる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問47",
+   "short": "R5春 午前 問47",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q47.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-48",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 48,
+  "stem": "スクラムでは，一定の期間で区切ったスプリントを繰り返して開発を進める。各スプリントで実施するスクラムイベントの順序のうち，適切なものはどれか。\n\n〔スクラムイベント〕\n1：スプリントプランニング　2：スプリントレトロスペクティブ\n3：スプリントレビュー　4：デイリースクラム",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1→4→2→3"
+   },
+   {
+    "label": "イ",
+    "text": "1→4→3→2"
+   },
+   {
+    "label": "ウ",
+    "text": "4→1→2→3"
+   },
+   {
+    "label": "エ",
+    "text": "4→1→3→2"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "agile"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "スプリントは、計画（プランニング）→毎日の確認（デイリースクラム）→成果の確認（レビュー）→進め方の振り返り（レトロスペクティブ）の順に進む。",
+   "perChoice": {
+    "ア": "レビューとレトロスペクティブの順序が逆。",
+    "イ": "正しい。",
+    "ウ": "最初は計画から始まる。",
+    "エ": "最初は計画から始まる。"
+   },
+   "pitfalls": "レビュー（成果物）の後にレトロスペクティブ（進め方）で締めくくる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問48",
+   "short": "R5春 午前 問48",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-49",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 49,
+  "stem": "日本国特許庁において特許 A を取得した特許権者から，実施許諾を受けることが必要になる場合はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "特許 A と同じ技術を家庭内で個人的に利用するだけの場合"
+   },
+   {
+    "label": "イ",
+    "text": "特許 A と同じ技術を利用して日本国内で製品を製造し，その全てを日本国外に輸出する場合"
+   },
+   {
+    "label": "ウ",
+    "text": "特許 A の出願日から 25 年を越えた後に，特許 A と同じ技術を新たに事業化する場合"
+   },
+   {
+    "label": "エ",
+    "text": "特許 A の出願日より前に特許 A と同じ技術を独自に開発し，特許 A の出願日に日本国内でその技術を用いた製品を製造販売していたことが証明できる場合"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "ip-law",
+   "ip-contract"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "日本国内での製造は、輸出目的であっても業としての実施にあたるので、特許権者の許諾が必要。",
+   "perChoice": {
+    "ア": "業としての実施ではない（家庭内・個人的）ので許諾は不要。",
+    "イ": "正しい。",
+    "ウ": "特許権の存続期間は原則として出願から 20 年で、すでに消滅している。",
+    "エ": "先使用権が認められるので許諾は不要。"
+   },
+   "pitfalls": "特許権の効力は「業として」の実施に及ぶ。家庭内の利用、期間切れ、先使用権は対象外。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問49",
+   "short": "R5春 午前 問49",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-50",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 50,
+  "stem": "サーバプロビジョニングツールを使用する目的として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サーバ上のサービスが動作しているかどうかを，他のシステムからリモートで監視する。"
+   },
+   {
+    "label": "イ",
+    "text": "サーバにインストールされているソフトウェアを一元的に管理する。"
+   },
+   {
+    "label": "ウ",
+    "text": "サーバを監視して，システムやアプリケーションのパフォーマンスを管理する。"
+   },
+   {
+    "label": "エ",
+    "text": "システム構成をあらかじめ記述しておくことによって，サーバを自動的に構成する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "iac-devops"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "サーバプロビジョニングツール（Ansible、Chef など）は、構成をコードで記述しておき、サーバの構築・設定を自動化する（IaC）。",
+   "perChoice": {
+    "ア": "死活監視ツールの目的。",
+    "イ": "ソフトウェア資産管理ツールの目的。",
+    "ウ": "性能監視（APM）ツールの目的。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "プロビジョニング＝準備・構築の自動化。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問50",
+   "short": "R5春 午前 問50",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-51",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 51,
+  "stem": "プロジェクトマネジメントにおける“プロジェクト憲章”の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "プロジェクトの実行，監視，管理の方法を規定するために，スケジュール，リスクなどに関するマネジメントの役割や責任などを記した文書"
+   },
+   {
+    "label": "イ",
+    "text": "プロジェクトのスコープを定義するために，プロジェクトの目標，成果物，要求事項及び境界を記した文書"
+   },
+   {
+    "label": "ウ",
+    "text": "プロジェクトの目標を達成し，必要な成果物を作成するために，プロジェクトで実行する作業を階層構造で記した文書"
+   },
+   {
+    "label": "エ",
+    "text": "プロジェクトを正式に認可するために，ビジネスニーズ，目標，成果物，プロジェクトマネージャ，及びプロジェクトマネージャの責任・権限を記した文書"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-integration"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "プロジェクト憲章は、プロジェクトを正式に認可し、プロジェクトマネージャに権限を与える文書。",
+   "perChoice": {
+    "ア": "プロジェクトマネジメント計画書。",
+    "イ": "プロジェクトスコープ記述書。",
+    "ウ": "WBS。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "「正式に認可」＝プロジェクト憲章。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問51",
+   "short": "R5春 午前 問51",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-52",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 52,
+  "stem": "クリティカルチェーン法に基づいてスケジュールネットワーク上にバッファを設ける。クリティカルチェーン上にないアクティビティが遅延してもクリティカルチェーン上のアクティビティに影響しないように，クリティカルチェーンにつながっていくアクティビティの直後に設けるバッファはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "合流バッファ"
+   },
+   {
+    "label": "イ",
+    "text": "資源バッファ"
+   },
+   {
+    "label": "ウ",
+    "text": "フレームバッファ"
+   },
+   {
+    "label": "エ",
+    "text": "プロジェクトバッファ"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "critical-chain",
+   "pm-schedule"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "合流バッファ（フィーディングバッファ）は、クリティカルチェーンに合流する非クリティカルな経路の末尾に置き、その遅れがクリティカルチェーンに影響しないようにする。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "クリティカルチェーン上で必要な資源が使えるよう注意喚起するためのもの。",
+    "ウ": "画面表示用のメモリで、プロジェクトマネジメントとは無関係。",
+    "エ": "クリティカルチェーンの最後に置き、プロジェクト全体の遅れを吸収する。"
+   },
+   "pitfalls": "合流バッファ＝合流点の手前、プロジェクトバッファ＝最後。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問52",
+   "short": "R5春 午前 問52",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-53",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 53,
+  "stem": "過去のプロジェクトの開発実績に基づいて構築した作業配分モデルがある。システム要件定義からシステム内部設計までをモデルどおりに進めて 228 日で完了し，プログラム開発を開始した。現在，200 本のプログラムのうち 100 本のプログラムの開発を完了し，残りの 100 本は未着手の状況である。プログラム開発以降もモデルどおりに進捗すると仮定するとき，プロジェクトの完了まで，あと何日掛かるか。ここで，プログラムの開発に掛かる工数及び期間は，全てのプログラムで同一であるものとする。\n\n〔作業配分モデル〕\n　　　　要件定義　外部設計　内部設計　プログラム開発　システム結合　システムテスト\n工数比　0.17　　 0.21　　 0.16　　 0.16　　　　　 0.11　　　　 0.19\n期間比　0.25　　 0.21　　 0.11　　 0.11　　　　　 0.11　　　　 0.21",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "140"
+   },
+   {
+    "label": "イ",
+    "text": "150"
+   },
+   {
+    "label": "ウ",
+    "text": "161"
+   },
+   {
+    "label": "エ",
+    "text": "172"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-cost-schedule"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "要件定義〜内部設計の期間比は 0.25＋0.21＋0.11＝0.57 で 228 日なので、全体は 400 日。残りはプログラム開発の半分（0.055）、システム結合（0.11）、システムテスト（0.21）の計 0.375 で、400×0.375＝150 日。",
+   "perChoice": {
+    "ア": "計算を誤った値。",
+    "イ": "正しい。",
+    "ウ": "工数比で計算するなどの誤り。",
+    "エ": "計算を誤った値。"
+   },
+   "pitfalls": "期間を聞かれているので「期間比」を使う。工数比と取り違えない。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問53",
+   "short": "R5春 午前 問53",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-54",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 54,
+  "stem": "プロジェクトのリスクマネジメントにおける，リスクの特定に使用する技法の一つであるデルファイ法の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "確率分布を使用したシミュレーションを行う。"
+   },
+   {
+    "label": "イ",
+    "text": "過去の情報や知識を基にして，あらかじめ想定されるリスクをチェックリストにまとめておき，チェックリストと照らし合わせることによってリスクを識別する。"
+   },
+   {
+    "label": "ウ",
+    "text": "何人かが集まって，他人のアイディアを批判することなく，自由に多くのアイディアを出し合う。"
+   },
+   {
+    "label": "エ",
+    "text": "複数の専門家から得られた見解を要約して再配布し，再度見解を求めることを何度か繰り返して収束させる。"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-risk",
+   "planning-methods"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "デルファイ法は、複数の専門家に匿名でアンケートを行い、結果をまとめて返して再回答してもらうことを繰り返し、意見を収束させる手法。",
+   "perChoice": {
+    "ア": "モンテカルロシミュレーション。",
+    "イ": "チェックリスト法。",
+    "ウ": "ブレーンストーミング。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "デルファイ法＝専門家への反復アンケート。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問54",
+   "short": "R5春 午前 問54",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-55",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 55,
+  "stem": "JIS Q 20000-1:2020（サービスマネジメントシステム要求事項）によれば，サービスマネジメントシステム（SMS）における継続的改善の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "意図した結果を得るためにインプットを使用する，相互に関連する又は相互に作用する一連の活動"
+   },
+   {
+    "label": "イ",
+    "text": "価値を提供するため，サービスの計画立案，設計，移行，提供及び改善のための組織の活動及び資源を，指揮し，管理する，一連の能力及びプロセス"
+   },
+   {
+    "label": "ウ",
+    "text": "サービスを中断なしに，又は合意した可用性を一貫して提供する能力"
+   },
+   {
+    "label": "エ",
+    "text": "パフォーマンスを向上するために繰り返し行われる活動"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "service-process"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "継続的改善は、パフォーマンスを向上させるために繰り返し行われる活動と定義されている。",
+   "perChoice": {
+    "ア": "プロセスの定義。",
+    "イ": "サービスマネジメントの定義。",
+    "ウ": "サービス継続の説明。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "規格の用語定義は短い文が多い。「繰り返し」「向上」が継続的改善のキーワード。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問55",
+   "short": "R5春 午前 問55",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-56",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 56,
+  "stem": "JIS Q 20000-1:2020（サービスマネジメントシステム要求事項）によれば，組織は，サービスレベル目標に照らしたパフォーマンスを監視し，レビューし，顧客に報告しなければならない。レビューをいつ行うかについて，この規格はどのように規定しているか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "SLA に大きな変更があったときに実施する。"
+   },
+   {
+    "label": "イ",
+    "text": "あらかじめ定めた間隔で実施する。"
+   },
+   {
+    "label": "ウ",
+    "text": "間隔を定めず，必要に応じて実施する。"
+   },
+   {
+    "label": "エ",
+    "text": "サービス目標の未達成が続いたときに実施する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "sla"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "JIS Q 20000-1 では、サービスレベル目標に対するパフォーマンスの監視・レビュー・報告を「あらかじめ定めた間隔で」行うことを求めている。",
+   "perChoice": {
+    "ア": "大きな変更時に限定していない。",
+    "イ": "正しい。",
+    "ウ": "規格は間隔を定めることを求めている。",
+    "エ": "未達成が続いたときに限定していない。"
+   },
+   "pitfalls": "規格では「あらかじめ定めた間隔で」という表現がよく使われる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問56",
+   "short": "R5春 午前 問56",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-57",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 57,
+  "stem": "A 社は，自社がオンプレミスで運用している業務システムを，クラウドサービスへ段階的に移行する。段階的移行では，初めにネットワークとサーバを IaaS に移行し，次に全てのミドルウェアを PaaS に移行する。A 社が行っているシステム運用作業のうち，この移行によって不要となる作業の組合せはどれか。\n\n〔A 社が行っているシステム運用作業〕\n① 業務システムのバッチ処理のジョブ監視\n② 物理サーバの起動，停止のオペレーション\n③ ハードウェアの異常を警告する保守ランプの目視監視\n④ ミドルウェアへのパッチ適用",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "IaaS への移行で不要：①，PaaS への移行で不要：②，④"
+   },
+   {
+    "label": "イ",
+    "text": "IaaS への移行で不要：①，③，PaaS への移行で不要：②"
+   },
+   {
+    "label": "ウ",
+    "text": "IaaS への移行で不要：②，③，PaaS への移行で不要：④"
+   },
+   {
+    "label": "エ",
+    "text": "IaaS への移行で不要：③，PaaS への移行で不要：②，④"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "cloud-service"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "IaaS への移行でハードウェアの管理（②物理サーバの操作、③保守ランプの監視）が不要になる。PaaS への移行でミドルウェアの管理（④パッチ適用）が不要になる。業務システムのジョブ監視（①）は残る。",
+   "perChoice": {
+    "ア": "①は不要にならない。",
+    "イ": "①は不要にならない。",
+    "ウ": "正しい。",
+    "エ": "②は IaaS の時点で不要になる。"
+   },
+   "pitfalls": "IaaS＝ハードまで事業者、PaaS＝ミドルウェアまで事業者。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問57",
+   "short": "R5春 午前 問57",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-58",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 58,
+  "stem": "システム監査基準（平成 30 年）における予備調査についての記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "監査対象の実態を把握するために，必ず現地に赴いて実施する。"
+   },
+   {
+    "label": "イ",
+    "text": "監査対象部門の事務手続やマニュアルなどを通じて，業務内容，業務分掌の体制などを把握する。"
+   },
+   {
+    "label": "ウ",
+    "text": "監査の結論を裏付けるために，十分な監査証拠を入手する。"
+   },
+   {
+    "label": "エ",
+    "text": "調査の範囲は，監査対象部門だけに限定する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "予備調査では、資料などを通じて監査対象の業務内容や体制の概要を把握する。",
+   "perChoice": {
+    "ア": "現地に行くことは必須ではない。",
+    "イ": "正しい。",
+    "ウ": "本調査で行うこと。",
+    "エ": "関連部門なども必要に応じて調査する。"
+   },
+   "pitfalls": "予備調査＝概要の把握、本調査＝証拠の入手。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問58",
+   "short": "R5春 午前 問58",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-59",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 59,
+  "stem": "システム監査基準（平成 30 年）における監査手続の実施に際して利用する技法に関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "インタビュー法とは，システム監査人が，直接，関係者に口頭で問い合わせ，回答を入手する技法をいう。"
+   },
+   {
+    "label": "イ",
+    "text": "現地調査法は，システム監査人が監査対象部門に直接赴いて，自ら観察・調査する技法なので，当該部門の業務時間外に実施しなければならない。"
+   },
+   {
+    "label": "ウ",
+    "text": "コンピュータ支援監査技法は，システム監査上使用頻度の高い機能に特化した，しかも非常に簡単な操作で利用できる専用ソフトウェアによらなければならない。"
+   },
+   {
+    "label": "エ",
+    "text": "チェックリスト法とは，監査対象部門がチェックリストを作成及び利用して，監査対象部門の見解を取りまとめた結果をシステム監査人が点検する技法をいう。"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "インタビュー法は、監査人が関係者に直接口頭で質問し、回答を得る技法。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "現地調査は業務の実態を見るため、通常は業務時間内に行う。",
+    "ウ": "汎用のソフトウェアなども利用でき、専用ソフトウェアに限定されない。",
+    "エ": "チェックリストは監査人が作成し、監査対象部門に回答を求める。"
+   },
+   "pitfalls": "監査技法の主体は監査人。チェックリストも監査人が作る。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問59",
+   "short": "R5春 午前 問59",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-60",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 60,
+  "stem": "金融庁“財務報告に係る内部統制の評価及び監査の基準（令和元年）”における，内部統制に関係を有する者の役割と責任の記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "株主は，内部統制の整備及び運用について最終的な責任を有する。"
+   },
+   {
+    "label": "イ",
+    "text": "監査役は，内部統制の整備及び運用に係る基本方針を決定する。"
+   },
+   {
+    "label": "ウ",
+    "text": "経営者は，取締役及び執行役の職務の執行に対する監査の一環として，独立した立場から，内部統制の整備及び運用状況を監視，検証する役割と責任を有している。"
+   },
+   {
+    "label": "エ",
+    "text": "内部監査人は，モニタリングの一環として，内部統制の整備及び運用状況を検討，評価し，必要に応じて，その改善を促す職務を担っている。"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "内部監査人は、モニタリングの一環として内部統制の整備・運用状況を検討・評価し、改善を促す。",
+   "perChoice": {
+    "ア": "最終的な責任を有するのは経営者。",
+    "イ": "基本方針を決定するのは取締役会。",
+    "ウ": "監視・検証は監査役（監査委員会）の役割。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "経営者＝最終責任、取締役会＝基本方針、監査役＝監視・検証、内部監査人＝モニタリング。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問60",
+   "short": "R5春 午前 問60",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-61",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 61,
+  "stem": "情報化投資計画において，投資効果の評価指標である ROI を説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "売上増やコスト削減などによって創出された利益額を投資額で割ったもの"
+   },
+   {
+    "label": "イ",
+    "text": "売上高投資金額比，従業員当たりの投資金額などを他社と比較したもの"
+   },
+   {
+    "label": "ウ",
+    "text": "現金流入の現在価値から，現金流出の現在価値を差し引いたもの"
+   },
+   {
+    "label": "エ",
+    "text": "プロジェクトを実施しない場合の，市場での競争力を表したもの"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "investment-eval"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ROI（投資利益率）＝投資によって得られた利益÷投資額。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "ベンチマーキングの説明。",
+    "ウ": "NPV の説明。",
+    "エ": "機会損失の考え方に近い。"
+   },
+   "pitfalls": "ROI＝Return（利益）÷Investment（投資）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問61",
+   "short": "R5春 午前 問61",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-62",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 62,
+  "stem": "B. H. シュミットが提唱した CEM（Customer Experience Management）における，カスタマーエクスペリエンスの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "顧客が商品，サービスを購入・使用・利用する際の，満足や感動"
+   },
+   {
+    "label": "イ",
+    "text": "顧客ロイヤルティが失われる原因となる，商品購入時のトラブル"
+   },
+   {
+    "label": "ウ",
+    "text": "商品の購入数・購入金額などの数値で表される，顧客の購買履歴"
+   },
+   {
+    "label": "エ",
+    "text": "販売員や接客員のスキル向上につながる，重要顧客への対応経験"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "marketing",
+   "ux-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "カスタマーエクスペリエンス（顧客経験価値）は、商品やサービスの購入・利用を通じて顧客が得る満足や感動などの体験。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "トラブルに限定した説明ではない。",
+    "ウ": "購買履歴は数値データで、経験価値そのものではない。",
+    "エ": "従業員側の経験の話。"
+   },
+   "pitfalls": "CX＝顧客が感じる体験の価値。機能だけでなく感情的な価値を重視する。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問62",
+   "short": "R5春 午前 問62",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-63",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 63,
+  "stem": "ビッグデータの利活用を促す取組の一つである情報銀行の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "金融機関が，自らが有する顧客の決済データを分析して，金融商品の提案や販売など，自らの営業活動に活用できるようにする取組"
+   },
+   {
+    "label": "イ",
+    "text": "国や自治体が，公共データに匿名加工を施した上で，二次利用を促進するために共通プラットフォームを介してデータを民間に提供できるようにする取組"
+   },
+   {
+    "label": "ウ",
+    "text": "事業者が，個人との契約などに基づき個人情報を預託され，当該個人の指示又は指定した条件に基づき，データを他の事業者に提供できるようにする取組"
+   },
+   {
+    "label": "エ",
+    "text": "事業者が，自社工場における IoT 機器から収集された産業用データを，インターネット上の取引市場を介して，他の事業者に提供できるようにする取組"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "data-utilization"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "情報銀行は、個人から預かった個人データを、本人の同意や指示に基づいて第三者に提供し、その対価を本人に還元する仕組み。",
+   "perChoice": {
+    "ア": "自社データの営業活用。",
+    "イ": "オープンデータの取組。",
+    "ウ": "正しい。",
+    "エ": "データ取引市場の説明。"
+   },
+   "pitfalls": "情報銀行＝個人の「データを預かって運用する」銀行。本人の同意が前提。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問63",
+   "short": "R5春 午前 問63",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-64",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 64,
+  "stem": "システム要件定義プロセスにおいて，トレーサビリティが確保されていることを説明した記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "移行マニュアルや運用マニュアルなどの文書化が完了しており，システム上でどのように業務を実施するのかを利用者が確認できる。"
+   },
+   {
+    "label": "イ",
+    "text": "所定の内外作基準に基づいて外製する部分が決定され，調達先が選定され，契約が締結されており，調達先を容易に変更することはできない。"
+   },
+   {
+    "label": "ウ",
+    "text": "モジュールの相互依存関係が確定されており，以降の開発プロセスにおいて個別モジュールの仕様を変更することはできない。"
+   },
+   {
+    "label": "エ",
+    "text": "利害関係者の要求の根拠と成果物の相互関係が文書化されており，開発の途中で生じる仕様変更をシステムに求められる品質に立ち返って検証できる。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "requirements"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "トレーサビリティ（追跡可能性）は、要求と成果物の対応関係をたどれること。仕様変更の際も、元の要求にさかのぼって影響を確認できる。",
+   "perChoice": {
+    "ア": "マニュアルの整備の説明。",
+    "イ": "調達の確定の説明。",
+    "ウ": "モジュール間の依存関係の固定の説明。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "trace（たどる）＋ability。要求↔成果物を双方向にたどれること。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問64",
+   "short": "R5春 午前 問64",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-65",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 65,
+  "stem": "情報システムの調達の際に作成される RFI の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "調達者から供給者候補に対して，システム化の目的や業務内容などを示し，必要な情報の提供を依頼すること"
+   },
+   {
+    "label": "イ",
+    "text": "調達者から供給者候補に対して，対象システムや調達条件などを示し，提案書の提出を依頼すること"
+   },
+   {
+    "label": "ウ",
+    "text": "調達者から供給者に対して，契約内容で取り決めた内容に関して，変更を要請すること"
+   },
+   {
+    "label": "エ",
+    "text": "調達者から供給者に対して，双方の役割分担などを確認し，契約の締結を要請すること"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "procurement"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "RFI（Request For Information：情報提供依頼）は、調達の前に、供給者候補に技術動向や製品情報などの情報提供を依頼する文書。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "RFP（提案依頼書）の説明。",
+    "ウ": "契約変更の要請。",
+    "エ": "契約締結の要請。"
+   },
+   "pitfalls": "調達の流れ：RFI（情報をください）→RFP（提案をください）→選定→契約。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問65",
+   "short": "R5春 午前 問65",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-66",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 66,
+  "stem": "組込み機器の開発を行うために，ベンダーに見積りを依頼する際に必要なものとして，適切なものはどれか。ここで，システム開発の手順は共通フレーム 2013 に沿うものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "納品書"
+   },
+   {
+    "label": "イ",
+    "text": "評価仕様書"
+   },
+   {
+    "label": "ウ",
+    "text": "見積書"
+   },
+   {
+    "label": "エ",
+    "text": "要件定義書"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "procurement",
+   "requirements"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ベンダーが見積もるには、何を作るかが分かる要件定義書（または RFP）が必要。",
+   "perChoice": {
+    "ア": "納品時に受け取るもの。",
+    "イ": "評価・テストの段階で作成するもの。",
+    "ウ": "ベンダーが作成して提出するもの。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "見積りを依頼する側が出すのは「何を作ってほしいか」が書かれた文書。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問66",
+   "short": "R5春 午前 問66",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-67",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 67,
+  "stem": "Web で広告費を 600,000 円掛けて，単価 1,500 円の商品を 1,000 個販売した。ROAS（Return On Advertising Spend）は何％か。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "40"
+   },
+   {
+    "label": "イ",
+    "text": "60"
+   },
+   {
+    "label": "ウ",
+    "text": "250"
+   },
+   {
+    "label": "エ",
+    "text": "600"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "marketing",
+   "investment-eval"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ROAS＝広告経由の売上÷広告費。売上 1,500×1,000＝1,500,000 円、÷600,000 円＝2.5 で 250%。",
+   "perChoice": {
+    "ア": "広告費÷売上（逆数）。",
+    "イ": "計算を誤った値。",
+    "ウ": "正しい。",
+    "エ": "計算を誤った値。"
+   },
+   "pitfalls": "ROAS は「売上」÷広告費、ROI は「利益」÷投資額。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問67",
+   "short": "R5春 午前 問67",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-68",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 68,
+  "stem": "バランススコアカードで使われる戦略マップの説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "切り口となる二つの要素を X 軸，Y 軸として，市場における自社又は自社製品のポジションを表現したもの"
+   },
+   {
+    "label": "イ",
+    "text": "財務，顧客，内部ビジネスプロセス，学習と成長という四つの視点を基に，課題，施策，目標の因果関係を表現したもの"
+   },
+   {
+    "label": "ウ",
+    "text": "市場の魅力度，自社の優位性という二つの軸から成る四つのセルに自社の製品や事業を分類して表現したもの"
+   },
+   {
+    "label": "エ",
+    "text": "どのような顧客層に対して，どのような経営資源を使用し，どのような製品・サービスを提供するのかを表現したもの"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "strategy-frameworks"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "戦略マップは、バランススコアカードの 4 つの視点の戦略目標を因果関係でつないだ図。",
+   "perChoice": {
+    "ア": "ポジショニングマップ。",
+    "イ": "ポートフォリオ分析（ビジネススクリーンなど）。",
+    "ウ": "正しい。",
+    "エ": "事業ドメインの定義。"
+   },
+   "pitfalls": "バランススコアカード＝財務・顧客・内部プロセス・学習と成長。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問68",
+   "short": "R5春 午前 問68",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-69",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 69,
+  "stem": "新規ビジネスを立ち上げる際に実施するフィージビリティスタディはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "新規ビジネスに必要なシステム構築に対する IT 投資を行うこと"
+   },
+   {
+    "label": "イ",
+    "text": "新規ビジネスの採算性や実行可能性を，調査・分析し，評価すること"
+   },
+   {
+    "label": "ウ",
+    "text": "新規ビジネスの発掘のために，アイディアを社内公募すること"
+   },
+   {
+    "label": "エ",
+    "text": "新規ビジネスを実施するために必要な要員の教育訓練を行うこと"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "planning-methods"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "フィージビリティスタディは、計画の採算性や実現可能性を事前に調査・評価すること。",
+   "perChoice": {
+    "ア": "投資の実行そのもの。",
+    "イ": "アイディアの募集。",
+    "ウ": "正しい。",
+    "エ": "要員の教育。"
+   },
+   "pitfalls": "feasibility＝実現可能性。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問69",
+   "short": "R5春 午前 問69",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-70",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 70,
+  "stem": "企業と大学との共同研究に関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "企業のニーズを受け入れて共同研究を実施するための機関として，各大学に TLO（Technology Licensing Organization）が設置されている。"
+   },
+   {
+    "label": "イ",
+    "text": "共同研究で得られた成果を特許出願する場合，研究に参加した企業，大学などの法人を発明者とする。"
+   },
+   {
+    "label": "ウ",
+    "text": "共同研究に必要な経費を企業が全て負担した場合でも，実際の研究は大学の教職員と企業の研究者が対等の立場で行う。"
+   },
+   {
+    "label": "エ",
+    "text": "国立大学法人が共同研究を行う場合，その研究に必要な費用は全て国が負担しなければならない。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "技術戦略マネジメント",
+  "topicIds": [
+   "tech-mgmt"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "共同研究は、経費の負担割合にかかわらず、大学の教職員と企業の研究者が対等の立場で行うものとされている。",
+   "perChoice": {
+    "ア": "TLO は大学の研究成果を企業に技術移転する機関で、すべての大学に設置されているわけではない。",
+    "イ": "発明者は実際に発明した自然人（研究者）。法人は特許を受ける権利者にはなれるが発明者にはなれない。",
+    "ウ": "正しい。",
+    "エ": "費用は企業と大学で分担するのが一般的で、国が全額負担する義務はない。"
+   },
+   "pitfalls": "発明者は「人」、出願人（権利者）は「法人」でもよい。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問70",
+   "short": "R5春 午前 問70",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-71",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 71,
+  "stem": "IoT を支える技術の一つであるエネルギーハーベスティングを説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "IoT デバイスに対して，一定期間のエネルギー使用量や稼働状況を把握して，電力使用の最適化を図る技術"
+   },
+   {
+    "label": "イ",
+    "text": "周囲の環境から振動，熱，光，電磁波などの微小なエネルギーを集めて電力に変換して，IoT デバイスに供給する技術"
+   },
+   {
+    "label": "ウ",
+    "text": "データ通信に利用するカテゴリ 5 以上の LAN ケーブルによって，IoT デバイスに電力を供給する技術"
+   },
+   {
+    "label": "エ",
+    "text": "必要な時だけ，デバイスの電源を ON にして通信を行うことによって，IoT デバイスの省電力化を図る技術"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "iot-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "エネルギーハーベスティング（環境発電）は、周囲の光・熱・振動・電波などの小さなエネルギーを集めて電力に変える技術。",
+   "perChoice": {
+    "ア": "エネルギーマネジメントの説明。",
+    "イ": "正しい。",
+    "ウ": "PoE の説明。",
+    "エ": "間欠動作による省電力化の説明。"
+   },
+   "pitfalls": "harvest＝収穫。周りのエネルギーを「収穫」する。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問71",
+   "short": "R5春 午前 問71",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-72",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 72,
+  "stem": "アグリゲーションサービスに関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "小売販売の会社が，店舗や EC サイトなどあらゆる顧客接点をシームレスに統合し，どの顧客接点でも顧客に最適な購買体験を提供して，顧客の利便性を高めるサービス"
+   },
+   {
+    "label": "イ",
+    "text": "物品などの売買に際し，信頼のおける中立的な第三者が契約当事者の間に入り，代金決済等取引の安全性を確保するサービス"
+   },
+   {
+    "label": "ウ",
+    "text": "分散的に存在する事業者，個人や機能への一括的なアクセスを顧客に提供し，比較，まとめ，統一的な制御，最適な組合せなどワンストップでのサービス提供を可能にするサービス"
+   },
+   {
+    "label": "エ",
+    "text": "本部と契約した加盟店が，本部に対価を支払い，販売促進，確立したサービスや商品などを使う権利を受け取るサービス"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "business-model"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "アグリゲーションサービスは、複数の事業者のサービスや情報をまとめ、利用者が一か所から比較・利用できるようにするサービス（家計簿アプリの口座集約、価格比較サイトなど）。",
+   "perChoice": {
+    "ア": "オムニチャネルの説明。",
+    "イ": "エスクローサービスの説明。",
+    "ウ": "正しい。",
+    "エ": "フランチャイズの説明。"
+   },
+   "pitfalls": "aggregate＝集める・まとめる。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問72",
+   "short": "R5春 午前 問72",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-73",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 73,
+  "stem": "各種センサーを取り付けた航空機のエンジンから飛行中に収集したデータを分析し，仮想空間に構築したエンジンのモデルに反映してシミュレーションを行うことによって，各パーツの消耗状況や交換時期を正確に予測できるようになる。このように産業機器などに IoT 技術を活用し，現実世界や物理的現象をリアルタイムに仮想空間で忠実に再現することを表したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サーバ仮想化"
+   },
+   {
+    "label": "イ",
+    "text": "スマートグリッド"
+   },
+   {
+    "label": "ウ",
+    "text": "スマートメーター"
+   },
+   {
+    "label": "エ",
+    "text": "デジタルツイン"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "digital-twin"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "デジタルツインは、現実の物や現象をセンサーデータで仮想空間に再現し、シミュレーションや予測に使う技術。",
+   "perChoice": {
+    "ア": "1 台の物理サーバ上で複数の仮想サーバを動かす技術。",
+    "イ": "IT で電力の需給を最適に制御する電力網。",
+    "ウ": "通信機能をもつ電力量計。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "デジタルツイン＝仮想空間に作った現実の「双子」。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問73",
+   "short": "R5春 午前 問73",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-74",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 74,
+  "stem": "事業部制組織の特徴を説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ある問題を解決するために一定の期間に限って結成され，問題解決とともに解散する。"
+   },
+   {
+    "label": "イ",
+    "text": "業務を機能別に分け，各機能について部下に命令，指導を行う。"
+   },
+   {
+    "label": "ウ",
+    "text": "製品，地域などで構成された組織単位に，利益責任をもたせる。"
+   },
+   {
+    "label": "エ",
+    "text": "戦略的提携や共同開発など外部の経営資源を積極的に活用することによって，経営環境に対応していく。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "org-hr"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "事業部制組織は、製品や地域ごとに事業部をつくり、各事業部が利益に責任をもって独立して運営する組織形態。",
+   "perChoice": {
+    "ア": "プロジェクト組織。",
+    "イ": "職能別組織（ファンクショナル組織）。",
+    "ウ": "正しい。",
+    "エ": "ネットワーク組織（アライアンス）。"
+   },
+   "pitfalls": "事業部制＝事業部ごとに利益責任（プロフィットセンター）。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問74",
+   "short": "R5春 午前 問74",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-75",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 75,
+  "stem": "ビッグデータ分析の手法の一つであるデシジョンツリーを活用してマーケティング施策の判断に必要な事象を整理し，発生確率の精度を向上させた上で二つのマーケティング施策 a，b の選択を行う。マーケティング施策を実行した場合の利益増加額（売上増加額−費用）の期待値が最大となる施策と，そのときの利益増加額の期待値の組合せはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "施策 a，70 億円"
+   },
+   {
+    "label": "イ",
+    "text": "施策 a，160 億円"
+   },
+   {
+    "label": "ウ",
+    "text": "施策 b，82 億円"
+   },
+   {
+    "label": "エ",
+    "text": "施策 b，162 億円"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "pm-risk",
+   "probability-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "施策 a：追加費用ありの場合は 0.3×200＋0.7×100−60＝70 億円で、なし（50 億円）より有利なので 70。期待値は 0.4×70＋0.6×120−30＝70 億円。施策 b：追加費用ありは 0.4×150＋0.6×100−40＝80 億円で、なし（70）より有利。期待値は 0.3×80＋0.7×140−40＝82 億円。最大は施策 b の 82 億円。",
+   "perChoice": {
+    "ア": "施策 a の期待値で、b より小さい。",
+    "イ": "施策 a で初期費用を引き忘れるなどした値。",
+    "ウ": "正しい。",
+    "エ": "施策 b で初期費用を引き忘れるなどした値。"
+   },
+   "pitfalls": "デシジョンツリーは右（末端）から計算し、意思決定の分岐点では有利な方を選ぶ。最後に初期費用を引く。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問75",
+   "short": "R5春 午前 問75",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-r05h/q75.png"
+  ]
+ },
+ {
+  "id": "AP-R05H-AM-76",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 76,
+  "stem": "原価計算基準に従い製造原価の経費に算入する費用はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "製品を生産している機械装置の修繕費用"
+   },
+   {
+    "label": "イ",
+    "text": "台風で被害を受けた製品倉庫の修繕費用"
+   },
+   {
+    "label": "ウ",
+    "text": "賃貸目的で購入した倉庫の管理費用"
+   },
+   {
+    "label": "エ",
+    "text": "本社社屋建設のために借り入れた資金の支払利息"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "cost-mgmt",
+   "accounting"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "製造原価の経費には、製造に関わる材料費・労務費以外の費用（製造設備の修繕費、減価償却費、電力料など）が含まれる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "災害による損失は特別損失で、製造原価には含めない。",
+    "ウ": "賃貸目的の資産の費用は製造に関係しない（営業外費用など）。",
+    "エ": "支払利息は営業外費用で、製造原価には含めない。"
+   },
+   "pitfalls": "製造原価に入るのは「製品を作るためにかかった費用」だけ。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問76",
+   "short": "R5春 午前 問76",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-77",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 77,
+  "stem": "会社の固定費が 150 百万円，変動費率が 60％のとき，利益 50 百万円が得られる売上高は何百万円か。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "333"
+   },
+   {
+    "label": "イ",
+    "text": "425"
+   },
+   {
+    "label": "ウ",
+    "text": "458"
+   },
+   {
+    "label": "エ",
+    "text": "500"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "break-even"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "必要な売上高＝(固定費＋目標利益)÷(1−変動費率)＝(150＋50)÷0.4＝500 百万円。",
+   "perChoice": {
+    "ア": "(150＋50)÷0.6 と変動費率で割った値。",
+    "イ": "計算を誤った値。",
+    "ウ": "計算を誤った値。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "目標利益を得る売上高＝(固定費＋目標利益)÷限界利益率。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問77",
+   "short": "R5春 午前 問77",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-78",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 78,
+  "stem": "ソフトウェア開発を，下請法の対象となる下請事業者に委託する場合，下請法に照らして，禁止されている行為はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "継続的な取引が行われているので，支払条件，支払期日などを記載した書面をあらかじめ交付し，個々の発注書面にはその事項の記載を省略する。"
+   },
+   {
+    "label": "イ",
+    "text": "顧客が求める仕様が確定していなかったので，発注の際に，下請事業者に仕様が未記載の書面を交付し，仕様が確定した時点では，内容を書面ではなく口頭で伝える。"
+   },
+   {
+    "label": "ウ",
+    "text": "顧客の都合で仕様変更の必要が生じたので，下請事業者と協議の上，発生する費用の増加分を下請代金に加算することによって仕様変更に応じてもらう。"
+   },
+   {
+    "label": "エ",
+    "text": "振込手数料を下請事業者が負担する旨を発注前に書面で合意したので，親事業者が負担した実費の範囲内で振込手数料を差し引いて下請代金を支払う。"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "subcontract-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "下請法では、発注時に取引条件を記載した書面を交付する義務がある。内容が定まっていない事項は、確定後すぐに書面（補充書面）で通知しなければならず、口頭での伝達は認められない。",
+   "perChoice": {
+    "ア": "共通事項をあらかじめ書面で交付しておくことは認められている。",
+    "イ": "正しい。書面交付義務に違反する。",
+    "ウ": "協議のうえ費用増加分を加算するのは適正な対応。",
+    "エ": "事前に書面で合意し、実費の範囲内で差し引くのは認められている。"
+   },
+   "pitfalls": "下請法の基本：書面の交付、支払期日（60 日以内）、減額・返品・買いたたきの禁止。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問78",
+   "short": "R5春 午前 問78",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-79",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 79,
+  "stem": "労働者派遣法において，派遣元事業主の講ずべき措置等として定められているものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "派遣先管理台帳の作成"
+   },
+   {
+    "label": "イ",
+    "text": "派遣先責任者の選任"
+   },
+   {
+    "label": "ウ",
+    "text": "派遣労働者を指揮命令する者やその他関係者への派遣契約内容の周知"
+   },
+   {
+    "label": "エ",
+    "text": "労働者の教育訓練の機会の確保など，福祉の増進"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "labor-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "派遣元（雇用主）は、派遣労働者の教育訓練の機会の確保など、福祉の増進に努める措置を講じる。",
+   "perChoice": {
+    "ア": "派遣先が講ずべき措置。",
+    "イ": "派遣先が講ずべき措置。",
+    "ウ": "派遣先が講ずべき措置。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "名前に「派遣先」と付くもの（派遣先管理台帳・派遣先責任者）は派遣先の義務。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問79",
+   "short": "R5春 午前 問79",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-R05H-AM-80",
+  "kind": "past",
+  "examYear": 2023,
+  "season": "spring",
+  "section": "A",
+  "number": 80,
+  "stem": "技術者倫理の遵守を妨げる要因の一つとして，集団思考というものがある。集団思考の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "自分とは違った視点から事態を見ることができず，客観性に欠けること"
+   },
+   {
+    "label": "イ",
+    "text": "組織内の権威に無批判的に服従すること"
+   },
+   {
+    "label": "ウ",
+    "text": "正しいことが何かは知っているが，それを実行する勇気や決断力に欠けること"
+   },
+   {
+    "label": "エ",
+    "text": "強い連帯性をもつチームが自らへの批判的思考を欠いて，不合理な合意へと達すること"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "ethics"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "集団思考（グループシンク）は、結束の強い集団が異論を避け、批判的な検討をしないまま不合理な結論に至ってしまう現象。",
+   "perChoice": {
+    "ア": "自己中心的な視点（視野の狭さ）。",
+    "イ": "権威への盲従。",
+    "ウ": "意志の弱さ。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "集団思考＝「チームの和」を優先して誤った合意をしてしまうこと。"
+  },
+  "source": {
+   "label": "令和5年度 春期 応用情報技術者試験 午前 問80",
+   "short": "R5春 午前 問80",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2023r05.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ }
+]

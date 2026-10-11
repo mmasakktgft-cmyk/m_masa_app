@@ -60,6 +60,12 @@
   "category": "システム監査"
  },
  {
+  "id": "critical-chain",
+  "name": "クリティカルチェーン法",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
   "id": "evm",
   "name": "EVM（アーンドバリュー）",
   "field": "management",
@@ -120,6 +126,12 @@
   "category": "システム企画"
  },
  {
+  "id": "procurement",
+  "name": "調達（RFI・RFP・見積り）",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
   "id": "system-planning",
   "name": "システム企画・要件定義のプロセス",
   "field": "strategy",
@@ -146,6 +158,12 @@
  {
   "id": "data-analysis",
   "name": "データ分析手法（回帰・主成分・アソシエーション など）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "data-utilization",
+  "name": "データ利活用（情報銀行・オープンデータ）",
   "field": "strategy",
   "category": "システム戦略"
  },
@@ -294,6 +312,12 @@
   "category": "法務"
  },
  {
+  "id": "ethics",
+  "name": "技術者倫理・コンプライアンス",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
   "id": "finance-law",
   "name": "金融・取引関連の法規（資金決済法など）",
   "field": "strategy",
@@ -320,6 +344,12 @@
  {
   "id": "standards",
   "name": "標準化・規格・国際的な規制",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "subcontract-law",
+  "name": "下請法・取引関連法規",
   "field": "strategy",
   "category": "法務"
  },
@@ -486,6 +516,12 @@
   "category": "システム構成要素"
  },
  {
+  "id": "virtualization",
+  "name": "仮想化技術（コンテナ・ハイパーバイザ）",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
   "id": "architecture",
   "name": "ソフトウェアアーキテクチャ（マイクロサービスなど）",
   "field": "technology",
@@ -494,6 +530,12 @@
  {
   "id": "chaos-eng",
   "name": "運用の信頼性向上（SRE・カオスエンジニアリング）",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "decision-table",
+  "name": "決定表（デシジョンテーブル）",
   "field": "technology",
   "category": "システム開発技術"
  },
@@ -560,6 +602,12 @@
  {
   "id": "backup",
   "name": "バックアップ・ランサムウェア対策",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "cloud-gov",
+  "name": "クラウドサービスの調達・評価制度（ISMAP など）",
   "field": "technology",
   "category": "セキュリティ"
  },
@@ -876,6 +924,12 @@
   "category": "ネットワーク"
  },
  {
+  "id": "wireless",
+  "name": "無線通信（NFC・Bluetooth・Wi-Fi）",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
   "id": "ad-da",
   "name": "A/D・D/A 変換・センサー",
   "field": "technology",
@@ -916,6 +970,12 @@
   "name": "ユーザーインタフェース設計",
   "field": "technology",
   "category": "ユーザーインタフェース"
+ },
+ {
+  "id": "bit-operation",
+  "name": "ビット演算・シフト演算",
+  "field": "technology",
+  "category": "基礎理論"
  },
  {
   "id": "error-detection",
