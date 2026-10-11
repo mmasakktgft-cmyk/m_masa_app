@@ -1,0 +1,11 @@
+{
+  "topicsFile": "data/topics.json",
+  "sets": [
+    {
+      "id": "SAMPLE-01",
+      "label": "動作確認用サンプル",
+      "file": "data/sample-01.json",
+      "sample": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "availability",
+    "name": "稼働率（直列・並列）",
+    "field": "technology",
+    "category": "コンピュータシステム"
+  },
+  {
+    "id": "radix-conversion",
+    "name": "基数変換",
+    "field": "technology",
+    "category": "基礎理論"
+  },
+  {
+    "id": "normalization",
+    "name": "正規化",
+    "field": "technology",
+    "category": "データベース"
+  },
+  {
+    "id": "evm",
+    "name": "EVM（アーンドバリュー）",
+    "field": "management",
+    "category": "プロジェクトマネジメント"
+  },
+  {
+    "id": "break-even",
+    "name": "損益分岐点",
+    "field": "strategy",
+    "category": "会計・財務"
+  },
+  {
+    "id": "copyright",
+    "name": "著作権",
+    "field": "strategy",
+    "category": "法務"
+  }
+]

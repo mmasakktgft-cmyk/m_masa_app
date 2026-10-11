@@ -1,0 +1,391 @@
+[
+  {
+    "id": "SAMPLE-01-01",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 1,
+    "stem": "稼働率が 0.9 の装置を 2 台並列に接続したシステムがある。どちらか 1 台が稼働していればシステムは稼働する。このシステムの稼働率はいくらか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "0.81"
+      },
+      {
+        "label": "イ",
+        "text": "0.90"
+      },
+      {
+        "label": "ウ",
+        "text": "0.95"
+      },
+      {
+        "label": "エ",
+        "text": "0.99"
+      }
+    ],
+    "answer": "エ",
+    "field": "technology",
+    "categoryLarge": "コンピュータシステム",
+    "categoryMiddle": "システム構成要素",
+    "topicIds": [
+      "availability"
+    ],
+    "questionType": "calculation",
+    "difficulty": 2,
+    "explanation": {
+      "basis": "並列システムの稼働率は 1 −（両方とも停止している確率）= 1 − (1 − 0.9)² = 1 − 0.01 = 0.99。",
+      "perChoice": {
+        "ア": "直列（0.9 × 0.9）で計算した値。",
+        "イ": "装置 1 台分の稼働率。",
+        "ウ": "根拠のない中間的な値。",
+        "エ": "正しい。"
+      },
+      "pitfalls": "並列を「掛け算」で計算してしまうミスが多い。直列は稼働率の積、並列は「1 − 停止率の積」。",
+      "detail": "直列：全部が動いて初めて稼働 → A×B。並列：全部が止まったときだけ停止 → 1−(1−A)(1−B)。",
+      "altCalc": "停止率で考える：1 台の停止率 0.1、2 台同時停止は 0.1×0.1=0.01。稼働率は 1−0.01=0.99。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-02",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 2,
+    "stem": "稼働率が 0.9 の装置 A と、稼働率が 0.8 の装置 B を直列に接続したシステムの稼働率はいくらか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "0.72"
+      },
+      {
+        "label": "イ",
+        "text": "0.80"
+      },
+      {
+        "label": "ウ",
+        "text": "0.85"
+      },
+      {
+        "label": "エ",
+        "text": "0.98"
+      }
+    ],
+    "answer": "ア",
+    "field": "technology",
+    "categoryLarge": "コンピュータシステム",
+    "categoryMiddle": "システム構成要素",
+    "topicIds": [
+      "availability"
+    ],
+    "questionType": "calculation",
+    "difficulty": 1,
+    "explanation": {
+      "basis": "直列システムは全装置が稼働しているときだけ稼働するので、0.9 × 0.8 = 0.72。",
+      "perChoice": {
+        "ア": "正しい。",
+        "イ": "低い方の稼働率をそのまま採った値。",
+        "ウ": "2 つの平均値。直列の考え方ではない。",
+        "エ": "並列（1 − 0.1×0.2）で計算した値。"
+      },
+      "pitfalls": "直列の稼働率は、構成要素のどれよりも低くなる。0.8 より大きい選択肢は直列ではありえない、と絞り込める。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-03",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 3,
+    "stem": "10 進数の 0.625 を 2 進数で表したものはどれか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "0.011"
+      },
+      {
+        "label": "イ",
+        "text": "0.101"
+      },
+      {
+        "label": "ウ",
+        "text": "0.110"
+      },
+      {
+        "label": "エ",
+        "text": "0.111"
+      }
+    ],
+    "answer": "イ",
+    "field": "technology",
+    "categoryLarge": "基礎理論",
+    "categoryMiddle": "離散数学",
+    "topicIds": [
+      "radix-conversion"
+    ],
+    "questionType": "calculation",
+    "difficulty": 1,
+    "explanation": {
+      "basis": "0.625 = 0.5 + 0.125 = 2⁻¹ + 2⁻³ なので 0.101。",
+      "perChoice": {
+        "ア": "0.25 + 0.125 = 0.375。",
+        "イ": "正しい。",
+        "ウ": "0.5 + 0.25 = 0.75。",
+        "エ": "0.5 + 0.25 + 0.125 = 0.875。"
+      },
+      "pitfalls": "小数部の変換は「2 を掛けて整数部を取り出す」を繰り返す。0.625×2=1.25→1、0.25×2=0.5→0、0.5×2=1.0→1。",
+      "altCalc": "各選択肢を 10 進に戻して照合すると確実（2⁻¹=0.5、2⁻²=0.25、2⁻³=0.125）。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-04",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 4,
+    "stem": "第 1 正規形の表から、部分関数従属を取り除いて得られる表はどれか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "第 2 正規形"
+      },
+      {
+        "label": "イ",
+        "text": "第 3 正規形"
+      },
+      {
+        "label": "ウ",
+        "text": "ボイス・コッド正規形"
+      },
+      {
+        "label": "エ",
+        "text": "第 4 正規形"
+      }
+    ],
+    "answer": "ア",
+    "field": "technology",
+    "categoryLarge": "技術要素",
+    "categoryMiddle": "データベース",
+    "topicIds": [
+      "normalization"
+    ],
+    "questionType": "knowledge",
+    "difficulty": 2,
+    "explanation": {
+      "basis": "第 2 正規形は、第 1 正規形から「主キーの一部に従属する非キー属性（部分関数従属）」を取り除いたもの。",
+      "perChoice": {
+        "ア": "正しい。",
+        "イ": "第 2 正規形からさらに推移的関数従属を取り除いたもの。",
+        "ウ": "すべての決定項が候補キーになるよう分解したもの。",
+        "エ": "多値従属性を取り除いたもの。"
+      },
+      "pitfalls": "「部分 → 第 2」「推移 → 第 3」の対応で覚える。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-05",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 5,
+    "stem": "あるプロジェクトの現時点の EV（出来高）が 80 万円、AC（実コスト）が 100 万円であった。CPI（コスト効率指数）とその解釈の組合せとして適切なものはどれか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "CPI = 0.8、予算を超過している"
+      },
+      {
+        "label": "イ",
+        "text": "CPI = 0.8、予算内に収まっている"
+      },
+      {
+        "label": "ウ",
+        "text": "CPI = 1.25、予算を超過している"
+      },
+      {
+        "label": "エ",
+        "text": "CPI = 1.25、予算内に収まっている"
+      }
+    ],
+    "answer": "ア",
+    "field": "management",
+    "categoryLarge": "プロジェクトマネジメント",
+    "categoryMiddle": "プロジェクトマネジメント",
+    "topicIds": [
+      "evm"
+    ],
+    "questionType": "calculation",
+    "difficulty": 2,
+    "explanation": {
+      "basis": "CPI = EV ÷ AC = 80 ÷ 100 = 0.8。1 未満は、出来高に対して実コストがかかりすぎている（予算超過）ことを示す。",
+      "perChoice": {
+        "ア": "正しい。",
+        "イ": "CPI が 1 未満なのに予算内と解釈しており誤り。",
+        "ウ": "AC ÷ EV で計算した値。",
+        "エ": "AC ÷ EV で計算し、解釈も逆。"
+      },
+      "pitfalls": "EVM の指数は「EV が分子」と覚える。CPI = EV/AC、SPI = EV/PV。1 より小さいと悪い状態。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-06",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 6,
+    "stem": "固定費が 400 万円、変動費率が 0.6 の製品がある。損益分岐点売上高は何万円か。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "667"
+      },
+      {
+        "label": "イ",
+        "text": "800"
+      },
+      {
+        "label": "ウ",
+        "text": "1,000"
+      },
+      {
+        "label": "エ",
+        "text": "1,600"
+      }
+    ],
+    "answer": "ウ",
+    "field": "strategy",
+    "categoryLarge": "企業活動",
+    "categoryMiddle": "会計・財務",
+    "topicIds": [
+      "break-even"
+    ],
+    "questionType": "calculation",
+    "difficulty": 2,
+    "explanation": {
+      "basis": "損益分岐点売上高 = 固定費 ÷（1 − 変動費率）= 400 ÷ 0.4 = 1,000 万円。",
+      "perChoice": {
+        "ア": "400 ÷ 0.6 で計算した値（変動費率で割ってしまった）。",
+        "イ": "400 × 2 など根拠のない値。",
+        "ウ": "正しい。",
+        "エ": "400 ÷ 0.25 など根拠のない値。"
+      },
+      "pitfalls": "分母は「限界利益率（1 − 変動費率）」。変動費率そのもので割るミスに注意。",
+      "altCalc": "検算：売上 1,000 のとき変動費 600、固定費 400 → 利益 0。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  },
+  {
+    "id": "SAMPLE-01-07",
+    "kind": "original",
+    "examYear": 2026,
+    "season": "autumn",
+    "section": "A",
+    "number": 7,
+    "stem": "著作権法による保護の対象とならないものはどれか。",
+    "choices": [
+      {
+        "label": "ア",
+        "text": "ソースプログラム"
+      },
+      {
+        "label": "イ",
+        "text": "創作性のあるデータベース"
+      },
+      {
+        "label": "ウ",
+        "text": "プログラム言語"
+      },
+      {
+        "label": "エ",
+        "text": "プログラムの設計書"
+      }
+    ],
+    "answer": "ウ",
+    "field": "strategy",
+    "categoryLarge": "法務",
+    "categoryMiddle": "知的財産権",
+    "topicIds": [
+      "copyright"
+    ],
+    "questionType": "knowledge",
+    "difficulty": 2,
+    "explanation": {
+      "basis": "著作権法第 10 条第 3 項により、プログラムの著作物に対する保護は、プログラム言語・規約・解法には及ばない。",
+      "perChoice": {
+        "ア": "プログラムの著作物として保護される。",
+        "イ": "情報の選択または体系的な構成に創作性があれば保護される。",
+        "ウ": "正しい。保護の対象外。",
+        "エ": "言語の著作物（文書）として保護されうる。"
+      },
+      "pitfalls": "「表現」は保護され、「アイデア・ルール（言語、規約、アルゴリズム）」は保護されない、と整理する。"
+    },
+    "source": {
+      "label": "動作確認用サンプル"
+    },
+    "verification": {
+      "status": "verified",
+      "checks": [
+        "作成者が計算・根拠を確認"
+      ]
+    }
+  }
+]
