@@ -6,14 +6,32 @@
   "category": "サービスマネジメント"
  },
  {
+  "id": "cloud-service",
+  "name": "クラウドサービスの形態（IaaS・PaaS・SaaS）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
   "id": "facility",
   "name": "データセンター・ファシリティ",
   "field": "management",
   "category": "サービスマネジメント"
  },
  {
+  "id": "kpi-csf",
+  "name": "目標管理の指標（KGI・KPI・CSF・OKR）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
   "id": "service-process",
   "name": "サービスマネジメントのプロセス（インシデント・問題・変更管理）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
+  "id": "sla",
+  "name": "SLA・サービスレベル管理",
   "field": "management",
   "category": "サービスマネジメント"
  },
@@ -32,6 +50,18 @@
  {
   "id": "pm-cost-schedule",
   "name": "要員・工数・コストの計算",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-integration",
+  "name": "プロジェクトの立上げ・統合マネジメント",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-quality",
+  "name": "プロジェクトの品質管理（テスト密度・欠陥密度）",
   "field": "management",
   "category": "プロジェクトマネジメント"
  },
@@ -66,6 +96,12 @@
   "category": "システム企画"
  },
  {
+  "id": "system-planning",
+  "name": "システム企画・要件定義のプロセス",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
   "id": "weighted-eval",
   "name": "重み付け評価・評価点の計算",
   "field": "strategy",
@@ -74,6 +110,12 @@
  {
   "id": "data-analysis",
   "name": "データ分析手法（回帰・主成分・アソシエーション など）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "dx-policy",
+  "name": "DX 推進・IT 政策（DX 認定・デジタルガバナンス）",
   "field": "strategy",
   "category": "システム戦略"
  },
@@ -96,6 +138,12 @@
   "category": "システム戦略"
  },
  {
+  "id": "business-model",
+  "name": "ビジネスモデル・e ビジネス",
+  "field": "strategy",
+  "category": "ビジネスインダストリ"
+ },
+ {
   "id": "business-systems",
   "name": "業種別のシステム（MES・CAD・SCM など）",
   "field": "strategy",
@@ -108,6 +156,18 @@
   "category": "企業活動"
  },
  {
+  "id": "cost-mgmt",
+  "name": "原価計算・ABC（活動基準原価計算）",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "forecasting",
+  "name": "需要予測・時系列分析",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
   "id": "inventory",
   "name": "在庫管理・発注方式（経済的発注量など）",
   "field": "strategy",
@@ -116,6 +176,18 @@
  {
   "id": "linear-programming",
   "name": "線形計画法・利益最大化",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "org-hr",
+  "name": "経営組織・人材管理・リーダーシップ",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "qc-tools",
+  "name": "QC 七つ道具・新 QC 七つ道具・発想法",
   "field": "strategy",
   "category": "企業活動"
  },
@@ -138,6 +210,12 @@
   "category": "法務"
  },
  {
+  "id": "finance-law",
+  "name": "金融・取引関連の法規（資金決済法など）",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
   "id": "ip-law",
   "name": "産業財産権（特許・意匠・商標）",
   "field": "strategy",
@@ -146,6 +224,12 @@
  {
   "id": "labor-law",
   "name": "労働関連法規",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "standards",
+  "name": "標準化・規格・国際的な規制",
   "field": "strategy",
   "category": "法務"
  },
@@ -162,14 +246,38 @@
   "category": "経営戦略マネジメント"
  },
  {
+  "id": "data-structure",
+  "name": "データ構造（スタック・キュー・木・リスト）",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "numerical-algo",
+  "name": "数値計算のアルゴリズム（二分法など）",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
   "id": "programming-lang",
   "name": "プログラム言語の特徴",
   "field": "technology",
   "category": "アルゴリズムとプログラミング"
  },
  {
+  "id": "recursion",
+  "name": "再帰・プログラムの構造",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
   "id": "search-algo",
   "name": "探索アルゴリズムと比較回数",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "tree-structure",
+  "name": "木構造（2 分探索木・AVL 木・ヒープ）",
   "field": "technology",
   "category": "アルゴリズムとプログラミング"
  },
@@ -188,6 +296,12 @@
  {
   "id": "display-memory",
   "name": "表示装置・フレームバッファ",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "io-interface",
+  "name": "入出力・DMA・インタフェース",
   "field": "technology",
   "category": "コンピュータ構成要素"
  },
@@ -228,8 +342,38 @@
   "category": "システム構成要素"
  },
  {
+  "id": "storage",
+  "name": "ストレージ技術（RAID・オブジェクトストレージなど）",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
+  "id": "chaos-eng",
+  "name": "運用の信頼性向上（SRE・カオスエンジニアリング）",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "quality-metrics",
+  "name": "ソフトウェア品質の特性・評価指標",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "release-deploy",
+  "name": "リリース・デプロイの手法",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
   "id": "requirements",
   "name": "要件定義・利用者分析",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "review",
+  "name": "レビュー・品質管理の手法",
   "field": "technology",
   "category": "システム開発技術"
  },
@@ -252,6 +396,12 @@
   "category": "システム開発技術"
  },
  {
+  "id": "authentication",
+  "name": "認証技術（パスワード・多要素認証・生体認証）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "cloud-security",
   "name": "クラウドのセキュリティ（CASB・CSPM など）",
   "field": "technology",
@@ -260,6 +410,12 @@
  {
   "id": "crypto-attack",
   "name": "暗号・認証に対する攻撃",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "crypto-tech",
+  "name": "暗号技術（共通鍵・公開鍵・ハッシュ）と暗号の運用",
   "field": "technology",
   "category": "セキュリティ"
  },
@@ -294,14 +450,50 @@
   "category": "セキュリティ"
  },
  {
+  "id": "secure-dev",
+  "name": "セキュアな開発・脆弱性管理（SBOM など）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "security-mgmt",
+  "name": "情報セキュリティ管理（リスク管理・人的対策・規程）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "security-org",
   "name": "セキュリティ管理体制（CSIRT・PSIRT・SOC）",
   "field": "technology",
   "category": "セキュリティ"
  },
  {
+  "id": "vpn",
+  "name": "VPN・トンネリング",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "web-attack",
+  "name": "Web アプリケーションへの攻撃（インジェクション・XSS など）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "dev-tools",
+  "name": "開発ツール・開発支援ソフトウェア",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
   "id": "memory-alloc",
   "name": "記憶領域の割当て（ファーストフィット・ベストフィット）",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
+  "id": "oss-license",
+  "name": "OSS ライセンス",
   "field": "technology",
   "category": "ソフトウェア"
  },
@@ -318,16 +510,34 @@
   "category": "ソフトウェア"
  },
  {
+  "id": "task-state",
+  "name": "タスクの状態遷移・割込み",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
   "id": "thread-safe",
   "name": "スレッドセーフ・並行処理",
   "field": "technology",
   "category": "ソフトウェア"
  },
  {
+  "id": "agile",
+  "name": "アジャイル開発（XP・スクラム）",
+  "field": "technology",
+  "category": "ソフトウェア開発管理技術"
+ },
+ {
   "id": "ip-contract",
   "name": "知的財産権と開発委託契約",
   "field": "technology",
   "category": "ソフトウェア開発管理技術"
+ },
+ {
+  "id": "data-model",
+  "name": "データモデル・E-R 図",
+  "field": "technology",
+  "category": "データベース"
  },
  {
   "id": "db-index",
@@ -354,10 +564,22 @@
   "category": "データベース"
  },
  {
+  "id": "relational-algebra",
+  "name": "関係演算・集合演算",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
   "id": "transaction",
   "name": "トランザクション・同時実行制御・障害回復",
   "field": "technology",
   "category": "データベース"
+ },
+ {
+  "id": "app-protocol",
+  "name": "アプリケーション層のプロトコル・ポート番号",
+  "field": "technology",
+  "category": "ネットワーク"
  },
  {
   "id": "ip-address",
@@ -378,6 +600,12 @@
   "category": "ネットワーク"
  },
  {
+  "id": "routing",
+  "name": "ルーティング・経路制御",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
   "id": "tcp-udp",
   "name": "TCP・UDP・トランスポート層",
   "field": "technology",
@@ -390,8 +618,26 @@
   "category": "ネットワーク"
  },
  {
+  "id": "ad-da",
+  "name": "A/D・D/A 変換・センサー",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
   "id": "electric-circuit",
   "name": "電気回路の計算（電力・抵抗）",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
+  "id": "embedded",
+  "name": "組込みシステム・リアルタイム性",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
+  "id": "hardware-design",
+  "name": "ハードウェア設計（FPGA・HDL・SoC）",
   "field": "technology",
   "category": "ハードウェア"
  },
@@ -420,6 +666,18 @@
   "category": "基礎理論"
  },
  {
+  "id": "logic-formula",
+  "name": "命題論理・論理式",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "ml-basics",
+  "name": "機械学習の基礎（過学習・学習方式など）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
   "id": "ml-evaluation",
   "name": "機械学習の評価指標（混同行列・ROC）",
   "field": "technology",
@@ -442,6 +700,12 @@
   "name": "基数変換",
   "field": "technology",
   "category": "基礎理論"
+ },
+ {
+  "id": "media-format",
+  "name": "マルチメディアのファイル形式・技術",
+  "field": "technology",
+  "category": "情報メディア"
  },
  {
   "id": "media-sampling",

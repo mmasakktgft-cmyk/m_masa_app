@@ -7,6 +7,11 @@
       "file": "data/AP-R07A.json"
     },
     {
+      "id": "AP-R07H",
+      "label": "令和7年度 春期 午前（80問）",
+      "file": "data/AP-R07H.json"
+    },
+    {
       "id": "SAMPLE-01",
       "label": "動作確認用サンプル",
       "file": "data/sample-01.json",
