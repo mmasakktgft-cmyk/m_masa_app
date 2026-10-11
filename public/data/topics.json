@@ -24,6 +24,12 @@
   "category": "サービスマネジメント"
  },
  {
+  "id": "green-it",
+  "name": "環境・サステナビリティ（GHG プロトコル・グリーン IT）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
   "id": "it-operation",
   "name": "システム運用管理（入出力・ジョブ・資源管理）",
   "field": "management",
@@ -80,6 +86,12 @@
  {
   "id": "pm-risk",
   "name": "プロジェクトのリスク分析（EMV・デシジョンツリー）",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-schedule",
+  "name": "スケジュール管理（アローダイアグラム・クリティカルパス）",
   "field": "management",
   "category": "プロジェクトマネジメント"
  },
@@ -144,6 +156,12 @@
   "category": "システム戦略"
  },
  {
+  "id": "ea",
+  "name": "エンタープライズアーキテクチャ（EA）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
   "id": "investment-eval",
   "name": "投資評価（PBP・NPV・IRR・ROI）",
   "field": "strategy",
@@ -170,6 +188,18 @@
  {
   "id": "business-systems",
   "name": "業種別のシステム（MES・CAD・SCM など）",
+  "field": "strategy",
+  "category": "ビジネスインダストリ"
+ },
+ {
+  "id": "digital-twin",
+  "name": "先端技術の活用（デジタルツイン・メタバースなど）",
+  "field": "strategy",
+  "category": "ビジネスインダストリ"
+ },
+ {
+  "id": "edge",
+  "name": "エッジコンピューティング",
   "field": "strategy",
   "category": "ビジネスインダストリ"
  },
@@ -276,8 +306,20 @@
   "category": "法務"
  },
  {
+  "id": "privacy-law",
+  "name": "個人情報保護法",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
   "id": "standards",
   "name": "標準化・規格・国際的な規制",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "unfair-competition",
+  "name": "不正競争防止法",
   "field": "strategy",
   "category": "法務"
  },
@@ -326,6 +368,12 @@
  {
   "id": "search-algo",
   "name": "探索アルゴリズムと比較回数",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "sort-algo",
+  "name": "整列（ソート）アルゴリズム",
   "field": "technology",
   "category": "アルゴリズムとプログラミング"
  },
@@ -390,6 +438,12 @@
   "category": "システム構成要素"
  },
  {
+  "id": "fault-design",
+  "name": "信頼性設計（フェールセーフ・フォールトトレランスなど）",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
   "id": "iac-devops",
   "name": "IaC・DevOps・CI/CD",
   "field": "technology",
@@ -428,6 +482,18 @@
  {
   "id": "chaos-eng",
   "name": "運用の信頼性向上（SRE・カオスエンジニアリング）",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "module-design",
+  "name": "モジュール設計（結合度・強度）",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "oop",
+  "name": "オブジェクト指向（継承・集約・カプセル化）",
   "field": "technology",
   "category": "システム開発技術"
  },
@@ -534,8 +600,20 @@
   "category": "セキュリティ"
  },
  {
+  "id": "risk-mgmt",
+  "name": "リスクマネジメント（JIS Q 31000）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "secure-dev",
   "name": "セキュアな開発・脆弱性管理（SBOM など）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "security-devices",
+  "name": "セキュリティ機器（FW・IDS/IPS・WAF）",
   "field": "technology",
   "category": "セキュリティ"
  },
@@ -642,6 +720,12 @@
   "category": "ソフトウェア開発管理技術"
  },
  {
+  "id": "process-standard",
+  "name": "開発プロセスの標準・成熟度モデル（SLCP・CMMI など）",
+  "field": "technology",
+  "category": "ソフトウェア開発管理技術"
+ },
+ {
   "id": "version-control",
   "name": "バージョン管理・構成管理",
   "field": "technology",
@@ -662,6 +746,12 @@
  {
   "id": "db-view-sql",
   "name": "SQL・ビュー",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "dwh",
+  "name": "データウェアハウス・BI",
   "field": "technology",
   "category": "データベース"
  },
@@ -728,6 +818,12 @@
  {
   "id": "routing",
   "name": "ルーティング・経路制御",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "sdn",
+  "name": "SDN・ネットワーク仮想化",
   "field": "technology",
   "category": "ネットワーク"
  },
