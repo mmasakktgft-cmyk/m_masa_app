@@ -137,7 +137,7 @@ export default function Quiz({ config, active }: Props) {
             return (
               <li key={i} className="row">
                 <span className={a.isCorrect ? 'ok' : 'ng'}>{a.isCorrect ? '◯' : '✕'}</span>
-                <span className="grow">{q?.source.label} {q?.number && `問${q.number}`}</span>
+                <span className="grow">{q?.source.short ?? q?.source.label}</span>
                 <span className="muted small">{q?.topicIds.map(store.topicName).join('・')}</span>
               </li>
             )
@@ -163,7 +163,7 @@ export default function Quiz({ config, active }: Props) {
       <TopBar index={index} total={total} elapsed={phase === 'question' ? elapsed : null} />
       <div className="meta">
         <KindBadge kind={question.kind} />
-        {showSource && <span className="muted small">{question.source.label}{question.kind === 'past' && ` 問${question.number}`}</span>}
+        {showSource && <span className="muted small">{question.source.short ?? question.source.label}</span>}
         {repeated && <span className="tag warn">再出題</span>}
       </div>
 

@@ -1,38 +1,452 @@
 [
-  {
-    "id": "availability",
-    "name": "稼働率（直列・並列）",
-    "field": "technology",
-    "category": "コンピュータシステム"
-  },
-  {
-    "id": "radix-conversion",
-    "name": "基数変換",
-    "field": "technology",
-    "category": "基礎理論"
-  },
-  {
-    "id": "normalization",
-    "name": "正規化",
-    "field": "technology",
-    "category": "データベース"
-  },
-  {
-    "id": "evm",
-    "name": "EVM（アーンドバリュー）",
-    "field": "management",
-    "category": "プロジェクトマネジメント"
-  },
-  {
-    "id": "break-even",
-    "name": "損益分岐点",
-    "field": "strategy",
-    "category": "会計・財務"
-  },
-  {
-    "id": "copyright",
-    "name": "著作権",
-    "field": "strategy",
-    "category": "法務"
-  }
+ {
+  "id": "availability-mgmt",
+  "name": "サービスの可用性管理・障害分析",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
+  "id": "facility",
+  "name": "データセンター・ファシリティ",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
+  "id": "service-process",
+  "name": "サービスマネジメントのプロセス（インシデント・問題・変更管理）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
+  "id": "system-audit",
+  "name": "システム監査",
+  "field": "management",
+  "category": "システム監査"
+ },
+ {
+  "id": "evm",
+  "name": "EVM（アーンドバリュー）",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-cost-schedule",
+  "name": "要員・工数・コストの計算",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-risk",
+  "name": "プロジェクトのリスク分析（EMV・デシジョンツリー）",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-scope",
+  "name": "プロジェクトのスコープ・WBS",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "pm-team",
+  "name": "プロジェクトチーム・組織の発達",
+  "field": "management",
+  "category": "プロジェクトマネジメント"
+ },
+ {
+  "id": "contract-type",
+  "name": "契約形態（請負・準委任・定額・実費償還）",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
+  "id": "planning-methods",
+  "name": "企画・意思決定の手法（FS・デルファイ法など）",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
+  "id": "weighted-eval",
+  "name": "重み付け評価・評価点の計算",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
+  "id": "data-analysis",
+  "name": "データ分析手法（回帰・主成分・アソシエーション など）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "investment-eval",
+  "name": "投資評価（PBP・NPV・IRR・ROI）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "program-mgmt",
+  "name": "プログラムマネジメント・PMO",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "system-strategy",
+  "name": "システム戦略・業務改革の手法（SOA・ERP・BPM など）",
+  "field": "strategy",
+  "category": "システム戦略"
+ },
+ {
+  "id": "business-systems",
+  "name": "業種別のシステム（MES・CAD・SCM など）",
+  "field": "strategy",
+  "category": "ビジネスインダストリ"
+ },
+ {
+  "id": "accounting",
+  "name": "会計・財務（財務諸表・財務指標）",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "inventory",
+  "name": "在庫管理・発注方式（経済的発注量など）",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "linear-programming",
+  "name": "線形計画法・利益最大化",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "break-even",
+  "name": "損益分岐点",
+  "field": "strategy",
+  "category": "会計・財務"
+ },
+ {
+  "id": "iot-tech",
+  "name": "IoT・無線通信技術（LPWA など）",
+  "field": "strategy",
+  "category": "技術戦略マネジメント"
+ },
+ {
+  "id": "copyright",
+  "name": "著作権",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "ip-law",
+  "name": "産業財産権（特許・意匠・商標）",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "labor-law",
+  "name": "労働関連法規",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
+  "id": "marketing",
+  "name": "マーケティング（4P・4C・STP など）",
+  "field": "strategy",
+  "category": "経営戦略マネジメント"
+ },
+ {
+  "id": "strategy-frameworks",
+  "name": "経営戦略のフレームワーク（BSC・PPM・アンゾフなど）",
+  "field": "strategy",
+  "category": "経営戦略マネジメント"
+ },
+ {
+  "id": "programming-lang",
+  "name": "プログラム言語の特徴",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "search-algo",
+  "name": "探索アルゴリズムと比較回数",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "availability",
+  "name": "稼働率（直列・並列）",
+  "field": "technology",
+  "category": "コンピュータシステム"
+ },
+ {
+  "id": "cache-replace",
+  "name": "キャッシュ・ページ置換アルゴリズム（LRU・FIFO など）",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "display-memory",
+  "name": "表示装置・フレームバッファ",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "processor-arch",
+  "name": "プロセッサの高速化技術（パイプライン・VLIW など）",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "unit-calc",
+  "name": "クロック・周期・回転数などの単位計算",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "capacity-planning",
+  "name": "キャパシティプランニング・性能管理",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
+  "id": "iac-devops",
+  "name": "IaC・DevOps・CI/CD",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
+  "id": "performance-calc",
+  "name": "システムの性能計算（FLOPS・MIPS など）",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
+  "id": "reliability",
+  "name": "信頼性指標（MTBF・MTTR・稼働率）",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
+  "id": "requirements",
+  "name": "要件定義・利用者分析",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "software-test",
+  "name": "テスト技法・品質の推定",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "uml",
+  "name": "UML の図",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "web-tech",
+  "name": "Web 技術（PWA・API・セマンティック Web など）",
+  "field": "technology",
+  "category": "システム開発技術"
+ },
+ {
+  "id": "cloud-security",
+  "name": "クラウドのセキュリティ（CASB・CSPM など）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "crypto-attack",
+  "name": "暗号・認証に対する攻撃",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "cyber-attack",
+  "name": "サイバー攻撃の手法・キルチェーン",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "forensics",
+  "name": "デジタルフォレンジックス・インシデント対応",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "isms-terms",
+  "name": "情報セキュリティの特性・ISMS 用語",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "mail-security",
+  "name": "電子メールのセキュリティ（SPF・DKIM・S/MIME）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "pki",
+  "name": "PKI・デジタル証明書・CRL",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "security-org",
+  "name": "セキュリティ管理体制（CSIRT・PSIRT・SOC）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "memory-alloc",
+  "name": "記憶領域の割当て（ファーストフィット・ベストフィット）",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
+  "id": "rtos-sync",
+  "name": "排他制御・セマフォ・デッドロック",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
+  "id": "scheduling",
+  "name": "ジョブ・タスクのスケジューリング",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
+  "id": "thread-safe",
+  "name": "スレッドセーフ・並行処理",
+  "field": "technology",
+  "category": "ソフトウェア"
+ },
+ {
+  "id": "ip-contract",
+  "name": "知的財産権と開発委託契約",
+  "field": "technology",
+  "category": "ソフトウェア開発管理技術"
+ },
+ {
+  "id": "db-index",
+  "name": "インデックス（B+木・ハッシュ）",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "db-view-sql",
+  "name": "SQL・ビュー",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "normalization",
+  "name": "正規化",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "nosql",
+  "name": "NoSQL・BASE 特性・分散データベース",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "transaction",
+  "name": "トランザクション・同時実行制御・障害回復",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
+  "id": "ip-address",
+  "name": "IP アドレス・サブネット・CIDR",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "lan-protocol",
+  "name": "LAN・スイッチ・ネットワーク層以下のプロトコル",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "proxy",
+  "name": "プロキシ・リバースプロキシ",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "tcp-udp",
+  "name": "TCP・UDP・トランスポート層",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "transmission-calc",
+  "name": "伝送時間・伝送速度の計算",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "electric-circuit",
+  "name": "電気回路の計算（電力・抵抗）",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
+  "id": "ui-design",
+  "name": "ユーザーインタフェース設計",
+  "field": "technology",
+  "category": "ユーザーインタフェース"
+ },
+ {
+  "id": "error-detection",
+  "name": "誤り検出・訂正（パリティ・CRC・ハミング符号）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "karnaugh",
+  "name": "カルノー図・論理式の簡略化",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "logic-circuit",
+  "name": "論理演算・論理回路",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "ml-evaluation",
+  "name": "機械学習の評価指標（混同行列・ROC）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "probability-calc",
+  "name": "確率・期待値の計算",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "queueing",
+  "name": "待ち行列（M/M/1）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "radix-conversion",
+  "name": "基数変換",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "media-sampling",
+  "name": "標本化・量子化（サンプリング）",
+  "field": "technology",
+  "category": "情報メディア"
+ }
 ]

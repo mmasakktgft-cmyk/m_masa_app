@@ -5,7 +5,7 @@ export function buildClaudePrompt(q: Question, attempt: Attempt | null, userQues
   const choices = q.choices.map((c) => `${c.label}　${c.image ? '（図）' : c.text}`).join('\n')
   const mine = attempt ? (attempt.gaveUp ? 'わからなかった' : (attempt.choice ?? '—')) : '—'
   const lines = [
-    `応用情報技術者試験（${q.source.label}）について質問です。`,
+    `${q.kind === 'past' ? q.source.label : `応用情報技術者試験の練習問題（${q.source.label}）`}について質問です。`,
     '',
     '【問題】',
     q.stem + (q.figures?.length ? '\n（図あり）' : ''),

@@ -206,6 +206,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 }
 .choice.selected .choice-label { background: var(--primary); color: var(--primary-text); }
 .choice-text { flex: 1; padding-top: 2px; }
+.choice-text img { display: block; background: #fff; border-radius: 6px; padding: 4px; max-height: 64px; width: auto; }
 .choice-mark { flex: none; font-weight: 700; padding-top: 2px; }
 .choice.correct .choice-mark { color: var(--ok); }
 .choice.wrong .choice-mark { color: var(--ng); }

@@ -95,7 +95,7 @@ export default function SettingsScreen() {
               return (
                 <li key={r.id} className="row">
                   <span className="grow">
-                    {q ? `${q.source.label} 問${q.number}` : r.questionId}
+                    {q ? (q.source.short ?? q.source.label) : r.questionId}
                     <span className="muted small block">{REPORT_REASON_NAMES[r.reason]}{r.comment && `：${r.comment}`}</span>
                   </span>
                   <button className="btn small-btn" onClick={() => s.withdrawReport(r.id!)}>取り消す</button>

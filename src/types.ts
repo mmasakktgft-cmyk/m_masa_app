@@ -58,7 +58,8 @@ export interface Question {
   /** 1（易）〜5（難） */
   difficulty: number
   explanation: Explanation
-  source: { label: string; url?: string }
+  /** label は IPA 指定の出典表記、short は画面上部用の短い表記 */
+  source: { label: string; short?: string; url?: string }
   verification: { status: VerificationStatus; checks: string[]; notes?: string }
   validityNote?: string
 }
@@ -172,7 +173,7 @@ export const DEFAULT_SETTINGS: Settings = {
   showSourceBeforeAnswer: true,
   dailyGoal: 20,
   examDate: '2026-11-15',
-  includeSamples: true,
+  includeSamples: false,
   lastExportAt: null,
 }
 

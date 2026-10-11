@@ -26,12 +26,20 @@ npm run build          # 本番ビルド（dist/）
 | `public/data/*.json` | 問題データ（1回分ずつ） |
 | `public/data/topics.json` | 論点の定義 |
 
+## 収録データ
+
+| セット | 問題数 | 状態 |
+|---|---|---|
+| 令和7年度 秋期 午前（AP-R07A） | 80 | 全問 verified（IPA 解答例と正解・分野を機械照合済み） |
+| 動作確認用サンプル（SAMPLE-01） | 7 | オリジナル問題。既定では出題しない |
+
 ## 問題データの追加
 
 1. `public/data/` に `AP-R07A.json` のように1回分のファイルを追加（問題 ID は `AP-R07A-AM-01` の形式）
 2. `public/data/index.json` の `sets` に登録、新しい論点は `topics.json` に追加
 3. `npm run validate-data` が通ることを確認
-4. 正解は IPA 公式解答のみを正とし、検証手順（docs/SPEC.md §8）を通過したものだけ `verified` にする
+4. 出典は IPA 指定の形式（例：令和7年度 秋期 応用情報技術者試験 午前 問1）で `source.label` に記載する
+5. 正解は IPA 公式解答のみを正とし、検証手順（docs/SPEC.md §8）を通過したものだけ `verified` にする
 
 ## 公開
 
