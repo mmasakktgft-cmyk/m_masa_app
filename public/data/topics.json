@@ -192,6 +192,12 @@
   "category": "ビジネスインダストリ"
  },
  {
+  "id": "cps",
+  "name": "CPS・Society 5.0",
+  "field": "strategy",
+  "category": "ビジネスインダストリ"
+ },
+ {
   "id": "digital-twin",
   "name": "先端技術の活用（デジタルツイン・メタバースなど）",
   "field": "strategy",
@@ -468,6 +474,12 @@
   "category": "システム構成要素"
  },
  {
+  "id": "scale",
+  "name": "スケールアウト・スケールアップ",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
   "id": "storage",
   "name": "ストレージ技術（RAID・オブジェクトストレージなど）",
   "field": "technology",
@@ -546,6 +558,12 @@
   "category": "セキュリティ"
  },
  {
+  "id": "backup",
+  "name": "バックアップ・ランサムウェア対策",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "cloud-security",
   "name": "クラウドのセキュリティ（CASB・CSPM など）",
   "field": "technology",
@@ -572,6 +590,12 @@
  {
   "id": "dns-security",
   "name": "DNS のセキュリティ（キャッシュポイズニング・DNSSEC）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "endpoint-security",
+  "name": "端末・OS のセキュリティ（セキュアブート・TPM など）",
   "field": "technology",
   "category": "セキュリティ"
  },
@@ -720,6 +744,12 @@
   "category": "ソフトウェア開発管理技術"
  },
  {
+  "id": "maintenance",
+  "name": "ソフトウェア保守の分類",
+  "field": "technology",
+  "category": "ソフトウェア開発管理技術"
+ },
+ {
   "id": "process-standard",
   "name": "開発プロセスの標準・成熟度モデル（SLCP・CMMI など）",
   "field": "technology",
@@ -860,6 +890,12 @@
  {
   "id": "embedded",
   "name": "組込みシステム・リアルタイム性",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
+  "id": "flip-flop",
+  "name": "順序回路（フリップフロップ）",
   "field": "technology",
   "category": "ハードウェア"
  },
