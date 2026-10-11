@@ -6,6 +6,12 @@
   "category": "サービスマネジメント"
  },
  {
+  "id": "bcp",
+  "name": "事業継続（BCP・RTO・RPO）",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
   "id": "cloud-service",
   "name": "クラウドサービスの形態（IaaS・PaaS・SaaS）",
   "field": "management",
@@ -14,6 +20,12 @@
  {
   "id": "facility",
   "name": "データセンター・ファシリティ",
+  "field": "management",
+  "category": "サービスマネジメント"
+ },
+ {
+  "id": "it-operation",
+  "name": "システム運用管理（入出力・ジョブ・資源管理）",
   "field": "management",
   "category": "サービスマネジメント"
  },
@@ -102,10 +114,22 @@
   "category": "システム企画"
  },
  {
+  "id": "ux-design",
+  "name": "UX デザイン・人間中心設計",
+  "field": "strategy",
+  "category": "システム企画"
+ },
+ {
   "id": "weighted-eval",
   "name": "重み付け評価・評価点の計算",
   "field": "strategy",
   "category": "システム企画"
+ },
+ {
+  "id": "business-improve",
+  "name": "業務改善・BPR の手法（ECRS など）",
+  "field": "strategy",
+  "category": "システム戦略"
  },
  {
   "id": "data-analysis",
@@ -168,6 +192,12 @@
   "category": "企業活動"
  },
  {
+  "id": "game-theory",
+  "name": "ゲーム理論・意思決定",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
   "id": "inventory",
   "name": "在庫管理・発注方式（経済的発注量など）",
   "field": "strategy",
@@ -186,8 +216,20 @@
   "category": "企業活動"
  },
  {
+  "id": "production-mgmt",
+  "name": "生産管理（MRP・所要量計算）",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
   "id": "qc-tools",
   "name": "QC 七つ道具・新 QC 七つ道具・発想法",
+  "field": "strategy",
+  "category": "企業活動"
+ },
+ {
+  "id": "statistics",
+  "name": "統計（ベイズ統計・記述統計など）",
   "field": "strategy",
   "category": "企業活動"
  },
@@ -200,6 +242,12 @@
  {
   "id": "iot-tech",
   "name": "IoT・無線通信技術（LPWA など）",
+  "field": "strategy",
+  "category": "技術戦略マネジメント"
+ },
+ {
+  "id": "tech-mgmt",
+  "name": "技術開発戦略・イノベーション",
   "field": "strategy",
   "category": "技術戦略マネジメント"
  },
@@ -248,6 +296,12 @@
  {
   "id": "data-structure",
   "name": "データ構造（スタック・キュー・木・リスト）",
+  "field": "technology",
+  "category": "アルゴリズムとプログラミング"
+ },
+ {
+  "id": "hash",
+  "name": "ハッシュ法・ハッシュ関数",
   "field": "technology",
   "category": "アルゴリズムとプログラミング"
  },
@@ -306,8 +360,20 @@
   "category": "コンピュータ構成要素"
  },
  {
+  "id": "memory-calc",
+  "name": "実効アクセス時間・メモリの計算",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
   "id": "processor-arch",
   "name": "プロセッサの高速化技術（パイプライン・VLIW など）",
+  "field": "technology",
+  "category": "コンピュータ構成要素"
+ },
+ {
+  "id": "quantum",
+  "name": "量子コンピュータ・先端技術",
   "field": "technology",
   "category": "コンピュータ構成要素"
  },
@@ -336,6 +402,12 @@
   "category": "システム構成要素"
  },
  {
+  "id": "redundancy",
+  "name": "システムの冗長化・クラスタ構成",
+  "field": "technology",
+  "category": "システム構成要素"
+ },
+ {
   "id": "reliability",
   "name": "信頼性指標（MTBF・MTTR・稼働率）",
   "field": "technology",
@@ -346,6 +418,12 @@
   "name": "ストレージ技術（RAID・オブジェクトストレージなど）",
   "field": "technology",
   "category": "システム構成要素"
+ },
+ {
+  "id": "architecture",
+  "name": "ソフトウェアアーキテクチャ（マイクロサービスなど）",
+  "field": "technology",
+  "category": "システム開発技術"
  },
  {
   "id": "chaos-eng",
@@ -426,6 +504,12 @@
   "category": "セキュリティ"
  },
  {
+  "id": "dns-security",
+  "name": "DNS のセキュリティ（キャッシュポイズニング・DNSSEC）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "forensics",
   "name": "デジタルフォレンジックス・インシデント対応",
   "field": "technology",
@@ -468,8 +552,26 @@
   "category": "セキュリティ"
  },
  {
+  "id": "sso",
+  "name": "シングルサインオン・ID 連携（SAML・OAuth）",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "tamper",
+  "name": "耐タンパ性・ハードウェアのセキュリティ",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
   "id": "vpn",
   "name": "VPN・トンネリング",
+  "field": "technology",
+  "category": "セキュリティ"
+ },
+ {
+  "id": "vuln-info",
+  "name": "脆弱性情報と評価（CVE・CVSS・JVN）",
   "field": "technology",
   "category": "セキュリティ"
  },
@@ -478,6 +580,12 @@
   "name": "Web アプリケーションへの攻撃（インジェクション・XSS など）",
   "field": "technology",
   "category": "セキュリティ"
+ },
+ {
+  "id": "compiler",
+  "name": "言語処理系（コンパイラ・インタプリタ）",
+  "field": "technology",
+  "category": "ソフトウェア"
  },
  {
   "id": "dev-tools",
@@ -534,6 +642,12 @@
   "category": "ソフトウェア開発管理技術"
  },
  {
+  "id": "version-control",
+  "name": "バージョン管理・構成管理",
+  "field": "technology",
+  "category": "ソフトウェア開発管理技術"
+ },
+ {
   "id": "data-model",
   "name": "データモデル・E-R 図",
   "field": "technology",
@@ -582,8 +696,20 @@
   "category": "ネットワーク"
  },
  {
+  "id": "dns",
+  "name": "DNS・名前解決",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
   "id": "ip-address",
   "name": "IP アドレス・サブネット・CIDR",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
+  "id": "ip-protocol",
+  "name": "IP 関連プロトコル（ICMP・ARP・DHCP・NAT）",
   "field": "technology",
   "category": "ネットワーク"
  },
@@ -618,6 +744,12 @@
   "category": "ネットワーク"
  },
  {
+  "id": "vlan",
+  "name": "VLAN・ネットワークの分割",
+  "field": "technology",
+  "category": "ネットワーク"
+ },
+ {
   "id": "ad-da",
   "name": "A/D・D/A 変換・センサー",
   "field": "technology",
@@ -638,6 +770,12 @@
  {
   "id": "hardware-design",
   "name": "ハードウェア設計（FPGA・HDL・SoC）",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
+  "id": "sensor-tech",
+  "name": "センサー・自動運転支援技術",
   "field": "technology",
   "category": "ハードウェア"
  },
