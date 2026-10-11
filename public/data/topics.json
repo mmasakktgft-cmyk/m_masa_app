@@ -360,6 +360,12 @@
   "category": "法務"
  },
  {
+  "id": "unauthorized-access",
+  "name": "不正アクセス禁止法・サイバー関連法規",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
   "id": "unfair-competition",
   "name": "不正競争防止法",
   "field": "strategy",
@@ -858,6 +864,12 @@
   "category": "データベース"
  },
  {
+  "id": "schema",
+  "name": "3 層スキーマ・データベース設計",
+  "field": "technology",
+  "category": "データベース"
+ },
+ {
   "id": "transaction",
   "name": "トランザクション・同時実行制御・障害回復",
   "field": "technology",
@@ -986,6 +998,12 @@
  {
   "id": "error-detection",
   "name": "誤り検出・訂正（パリティ・CRC・ハミング符号）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
+  "id": "float",
+  "name": "浮動小数点数・誤差",
   "field": "technology",
   "category": "基礎理論"
  },
