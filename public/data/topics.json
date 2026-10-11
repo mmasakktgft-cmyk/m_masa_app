@@ -336,6 +336,12 @@
   "category": "法務"
  },
  {
+  "id": "pl-law",
+  "name": "製造物責任法",
+  "field": "strategy",
+  "category": "法務"
+ },
+ {
   "id": "privacy-law",
   "name": "個人情報保護法",
   "field": "strategy",
