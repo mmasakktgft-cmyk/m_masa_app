@@ -1,0 +1,4805 @@
+[
+ {
+  "id": "AP-H30H-AM-01",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 1,
+  "stem": "AI におけるディープラーニングに最も関連が深いものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "試行錯誤しながら条件を満たす解に到達する方法であり，場合分けを行い深さ優先で探索し，解が見つからなければ一つ前の場合分けの状態に後戻りする。"
+   },
+   {
+    "label": "イ",
+    "text": "神経回路網を模倣した方法であり，多層に配置された素子とそれらを結ぶ信号線で構成され，信号線に付随するパラメタを調整することによって入力に対して適切な解が出力される。"
+   },
+   {
+    "label": "ウ",
+    "text": "生物の進化を模倣した方法であり，与えられた問題の解の候補を記号列で表現して，それを遺伝子に見立てて突然変異，交配，とう汰を繰り返して逐次的により良い解に近づける。"
+   },
+   {
+    "label": "エ",
+    "text": "物質の結晶ができる物理現象を模倣した方法であり，温度に見立てたパラメタを制御して，大ざっぱな解の候補から厳密な解の候補に変化させる。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "応用数学",
+  "topicIds": [
+   "ml-basics"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ディープラーニングは多層のニューラルネットワーク（神経回路網の模倣）で、重み（パラメタ）を調整して学習する。",
+   "perChoice": {
+    "ア": "バックトラック法。",
+    "イ": "正しい。",
+    "ウ": "遺伝的アルゴリズム。",
+    "エ": "焼きなまし法（シミュレーテッドアニーリング）。"
+   },
+   "pitfalls": "ディープラーニング＝多層ニューラルネットワーク。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問1",
+   "short": "H30春 午前 問1",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-02",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 2,
+  "stem": "表は，文字 A～E を符号化したときのビット表記と，それぞれの文字の出現確率を表したものである。1 文字当たりの平均ビット数は幾らか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1.6"
+   },
+   {
+    "label": "イ",
+    "text": "1.8"
+   },
+   {
+    "label": "ウ",
+    "text": "2.5"
+   },
+   {
+    "label": "エ",
+    "text": "2.8"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "情報に関する理論",
+  "topicIds": [
+   "coding-theory"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "1×0.5＋2×0.3＋3×0.1＋4×0.05＋4×0.05＝0.5＋0.6＋0.3＋0.2＋0.2＝1.8。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "正しい。",
+    "ウ": "単純平均（(1＋2＋3＋4＋4)/5＝2.8）とも異なる。",
+    "エ": "単純平均。"
+   },
+   "pitfalls": "平均ビット数＝Σ(ビット数×出現確率)。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問2",
+   "short": "H30春 午前 問2",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q02.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-03",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 3,
+  "stem": "ハミング符号とは，データに冗長ビットを付加して，1 ビットの誤りを訂正できるようにしたものである。ここでは，X₁，X₂，X₃，X₄ の 4 ビットから成るデータに，3 ビットの冗長ビット P₃，P₂，P₁ を付加したハミング符号 X₁X₂X₃P₃X₄P₂P₁ を考える。付加したビット P₁，P₂，P₃ は，それぞれ\nX₁⊕X₃⊕X₄⊕P₁＝0\nX₁⊕X₂⊕X₄⊕P₂＝0\nX₁⊕X₂⊕X₃⊕P₃＝0\nとなるように決める。ここで，⊕ は排他的論理和を表す。\nハミング符号 1110011 には 1 ビットの誤りが存在する。誤りビットを訂正したハミング符号はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0110011"
+   },
+   {
+    "label": "イ",
+    "text": "1010011"
+   },
+   {
+    "label": "ウ",
+    "text": "1100011"
+   },
+   {
+    "label": "エ",
+    "text": "1110111"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "情報に関する理論",
+  "topicIds": [
+   "error-detection"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "X₁＝1，X₂＝1，X₃＝1，P₃＝0，X₄＝0，P₂＝1，P₁＝1。3 つの式を計算すると、すべて 1（不成立）になる。3 つの式すべてに含まれるのは X₁ だけなので、X₁ が誤り。訂正すると 0110011。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "X₂ を反転すると 1 番目の式は不成立のまま。",
+    "ウ": "X₃ を反転すると 2 番目の式は不成立のまま。",
+    "エ": "P₃ ではなく X₄ の位置を反転しており、式を満たさない。"
+   },
+   "pitfalls": "不成立になった式の組合せから、誤りビットの位置を特定する。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問3",
+   "short": "H30春 午前 問3",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-04",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 4,
+  "stem": "サンプリング周波数 40 kHz，量子化ビット数 16 ビットで A/D 変換したモノラル音声の 1 秒間のデータ量は，何 k バイトとなるか。ここで，1 k バイトは 1,000 バイトとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "20"
+   },
+   {
+    "label": "イ",
+    "text": "40"
+   },
+   {
+    "label": "ウ",
+    "text": "80"
+   },
+   {
+    "label": "エ",
+    "text": "640"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "情報に関する理論",
+  "topicIds": [
+   "media-sampling"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "40,000 回×2 バイト＝80,000 バイト＝80 k バイト。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "1 回を 1 バイトとしている。",
+    "ウ": "正しい。",
+    "エ": "ビットのまま。"
+   },
+   "pitfalls": "標本化周波数×量子化ビット数÷8。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問4",
+   "short": "H30春 午前 問4",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-05",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 5,
+  "stem": "非負の整数 m，n に対して次のとおりに定義された関数 Ack(m, n) がある。Ack(1, 3) の値はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "3"
+   },
+   {
+    "label": "イ",
+    "text": "4"
+   },
+   {
+    "label": "ウ",
+    "text": "5"
+   },
+   {
+    "label": "エ",
+    "text": "6"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "recursion"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "Ack(1,0)＝Ack(0,1)＝2。Ack(1,1)＝Ack(0,Ack(1,0))＝Ack(0,2)＝3。同様に Ack(1,2)＝4、Ack(1,3)＝Ack(0,4)＝5。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "計算が合わない。",
+    "ウ": "正しい。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "小さい値から順に求めると規則（Ack(1,n)＝n＋2）が見える。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問5",
+   "short": "H30春 午前 問5",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q05.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-06",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 6,
+  "stem": "異なる n 個のデータが昇順に整列された表がある。この表を m 個のデータごとのブロックに分割し，各ブロックの最後尾のデータだけを線形探索することによって，目的のデータの存在するブロックを探し出す。次に，当該ブロック内を線形探索して目的のデータを探し出す。このときの平均比較回数を表す式はどれか。ここで，m は十分に大きく，n は m の倍数とし，目的のデータは必ず表の中に存在するものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "m＋n/m"
+   },
+   {
+    "label": "イ",
+    "text": "m/2＋n/(2m)"
+   },
+   {
+    "label": "ウ",
+    "text": "n/m"
+   },
+   {
+    "label": "エ",
+    "text": "n/(2m)"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "search-algo"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "ブロックは n/m 個あり、平均その半分の n/(2m) 回でブロックが見つかる。ブロック内は m 個なので平均 m/2 回。合計 m/2＋n/(2m)。",
+   "perChoice": {
+    "ア": "平均ではなく最大回数。",
+    "イ": "正しい。",
+    "ウ": "ブロック探索の最大回数だけ。",
+    "エ": "ブロック探索の平均回数だけ。"
+   },
+   "pitfalls": "線形探索の平均比較回数は個数の半分。2 段階の和をとる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問6",
+   "short": "H30春 午前 問6",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q06c.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-07",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 7,
+  "stem": "オブジェクト指向プログラミングにおいて，同一クラス内に，メソッド名が同一であって，引数の型，個数又は並び順が異なる複数のメソッドを定義することを何と呼ぶか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "オーバーライド"
+   },
+   {
+    "label": "イ",
+    "text": "オーバーロード"
+   },
+   {
+    "label": "ウ",
+    "text": "カプセル化"
+   },
+   {
+    "label": "エ",
+    "text": "汎化"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "oop"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "オーバーロード（多重定義）は、同じ名前で引数の異なるメソッドを複数定義すること。",
+   "perChoice": {
+    "ア": "スーパークラスのメソッドをサブクラスで再定義すること。",
+    "イ": "正しい。",
+    "ウ": "データと手続をまとめて内部を隠すこと。",
+    "エ": "共通部分をスーパークラスにまとめること。"
+   },
+   "pitfalls": "オーバーロード＝同じクラスで多重定義、オーバーライド＝サブクラスで上書き。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問7",
+   "short": "H30春 午前 問7",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-08",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 8,
+  "stem": "再帰的な処理を実現するためには，再帰的に呼び出したときのレジスタ及びメモリの内容を保存しておく必要がある。そのための記憶管理方式はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "FIFO"
+   },
+   {
+    "label": "イ",
+    "text": "LFU"
+   },
+   {
+    "label": "ウ",
+    "text": "LIFO"
+   },
+   {
+    "label": "エ",
+    "text": "LRU"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "recursion",
+   "data-structure"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "再帰呼出しでは、最後に呼び出したものから順に戻るので、後入れ先出し（LIFO＝スタック）で保存する。",
+   "perChoice": {
+    "ア": "先入れ先出し（キュー）。",
+    "イ": "使用頻度の低いものを置き換える方式。",
+    "ウ": "正しい。",
+    "エ": "最も長く使われていないものを置き換える方式。"
+   },
+   "pitfalls": "再帰＝スタック（LIFO）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問8",
+   "short": "H30春 午前 問8",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-09",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 9,
+  "stem": "プロセッサの高速化技法の一つとして，同時に実行可能な複数の動作を，コンパイルの段階でまとめて一つの複合命令とし，高速化を図る方式はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CISC"
+   },
+   {
+    "label": "イ",
+    "text": "MIMD"
+   },
+   {
+    "label": "ウ",
+    "text": "RISC"
+   },
+   {
+    "label": "エ",
+    "text": "VLIW"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "processor-arch"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "VLIW（超長命令語）は、並列実行できる複数の操作をコンパイラが 1 つの長い命令にまとめる方式。",
+   "perChoice": {
+    "ア": "複雑な命令セットをもつ方式。",
+    "イ": "複数の命令を複数のデータに並列に実行する方式。",
+    "ウ": "単純な命令セットで高速化する方式。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "コンパイラが並列化を決める＝VLIW、ハードウェアが決める＝スーパスカラ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問9",
+   "short": "H30春 午前 問9",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-10",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 10,
+  "stem": "NAND 型フラッシュメモリに関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "バイト単位で書込み，ページ単位で読出しを行う。"
+   },
+   {
+    "label": "イ",
+    "text": "バイト単位で書込み及び読出しを行う。"
+   },
+   {
+    "label": "ウ",
+    "text": "ページ単位で書込み，バイト単位で読出しを行う。"
+   },
+   {
+    "label": "エ",
+    "text": "ページ単位で書込み及び読出しを行う。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "storage",
+   "memory-calc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "NAND 型フラッシュメモリは、ページ単位で読み書きし、ブロック単位で消去する。",
+   "perChoice": {
+    "ア": "誤り。",
+    "イ": "NOR 型の特徴（バイト単位の読出し）。",
+    "ウ": "誤り。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "NAND：ページ単位の読み書き、ブロック単位の消去。大容量向け。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問10",
+   "short": "H30春 午前 問10",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-11",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 11,
+  "stem": "メモリインタリーブの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "主記憶と外部記憶を一元的にアドレス付けし，主記憶の物理容量を超えるメモリ空間を提供する。"
+   },
+   {
+    "label": "イ",
+    "text": "主記憶と磁気ディスク装置との間にバッファメモリを置いて，双方のアクセス速度の差を補う。"
+   },
+   {
+    "label": "ウ",
+    "text": "主記憶と入出力装置との間で CPU とは独立にデータ転送を行う。"
+   },
+   {
+    "label": "エ",
+    "text": "主記憶を複数のバンクに分けて，CPU からのアクセス要求を並列的に処理できるようにする。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "memory-calc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "メモリインタリーブは、主記憶を複数のバンクに分けて並列にアクセスし、高速化する。",
+   "perChoice": {
+    "ア": "仮想記憶。",
+    "イ": "ディスクキャッシュ。",
+    "ウ": "DMA。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "インタリーブ＝交互に。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問11",
+   "short": "H30春 午前 問11",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-12",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 12,
+  "stem": "USB 3.0 の特徴として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "USB 2.0 は半二重通信であるが，USB 3.0 は全二重通信である。"
+   },
+   {
+    "label": "イ",
+    "text": "Wireless USB に対応している。"
+   },
+   {
+    "label": "ウ",
+    "text": "最大供給電流は，USB 2.0 と同じ 500 ミリアンペアである。"
+   },
+   {
+    "label": "エ",
+    "text": "ピン数が 9 本に増えたので，USB 2.0 のケーブルは挿すことができない。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "io-interface"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "USB 3.0 の SuperSpeed は送信用と受信用の信号線を分けた全二重通信。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "Wireless USB は別規格。",
+    "ウ": "USB 3.0 は 900 ミリアンペア。",
+    "エ": "USB 2.0 との互換性があり、2.0 のケーブルも挿せる。"
+   },
+   "pitfalls": "USB 3.0：5 Gbps・全二重・900 mA・下位互換。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問12",
+   "short": "H30春 午前 問12",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-13",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 13,
+  "stem": "PC をシンクライアント端末として利用する際の特徴として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アプリケーションに加えてデータもクライアント端末にインストールされるので，効率的に利用できるが，PC の盗難などによる情報の漏えいリスクがある。"
+   },
+   {
+    "label": "イ",
+    "text": "クライアント端末にサーバ機能を導入して持ち運べるようにしたものであり，導入したサーバ機能をいつでも利用することができる。"
+   },
+   {
+    "label": "ウ",
+    "text": "クライアント端末の機器を交換する場合，アプリケーションやデータのインストール作業を軽減することができる。"
+   },
+   {
+    "label": "エ",
+    "text": "必要なアプリケーションをクライアント端末にインストールしているので，サーバに接続できない環境でも，アプリケーションを利用することができる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "virtualization",
+   "architecture"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "シンクライアントではアプリケーションやデータはサーバ側にあるので、端末を交換してもインストール作業がほとんど要らない。",
+   "perChoice": {
+    "ア": "ファットクライアントの特徴。",
+    "イ": "シンクライアントではない。",
+    "ウ": "正しい。",
+    "エ": "ファットクライアントの特徴。"
+   },
+   "pitfalls": "シンクライアント＝端末には最小限の機能だけ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問13",
+   "short": "H30春 午前 問13",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-14",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 14,
+  "stem": "物理サーバのスケールアウトに関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サーバの CPU を高性能なものに交換することによって，サーバ当たりの処理能力を向上させること"
+   },
+   {
+    "label": "イ",
+    "text": "サーバの台数を増やして負荷分散することによって，サーバ群としての処理能力を向上させること"
+   },
+   {
+    "label": "ウ",
+    "text": "サーバのディスクを増設して冗長化することによって，サーバ当たりの信頼性を向上させること"
+   },
+   {
+    "label": "エ",
+    "text": "サーバのメモリを増設することによって，単位時間当たりの処理能力を向上させること"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "scale"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "スケールアウトは台数を増やして処理能力を上げる方法。",
+   "perChoice": {
+    "ア": "スケールアップ。",
+    "イ": "正しい。",
+    "ウ": "冗長化。",
+    "エ": "スケールアップ。"
+   },
+   "pitfalls": "アウト＝横に増やす、アップ＝縦に強くする。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問14",
+   "short": "H30春 午前 問14",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-15",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 15,
+  "stem": "フェールソフトの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "システムの一部に故障や異常が発生したとき，データの消失，装置の損傷及びオペレータに対する危害が起こらないように安全な状態に保つ。"
+   },
+   {
+    "label": "イ",
+    "text": "システムの運用中でも故障部分の修復が可能で，24 時間 365 日の連続運転を可能にする。"
+   },
+   {
+    "label": "ウ",
+    "text": "装置の一部が故障しても，システムの全面的なサービス停止にならないようにする。"
+   },
+   {
+    "label": "エ",
+    "text": "利用者が決められた順序でしか入力できないようにするなどして，単純なミスが起こらないようにする。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "fault-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "フェールソフトは、故障部分を切り離すなどして機能を縮退させてでも、サービスを全面停止させないようにする。",
+   "perChoice": {
+    "ア": "フェールセーフ。",
+    "イ": "フォールトトレランス（ホットスワップなど）。",
+    "ウ": "正しい。",
+    "エ": "フールプルーフ。"
+   },
+   "pitfalls": "フェールソフト＝縮退運転で動き続ける。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問15",
+   "short": "H30春 午前 問15",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-16",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 16,
+  "stem": "4 種類の装置で構成される次のシステムの稼働率は，およそ幾らか。ここで，アプリケーションサーバとデータベースサーバの稼働率は 0.8 であり，それぞれのサーバのどちらかが稼働していればシステムとして稼働する。また，負荷分散装置と磁気ディスク装置は，故障しないものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.64"
+   },
+   {
+    "label": "イ",
+    "text": "0.77"
+   },
+   {
+    "label": "ウ",
+    "text": "0.92"
+   },
+   {
+    "label": "エ",
+    "text": "0.96"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "availability"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "アプリケーションサーバの並列部分：1－0.2²＝0.96。データベースサーバも同じく 0.96。両方が必要なので 0.96×0.96≒0.92。",
+   "perChoice": {
+    "ア": "0.8×0.8（並列を考慮していない）。",
+    "イ": "計算が合わない。",
+    "ウ": "正しい。",
+    "エ": "片方の並列部分だけ。"
+   },
+   "pitfalls": "たすき掛けの接続は「AP 群」と「DB 群」の直列と考える。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問16",
+   "short": "H30春 午前 問16",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q16.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-17",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 17,
+  "stem": "三つのタスク A～C の優先度と各タスクを単独で実行した場合の CPU と入出力（I/O）装置の動作順序と処理時間は，表のとおりである。優先順位方式のタスクスケジューリングを行う OS の下で，三つのタスクが同時に実行可能状態になってから，タスク C が終了するまでに，タスク C が実行可能状態にある時間は延べ何ミリ秒か。ここで，I/O は競合せず，OS のオーバヘッドは考慮しないものとする。また，表中の（ ）内の数字は処理時間を示すものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "6"
+   },
+   {
+    "label": "イ",
+    "text": "8"
+   },
+   {
+    "label": "ウ",
+    "text": "10"
+   },
+   {
+    "label": "エ",
+    "text": "12"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "scheduling",
+   "task-state"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "0〜2：A が CPU。2〜4：B が CPU。4〜6：C が CPU。6〜8：C は I/O。8 で全タスクが CPU を待つ。8〜12：A、12〜14：B、14〜17：C。C が実行可能状態（CPU 待ち）なのは 0〜4 と 8〜14 で、計 4＋6＝10 ミリ秒。",
+   "perChoice": {
+    "ア": "8〜14 の待ちだけ。",
+    "イ": "計算が合わない。",
+    "ウ": "正しい。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "実行可能状態＝CPU を待っている状態（実行中・I/O 待ちは含まない）。時系列の図を描く。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問17",
+   "short": "H30春 午前 問17",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q17.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-18",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 18,
+  "stem": "セマフォを用いる目的として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "共有資源を管理する。"
+   },
+   {
+    "label": "イ",
+    "text": "スタックを容易に実現する。"
+   },
+   {
+    "label": "ウ",
+    "text": "スラッシングの発生を回避する。"
+   },
+   {
+    "label": "エ",
+    "text": "セグメンテーションを実現する。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "rtos-sync",
+   "thread-safe"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "セマフォは、複数のプロセスが共有資源を使うときの排他制御や同期に使う。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "関係ない。",
+    "ウ": "関係ない（ワーキングセットの管理など）。",
+    "エ": "関係ない。"
+   },
+   "pitfalls": "セマフォ＝P 操作（獲得）と V 操作（解放）で共有資源を管理。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問18",
+   "short": "H30春 午前 問18",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-19",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 19,
+  "stem": "ページング方式の仮想記憶における主記憶の割当てに関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "プログラム実行時のページフォールトを契機に，ページをロードするのに必要な主記憶が割り当てられる。"
+   },
+   {
+    "label": "イ",
+    "text": "プログラムで必要なページをロードするための主記憶の空きが存在しない場合には，実行中のプログラムのどれかが終了するまで待たされる。"
+   },
+   {
+    "label": "ウ",
+    "text": "プログラムに割り当てられる主記憶容量は一定であり，プログラムの進行によって変動することはない。"
+   },
+   {
+    "label": "エ",
+    "text": "プログラムの実行開始時には，プログラムのデータ領域とコード領域のうち，少なくとも全てのコード領域に主記憶が割り当てられる。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "memory-alloc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "デマンドページングでは、ページフォールトが起きたときに、そのページを読み込む主記憶が割り当てられる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "空きがなければページアウトして空ける。待つわけではない。",
+    "ウ": "必要に応じて変動する。",
+    "エ": "必要になった時点で割り当てるので、全コード領域を最初に割り当てるわけではない。"
+   },
+   "pitfalls": "ページフォールト → 割当て → ページイン。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問19",
+   "short": "H30春 午前 問19",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-20",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 20,
+  "stem": "RFID の活用事例として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "紙に印刷されたディジタルコードをリーダで読み取ることによる情報の入力"
+   },
+   {
+    "label": "イ",
+    "text": "携帯電話とヘッドフォンとの間の音声データ通信"
+   },
+   {
+    "label": "ウ",
+    "text": "赤外線を利用した近距離データ通信"
+   },
+   {
+    "label": "エ",
+    "text": "微小な無線チップによる人又は物の識別及び管理"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "sensor-tech",
+   "iot-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "RFID は、無線チップ（タグ）を電波で読み取り、人や物を識別・管理する技術。",
+   "perChoice": {
+    "ア": "バーコード・QR コード。",
+    "イ": "Bluetooth。",
+    "ウ": "IrDA。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "RFID＝電波による個体識別。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問20",
+   "short": "H30春 午前 問20",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-21",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 21,
+  "stem": "図の論理回路と等価な回路はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-h30h/q21a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-h30h/q21i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-h30h/q21u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-h30h/q21e.png"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "離散数学",
+  "topicIds": [
+   "logic-circuit"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "NAND を 4 個組み合わせたこの回路は XOR（排他的論理和）になる。A＝B＝0 なら最初の NAND が 1、中段がともに 1、出力 0。A＝1・B＝0 なら出力 1。A＝B＝1 なら出力 0。",
+   "perChoice": {
+    "ア": "OR では A＝B＝1 のとき 1 になってしまう。",
+    "イ": "AND では A＝1・B＝0 のとき 0 になってしまう。",
+    "ウ": "正しい（XOR）。",
+    "エ": "NOR では A＝B＝0 のとき 1 になってしまう。"
+   },
+   "pitfalls": "NAND 4 個で XOR が作れる、は頻出。真理値表で確かめる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問21",
+   "short": "H30春 午前 問21",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q21.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-22",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 22,
+  "stem": "クロックの立上りエッジで，データを入力の最下位ビットに取り込んで上位方向へシフトし，ストローブの立上りエッジで値を確定する 8 ビットのシリアル入力パラレル出力シフトレジスタがある。各信号の波形を観測した結果が図のとおりであるとき，確定後のシフトレジスタの値はどれか。ここで，数値は 16 進数で表記している。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "63"
+   },
+   {
+    "label": "イ",
+    "text": "8D"
+   },
+   {
+    "label": "ウ",
+    "text": "B1"
+   },
+   {
+    "label": "エ",
+    "text": "C6"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "bit-operation",
+   "embedded"
+  ],
+  "questionType": "applied",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "破線（クロックの立上り）ごとのデータは順に 1,0,0,0,1,1,0,1。最初に取り込んだビットが最上位までシフトされるので、10001101＝8D。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "正しい。",
+    "ウ": "ビットの並びを逆に読んでいる（10110001）。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "上位方向へシフト＝最初に入れたビットが最上位になる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問22",
+   "short": "H30春 午前 問22",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q22.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-23",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 23,
+  "stem": "ワンチップマイコンにおける内部クロック発生器のブロック図を示す。15 MHz の発振器と，内部の PLL1，PLL2 及び分周器の組合せで CPU に 240 MHz，シリアル通信（SIO）に 115 kHz のクロック信号を供給する場合の分周器の値は幾らか。ここで，シリアル通信のクロック精度は ±5% 以内に収まればよいものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1/2⁴"
+   },
+   {
+    "label": "イ",
+    "text": "1/2⁶"
+   },
+   {
+    "label": "ウ",
+    "text": "1/2⁸"
+   },
+   {
+    "label": "エ",
+    "text": "1/2¹⁰"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "embedded"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "分周器への入力は PLL1 の出力 15×8＝120 MHz。120 MHz÷1,024≒117.2 kHz で、115 kHz の ±5% 以内。",
+   "perChoice": {
+    "ア": "7.5 MHz で大きすぎる。",
+    "イ": "約 1.9 MHz で大きすぎる。",
+    "ウ": "約 469 kHz で大きすぎる。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "分周器の入力がどこから来ているか（PLL2 の後ではない）を図で確認する。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問23",
+   "short": "H30春 午前 問23",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q23.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-24",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 24,
+  "stem": "Web ページの設計の例のうち，アクセシビリティを高める観点から最も適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "音声を利用者に確実に聞かせるために，Web ページを表示すると同時に音声を自動的に再生する。"
+   },
+   {
+    "label": "イ",
+    "text": "体裁の良いレイアウトにするために，表組みを用いる。"
+   },
+   {
+    "label": "ウ",
+    "text": "入力が必須な項目は，色で強調するだけでなく，項目名の隣に“（必須）”などと明記する。"
+   },
+   {
+    "label": "エ",
+    "text": "ハイパリンク先の内容が推測できるように，ハイパリンク画像の alt 属性にリンク先の URL を付記する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ユーザーインタフェース",
+  "topicIds": [
+   "ui-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "色だけに頼ると、色覚に障害のある人が識別できない。文字でも明記すると誰にでも伝わる。",
+   "perChoice": {
+    "ア": "自動再生は読み上げソフトの妨げになる。",
+    "イ": "レイアウト目的の表組みは読み上げの順序を乱す。",
+    "ウ": "正しい。",
+    "エ": "alt にはリンク先の内容を説明する文を書く。URL では分かりにくい。"
+   },
+   "pitfalls": "情報を色だけで伝えない。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問24",
+   "short": "H30春 午前 問24",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-25",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 25,
+  "stem": "3 次元の物体を表すコンピュータグラフィックスの手法に関する記述のうち，サーフェスモデルの説明として，最も適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "物体を，頂点と頂点をつなぐ線で結び，針金で構成されているように表現する。"
+   },
+   {
+    "label": "イ",
+    "text": "物体を，中身の詰まった固形物として表現する。"
+   },
+   {
+    "label": "ウ",
+    "text": "物体を，ポリゴンや曲面パッチを用いて表現する。"
+   },
+   {
+    "label": "エ",
+    "text": "物体を，メタボールと呼ぶ構造を使い，球体を変形させることによって得られる曲面で表現する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "情報メディア",
+  "topicIds": [
+   "media-format"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "サーフェスモデルは、物体の表面をポリゴンや曲面で表す。",
+   "perChoice": {
+    "ア": "ワイヤフレームモデル。",
+    "イ": "ソリッドモデル。",
+    "ウ": "正しい。",
+    "エ": "メタボール。"
+   },
+   "pitfalls": "ワイヤフレーム（線）→ サーフェス（面）→ ソリッド（中身）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問25",
+   "short": "H30春 午前 問25",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-26",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 26,
+  "stem": "関係データベースのテーブルにレコードを 1 件追加したところ，インデックスとして使う，図の B⁺木のリーフノード C がノード C1 と C2 に分割された。ノード分割後の B⁺木構造はどれか。ここで，矢印はノードへのポインタとする。また，中間ノード A には十分な空きがあるものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-h30h/q26a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-h30h/q26i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-h30h/q26u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-h30h/q26e.png"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "db-index",
+   "tree-structure"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "リーフが分割されると、親の A に C2 へのポインタが追加される。リーフ同士は B⇔C1⇔C2⇔D の順に双方向につながる。",
+   "perChoice": {
+    "ア": "A から C2 へのポインタがない。",
+    "イ": "正しい。",
+    "ウ": "リーフの順序が誤り（C2 は C1 の次）。",
+    "エ": "C2 がリーフの並びに入っておらず、A からも指されていない。"
+   },
+   "pitfalls": "B⁺木のリーフは同じ深さに並び、順序どおりにつながる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問26",
+   "short": "H30春 午前 問26",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q26.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-27",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 27,
+  "stem": "関係 R と関係 S に対して，関係 X を求める関係演算はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ID で結合"
+   },
+   {
+    "label": "イ",
+    "text": "差"
+   },
+   {
+    "label": "ウ",
+    "text": "直積"
+   },
+   {
+    "label": "エ",
+    "text": "和"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "relational-algebra"
+  ],
+  "questionType": "applied",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "X は R の 3 行と S の 2 行を合わせ、重複する（0001, a, 100）を 1 行にまとめた 4 行。これは和（R∪S）。",
+   "perChoice": {
+    "ア": "結合なら列が増える。",
+    "イ": "差なら R にあって S にない行だけ（2 行）。",
+    "ウ": "直積なら 6 行で列も増える。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "和＝両方の行を合わせて重複を除く。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問27",
+   "short": "H30春 午前 問27",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q27.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-28",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 28,
+  "stem": "SQL において，A 表の主キーが B 表の外部キーによって参照されている場合，各表の行を追加・削除する操作の参照制約に関する制限について，正しく整理した図はどれか。ここで，△ 印は操作が拒否される場合があることを表し，○ 印は制限なしに操作ができることを表す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ア"
+   },
+   {
+    "label": "イ",
+    "text": "イ"
+   },
+   {
+    "label": "ウ",
+    "text": "ウ"
+   },
+   {
+    "label": "エ",
+    "text": "エ"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "db-view-sql",
+   "schema"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "A 表（参照される側）は、追加は自由だが、B 表から参照されている行の削除は拒否されることがある。B 表（参照する側）は、A 表にない値を持つ行の追加は拒否されるが、削除は自由。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "B 表の削除は自由。",
+    "ウ": "A 表の追加は自由で、削除が制限される。",
+    "エ": "A・B ともに誤り。"
+   },
+   "pitfalls": "参照される側は「削除」、参照する側は「追加・更新」が制限される。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問28",
+   "short": "H30春 午前 問28",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q28.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-29",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 29,
+  "stem": "関係データベース管理システム（RDBMS）のデータディクショナリに格納されるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "OS が管理するファイルの定義情報"
+   },
+   {
+    "label": "イ",
+    "text": "スキーマの定義情報"
+   },
+   {
+    "label": "ウ",
+    "text": "表に格納された列データの組"
+   },
+   {
+    "label": "エ",
+    "text": "表の列に付けられたインデックスの値"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "schema"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "データディクショナリは、表や列などのスキーマ定義（メタデータ）を管理する。",
+   "perChoice": {
+    "ア": "OS のファイルシステムが管理する。",
+    "イ": "正しい。",
+    "ウ": "表そのもののデータ。",
+    "エ": "インデックスそのもの。"
+   },
+   "pitfalls": "データディクショナリ＝データについてのデータ（メタデータ）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問29",
+   "short": "H30春 午前 問29",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-30",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 30,
+  "stem": "ビッグデータの基盤技術として利用される NoSQL に分類されるデータベースはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "関係データモデルをオブジェクト指向データモデルに拡張し，操作の定義や型の継承関係の定義を可能としたデータベース"
+   },
+   {
+    "label": "イ",
+    "text": "経営者の意思決定を支援するために，ある主題に基づくデータを現在の情報とともに過去の情報も蓄積したデータベース"
+   },
+   {
+    "label": "ウ",
+    "text": "様々な形式のデータを一つのキーに対応付けて管理するキーバリュー型データベース"
+   },
+   {
+    "label": "エ",
+    "text": "データ項目の名称や形式など，データそのものの特性を表すメタ情報を管理するデータベース"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "nosql"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "キーバリュー型は NoSQL の代表的な種類。",
+   "perChoice": {
+    "ア": "オブジェクト関係データベース。",
+    "イ": "データウェアハウス。",
+    "ウ": "正しい。",
+    "エ": "データディクショナリ（リポジトリ）。"
+   },
+   "pitfalls": "NoSQL：キーバリュー・列指向・ドキュメント・グラフ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問30",
+   "short": "H30春 午前 問30",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-31",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 31,
+  "stem": "100 M ビット／秒の LAN を使用し，1 件のレコード長が 1,000 バイトの電文を 1,000 件連続して伝送するとき，伝送時間は何秒か。ここで，LAN の伝送効率は 50% とする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.02"
+   },
+   {
+    "label": "イ",
+    "text": "0.08"
+   },
+   {
+    "label": "ウ",
+    "text": "0.16"
+   },
+   {
+    "label": "エ",
+    "text": "1.6"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "transmission-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "1,000×1,000×8＝8×10⁶ ビット。実効速度 50 M ビット／秒で割って 0.16 秒。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "伝送効率を考慮していない。",
+    "ウ": "正しい。",
+    "エ": "桁が合わない。"
+   },
+   "pitfalls": "伝送時間＝データ量（ビット）÷（回線速度×伝送効率）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問31",
+   "short": "H30春 午前 問31",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-32",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 32,
+  "stem": "ETSI（欧州電気通信標準化機構）によって提案された NFV（Network Functions Virtualisation）に関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "インターネット上で地理情報システムと拡張現実の技術を利用することによって，現実空間と仮想空間をスムーズに融合させた様々なサービスを提供する。"
+   },
+   {
+    "label": "イ",
+    "text": "仮想化技術を利用し，ネットワーク機能を汎用サーバ上にソフトウェアとして実現したコンポーネントを用いることによって，柔軟なネットワーク基盤を構築する。"
+   },
+   {
+    "label": "ウ",
+    "text": "様々な入力情報に対する処理結果をニューラルネットワークに学習させることによって，画像認識や音声認識，自然言語処理などの問題に対する解を見いだす。"
+   },
+   {
+    "label": "エ",
+    "text": "プレースとトランジションと呼ばれる 2 種類のノードをもつ有向グラフであり，システムの並列性や競合性の分析などに利用される。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "sdn",
+   "virtualization"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "NFV は、ルータやファイアウォールなどの機能を汎用サーバ上のソフトウェアとして実現する技術。",
+   "perChoice": {
+    "ア": "AR と位置情報のサービス。",
+    "イ": "正しい。",
+    "ウ": "ディープラーニング。",
+    "エ": "ペトリネット。"
+   },
+   "pitfalls": "NFV＝ネットワーク機能の仮想化。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問32",
+   "short": "H30春 午前 問32",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-33",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 33,
+  "stem": "伝送速度 30 M ビット／秒の回線を使ってデータを連続送信したとき，平均して 100 秒に 1 回の 1 ビット誤りが発生した。この回線のビット誤り率は幾らか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "4.17×10⁻¹¹"
+   },
+   {
+    "label": "イ",
+    "text": "3.33×10⁻¹⁰"
+   },
+   {
+    "label": "ウ",
+    "text": "4.17×10⁻⁵"
+   },
+   {
+    "label": "エ",
+    "text": "3.33×10⁻⁴"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "transmission-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "100 秒間に送るビット数は 30×10⁶×100＝3×10⁹。1÷(3×10⁹)≒3.33×10⁻¹⁰。",
+   "perChoice": {
+    "ア": "バイトに換算している。",
+    "イ": "正しい。",
+    "ウ": "桁が合わない。",
+    "エ": "桁が合わない。"
+   },
+   "pitfalls": "ビット誤り率＝誤りビット数÷送信ビット数。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問33",
+   "short": "H30春 午前 問33",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-34",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 34,
+  "stem": "TCP/IP ネットワークにおける RARP の機能として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "IP パケットが通信先の IP アドレスに到達するかどうかを調べる。"
+   },
+   {
+    "label": "イ",
+    "text": "MAC アドレスから IP アドレスを求める。"
+   },
+   {
+    "label": "ウ",
+    "text": "ドメイン名とホスト名から IP アドレスを求める。"
+   },
+   {
+    "label": "エ",
+    "text": "プライベート IP アドレスとグローバル IP アドレスを相互に変換する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "ip-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "RARP（Reverse ARP）は MAC アドレスから IP アドレスを求める。",
+   "perChoice": {
+    "ア": "ping（ICMP）。",
+    "イ": "正しい。",
+    "ウ": "DNS。",
+    "エ": "NAT。"
+   },
+   "pitfalls": "ARP＝IP→MAC、RARP＝MAC→IP。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問34",
+   "short": "H30春 午前 問34",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-35",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 35,
+  "stem": "二つの IPv4 ネットワーク 192.168.0.0/23 と 192.168.2.0/23 を集約したネットワークはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "192.168.0.0/22"
+   },
+   {
+    "label": "イ",
+    "text": "192.168.1.0/22"
+   },
+   {
+    "label": "ウ",
+    "text": "192.168.1.0/23"
+   },
+   {
+    "label": "エ",
+    "text": "192.168.3.0/23"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "ip-address",
+   "routing"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "192.168.0.0〜1.255 と 192.168.2.0〜3.255 を合わせると 192.168.0.0〜3.255 で、/22 にまとまる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "/22 のネットワークアドレスは第 3 オクテットが 4 の倍数。",
+    "ウ": "範囲が合わない。",
+    "エ": "範囲が合わない。"
+   },
+   "pitfalls": "集約＝共通する上位ビットまでをプレフィックスにする。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問35",
+   "short": "H30春 午前 問35",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-36",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 36,
+  "stem": "企業の DMZ 上で 1 台の DNS サーバを，インターネット公開用と，社内の PC 及びサーバからの名前解決の問合せに対応する社内用とで共用している。この DNS サーバが，DNS キャッシュポイズニング攻撃を受けた結果，直接引き起こされ得る現象はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "DNS サーバのハードディスク上に定義されている DNS サーバ名が書き換わり，インターネットからの DNS 参照者が，DNS サーバに接続できなくなる。"
+   },
+   {
+    "label": "イ",
+    "text": "DNS サーバのメモリ上にワームが常駐し，DNS 参照元に対して不正プログラムを送り込む。"
+   },
+   {
+    "label": "ウ",
+    "text": "社内の利用者間の電子メールについて，宛先メールアドレスが書き換えられ，送信ができなくなる。"
+   },
+   {
+    "label": "エ",
+    "text": "社内の利用者が，インターネット上の特定の Web サーバにアクセスしようとすると，本来とは異なる Web サーバに誘導される。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "dns-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "キャッシュポイズニングで偽の名前解決情報がキャッシュされると、社内の利用者が偽のサーバに誘導される。",
+   "perChoice": {
+    "ア": "キャッシュ（メモリ上）の汚染であり、ディスク上の定義は書き換わらない。",
+    "イ": "ワームの感染ではない。",
+    "ウ": "メールアドレス自体は書き換わらない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "キャッシュポイズニング＝偽の DNS 応答をキャッシュさせ、偽サイトへ誘導する。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問36",
+   "short": "H30春 午前 問36",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-37",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 37,
+  "stem": "クロスサイトスクリプティングの手口はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "Web アプリケーションのフォームの入力フィールドに，悪意のある JavaScript コードを含んだデータを入力する。"
+   },
+   {
+    "label": "イ",
+    "text": "インターネットなどのネットワークを通じてサーバに不正にアクセスしたり，データの改ざんや破壊を行ったりする。"
+   },
+   {
+    "label": "ウ",
+    "text": "大量のデータを Web アプリケーションに送ることによって，用意されたバッファ領域をあふれさせる。"
+   },
+   {
+    "label": "エ",
+    "text": "パス名を推定することによって，本来は認証された後にしかアクセスが許可されないページに直接ジャンプする。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "web-attack"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "XSS は、入力値に悪意のあるスクリプトを埋め込み、それを表示した利用者のブラウザで実行させる攻撃。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "不正アクセス全般。",
+    "ウ": "バッファオーバーフロー。",
+    "エ": "強制ブラウジング。"
+   },
+   "pitfalls": "XSS＝スクリプトを埋め込む。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問37",
+   "short": "H30春 午前 問37",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-38",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 38,
+  "stem": "ディレクトリトラバーサル攻撃はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "OS コマンドを受け付けるアプリケーションに対して，攻撃者が，ディレクトリを作成する OS コマンドの文字列を入力して実行させる。"
+   },
+   {
+    "label": "イ",
+    "text": "SQL 文のリテラル部分の生成処理に問題があるアプリケーションに対して，攻撃者が，任意の SQL 文を渡して実行させる。"
+   },
+   {
+    "label": "ウ",
+    "text": "シングルサインオンを提供するディレクトリサービスに対して，攻撃者が，不正に入手した認証情報を用いてログインし，複数のアプリケーションを不正使用する。"
+   },
+   {
+    "label": "エ",
+    "text": "入力文字列からアクセスするファイル名を組み立てるアプリケーションに対して，攻撃者が，上位のディレクトリを意味する文字列を入力して，非公開のファイルにアクセスする。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "web-attack"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ディレクトリトラバーサルは、「../」などを入力して上位ディレクトリをたどり、非公開ファイルにアクセスする攻撃。",
+   "perChoice": {
+    "ア": "OS コマンドインジェクション。",
+    "イ": "SQL インジェクション。",
+    "ウ": "認証情報の不正利用。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "トラバーサル＝横断する。「../」がキーワード。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問38",
+   "short": "H30春 午前 問38",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-39",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 39,
+  "stem": "ポリモーフィック型マルウェアの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "インターネットを介して，攻撃者が PC を遠隔操作する。"
+   },
+   {
+    "label": "イ",
+    "text": "感染ごとにマルウェアのコードを異なる鍵で暗号化することによって，同一のパターンでは検知されないようにする。"
+   },
+   {
+    "label": "ウ",
+    "text": "複数の OS 上で利用できるプログラム言語でマルウェアを作成することによって，複数の OS 上でマルウェアが動作する。"
+   },
+   {
+    "label": "エ",
+    "text": "ルートキットを利用して，マルウェアに感染していないように見せかけることによって，マルウェアを隠蔽する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "cyber-attack",
+   "endpoint-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ポリモーフィック（多形態）型は、感染のたびに暗号化の鍵を変えて見た目を変え、パターンマッチングによる検知を逃れる。",
+   "perChoice": {
+    "ア": "RAT（遠隔操作ウイルス）。",
+    "イ": "正しい。",
+    "ウ": "クロスプラットフォーム型。",
+    "エ": "ルートキットによる隠蔽。"
+   },
+   "pitfalls": "ポリモーフィック＝姿を変える。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問39",
+   "short": "H30春 午前 問39",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-40",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 40,
+  "stem": "サイバーレスキュー隊（J-CRAT）は，どの脅威による被害の低減と拡大防止を活動目的としているか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "クレジットカードのスキミング"
+   },
+   {
+    "label": "イ",
+    "text": "内部不正による情報漏えい"
+   },
+   {
+    "label": "ウ",
+    "text": "標的型サイバー攻撃"
+   },
+   {
+    "label": "エ",
+    "text": "無線 LAN の盗聴"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "security-org"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "J-CRAT は IPA に置かれた組織で、標的型サイバー攻撃を受けた組織を支援する。",
+   "perChoice": {
+    "ア": "対象外。",
+    "イ": "対象外。",
+    "ウ": "正しい。",
+    "エ": "対象外。"
+   },
+   "pitfalls": "J-CRAT＝標的型攻撃の被害低減（IPA）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問40",
+   "short": "H30春 午前 問40",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-41",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 41,
+  "stem": "内部ネットワークの PC からインターネット上の Web サイトを参照するときに DMZ 上に用意した VDI（Virtual Desktop Infrastructure）サーバ上の Web ブラウザを利用すると，未知のマルウェアが PC にダウンロードされて，PC が感染することを防ぐというセキュリティ上の効果が期待できる。この効果を生み出す VDI サーバの動作の特徴はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "Web サイトからの受信データのうち，実行ファイルを削除し，その他のデータを PC に送信する。"
+   },
+   {
+    "label": "イ",
+    "text": "Web サイトからの受信データのうち，不正なコード列が検知されない通信だけを PC に送信する。"
+   },
+   {
+    "label": "ウ",
+    "text": "Web サイトからの受信データを処理して VDI サーバで生成したデスクトップ画面の画像データだけを PC に送信する。"
+   },
+   {
+    "label": "エ",
+    "text": "Web サイトからの受信データを全て IPsec でカプセル化し，PC に送信する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "virtualization",
+   "endpoint-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "VDI サーバは画面の画像だけを PC に送るので、Web サイトからのデータそのものは PC に届かない。",
+   "perChoice": {
+    "ア": "実行ファイル以外にもマルウェアは潜む。",
+    "イ": "未知のマルウェアは検知できない。",
+    "ウ": "正しい。",
+    "エ": "暗号化しても中身は届く。"
+   },
+   "pitfalls": "画面転送方式＝データは届かず画像だけ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問41",
+   "short": "H30春 午前 問41",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-42",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 42,
+  "stem": "ファジングに該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サーバに FIN パケットを送信し，サーバからの応答を観測して，稼働しているサービスを見つけ出す。"
+   },
+   {
+    "label": "イ",
+    "text": "サーバの OS やアプリケーションソフトが生成したログやコマンド履歴などを解析して，ファイルサーバに保存されているファイルの改ざんを検知する。"
+   },
+   {
+    "label": "ウ",
+    "text": "ソフトウェアに，問題を引き起こしそうな多様なデータを入力し，挙動を監視して，脆弱性を見つけ出す。"
+   },
+   {
+    "label": "エ",
+    "text": "ネットワーク上を流れるパケットを収集し，そのプロトコルヘッダやデータを解析して，あらかじめ登録された攻撃パターンと一致した場合は不正アクセスと判断する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "secure-dev",
+   "software-test"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ファジングは、問題を起こしそうなデータを大量に入力し、異常な挙動から脆弱性を見つける。",
+   "perChoice": {
+    "ア": "ポートスキャン。",
+    "イ": "ログ解析。",
+    "ウ": "正しい。",
+    "エ": "シグネチャ型 IDS。"
+   },
+   "pitfalls": "ファジング＝でたらめなデータを入力。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問42",
+   "short": "H30春 午前 問42",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-43",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 43,
+  "stem": "Web システムにおいて，セッションの乗っ取りの機会を減らすために，利用者のログアウト時に Web サーバ又は Web ブラウザにおいて行うべき処理はどれか。ここで，利用者は自分専用の PC において，Web ブラウザを利用しているものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "Web サーバにおいてセッション ID をディスクに格納する。"
+   },
+   {
+    "label": "イ",
+    "text": "Web サーバにおいてセッション ID を無効にする。"
+   },
+   {
+    "label": "ウ",
+    "text": "Web ブラウザにおいてキャッシュしている Web ページをクリアする。"
+   },
+   {
+    "label": "エ",
+    "text": "Web ブラウザにおいてセッション ID をディスクに格納する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "web-attack"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ログアウト時にサーバ側でセッション ID を無効にすれば、盗まれた ID も使えなくなる。",
+   "perChoice": {
+    "ア": "格納しても対策にならない。",
+    "イ": "正しい。",
+    "ウ": "自分専用 PC なので効果は薄い。",
+    "エ": "かえって危険。"
+   },
+   "pitfalls": "セッション ID の無効化はサーバ側で。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問43",
+   "short": "H30春 午前 問43",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-44",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 44,
+  "stem": "パケットフィルタリング型ファイアウォールのフィルタリングルールを用いて，本来必要なサービスに影響を及ぼすことなく防げるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "外部に公開しないサーバへのアクセス"
+   },
+   {
+    "label": "イ",
+    "text": "サーバで動作するソフトウェアの脆弱性を突く攻撃"
+   },
+   {
+    "label": "ウ",
+    "text": "電子メールに添付されたファイルに含まれるマクロウイルスの侵入"
+   },
+   {
+    "label": "エ",
+    "text": "不特定多数の IoT 機器から大量の HTTP リクエストを送り付ける DDoS 攻撃"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "security-devices"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "外部に公開しないサーバの IP アドレスやポートへの通信を遮断するのは、パケットフィルタリングで簡単にできる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "正規の通信と同じポートを使うので、遮断すると必要なサービスも止まる。",
+    "ウ": "メールそのものを止めることになる。",
+    "エ": "送信元が多数で正規の HTTP なので、区別できない。"
+   },
+   "pitfalls": "パケットフィルタは IP・ポートで判断する。中身は見ない。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問44",
+   "short": "H30春 午前 問44",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-45",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 45,
+  "stem": "TPM（Trusted Platform Module）に該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "PC などの機器に搭載され，鍵生成やハッシュ演算及び暗号処理を行うセキュリティチップ"
+   },
+   {
+    "label": "イ",
+    "text": "受信した電子メールが正当な送信者から送信されたものであることを保証する，送信ドメイン認証技術"
+   },
+   {
+    "label": "ウ",
+    "text": "ファイアウォールや侵入検知，アンチマルウェアなど，複数のセキュリティ機能を統合したネットワーク監視装置"
+   },
+   {
+    "label": "エ",
+    "text": "ログデータを一元的に管理し，監視者へのセキュリティイベントの通知や相関分析を行うシステム"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "endpoint-security",
+   "tamper"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "TPM は PC などに搭載され、鍵の生成・保管やハッシュ演算、暗号処理を行うセキュリティチップ。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "SPF・DKIM。",
+    "ウ": "UTM。",
+    "エ": "SIEM。"
+   },
+   "pitfalls": "TPM＝セキュリティチップ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問45",
+   "short": "H30春 午前 問45",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-46",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 46,
+  "stem": "ソフトウェアライフサイクルプロセスにおいてソフトウェア実装プロセスを構成するプロセスのうち，次のタスクを実施するものはどれか。\n\n〔タスク〕\n・ソフトウェア品目の外部インタフェース，及びソフトウェアコンポーネント間のインタフェースについて最上位レベルの設計を行う。\n・データベースについて最上位レベルの設計を行う。\n・ソフトウェア結合のために暫定的なテスト要求事項及びスケジュールを定義する。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ソフトウェア結合プロセス"
+   },
+   {
+    "label": "イ",
+    "text": "ソフトウェア構築プロセス"
+   },
+   {
+    "label": "ウ",
+    "text": "ソフトウェア詳細設計プロセス"
+   },
+   {
+    "label": "エ",
+    "text": "ソフトウェア方式設計プロセス"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "process-standard",
+   "module-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "「最上位レベルの設計」はソフトウェア方式設計で行う。詳細設計は、さらに下のレベルを設計する。",
+   "perChoice": {
+    "ア": "結合とテストを行う。",
+    "イ": "コーディングと単体テストを行う。",
+    "ウ": "最上位レベルではなく、詳細なレベルの設計。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "方式設計＝構造の大枠（最上位）、詳細設計＝コンポーネントの中身。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問46",
+   "short": "H30春 午前 問46",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-47",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 47,
+  "stem": "組込みシステムの“クロス開発”の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "実装担当及びチェック担当の二人一組で役割を交代しながら開発を行うこと"
+   },
+   {
+    "label": "イ",
+    "text": "設計とプロトタイピングとを繰り返しながら開発を行うこと"
+   },
+   {
+    "label": "ウ",
+    "text": "ソフトウェアを実行する機器とは CPU のアーキテクチャが異なる機器で開発を行うこと"
+   },
+   {
+    "label": "エ",
+    "text": "派生開発を，変更プロセスと追加プロセスとに分けて開発を行うこと"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "embedded",
+   "dev-tools"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "クロス開発は、PC など実行環境とは別のアーキテクチャの機器で開発し、クロスコンパイラで実行機器用のコードを作る。",
+   "perChoice": {
+    "ア": "ペアプログラミング。",
+    "イ": "スパイラルモデル・プロトタイピング。",
+    "ウ": "正しい。",
+    "エ": "XDDP（派生開発の手法）。"
+   },
+   "pitfalls": "クロス＝異なる環境をまたぐ。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問47",
+   "short": "H30春 午前 問47",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-48",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 48,
+  "stem": "アジャイル開発のプラクティスの一つである“ふりかえり（レトロスペクティブ）”を行う適切なタイミングはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "“イテレーション”の各回の最後"
+   },
+   {
+    "label": "イ",
+    "text": "“タスクボード”に貼ったタスクカードが移動されたとき"
+   },
+   {
+    "label": "ウ",
+    "text": "“ニコニコカレンダー”に全チームメンバが記入し終えたとき"
+   },
+   {
+    "label": "エ",
+    "text": "毎日行う“朝会”"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "agile"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ふりかえりは、各イテレーションの最後に、良かった点と改善点を話し合う。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "タスクの状況の更新。",
+    "ウ": "メンバの気分の共有。",
+    "エ": "その日の作業の共有。"
+   },
+   "pitfalls": "イテレーションの終わり＝ふりかえり。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問48",
+   "short": "H30春 午前 問48",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-49",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 49,
+  "stem": "アジャイル開発などで導入されている“ペアプログラミング”の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "開発工程の初期段階に要求仕様を確認するために，プログラマと利用者がペアとなり，試作した画面や帳票を見て，相談しながらプログラムの開発を行う。"
+   },
+   {
+    "label": "イ",
+    "text": "効率よく開発するために，2 人のプログラマがペアとなり，メインプログラムとサブプログラムを分担して開発を行う。"
+   },
+   {
+    "label": "ウ",
+    "text": "短期間で開発するために，2 人のプログラマがペアとなり，交互に作業と休憩を繰り返しながら長時間にわたって連続でプログラムの開発を行う。"
+   },
+   {
+    "label": "エ",
+    "text": "品質の向上や知識の共有を図るために，2 人のプログラマがペアとなり，その場で相談したりレビューしたりしながら，一つのプログラムの開発を行う。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "agile"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ペアプログラミングは、2 人が 1 つのプログラムを一緒に作り、その場でレビューする。",
+   "perChoice": {
+    "ア": "プロトタイピング。",
+    "イ": "分担開発。",
+    "ウ": "長時間労働のための手法ではない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "ペアプロ＝1 つのコードを 2 人で。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問49",
+   "short": "H30春 午前 問49",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-50",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 50,
+  "stem": "自社開発したソフトウェアの他社への使用許諾に関する説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "既に自社の製品に搭載して販売していると，ソフトウェア単体では使用許諾できない。"
+   },
+   {
+    "label": "イ",
+    "text": "既にハードウェアと組み合わせて特許を取得していると，ソフトウェア単体では使用許諾できない。"
+   },
+   {
+    "label": "ウ",
+    "text": "ソースコードを無償で使用許諾すると，無条件でオープンソースソフトウェアになる。"
+   },
+   {
+    "label": "エ",
+    "text": "特許で保護された技術を使っていないソフトウェアであっても，使用許諾することは可能である。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "ip-contract",
+   "copyright"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ソフトウェアは著作権で保護されるので、特許がなくても使用許諾できる。",
+   "perChoice": {
+    "ア": "単体でも許諾できる。",
+    "イ": "単体でも許諾できる。",
+    "ウ": "OSS の条件を満たす必要がある。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "プログラムは著作物。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問50",
+   "short": "H30春 午前 問50",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-51",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 51,
+  "stem": "プロジェクトマネジメントにおけるスコープコントロールの活動はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "開発ツールの新機能の教育が不十分と分かったので，開発ツールの教育期間を 2 日間延長した。"
+   },
+   {
+    "label": "イ",
+    "text": "要件定義完了時に再見積りをしたところ，当初見積もった開発コストを超過することが判明したので，追加予算を確保した。"
+   },
+   {
+    "label": "ウ",
+    "text": "連携する計画であった外部システムのリリースが延期になったので，この外部システムとの連携に関わる作業は別プロジェクトで実施することにした。"
+   },
+   {
+    "label": "エ",
+    "text": "割り当てたテスト担当者が期待した成果を出せなかったので，経験豊富なテスト担当者と交代した。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-scope"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "スコープコントロールは、作業範囲（スコープ）の変更を管理する活動。連携作業を別プロジェクトに移すのはスコープの変更。",
+   "perChoice": {
+    "ア": "スケジュール・資源の管理。",
+    "イ": "コストの管理。",
+    "ウ": "正しい。",
+    "エ": "資源（要員）の管理。"
+   },
+   "pitfalls": "スコープ＝何をやるかの範囲。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問51",
+   "short": "H30春 午前 問51",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-52",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 52,
+  "stem": "PMBOK ガイド 第 5 版によれば，プロジェクトのコスト見積り技法の説明のうち，パラメトリック見積りの説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "WBS の下位レベルの構成要素単位の見積り結果を集計して，プロジェクトのコストを見積もる。"
+   },
+   {
+    "label": "イ",
+    "text": "関連する過去のデータとその他の変数との統計的関係を用いて，プロジェクトにおける作業のコストを見積もる。"
+   },
+   {
+    "label": "ウ",
+    "text": "楽観値，悲観値，最可能値を使って，個々のアクティビティのコストを見積もる。"
+   },
+   {
+    "label": "エ",
+    "text": "類似のプロジェクトにおける過去のコスト実績を使って，プロジェクトのコストを見積もる。"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-cost-schedule"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "パラメトリック見積りは、過去データの統計的関係（単価×数量など）を使って見積もる。",
+   "perChoice": {
+    "ア": "ボトムアップ見積り。",
+    "イ": "正しい。",
+    "ウ": "三点見積り。",
+    "エ": "類推見積り。"
+   },
+   "pitfalls": "パラメトリック＝パラメタ（変数）を使った計算式。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問52",
+   "short": "H30春 午前 問52",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-53",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 53,
+  "stem": "ISO 21500:2012（プロジェクトマネジメントの手引き（英和対訳版））によれば，プロジェクト資源マネジメントにおけるプロセス“プロジェクトチームの育成”の目的はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "継続的にプロジェクトチームのメンバのパフォーマンス及び相互関係を改善する。"
+   },
+   {
+    "label": "イ",
+    "text": "プロジェクトチームの全てのメンバの役割，責任及び権限を決め，決定事項に対して全てのメンバからコミットメントを得る。"
+   },
+   {
+    "label": "ウ",
+    "text": "プロジェクトチームのパフォーマンスを評価分析し，分析結果をフィードバックして問題を解決し，変更を調整する。"
+   },
+   {
+    "label": "エ",
+    "text": "プロジェクトの完遂に必要な能力をもったプロジェクトチームのメンバを招集し，人的資源を得る。"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-team"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "チームの育成は、メンバのパフォーマンスと相互関係を継続的に改善するプロセス。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "資源の定義に近い。",
+    "ウ": "チームのマネジメント。",
+    "エ": "チームの編成（獲得）。"
+   },
+   "pitfalls": "編成（集める）→ 育成（伸ばす）→ マネジメント（管理する）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問53",
+   "short": "H30春 午前 問53",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-54",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 54,
+  "stem": "あるソフトウェア開発部門では，開発工数 E（人月）と開発規模 L（キロ行）との関係を，E＝5.2L^0.98 としている。L＝10 としたときの生産性（キロ行／人月）は，およそ幾らか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.2"
+   },
+   {
+    "label": "イ",
+    "text": "0.5"
+   },
+   {
+    "label": "ウ",
+    "text": "1.9"
+   },
+   {
+    "label": "エ",
+    "text": "5.2"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-cost-schedule"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "10^0.98 はほぼ 10 なので、E≒5.2×10＝52 人月（正確には約 49.6）。生産性＝10÷約 50≒0.2 キロ行／人月。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "計算が合わない。",
+    "ウ": "計算が合わない。",
+    "エ": "係数のまま。"
+   },
+   "pitfalls": "生産性＝規模÷工数。指数が 1 に近いので、ほぼ比例と考えて概算する。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問54",
+   "short": "H30春 午前 問54",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-55",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 55,
+  "stem": "JIS Q 20000-1:2012（サービスマネジメントシステム要求事項）は，サービスマネジメントシステム（以下，SMS という）及びサービスのあらゆる場面で PDCA 方法論の適用を要求している。SMS の実行（Do）の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "SMS 及びサービスのパフォーマンスを継続的に改善するための処置を実施する。"
+   },
+   {
+    "label": "イ",
+    "text": "SMS を確立し，文書化し，合意する。"
+   },
+   {
+    "label": "ウ",
+    "text": "サービスの設計，移行，提供及び改善のために SMS を導入し，運用する。"
+   },
+   {
+    "label": "エ",
+    "text": "方針，目的，計画及びサービスの要求事項について，SMS 及びサービスを監視，測定及びレビューし，それらの結果を報告する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "service-process"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "実行（Do）は、SMS を導入して運用すること。",
+   "perChoice": {
+    "ア": "改善（Act）。",
+    "イ": "計画（Plan）。",
+    "ウ": "正しい。",
+    "エ": "点検（Check）。"
+   },
+   "pitfalls": "PDCA を各選択肢に当てはめる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問55",
+   "short": "H30春 午前 問55",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-56",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 56,
+  "stem": "JIS Q 20000-2:2013（サービスマネジメントシステムの適用の手引）によれば，構成管理プロセスの活動として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "構成品目の総所有費用及び総減価償却費用の計算"
+   },
+   {
+    "label": "イ",
+    "text": "構成品目の特定，管理，記録，追跡，報告及び検証，並びに CMDB での CI 情報の管理"
+   },
+   {
+    "label": "ウ",
+    "text": "正しい場所及び時間での構成品目の配付"
+   },
+   {
+    "label": "エ",
+    "text": "変更管理方針で定義された構成品目に対する変更要求の管理"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "service-process"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "構成管理は、構成品目（CI）を特定・記録・管理し、CMDB で情報を管理する。",
+   "perChoice": {
+    "ア": "予算業務・会計業務。",
+    "イ": "正しい。",
+    "ウ": "リリース及び展開管理。",
+    "エ": "変更管理。"
+   },
+   "pitfalls": "構成管理＝CMDB。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問56",
+   "short": "H30春 午前 問56",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-57",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 57,
+  "stem": "業務部門が起票した入力原票を，情報システム部門でデータ入力する場合，情報システム部門の業務として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "業務部門が入力原票ごとの処理結果を確認できるように，処理結果リストを業務部門に送付する。"
+   },
+   {
+    "label": "イ",
+    "text": "入力原票の記入内容に誤りがある場合は，誤りの内容が明らかなときに限り，情報システム部門の判断で入力原票を修正し，入力処理する。"
+   },
+   {
+    "label": "ウ",
+    "text": "入力原票はデータ入力処理の期日まで情報システム部門で保管し，受領枚数の点検などの授受確認は，データ入力処理の期日直前に一括して行う。"
+   },
+   {
+    "label": "エ",
+    "text": "入力済みの入力原票は，不正使用や機密情報の漏えいなどを防止するために，入力後直ちに廃棄する。"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "it-operation"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "処理結果リストを業務部門に返せば、業務部門が入力内容を確認できる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "誤りの修正は起票した業務部門が行う。",
+    "ウ": "授受確認は受け取った時点で行う。",
+    "エ": "原票は一定期間保管して、照合や監査に使う。"
+   },
+   "pitfalls": "原票の責任は起票部門。情報システム部門は勝手に直さない。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問57",
+   "short": "H30春 午前 問57",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-58",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 58,
+  "stem": "システム利用者に対して付与されるアクセス権の管理状況の監査で判明した状況のうち，監査人がシステム監査報告書で報告すべき指摘事項はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アクセス権を付与された利用者 ID・パスワードに関して，システム利用者が遵守すべき事項が規程として定められ，システム利用者に周知されていた。"
+   },
+   {
+    "label": "イ",
+    "text": "業務部門長によって，所属するシステム利用者に対するアクセス権の付与状況のレビューが定期的に行われていた。"
+   },
+   {
+    "label": "ウ",
+    "text": "システム利用者に対するアクセス権の付与・変更・削除に関する管理手続が，規程として定められていた。"
+   },
+   {
+    "label": "エ",
+    "text": "退職・異動したシステム利用者に付与されていたアクセス権の削除・変更は，定期人事異動がある年度初めに全てまとめて行われていた。"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit",
+   "authentication"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "退職・異動者のアクセス権は直ちに削除・変更すべき。年度初めにまとめて行うと、それまで不要な権限が残る。",
+   "perChoice": {
+    "ア": "適切。",
+    "イ": "適切。",
+    "ウ": "適切。",
+    "エ": "正しい（指摘事項）。"
+   },
+   "pitfalls": "退職・異動者の権限は速やかに削除。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問58",
+   "short": "H30春 午前 問58",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-59",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 59,
+  "stem": "企業において整備したシステム監査規程の最終的な承認者として，最も適切な者は誰か。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "監査対象システムの利用部門の長"
+   },
+   {
+    "label": "イ",
+    "text": "経営者"
+   },
+   {
+    "label": "ウ",
+    "text": "情報システム部門の長"
+   },
+   {
+    "label": "エ",
+    "text": "被監査部門の長"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "システム監査は経営者のために行うもので、監査規程は経営者が承認する。",
+   "perChoice": {
+    "ア": "被監査側。",
+    "イ": "正しい。",
+    "ウ": "被監査側。",
+    "エ": "被監査側。"
+   },
+   "pitfalls": "システム監査の依頼者・報告先は経営者。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問59",
+   "short": "H30春 午前 問59",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-60",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 60,
+  "stem": "マスタファイル管理に関するシステム監査項目のうち，可用性に該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "マスタファイルが置かれているサーバを二重化し，耐障害性の向上を図っていること"
+   },
+   {
+    "label": "イ",
+    "text": "マスタファイルのデータを複数件まとめて検索・加工するための機能が，システムに盛り込まれていること"
+   },
+   {
+    "label": "ウ",
+    "text": "マスタファイルのメンテナンスは，特権アカウントを付与された者だけに許されていること"
+   },
+   {
+    "label": "エ",
+    "text": "マスタファイルへのデータ入力チェック機能が，システムに盛り込まれていること"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit",
+   "redundancy"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "二重化は、障害時にも使い続けられるようにする対策で、可用性に該当する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "効率性。",
+    "ウ": "機密性。",
+    "エ": "完全性。"
+   },
+   "pitfalls": "可用性＝二重化・冗長化。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問60",
+   "short": "H30春 午前 問60",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-61",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 61,
+  "stem": "共通フレーム 2013 によれば，システム化構想の立案で作成されるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "企業で将来的に必要となる最上位の業務機能と業務組織を表した業務の全体像"
+   },
+   {
+    "label": "イ",
+    "text": "業務手順やコンピュータ入出力情報など実現すべき要件"
+   },
+   {
+    "label": "ウ",
+    "text": "日次や月次で行う利用者業務やコンピュータ入出力作業の業務手順"
+   },
+   {
+    "label": "エ",
+    "text": "必要なハードウェアやソフトウェアを記述した最上位レベルのシステム方式"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "system-planning",
+   "process-standard"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "システム化構想の立案では、将来の業務の全体像（業務機能と組織）を描く。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "要件定義。",
+    "ウ": "運用設計（利用者マニュアル）。",
+    "エ": "システム方式設計。"
+   },
+   "pitfalls": "構想＝全体像、要件定義＝実現すべき要件。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問61",
+   "short": "H30春 午前 問61",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-62",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 62,
+  "stem": "BCP の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "企業の戦略を実現するために，財務，顧客，内部ビジネスプロセス，学習と成長という四つの視点から戦略を検討したもの"
+   },
+   {
+    "label": "イ",
+    "text": "企業の目標を達成するために業務内容や業務の流れを可視化し，一定のサイクルをもって継続的に業務プロセスを改善するもの"
+   },
+   {
+    "label": "ウ",
+    "text": "業務効率の向上，業務コストの削減を目的に，業務プロセスを対象としてアウトソースを実施するもの"
+   },
+   {
+    "label": "エ",
+    "text": "事業の中断・阻害に対応し，事業を復旧し，再開し，あらかじめ定められたレベルに回復するための手順を規定したもの"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "bcp"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "BCP（事業継続計画）は、事業が中断したときに復旧・再開する手順を定めたもの。",
+   "perChoice": {
+    "ア": "バランススコアカード。",
+    "イ": "BPM。",
+    "ウ": "BPO。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "BCP＝Business Continuity Plan。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問62",
+   "short": "H30春 午前 問62",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-63",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 63,
+  "stem": "定性的な評価項目を定量化するために評価点を与える方法がある。表に示す 4 段階評価を用いた場合，重み及び判定内容から評価されるシステム全体の目標達成度は何 % となるか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "27"
+   },
+   {
+    "label": "イ",
+    "text": "36"
+   },
+   {
+    "label": "ウ",
+    "text": "43"
+   },
+   {
+    "label": "エ",
+    "text": "52"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "weighted-eval"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "満点は (5＋8＋12)×3＝75。実際は 5×3＋8×0＋12×1＝27。27÷75＝36%。",
+   "perChoice": {
+    "ア": "実際の得点のまま。",
+    "イ": "正しい。",
+    "ウ": "計算が合わない。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "重み×評価点の合計 ÷ 満点。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問63",
+   "short": "H30春 午前 問63",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q63.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-64",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 64,
+  "stem": "システム管理基準（平成 16 年）によれば，情報戦略策定段階の成果物はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "関連する他の情報システムと役割を分担し，組織体として最大の効果を上げる機能を実現するために，全体最適化計画との整合性を考慮して策定する開発計画"
+   },
+   {
+    "label": "イ",
+    "text": "経営戦略に基づいて組織体全体で整合性及び一貫性を確保した情報化を推進するために，方針及び目標に基づいて策定する全体最適化計画"
+   },
+   {
+    "label": "ウ",
+    "text": "情報システムの運用を円滑に行うために，運用設計及び運用管理ルールに基づき，さらに規模，期間，システム特性を考慮して策定する運用手順"
+   },
+   {
+    "label": "エ",
+    "text": "組織体として一貫し，効率的な開発作業を確実に遂行するために，組織体として標準化された開発方法に基づいて策定する開発手順"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "system-strategy"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "情報戦略策定段階では、経営戦略に基づいて全体最適化計画を策定する。",
+   "perChoice": {
+    "ア": "企画業務の成果物。",
+    "イ": "正しい。",
+    "ウ": "運用業務の成果物。",
+    "エ": "開発業務の成果物。"
+   },
+   "pitfalls": "情報戦略＝全体最適化計画。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問64",
+   "short": "H30春 午前 問64",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-65",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 65,
+  "stem": "EMS（electronics manufacturing services）の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "相手先ブランドで販売する電子機器の設計だけを受託し，製造は相手先で行う。"
+   },
+   {
+    "label": "イ",
+    "text": "外部から調達した電子機器に付加価値を加えて，自社ブランドで販売する。"
+   },
+   {
+    "label": "ウ",
+    "text": "自社ブランドで販売する電子機器のソフトウェア開発だけを外部に委託し，ハードウェアは自社で設計製造する。"
+   },
+   {
+    "label": "エ",
+    "text": "生産設備をもつ企業が，他社からの委託を受けて電子機器を製造する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "business-model"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "EMS は、他社から電子機器の製造を受託するサービス。",
+   "perChoice": {
+    "ア": "設計だけの受託（デザインハウス）。",
+    "イ": "VAR（付加価値再販）。",
+    "ウ": "ソフトウェアの外部委託。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "EMS＝電子機器の製造受託。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問65",
+   "short": "H30春 午前 問65",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-66",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 66,
+  "stem": "情報システムの調達の際に作成される RFI の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "調達者から供給者候補に対して，システム化の目的や業務内容などを示し，必要な情報の提供を依頼すること"
+   },
+   {
+    "label": "イ",
+    "text": "調達者から供給者候補に対して，対象システムや調達条件などを示し，提案書の提出を依頼すること"
+   },
+   {
+    "label": "ウ",
+    "text": "調達者から供給者に対して，契約内容で取り決めた内容に関して，変更を要請すること"
+   },
+   {
+    "label": "エ",
+    "text": "調達者から供給者に対して，双方の役割分担などを確認し，契約の締結を要請すること"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "procurement"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "RFI は情報提供の依頼。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "RFP。",
+    "ウ": "変更要請。",
+    "エ": "契約締結の要請。"
+   },
+   "pitfalls": "RFI → RFP → 契約。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問66",
+   "short": "H30春 午前 問66",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-67",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 67,
+  "stem": "PPM において，投資用の資金源として位置付けられる事業はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "市場成長率が高く，相対的市場占有率が高い事業"
+   },
+   {
+    "label": "イ",
+    "text": "市場成長率が高く，相対的市場占有率が低い事業"
+   },
+   {
+    "label": "ウ",
+    "text": "市場成長率が低く，相対的市場占有率が高い事業"
+   },
+   {
+    "label": "エ",
+    "text": "市場成長率が低く，相対的市場占有率が低い事業"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "strategy-frameworks"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "金のなる木（低成長・高シェア）は、投資があまり要らずに大きな利益を生むので、資金源になる。",
+   "perChoice": {
+    "ア": "花形。",
+    "イ": "問題児。",
+    "ウ": "正しい（金のなる木）。",
+    "エ": "負け犬。"
+   },
+   "pitfalls": "金のなる木で稼いだ資金を問題児に投資する。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問67",
+   "short": "H30春 午前 問67",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-68",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 68,
+  "stem": "現在の動向から未来を予測したり，システム分析に使用したりする手法であり，専門的知識や経験を有する複数の人にアンケート調査を行い，その結果を互いに参照した上で調査を繰り返して，集団としての意見を収束させる手法はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "因果関係分析法"
+   },
+   {
+    "label": "イ",
+    "text": "クロスセクション法"
+   },
+   {
+    "label": "ウ",
+    "text": "時系列回帰分析法"
+   },
+   {
+    "label": "エ",
+    "text": "デルファイ法"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "技術戦略マネジメント",
+  "topicIds": [
+   "forecasting"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "デルファイ法は、専門家へのアンケートを結果を共有しながら繰り返し、意見を収束させる。",
+   "perChoice": {
+    "ア": "原因と結果の関係から予測。",
+    "イ": "横断的な比較。",
+    "ウ": "過去の傾向から予測。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "専門家＋アンケートの繰返し＝デルファイ法。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問68",
+   "short": "H30春 午前 問68",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-69",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 69,
+  "stem": "ターゲットリターン価格設定の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "競合の価格を十分に考慮した上で価格を決定する。"
+   },
+   {
+    "label": "イ",
+    "text": "顧客層，時間帯，場所など市場セグメントごとに異なった価格を決定する。"
+   },
+   {
+    "label": "ウ",
+    "text": "目標とする投資収益率を実現するように価格を決定する。"
+   },
+   {
+    "label": "エ",
+    "text": "リサーチなどによる消費者の値頃感に基づいて価格を決定する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "marketing"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ターゲットリターン価格設定は、目標とする投資収益率（リターン）を達成できるように価格を決める。",
+   "perChoice": {
+    "ア": "競争志向型の価格設定。",
+    "イ": "差別価格。",
+    "ウ": "正しい。",
+    "エ": "知覚価値価格設定（需要志向）。"
+   },
+   "pitfalls": "ターゲット（目標）リターン（収益）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問69",
+   "short": "H30春 午前 問69",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-70",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 70,
+  "stem": "SFA を説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "営業活動に IT を活用して営業の効率と品質を高め，売上・利益の大幅な増加や，顧客満足度の向上を目指す手法・概念である。"
+   },
+   {
+    "label": "イ",
+    "text": "卸売業・メーカが小売店の経営活動を支援することによって，自社との取引量の拡大につなげる手法・概念である。"
+   },
+   {
+    "label": "ウ",
+    "text": "企業全体の経営資源を有効かつ総合的に計画して管理し，経営の効率向上を図るための手法・概念である。"
+   },
+   {
+    "label": "エ",
+    "text": "消費者向けや企業間の商取引を，インターネットなどの電子的なネットワークを活用して行う手法・概念である。"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "business-systems"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "SFA は営業活動を IT で支援する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "リテールサポート。",
+    "ウ": "ERP。",
+    "エ": "EC。"
+   },
+   "pitfalls": "SFA＝Sales Force Automation。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問70",
+   "short": "H30春 午前 問70",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-71",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 71,
+  "stem": "政府は，IoT を始めとする様々な ICT が最大限に活用され，サイバー空間とフィジカル空間とが融合された“超スマート社会”の実現を推進している。必要なものやサービスが人々に過不足なく提供され，年齢や性別などの違いにかかわらず，誰もが快適に生活することができるとされる“超スマート社会”実現への取組みは何と呼ばれているか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "e-Gov"
+   },
+   {
+    "label": "イ",
+    "text": "Society 5.0"
+   },
+   {
+    "label": "ウ",
+    "text": "Web 2.0"
+   },
+   {
+    "label": "エ",
+    "text": "ダイバーシティ社会"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "cps",
+   "dx-policy"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "Society 5.0 は、サイバー空間とフィジカル空間を融合させた人間中心の社会。",
+   "perChoice": {
+    "ア": "電子政府の総合窓口。",
+    "イ": "正しい。",
+    "ウ": "双方向の Web。",
+    "エ": "多様性を受け入れる社会。"
+   },
+   "pitfalls": "超スマート社会＝Society 5.0。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問71",
+   "short": "H30春 午前 問71",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-72",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 72,
+  "stem": "図は，製品 A の構成部品を示し，括弧内の数字は上位の製品・部品 1 個当たりの所要数量である。この製品 A を 10 個生産する場合，部品 C は，少なくとも何個発注する必要があるか。ここで，現在の部品 B の在庫は 0 個，部品 C の在庫は 5 個である。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "15"
+   },
+   {
+    "label": "イ",
+    "text": "20"
+   },
+   {
+    "label": "ウ",
+    "text": "25"
+   },
+   {
+    "label": "エ",
+    "text": "30"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "production-mgmt",
+   "inventory"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "A 直下の C が 10×1＝10 個。B は 10×2＝20 個で、その下の C が 20×1＝20 個。合計 30 個から在庫 5 個を引いて 25 個。",
+   "perChoice": {
+    "ア": "B の下の C を数えていない。",
+    "イ": "A 直下の C を数えていない。",
+    "ウ": "正しい。",
+    "エ": "在庫を引いていない。"
+   },
+   "pitfalls": "部品表を上から順に展開し、同じ部品はまとめてから在庫を引く。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問72",
+   "short": "H30春 午前 問72",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q72.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-73",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 73,
+  "stem": "インターネットショッピングで売上の全体に対して，あまり売れない商品の売上合計の占める割合が無視できない割合になっていることを指すものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アフィリエイト"
+   },
+   {
+    "label": "イ",
+    "text": "オプトイン"
+   },
+   {
+    "label": "ウ",
+    "text": "ドロップシッピング"
+   },
+   {
+    "label": "エ",
+    "text": "ロングテール"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "marketing"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ロングテールは、販売数の少ない多数の商品の売上合計が、全体の中で大きな割合になる現象。",
+   "perChoice": {
+    "ア": "成果報酬型広告。",
+    "イ": "事前に同意を得ること。",
+    "ウ": "在庫をもたずにメーカから直送する販売方法。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "グラフの右に長く伸びる尾（テール）。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問73",
+   "short": "H30春 午前 問73",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-74",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 74,
+  "stem": "図は，ある製品ロットの抜取り検査の結果を表す OC 曲線（検査特性曲線）である。この図に関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "p1% よりも大きい不良率のロットが合格する確率は，L1 よりも大きい。"
+   },
+   {
+    "label": "イ",
+    "text": "p1% よりも小さい不良率のロットが不合格となる確率は，(1.0－L1) よりも大きい。"
+   },
+   {
+    "label": "ウ",
+    "text": "p2% よりも大きい不良率のロットが合格する確率は，L2 よりも小さい。"
+   },
+   {
+    "label": "エ",
+    "text": "p2% よりも小さい不良率のロットが不合格となる確率は，L2 よりも小さい。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "qc-tools",
+   "statistics"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "OC 曲線は右下がりなので、不良率が p2 より大きいと、合格確率は L2 より小さくなる。",
+   "perChoice": {
+    "ア": "p1 より大きいと合格確率は L1 より小さい。",
+    "イ": "p1 より小さいと合格確率は L1 より大きく、不合格確率は 1－L1 より小さい。",
+    "ウ": "正しい。",
+    "エ": "p2 より小さいと合格確率は L2 より大きく、不合格確率は 1－L2 より小さい。L2 より小さいとは限らない。"
+   },
+   "pitfalls": "右下がりのグラフ：横軸が大きいほど縦軸は小さい。不合格確率＝1－合格確率。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問74",
+   "short": "H30春 午前 問74",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q74.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-75",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 75,
+  "stem": "ビッグデータ分析の手法の一つであるデシジョンツリーを活用してマーケティング施策の判断に必要な事象を整理し，発生確率の精度を向上させた上で二つのマーケティング施策 a，b の選択を行う。マーケティング施策を実行した場合の利益増加額（売上増加額－費用）の期待値が最大となる施策と，そのときの利益増加額の期待値の組合せはどれか。（選択肢は 2 枚目の表のア～エ）",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "a，70 億円"
+   },
+   {
+    "label": "イ",
+    "text": "a，160 億円"
+   },
+   {
+    "label": "ウ",
+    "text": "b，82 億円"
+   },
+   {
+    "label": "エ",
+    "text": "b，162 億円"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "data-analysis",
+   "probability-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "施策 a：追加費用ありは 0.3×200＋0.7×100－60＝70、なしは 50 → 70。期待値＝0.4×70＋0.6×120－30＝70。施策 b：追加費用ありは 0.4×150＋0.6×100－40＝80、なしは 70 → 80。期待値＝0.3×80＋0.7×140－40＝82。b を選び 82 億円。",
+   "perChoice": {
+    "ア": "a は 70 で b より小さい。",
+    "イ": "初期費用を引いていない。",
+    "ウ": "正しい。",
+    "エ": "初期費用を引いていない。"
+   },
+   "pitfalls": "右端から計算。□は大きい方を選び、○は期待値をとる。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問75",
+   "short": "H30春 午前 問75",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q75.png",
+   "data/img/ap-h30h/q75t.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-76",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 76,
+  "stem": "取得原価 30 万円の PC を 2 年間使用した後，廃棄処分し，廃棄費用 2 万円を現金で支払った。このときの固定資産の除却損は廃棄費用も含めて何万円か。ここで，耐用年数は 4 年，減価償却方法は定額法，定額法の償却率は 0.250，残存価額は 0 円とする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "9.5"
+   },
+   {
+    "label": "イ",
+    "text": "13.0"
+   },
+   {
+    "label": "ウ",
+    "text": "15.0"
+   },
+   {
+    "label": "エ",
+    "text": "17.0"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "accounting"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "1 年の償却額は 30×0.25＝7.5 万円。2 年後の帳簿価額は 30－15＝15 万円。廃棄費用 2 万円を加えて 17 万円。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "計算が合わない。",
+    "ウ": "廃棄費用を含めていない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "除却損＝除却時の帳簿価額＋廃棄費用。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問76",
+   "short": "H30春 午前 問76",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-77",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 77,
+  "stem": "損益計算資料から求められる損益分岐点売上高は，何百万円か。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "225"
+   },
+   {
+    "label": "イ",
+    "text": "300"
+   },
+   {
+    "label": "ウ",
+    "text": "450"
+   },
+   {
+    "label": "エ",
+    "text": "480"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "break-even"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "変動費は 200＋100＝300 で変動費率 0.6。固定費は 100＋80＝180。損益分岐点売上高＝180÷(1－0.6)＝450 百万円。",
+   "perChoice": {
+    "ア": "販売固定費を除いている。",
+    "イ": "計算が合わない。",
+    "ウ": "正しい。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "損益分岐点＝固定費÷(1－変動費率)。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問77",
+   "short": "H30春 午前 問77",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h30h/q77.png"
+  ]
+ },
+ {
+  "id": "AP-H30H-AM-78",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 78,
+  "stem": "製造物責任法（PL 法）において，製造物責任を問われる事例はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "機器に組み込まれている ROM に記録されたプログラムに瑕疵があったので，その機器の使用者に大けがをさせた。"
+   },
+   {
+    "label": "イ",
+    "text": "工場に配備されている制御系コンピュータのオペレーションを誤ったので，製品製造のラインを長時間停止させ大きな損害を与えた。"
+   },
+   {
+    "label": "ウ",
+    "text": "ソフトウェアパッケージに重大な瑕疵が発見され，修復に時間が掛かったので，販売先の業務に大混乱をもたらした。"
+   },
+   {
+    "label": "エ",
+    "text": "提供している IT サービスのうち，ヘルプデスクサービスが SLA を満たす品質になく，顧客から多大なクレームを受けた。"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "pl-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "PL 法の対象は製造物（動産）。ソフトウェア単体は対象外だが、ROM に組み込まれて機器の一部になれば対象になる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "操作ミスで、製造物の欠陥ではない。",
+    "ウ": "ソフトウェア単体は製造物に当たらない。",
+    "エ": "サービスは製造物に当たらない。"
+   },
+   "pitfalls": "PL 法＝製造物の欠陥による生命・身体・財産の被害。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問78",
+   "short": "H30春 午前 問78",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-79",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 79,
+  "stem": "企業の Web サイトに接続して Web ページを改ざんし，システムの使用目的に反する動作をさせて業務を妨害する行為を処罰の対象とする法律はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "刑法"
+   },
+   {
+    "label": "イ",
+    "text": "特定商取引法"
+   },
+   {
+    "label": "ウ",
+    "text": "不正競争防止法"
+   },
+   {
+    "label": "エ",
+    "text": "プロバイダ責任制限法"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "unauthorized-access"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "Web ページの改ざんによる業務妨害は、刑法の電子計算機損壊等業務妨害罪の対象。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "訪問販売や通信販売などのルール。",
+    "ウ": "営業秘密などの保護。",
+    "エ": "プロバイダの責任の範囲。"
+   },
+   "pitfalls": "業務妨害＝刑法。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問79",
+   "short": "H30春 午前 問79",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H30H-AM-80",
+  "kind": "past",
+  "examYear": 2018,
+  "season": "spring",
+  "section": "A",
+  "number": 80,
+  "stem": "資金決済法で定められている仮想通貨の特徴はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "金融庁の登録を受けていなくても，外国の事業者であれば，法定通貨との交換は，日本国内において可能である。"
+   },
+   {
+    "label": "イ",
+    "text": "日本国内から外国へ国際送金をする場合には，各国の銀行を経由して送金しなければならない。"
+   },
+   {
+    "label": "ウ",
+    "text": "日本国内の事業者が運営するオンラインゲームでだけ流通する通貨である。"
+   },
+   {
+    "label": "エ",
+    "text": "不特定の者に対する代金の支払に使用可能で，電子的に記録・移転でき，法定通貨やプリペイドカードではない財産的価値である。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "finance-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "資金決済法の仮想通貨（現在は暗号資産）は、不特定の者への支払に使え、電子的に移転でき、法定通貨やプリペイドカードではない財産的価値。",
+   "perChoice": {
+    "ア": "国内で交換するには登録が必要。",
+    "イ": "銀行を経由しない送金ができる。",
+    "ウ": "ゲーム内通貨は該当しない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "2020 年の法改正で「仮想通貨」は「暗号資産」に名称変更された。"
+  },
+  "source": {
+   "label": "平成30年度 春期 応用情報技術者試験 午前 問80",
+   "short": "H30春 午前 問80",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2018h30.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "validityNote": "この問題は出題当時の名称（仮想通貨）で書かれています。現在の法律上の名称は「暗号資産」です。"
+ }
+]
