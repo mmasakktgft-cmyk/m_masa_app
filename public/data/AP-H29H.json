@@ -1,0 +1,4809 @@
+[
+ {
+  "id": "AP-H29H-AM-01",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 1,
+  "stem": "論理和（∨），論理積（∧），排他的論理和（⊕）の結合法則の成立に関する記述として，適切な組合せはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "∨：必ずしも成立しない，∧：成立する，⊕：成立する"
+   },
+   {
+    "label": "イ",
+    "text": "∨：成立する，∧：必ずしも成立しない，⊕：成立する"
+   },
+   {
+    "label": "ウ",
+    "text": "∨：成立する，∧：成立する，⊕：必ずしも成立しない"
+   },
+   {
+    "label": "エ",
+    "text": "∨：成立する，∧：成立する，⊕：成立する"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "離散数学",
+  "topicIds": [
+   "logic-formula"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "論理和・論理積・排他的論理和のいずれも結合法則が成り立つ。XOR は「1 の個数が奇数なら 1」なので、計算の順序によらない。",
+   "perChoice": {
+    "ア": "論理和も成立する。",
+    "イ": "論理積も成立する。",
+    "ウ": "排他的論理和も成立する。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "XOR も結合法則・交換法則が成り立つ（パリティ計算に使える理由）。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問1",
+   "short": "H29春 午前 問1",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q01.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-02",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 2,
+  "stem": "(1＋α)ⁿ の計算を，1＋n×α で近似計算ができる条件として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "|α| が 1 に比べて非常に小さい。"
+   },
+   {
+    "label": "イ",
+    "text": "|α| が n に比べて非常に大きい。"
+   },
+   {
+    "label": "ウ",
+    "text": "|α÷n| が 1 よりも大きい。"
+   },
+   {
+    "label": "エ",
+    "text": "|n×α| が 1 よりも大きい。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "応用数学",
+  "topicIds": [
+   "numerical-algo"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "二項展開すると (1＋α)ⁿ＝1＋nα＋{n(n－1)/2}α²＋…。α が 1 より十分小さければ α² 以降の項を無視できる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "α が大きいと α² 以降の項が無視できない。",
+    "ウ": "近似の条件にならない。",
+    "エ": "nα が大きいと高次の項も大きくなりやすい。"
+   },
+   "pitfalls": "|α| ≪ 1 なら (1＋α)ⁿ ≒ 1＋nα。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問2",
+   "short": "H29春 午前 問2",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-03",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 3,
+  "stem": "ノードとノードの間のエッジの有無を，隣接行列を用いて表す。ある無向グラフの隣接行列が次の場合，グラフで表現したものはどれか。ここで，ノードを隣接行列の行と列に対応させて，ノード間にエッジが存在する場合は 1 で，エッジが存在しない場合は 0 で示す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-h29h/q03a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-h29h/q03i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-h29h/q03u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-h29h/q03e.png"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "離散数学",
+  "topicIds": [
+   "data-structure"
+  ],
+  "questionType": "applied",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "行列から読み取れるエッジは a-b、b-c、b-d、c-d、c-e、e-f の 6 本。d-e のエッジはない。これに一致するのはウ。",
+   "perChoice": {
+    "ア": "b-c のエッジがなく、d-e のエッジがある。",
+    "イ": "d-e のエッジがあり、c-d のエッジがない。",
+    "ウ": "正しい。",
+    "エ": "d-e のエッジがある。"
+   },
+   "pitfalls": "行列の上三角部分だけを読めば、無向グラフのエッジを重複なく数えられる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問3",
+   "short": "H29春 午前 問3",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q03.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-04",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 4,
+  "stem": "あるプログラム言語において，識別子（identifier）は，先頭が英字で始まり，それ以降に任意個の英数字が続く文字列である。これを BNF で定義したとき，a に入るものはどれか。\n\n<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9\n<letter> ::= A | B | C | … | X | Y | Z | a | b | c | … | x | y | z\n<identifier> ::= [ a ]",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "<letter> | <digit> | <identifier><letter> | <identifier><digit>"
+   },
+   {
+    "label": "イ",
+    "text": "<letter> | <digit> | <letter><identifier> | <identifier><digit>"
+   },
+   {
+    "label": "ウ",
+    "text": "<letter> | <identifier><digit>"
+   },
+   {
+    "label": "エ",
+    "text": "<letter> | <identifier><digit> | <identifier><letter>"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "情報に関する理論",
+  "topicIds": [
+   "compiler"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "1 文字目は英字（<letter>）。その後ろに英字や数字を 1 つずつ付け足せる（<identifier><letter>、<identifier><digit>）。",
+   "perChoice": {
+    "ア": "<digit> 単独も識別子になってしまう。",
+    "イ": "<digit> 単独も識別子になってしまう。",
+    "ウ": "英字を 2 文字目以降に付けられない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "「先頭」と「付け足し」を分けて考える。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問4",
+   "short": "H29春 午前 問4",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-05",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 5,
+  "stem": "次の数式は，ある細菌の第 n 世代の個数 f(n) が 1 世代後にどのように変化するかを表現したものである。この漸化式の解釈として，1 世代後の細菌の個数が，第 n 世代と比較してどのようになるかを適切に説明しているものはどれか。\n\nf(n＋1)＋0.2×f(n)＝2×f(n)",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1 世代後の個数は，第 n 世代の個数の 1.8 倍に増える。"
+   },
+   {
+    "label": "イ",
+    "text": "1 世代後の個数は，第 n 世代の個数の 2.2 倍に増える。"
+   },
+   {
+    "label": "ウ",
+    "text": "1 世代後の個数は，第 n 世代の個数の 2 倍になり，更に増殖後の 20% が増える。"
+   },
+   {
+    "label": "エ",
+    "text": "1 世代後の個数は，第 n 世代の個数の 2 倍になるが，増殖後の 20% が死ぬ。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "応用数学",
+  "topicIds": [
+   "numerical-algo"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "移項すると f(n＋1)＝2f(n)－0.2f(n)＝1.8f(n)。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "符号を誤っている。",
+    "ウ": "2×1.2＝2.4 倍になってしまう。",
+    "エ": "2×0.8＝1.6 倍になってしまう。"
+   },
+   "pitfalls": "まず式を f(n＋1)＝… の形に変形する。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問5",
+   "short": "H29春 午前 問5",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-06",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 6,
+  "stem": "次の流れ図の処理で，終了時の x に格納されているものはどれか。ここで，与えられた a，b は正の整数であり，mod(x, y) は x を y で割った余りを返す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "a と b の最小公倍数"
+   },
+   {
+    "label": "イ",
+    "text": "a と b の最大公約数"
+   },
+   {
+    "label": "ウ",
+    "text": "a と b の小さい方に最も近い素数"
+   },
+   {
+    "label": "エ",
+    "text": "a を b で割った商"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "numerical-algo"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ユークリッドの互除法。余りが 0 になるまで (x, y)←(y, x mod y) を繰り返すと、x に最大公約数が残る。",
+   "perChoice": {
+    "ア": "最小公倍数は a×b÷最大公約数で求める。",
+    "イ": "正しい。",
+    "ウ": "関係ない。",
+    "エ": "関係ない。"
+   },
+   "pitfalls": "mod を繰り返す＝ユークリッドの互除法＝最大公約数。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問6",
+   "short": "H29春 午前 問6",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q06.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-07",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 7,
+  "stem": "プログラムの特性に関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "再帰的プログラムは，手続の中でそれ自体を呼び出すプログラムであり，再入可能である。"
+   },
+   {
+    "label": "イ",
+    "text": "再使用可能プログラムは，一度実行したプログラムを主記憶装置上にロードし直さずに再度実行できるプログラムであり，再入可能である。"
+   },
+   {
+    "label": "ウ",
+    "text": "再入可能プログラムは，複数のタスクから同時に呼び出されたときに，並列に実行できるプログラムであるが，再配置可能ではない。"
+   },
+   {
+    "label": "エ",
+    "text": "再配置可能プログラムは，主記憶装置上のどの領域にロードされても実行可能なプログラムであるが，再使用可能ではない。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "アルゴリズムとプログラミング",
+  "topicIds": [
+   "recursion",
+   "thread-safe"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "再帰的プログラムは、実行中に自分自身を呼び出すので、再入可能でなければならない。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "再使用可能でも再入可能とは限らない。",
+    "ウ": "再入可能と再配置可能は独立の性質で、両方を満たすこともある。",
+    "エ": "再配置可能かつ再使用可能なプログラムもある。"
+   },
+   "pitfalls": "再入可能 ⊂ 再使用可能。再帰には再入可能が必要。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問7",
+   "short": "H29春 午前 問7",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-08",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 8,
+  "stem": "CPU のプログラムレジスタ（プログラムカウンタ）の役割はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "演算を行うために，メモリから読み出したデータを保持する。"
+   },
+   {
+    "label": "イ",
+    "text": "条件付き分岐命令を実行するために，演算結果の状態を保持する。"
+   },
+   {
+    "label": "ウ",
+    "text": "命令のデコードを行うために，メモリから読み出した命令を保持する。"
+   },
+   {
+    "label": "エ",
+    "text": "命令を読み出すために，次の命令が格納されたアドレスを保持する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "processor-arch"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "プログラムカウンタは次に実行する命令のアドレスを保持する。",
+   "perChoice": {
+    "ア": "データレジスタ。",
+    "イ": "フラグレジスタ。",
+    "ウ": "命令レジスタ。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "PC＝次の命令のアドレス。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問8",
+   "short": "H29春 午前 問8",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-09",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 9,
+  "stem": "プロセッサの省電力技術の一つであるパワーゲーティングの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "仕事量に応じて，プロセッサへ供給する電源電圧やクロック周波数を変える。"
+   },
+   {
+    "label": "イ",
+    "text": "動作していない回路ブロックへのクロック供給を停止する。"
+   },
+   {
+    "label": "ウ",
+    "text": "動作していない回路ブロックへの電源供給を遮断する。"
+   },
+   {
+    "label": "エ",
+    "text": "マルチコアプロセッサにおいて，使用しないコアの消費電力枠を，動作しているコアに割り当てる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "processor-arch",
+   "green-it"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "パワーゲーティングは、使っていない回路への電源供給そのものを止める。",
+   "perChoice": {
+    "ア": "DVFS（動的電圧周波数制御）。",
+    "イ": "クロックゲーティング。",
+    "ウ": "正しい。",
+    "エ": "ターボブーストなど。"
+   },
+   "pitfalls": "パワー（電源）を止める、クロックを止める、を区別する。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問9",
+   "short": "H29春 午前 問9",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-10",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 10,
+  "stem": "キャッシュメモリのライトスルーの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CPU が書込み動作をする時，キャッシュメモリだけにデータを書き込む。"
+   },
+   {
+    "label": "イ",
+    "text": "キャッシュメモリと主記憶の両方に同時にデータを書き込む。"
+   },
+   {
+    "label": "ウ",
+    "text": "主記憶のデータの変更は，キャッシュメモリから当該データが追い出される時に行う。"
+   },
+   {
+    "label": "エ",
+    "text": "主記憶へのアクセス頻度が少ないので，バスの占有率が低い。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "cache-replace"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ライトスルーはキャッシュと主記憶の両方に同時に書く。",
+   "perChoice": {
+    "ア": "ライトバック。",
+    "イ": "正しい。",
+    "ウ": "ライトバック。",
+    "エ": "ライトバックの特徴。"
+   },
+   "pitfalls": "スルー＝両方に同時。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問10",
+   "short": "H29春 午前 問10",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-11",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 11,
+  "stem": "15 M バイトのプログラムを圧縮した状態でフラッシュメモリに格納している。プログラムの圧縮率が 40%，フラッシュメモリから主記憶への転送速度が 20 M バイト／秒であり，1 M バイトに圧縮されたデータの展開に主記憶上で 0.03 秒が掛かるとき，このプログラムが主記憶に展開されるまでの時間は何秒か。ここで，フラッシュメモリから主記憶への転送と圧縮データの展開は同時には行われないものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.48"
+   },
+   {
+    "label": "イ",
+    "text": "0.75"
+   },
+   {
+    "label": "ウ",
+    "text": "0.93"
+   },
+   {
+    "label": "エ",
+    "text": "1.20"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "memory-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "圧縮後は 15×0.4＝6 M バイト。転送 6÷20＝0.3 秒、展開 6×0.03＝0.18 秒。合計 0.48 秒。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "圧縮前の 15 M バイトで転送時間を計算している。",
+    "ウ": "計算が合わない。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "圧縮率 40%＝元の 40% の大きさになる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問11",
+   "short": "H29春 午前 問11",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-12",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 12,
+  "stem": "Web システムにおける CDN（Contents Delivery Network）に関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "Web サーバ，アプリケーションサーバ，データベースサーバの三つの構成要素に分けることによってコンテンツの検索を容易にすると同時に，システムの拡張性も高める。"
+   },
+   {
+    "label": "イ",
+    "text": "コミュニティ型の Web サイト及びネットワークサービスによって，人と人とのつながりを促進するコンテンツを共有する。"
+   },
+   {
+    "label": "ウ",
+    "text": "動画再生や音楽再生に必要なプログラム部品をインターネット経由で入手し，Web ブラウザに組み込む。"
+   },
+   {
+    "label": "エ",
+    "text": "動画や音声などの大容量のデータを利用する際に，インターネット回線の負荷を軽減するようにサーバを分散配置する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "architecture",
+   "web-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "CDN はコンテンツを利用者の近くのサーバに分散して配置し、配信の負荷や遅延を減らす。",
+   "perChoice": {
+    "ア": "3 層アーキテクチャ。",
+    "イ": "SNS。",
+    "ウ": "プラグイン。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "CDN＝コンテンツの分散配信。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問12",
+   "short": "H29春 午前 問12",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-13",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 13,
+  "stem": "CPU と磁気ディスク装置で構成されるシステムで，表に示すジョブ A，B を実行する。この二つのジョブが実行を終了するまでの CPU の使用率と磁気ディスク装置の使用率との組合せのうち，適切なものはどれか。ここで，ジョブ A，B はシステムの動作開始時点ではいずれも実行可能状態にあり，A，B の順で実行される。CPU 及び磁気ディスク装置は，ともに一つの要求だけを発生順に処理する。ジョブ A，B とも，CPU の処理を終了した後，磁気ディスク装置の処理を実行する。（選択肢は 2 枚目の表のア～エ）",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "CPU 0.47，磁気ディスク 0.53"
+   },
+   {
+    "label": "イ",
+    "text": "CPU 0.60，磁気ディスク 0.68"
+   },
+   {
+    "label": "ウ",
+    "text": "CPU 0.79，磁気ディスク 0.89"
+   },
+   {
+    "label": "エ",
+    "text": "CPU 0.88，磁気ディスク 1.00"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "performance-calc"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "A：CPU 0〜3、ディスク 3〜10。B：CPU 3〜15、ディスク 15〜25。全体 25 秒で、CPU は 15 秒、ディスクは 17 秒使用。CPU 15÷25＝0.60、ディスク 17÷25＝0.68。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "正しい。",
+    "ウ": "計算が合わない。",
+    "エ": "計算が合わない。"
+   },
+   "pitfalls": "タイムチャートを描いて、全体の時間と使用時間を数える。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問13",
+   "short": "H29春 午前 問13",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q13.png",
+   "data/img/ap-h29h/q13t.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-14",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 14,
+  "stem": "コンピュータシステムの性能評価法の一つであるモニタリングの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "各プログラムの実行状態や資源の利用状況を測定し，システムの構成や応答性能を改善するためのデータを得る。"
+   },
+   {
+    "label": "イ",
+    "text": "システムの各構成要素に関するカタログ性能データを収集し，それらのデータからシステム全体の性能を算出する。"
+   },
+   {
+    "label": "ウ",
+    "text": "典型的なプログラムを実行し，入出力や制御プログラムを含めたシステムの総合的な処理性能を測定する。"
+   },
+   {
+    "label": "エ",
+    "text": "命令を分類し，それぞれの使用頻度を重みとした加重平均によって全命令の平均実行速度を求める。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "performance-calc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "モニタリングは、実際の稼働状況を測定して改善に役立てる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "カタログ性能による計算。",
+    "ウ": "ベンチマーク。",
+    "エ": "命令ミックス。"
+   },
+   "pitfalls": "モニタリング＝実際の動きを測る。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問14",
+   "short": "H29春 午前 問14",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-15",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 15,
+  "stem": "図に示す二つの装置から構成される並列システムの稼働率は幾らか。ここで，どちらか一つの装置が稼働していればシステムとして稼働しているとみなし，装置 A，B とも，MTBF は 450 時間，MTTR は 50 時間とする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.81"
+   },
+   {
+    "label": "イ",
+    "text": "0.90"
+   },
+   {
+    "label": "ウ",
+    "text": "0.96"
+   },
+   {
+    "label": "エ",
+    "text": "0.99"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "システム構成要素",
+  "topicIds": [
+   "availability",
+   "reliability"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "各装置の稼働率は 450÷(450＋50)＝0.9。並列なので 1－(1－0.9)²＝0.99。",
+   "perChoice": {
+    "ア": "直列の場合。",
+    "イ": "1 台の場合。",
+    "ウ": "計算が合わない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "稼働率＝MTBF÷(MTBF＋MTTR)。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問15",
+   "short": "H29春 午前 問15",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q15.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-16",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 16,
+  "stem": "4 ブロックのキャッシュメモリ C0～C3 が表に示す状態である。ここで，新たに別のブロックの内容をキャッシュメモリにロードする必要が生じたとき，C2 のブロックを置換の対象とするアルゴリズムはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "FIFO"
+   },
+   {
+    "label": "イ",
+    "text": "LFU"
+   },
+   {
+    "label": "ウ",
+    "text": "LIFO"
+   },
+   {
+    "label": "エ",
+    "text": "LRU"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "cache-replace"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "C2 は最終参照時刻が最も古い（0:05）ので、LRU で追い出される。",
+   "perChoice": {
+    "ア": "ロードが最も古い C0 が対象。",
+    "イ": "参照回数が最も少ない C1 が対象。",
+    "ウ": "ロードが最も新しい C3 が対象。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "FIFO＝ロード時刻、LRU＝最終参照時刻、LFU＝参照回数。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問16",
+   "short": "H29春 午前 問16",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q16.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-17",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 17,
+  "stem": "サーバアプリケーションの開発のための，オブジェクト指向技術に基づいたコンポーネントソフトウェアの仕様はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "EAI（Enterprise Application Integration）"
+   },
+   {
+    "label": "イ",
+    "text": "EJB（Enterprise JavaBeans）"
+   },
+   {
+    "label": "ウ",
+    "text": "ERP（Enterprise Resource Planning）"
+   },
+   {
+    "label": "エ",
+    "text": "UML（Unified Modeling Language）"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "oop",
+   "programming-lang"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "EJB は Java でサーバ側のコンポーネントを作るための仕様。",
+   "perChoice": {
+    "ア": "システム間連携。",
+    "イ": "正しい。",
+    "ウ": "経営資源の統合管理。",
+    "エ": "モデリング言語。"
+   },
+   "pitfalls": "EJB＝サーバ側の Java コンポーネント。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問17",
+   "short": "H29春 午前 問17",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-18",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 18,
+  "stem": "ホワイトボックステストにおいて，プログラムの実行された部分の割合を測定するのに使うものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アサーションチェッカ"
+   },
+   {
+    "label": "イ",
+    "text": "シミュレータ"
+   },
+   {
+    "label": "ウ",
+    "text": "静的コード解析ツール"
+   },
+   {
+    "label": "エ",
+    "text": "テストカバレージ分析ツール"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "dev-tools",
+   "software-test"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "テストカバレージ分析ツールは、命令や分岐のうち実行された割合（網羅率）を測る。",
+   "perChoice": {
+    "ア": "条件（表明）が成り立つかを確かめる。",
+    "イ": "実機の代わりに動作を模擬する。",
+    "ウ": "実行せずにコードを解析する。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "カバレージ＝網羅率。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問18",
+   "short": "H29春 午前 問18",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-19",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 19,
+  "stem": "オープンソースライセンスの GNU GPL（GNU General Public License）の説明のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "GPL であるソースコードの実現する機能を利用する，別のプログラムのソースコードを作成すると，GPL が適用される。"
+   },
+   {
+    "label": "イ",
+    "text": "GPL であるソースコードの全てを使って派生物を作った場合に限って，GPL が適用される。"
+   },
+   {
+    "label": "ウ",
+    "text": "GPL であるソースコードの派生物のライセンスは，無条件に GPL となる。"
+   },
+   {
+    "label": "エ",
+    "text": "GPL であるソースコードを組み込んだ派生物を GPL にするか否かは，派生物の開発者が決める。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ソフトウェア",
+  "topicIds": [
+   "oss-license"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "GPL はコピーレフト型で、派生物にも GPL を適用しなければならない。",
+   "perChoice": {
+    "ア": "機能を利用するだけの別プログラムは派生物ではない。",
+    "イ": "一部でも組み込めば派生物になる。",
+    "ウ": "正しい。",
+    "エ": "派生物は GPL にしなければならない。"
+   },
+   "pitfalls": "GPL＝コピーレフト（派生物も GPL）。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問19",
+   "short": "H29春 午前 問19",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-20",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 20,
+  "stem": "エネルギーハーベスティングの適用例として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "AC 電源で充電したバッテリで駆動される携帯電話機"
+   },
+   {
+    "label": "イ",
+    "text": "インバータ制御を用いるエアーコンディショナの室外機"
+   },
+   {
+    "label": "ウ",
+    "text": "スイッチを押す力を電力に変換して作動する RF リモコン"
+   },
+   {
+    "label": "エ",
+    "text": "無停電電源装置を備えたデータサーバ"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "sensor-tech",
+   "iot-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "エネルギーハーベスティングは、周囲の光・振動・押す力などを電力に変える技術。",
+   "perChoice": {
+    "ア": "普通の充電池。",
+    "イ": "省エネ制御。",
+    "ウ": "正しい。",
+    "エ": "停電対策。"
+   },
+   "pitfalls": "ハーベスト＝収穫。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問20",
+   "short": "H29春 午前 問20",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-21",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 21,
+  "stem": "16 進数 ABCD1234 をリトルエンディアンで 4 バイトのメモリに配置したものはどれか。ここで，0～＋3 はバイトアドレスのオフセット値である。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "12 34 AB CD"
+   },
+   {
+    "label": "イ",
+    "text": "34 12 CD AB"
+   },
+   {
+    "label": "ウ",
+    "text": "43 21 DC BA"
+   },
+   {
+    "label": "エ",
+    "text": "AB CD 12 34"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "コンピュータ構成要素",
+  "topicIds": [
+   "memory-calc"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "リトルエンディアンは最下位バイトから順に格納する。AB CD 12 34 のバイトを逆順に並べて 34 12 CD AB。",
+   "perChoice": {
+    "ア": "2 バイト単位で入れ替えている。",
+    "イ": "正しい。",
+    "ウ": "4 ビット単位で逆順にしている。",
+    "エ": "ビッグエンディアン。"
+   },
+   "pitfalls": "バイト（2 桁の 16 進数）単位で逆順にする。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問21",
+   "short": "H29春 午前 問21",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q21.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-22",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 22,
+  "stem": "16 ビットのダウンカウンタを用い，カウンタの値が 0 になると割込みを発生するハードウェアタイマがある。カウンタに初期値として 10 進数の 150 をセットしてタイマをスタートすると，最初の割込みが発生するまでの時間は何マイクロ秒か。ここで，タイマの入力クロックは 16 MHz を 32 分周したものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "0.3"
+   },
+   {
+    "label": "イ",
+    "text": "2"
+   },
+   {
+    "label": "ウ",
+    "text": "150"
+   },
+   {
+    "label": "エ",
+    "text": "300"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "コンピュータシステム",
+  "categoryMiddle": "ハードウェア",
+  "topicIds": [
+   "embedded"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "タイマのクロックは 16 MHz÷32＝0.5 MHz なので、1 カウント 2 マイクロ秒。150×2＝300 マイクロ秒。",
+   "perChoice": {
+    "ア": "分周を逆にしている。",
+    "イ": "1 カウントの時間。",
+    "ウ": "カウント数のまま。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "分周＝周波数を割る＝周期が伸びる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問22",
+   "short": "H29春 午前 問22",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-23",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 23,
+  "stem": "図の回路が実現する論理式はどれか。ここで，論理式中の“・”は論理積，“＋”は論理和を表す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "F＝A"
+   },
+   {
+    "label": "イ",
+    "text": "F＝B"
+   },
+   {
+    "label": "ウ",
+    "text": "F＝A・B"
+   },
+   {
+    "label": "エ",
+    "text": "F＝A＋B"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "基礎理論",
+  "categoryMiddle": "離散数学",
+  "topicIds": [
+   "logic-circuit",
+   "logic-formula"
+  ],
+  "questionType": "applied",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "F＝(Ā・B)＋(A・B)＝(Ā＋A)・B＝B。",
+   "perChoice": {
+    "ア": "誤り。",
+    "イ": "正しい。",
+    "ウ": "誤り。",
+    "エ": "誤り。"
+   },
+   "pitfalls": "共通因数でくくる：XB＋X̄B＝B。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問23",
+   "short": "H29春 午前 問23",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q23.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-24",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 24,
+  "stem": "コードの値からデータの対象物が連想できるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "シーケンスコード"
+   },
+   {
+    "label": "イ",
+    "text": "デシマルコード"
+   },
+   {
+    "label": "ウ",
+    "text": "ニモニックコード"
+   },
+   {
+    "label": "エ",
+    "text": "ブロックコード"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "module-design"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ニモニックコードは、記号や略語で対象を連想しやすくしたコード。",
+   "perChoice": {
+    "ア": "連番。",
+    "イ": "10 進分類。",
+    "ウ": "正しい。",
+    "エ": "範囲で分類。"
+   },
+   "pitfalls": "ニモニック＝記憶を助ける。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問24",
+   "short": "H29春 午前 問24",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-25",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 25,
+  "stem": "表示装置には色彩や濃淡などの表示能力に限界がある。一つ一つの画素では表現可能な色数が少ない環境でも，幾つかの画素を使って見掛け上表示できる色数を増やし，滑らかで豊かな階調を表現する手法はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "インデックスカラー"
+   },
+   {
+    "label": "イ",
+    "text": "オーバレイ"
+   },
+   {
+    "label": "ウ",
+    "text": "カーニング"
+   },
+   {
+    "label": "エ",
+    "text": "ディザリング"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "情報メディア",
+  "topicIds": [
+   "media-format"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ディザリングは、色の異なる画素を混ぜて配置し、見かけ上の中間色を表現する。",
+   "perChoice": {
+    "ア": "色をパレット番号で表す方式。",
+    "イ": "画像の重ね合わせ。",
+    "ウ": "文字間隔の調整。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "ディザリング＝点の混ぜ方で中間色。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問25",
+   "short": "H29春 午前 問25",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-26",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 26,
+  "stem": "データモデルを解釈してオブジェクト図を作成した。解釈の誤りを適切に指摘した記述はどれか。ここで，モデルの表記には UML を用い，オブジェクト図の一部の属性の表示は省略した。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "“123456：注文”が複数の商品にリンクしているのは，誤りである。"
+   },
+   {
+    "label": "イ",
+    "text": "“2 ドア冷蔵庫：商品”が複数の注文にリンクしているのは，誤りである。"
+   },
+   {
+    "label": "ウ",
+    "text": "“A 商店：顧客”が複数の注文にリンクしているのは，誤りである。"
+   },
+   {
+    "label": "エ",
+    "text": "“ドラム式洗濯機：商品”がどの注文にもリンクしていないのは，誤りである。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "uml",
+   "data-model"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "データモデルでは注文と商品は「* 対 1」なので、1 つの注文は 1 つの商品にしかリンクできない。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "商品 1 つに注文は多数あってよい。",
+    "ウ": "顧客 1 人に注文は多数あってよい。",
+    "エ": "商品側から見た注文は 0 個以上（*）なので問題ない。"
+   },
+   "pitfalls": "多重度は「相手側」に書かれている数を見る。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問26",
+   "short": "H29春 午前 問26",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q26.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-27",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 27,
+  "stem": "“受注明細”表は，どのレベルまでの正規形の条件を満足しているか。ここで，実線の下線は主キーを表す（主キーは受注番号と明細番号）。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "第 1 正規形"
+   },
+   {
+    "label": "イ",
+    "text": "第 2 正規形"
+   },
+   {
+    "label": "ウ",
+    "text": "第 3 正規形"
+   },
+   {
+    "label": "エ",
+    "text": "第 4 正規形"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "normalization"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "非キー属性はすべて主キー全体（受注番号・明細番号）に従属し、部分関数従属はないので第 2 正規形。ただし 商品コード→商品名 の推移的関数従属があるので、第 3 正規形ではない。",
+   "perChoice": {
+    "ア": "第 2 正規形まで満たしている。",
+    "イ": "正しい。",
+    "ウ": "商品名が商品コードに推移的に従属している。",
+    "エ": "第 3 正規形を満たしていない。"
+   },
+   "pitfalls": "主キーの一部への従属（部分）→ 2NF 違反、非キーへの従属（推移）→ 3NF 違反。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問27",
+   "short": "H29春 午前 問27",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q27.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-28",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 28,
+  "stem": "“部品”表のメーカコード列に対し，B⁺木インデックスを作成した。これによって，“部品”表の検索の性能改善が最も期待できる操作はどれか。ここで，部品及びメーカのデータ件数は十分に多く，“部品”表に存在するメーカコード列の値の種類は十分な数があり，かつ，均一に分散しているものとする。また，“部品”表のごく少数の行には，メーカコード列に NULL が設定されている。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "メーカコードの値が 1001 以外の部品を検索する。"
+   },
+   {
+    "label": "イ",
+    "text": "メーカコードの値が 1001 でも 4001 でもない部品を検索する。"
+   },
+   {
+    "label": "ウ",
+    "text": "メーカコードの値が 4001 以上，4003 以下の部品を検索する。"
+   },
+   {
+    "label": "エ",
+    "text": "メーカコードの値が NULL 以外の部品を検索する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "db-index"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "B⁺木は範囲検索で少数に絞り込めるときに効く。否定条件はほぼ全件が該当するので効果が小さい。",
+   "perChoice": {
+    "ア": "ほぼ全件。",
+    "イ": "ほぼ全件。",
+    "ウ": "正しい。",
+    "エ": "ほぼ全件。"
+   },
+   "pitfalls": "インデックスは「少数に絞り込める」ときに効く。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問28",
+   "short": "H29春 午前 問28",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-29",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 29,
+  "stem": "トランザクション A と B が，共通の資源であるテーブル a と b を表に示すように更新するとき，デッドロックとなるのはどの時点か。ここで，表中の ①～⑧ は処理の実行順序を示す。また，ロックはテーブルの更新直前にテーブル単位で行い，アンロックはトランザクション終了時に行うものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "③"
+   },
+   {
+    "label": "イ",
+    "text": "④"
+   },
+   {
+    "label": "ウ",
+    "text": "⑤"
+   },
+   {
+    "label": "エ",
+    "text": "⑥"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "transaction"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "③で A が a をロック、④で B が b をロック。⑤で A は b を待つ。⑥で B が a を要求すると、互いに相手の解放を待ってデッドロックになる。",
+   "perChoice": {
+    "ア": "まだ競合していない。",
+    "イ": "まだ競合していない。",
+    "ウ": "A が待つだけで、B は進める。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "2 つ目の「待ち」が発生して輪ができた時点がデッドロック。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問29",
+   "short": "H29春 午前 問29",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q29.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-30",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 30,
+  "stem": "ビッグデータの利用におけるデータマイニングを説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "蓄積されたデータを分析し，単なる検索だけでは分からない隠れた規則や相関関係を見つけ出すこと"
+   },
+   {
+    "label": "イ",
+    "text": "データウェアハウスに格納されたデータの一部を，特定の用途や部門用に切り出して，データベースに格納すること"
+   },
+   {
+    "label": "ウ",
+    "text": "データ処理の対象となる情報を基に規定した，データの構造，意味及び操作の枠組みのこと"
+   },
+   {
+    "label": "エ",
+    "text": "データを複数のサーバに複製し，性能と可用性を向上させること"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "データベース",
+  "topicIds": [
+   "dwh",
+   "data-analysis"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "データマイニングは、データから隠れた規則や相関を見つけ出すこと。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "データマート。",
+    "ウ": "データモデル。",
+    "エ": "レプリケーション。"
+   },
+   "pitfalls": "マイニング＝採掘。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問30",
+   "short": "H29春 午前 問30",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-31",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 31,
+  "stem": "イーサネットで使用されるメディアアクセス制御方式である CSMA/CD に関する記述として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "それぞれのステーションがキャリア検知を行うとともに，送信データの衝突が起きた場合は再送する。"
+   },
+   {
+    "label": "イ",
+    "text": "タイムスロットと呼ばれる単位で分割して，同一周波数において複数の通信を可能にする。"
+   },
+   {
+    "label": "ウ",
+    "text": "データ送受信の開始時にデータ送受信のネゴシエーションとして RTS/CTS 方式を用い，受信の確認は ACK を使用する。"
+   },
+   {
+    "label": "エ",
+    "text": "伝送路上にトークンを巡回させ，トークンを受け取った端末だけがデータを送信できる。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "lan-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "CSMA/CD は回線の空きを確かめて送信し、衝突したら再送する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "TDMA。",
+    "ウ": "CSMA/CA。",
+    "エ": "トークンパッシング。"
+   },
+   "pitfalls": "CD＝衝突検出。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問31",
+   "short": "H29春 午前 問31",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-32",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 32,
+  "stem": "ネットワーク機器の接続状態を調べるためのコマンド ping が用いるプロトコルはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "DHCP"
+   },
+   {
+    "label": "イ",
+    "text": "ICMP"
+   },
+   {
+    "label": "ウ",
+    "text": "SMTP"
+   },
+   {
+    "label": "エ",
+    "text": "SNMP"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "ip-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ping は ICMP のエコー要求・エコー応答を使う。",
+   "perChoice": {
+    "ア": "IP アドレスの自動割当て。",
+    "イ": "正しい。",
+    "ウ": "メール送信。",
+    "エ": "ネットワーク管理。"
+   },
+   "pitfalls": "ping・traceroute＝ICMP。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問32",
+   "short": "H29春 午前 問32",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-33",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 33,
+  "stem": "WAN を介して二つのノードをダイヤルアップ接続するときに使用されるプロトコルであり，リンク制御やエラー処理機能をもつものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "FTP"
+   },
+   {
+    "label": "イ",
+    "text": "PPP"
+   },
+   {
+    "label": "ウ",
+    "text": "SLIP"
+   },
+   {
+    "label": "エ",
+    "text": "UDP"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "ip-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "PPP は 2 点間を接続するデータリンク層のプロトコルで、リンク制御や認証、エラー検出の機能をもつ。",
+   "perChoice": {
+    "ア": "ファイル転送。",
+    "イ": "正しい。",
+    "ウ": "PPP の前身で、エラー処理や認証の機能がない。",
+    "エ": "トランスポート層のプロトコル。"
+   },
+   "pitfalls": "ダイヤルアップ＝PPP（PPPoE はその Ethernet 版）。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問33",
+   "short": "H29春 午前 問33",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-34",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 34,
+  "stem": "OpenFlow を使った SDN（Software-Defined Networking）の説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "単一の物理サーバ内の仮想サーバ同士が，外部のネットワーク機器を経由せずに，物理サーバ内部のソフトウェアで実現された仮想スイッチを経由して，通信する方式"
+   },
+   {
+    "label": "イ",
+    "text": "データを転送するネットワーク機器とは分離したソフトウェアによって，ネットワーク機器を集中的に制御，管理するアーキテクチャ"
+   },
+   {
+    "label": "ウ",
+    "text": "プロトコルの文法を形式言語を使って厳密に定義する，ISO で標準化された通信プロトコルの規格"
+   },
+   {
+    "label": "エ",
+    "text": "ルータやスイッチの機器内部で動作するソフトウェアを，オープンソースソフトウェア（OSS）で実現する方式"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "sdn"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "SDN は転送機器と制御ソフトウェアを分け、集中制御する。",
+   "perChoice": {
+    "ア": "仮想スイッチ。",
+    "イ": "正しい。",
+    "ウ": "ASN.1 など。",
+    "エ": "ホワイトボックススイッチ。"
+   },
+   "pitfalls": "SDN＝制御と転送の分離。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問34",
+   "short": "H29春 午前 問34",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-35",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 35,
+  "stem": "ブロードキャストストームの説明として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "1 台のブロードバンドルータに接続する PC の数が多過ぎることによって，インターネットへのアクセスが遅くなること"
+   },
+   {
+    "label": "イ",
+    "text": "IP アドレスを重複して割り当ててしまうことによって，通信パケットが正しい相手に到達せずに，再送が頻繁に発生すること"
+   },
+   {
+    "label": "ウ",
+    "text": "イーサネットフレームの宛先 MAC アドレスが FF-FF-FF-FF-FF-FF で送信され，LAN に接続した全ての PC が受信してしまうこと"
+   },
+   {
+    "label": "エ",
+    "text": "ネットワークスイッチ間にループとなる経路ができることによって，特定のイーサネットフレームが大量に複製されて，通信が極端に遅くなったり通信できなくなったりすること"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "ネットワーク",
+  "topicIds": [
+   "lan-protocol"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "スイッチ間にループがあると、ブロードキャストフレームが際限なく複製されて回り続け、ネットワークがまひする。",
+   "perChoice": {
+    "ア": "単なる混雑。",
+    "イ": "IP アドレスの重複。",
+    "ウ": "通常のブロードキャスト。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "対策はスパニングツリープロトコル（STP）でループを防ぐこと。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問35",
+   "short": "H29春 午前 問35",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-36",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 36,
+  "stem": "インターネットへの接続において，ファイアウォールで NAPT 機能を利用することによるセキュリティ上の効果はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "DMZ 上にある公開 Web サーバの脆弱性を突く攻撃から Web サーバを防御できる。"
+   },
+   {
+    "label": "イ",
+    "text": "インターネットから内部ネットワークへの侵入を検知し，通信経路の途中で遮断できる。"
+   },
+   {
+    "label": "ウ",
+    "text": "インターネット上の特定の Web アプリケーションを利用する HTTP 通信を検知し，遮断できる。"
+   },
+   {
+    "label": "エ",
+    "text": "インターネットにアクセスする組織内の利用者 PC について，外部からの不正アクセスを困難にすることができる。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "security-devices",
+   "ip-address"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "NAPT で内部 PC のアドレスが外から見えなくなり、外部から直接アクセスしにくくなる。",
+   "perChoice": {
+    "ア": "WAF。",
+    "イ": "IPS。",
+    "ウ": "URL フィルタリングなど。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "NAPT は内部アドレスを隠す。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問36",
+   "short": "H29春 午前 問36",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-37",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 37,
+  "stem": "A 社の Web サーバは，サーバ証明書を使って TLS 通信を行っている。PC から A 社の Web サーバへの TLS を用いたアクセスにおいて，当該 PC がサーバ証明書を入手した後に，認証局の公開鍵を利用して行う動作はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "暗号化通信に利用する共通鍵を生成し，認証局の公開鍵を使って暗号化する。"
+   },
+   {
+    "label": "イ",
+    "text": "暗号化通信に利用する共通鍵を，認証局の公開鍵を使って復号する。"
+   },
+   {
+    "label": "ウ",
+    "text": "サーバ証明書の正当性を，認証局の公開鍵を使って検証する。"
+   },
+   {
+    "label": "エ",
+    "text": "利用者が入力して送付する秘匿データを，認証局の公開鍵を使って暗号化する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "pki"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "サーバ証明書には認証局のディジタル署名が付いている。PC は認証局の公開鍵で署名を検証し、証明書が正当か確かめる。",
+   "perChoice": {
+    "ア": "共通鍵の暗号化に使うのはサーバの公開鍵。",
+    "イ": "認証局の公開鍵では復号しない。",
+    "ウ": "正しい。",
+    "エ": "データの暗号化には共通鍵を使う。"
+   },
+   "pitfalls": "認証局の公開鍵＝証明書の検証用。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問37",
+   "short": "H29春 午前 問37",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-38",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 38,
+  "stem": "暗号方式に関する説明のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "共通鍵暗号方式で相手ごとに秘密の通信をする場合，通信相手が多くなるに従って，鍵管理の手間が増える。"
+   },
+   {
+    "label": "イ",
+    "text": "共通鍵暗号方式を用いて通信を暗号化するときには，送信者と受信者で異なる鍵を用いるが，通信相手にそれぞれの鍵を知らせる必要はない。"
+   },
+   {
+    "label": "ウ",
+    "text": "公開鍵暗号方式で通信文を暗号化して内容を秘密にした通信をするときには，復号鍵を公開することによって，鍵管理の手間を減らす。"
+   },
+   {
+    "label": "エ",
+    "text": "公開鍵暗号方式では，署名に用いる鍵を公開しておく必要がある。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "crypto-tech"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "共通鍵暗号では相手ごとに別の鍵が必要なので、相手が増えると鍵の数も増える（n 人なら n(n－1)/2 個）。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "共通鍵は同じ鍵を使い、相手に知らせる必要がある。",
+    "ウ": "公開するのは暗号化鍵。",
+    "エ": "署名に使う秘密鍵は公開しない。"
+   },
+   "pitfalls": "共通鍵の弱点＝鍵の配送と管理。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問38",
+   "short": "H29春 午前 問38",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-39",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 39,
+  "stem": "経済産業省と IPA が策定した“サイバーセキュリティ経営ガイドライン（Ver1.1）”の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "企業が IT 活用を推進していく中で，サイバー攻撃から企業を守る観点で経営者が認識すべき 3 原則と，情報セキュリティ対策を実施する上での責任者となる担当幹部に，経営者が指示すべき事項をまとめたもの"
+   },
+   {
+    "label": "イ",
+    "text": "経営者が，情報セキュリティについて方針を示し，マネジメントシステムの要求事項を満たすルールを定め，組織が保有する情報を CIA の観点から維持し，継続的に見直すためのプロセス及び管理策を体系的に規定したもの"
+   },
+   {
+    "label": "ウ",
+    "text": "事業体の IT に関する経営者の活動を大きく IT ガバナンス（統制）と IT マネジメント（管理）に分割し，具体的な目標と工程として 37 のプロセスを定義したもの"
+   },
+   {
+    "label": "エ",
+    "text": "世界的規模で生じているサイバーセキュリティ上の脅威に関して，企業の経営者を支援する施策を総合的かつ効果的に推進するための国の責務を定めたもの"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "security-mgmt"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "経営者が認識すべき 3 原則と、担当幹部に指示すべき事項をまとめたもの。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "ISMS。",
+    "ウ": "COBIT 5。",
+    "エ": "サイバーセキュリティ基本法。"
+   },
+   "pitfalls": "3 原則＋重要 10 項目。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問39",
+   "short": "H29春 午前 問39",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-40",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 40,
+  "stem": "水飲み場型攻撃（Watering Hole Attack）の手口はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アイコンを文書ファイルのものに偽装した上で，短いスクリプトを埋め込んだショートカットファイル（LNK ファイル）を電子メールに添付して標的組織の従業員に送信する。"
+   },
+   {
+    "label": "イ",
+    "text": "事務連絡などのやり取りを何度か行うことによって，標的組織の従業員の気を緩めさせ，信用させた後，攻撃コードを含む実行ファイルを電子メールに添付して送信する。"
+   },
+   {
+    "label": "ウ",
+    "text": "標的組織の従業員が頻繁にアクセスする Web サイトに攻撃コードを埋め込み，標的組織の従業員がアクセスしたときだけ攻撃が行われるようにする。"
+   },
+   {
+    "label": "エ",
+    "text": "ミニブログのメッセージにおいて，ドメイン名を短縮してリンク先の URL を分かりにくくすることによって，攻撃コードを埋め込んだ Web サイトに標的組織の従業員を誘導する。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "cyber-attack"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "水飲み場型攻撃は、標的がよく訪れるサイトを改ざんして待ち伏せる攻撃。",
+   "perChoice": {
+    "ア": "偽装ファイルによる標的型メール。",
+    "イ": "やり取り型の標的型攻撃。",
+    "ウ": "正しい。",
+    "エ": "短縮 URL による誘導。"
+   },
+   "pitfalls": "獲物が集まる水飲み場で待ち伏せる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問40",
+   "short": "H29春 午前 問40",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-41",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 41,
+  "stem": "DNS キャッシュサーバに対して外部から行われるキャッシュポイズニング攻撃への対策のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "外部ネットワークからの再帰的な問合せにも応答できるように，コンテンツサーバにキャッシュサーバを兼ねさせる。"
+   },
+   {
+    "label": "イ",
+    "text": "再帰的な問合せに対しては，内部ネットワークからのものだけに応答するように設定する。"
+   },
+   {
+    "label": "ウ",
+    "text": "再帰的な問合せを行う際の送信元のポート番号を固定する。"
+   },
+   {
+    "label": "エ",
+    "text": "再帰的な問合せを行う際のトランザクション ID を固定する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "dns-security"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "外部からの再帰問合せを受け付けないようにする。",
+   "perChoice": {
+    "ア": "分離すべき。",
+    "イ": "正しい。",
+    "ウ": "ランダムにすべき。",
+    "エ": "ランダムにすべき。"
+   },
+   "pitfalls": "オープンリゾルバにしない。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問41",
+   "short": "H29春 午前 問41",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-42",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 42,
+  "stem": "無線 LAN 環境における WPA2-PSK の機能はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アクセスポイントに設定されている SSID を共通鍵とし，通信を暗号化する。"
+   },
+   {
+    "label": "イ",
+    "text": "アクセスポイントに設定されているのと同じ SSID とパスワード（Pre-Shared Key）が設定されている端末だけに接続を許可する。"
+   },
+   {
+    "label": "ウ",
+    "text": "アクセスポイントは，IEEE 802.11ac に準拠している端末だけに接続を許可する。"
+   },
+   {
+    "label": "エ",
+    "text": "アクセスポイントは，利用者ごとに付与された SSID を確認し，無線 LAN へのアクセス権限を識別する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "wireless",
+   "authentication"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "WPA2-PSK は事前共有したパスワードで認証・暗号化する。",
+   "perChoice": {
+    "ア": "SSID は鍵ではない。",
+    "イ": "正しい。",
+    "ウ": "規格の制限ではない。",
+    "エ": "SSID は利用者ごとではない。"
+   },
+   "pitfalls": "PSK＝事前共有鍵。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問42",
+   "short": "H29春 午前 問42",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-43",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 43,
+  "stem": "図のような構成と通信サービスのシステムにおいて，Web アプリケーションの脆弱性対策のための WAF の設置場所として，最も適切な箇所はどこか。ここで，WAF には通信を暗号化したり，復号したりする機能はないものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "a"
+   },
+   {
+    "label": "イ",
+    "text": "b"
+   },
+   {
+    "label": "ウ",
+    "text": "c"
+   },
+   {
+    "label": "エ",
+    "text": "d"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "security-devices",
+   "web-attack"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "WAF は通信の中身を検査するので、暗号化されていない区間に置く必要がある。SSL アクセラレータで復号された後の HTTP 区間 c が適切。",
+   "perChoice": {
+    "ア": "HTTPS で暗号化されていて中身が見えない。",
+    "イ": "HTTPS で暗号化されていて中身が見えない。",
+    "ウ": "正しい。",
+    "エ": "Web サーバの後ろで、Web アプリケーションへの攻撃を防げない。"
+   },
+   "pitfalls": "復号後・Web サーバの手前に置く。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問43",
+   "short": "H29春 午前 問43",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q43.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-44",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 44,
+  "stem": "攻撃に HTTP over TLS（HTTPS）が使われた場合に起こり得ることはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "HTTPS を使った SQL インジェクション攻撃を受けると，Web アプリケーションでデータベースへの不正な入力をチェックできないので，悪意のある SQL が実行されてしまう。"
+   },
+   {
+    "label": "イ",
+    "text": "HTTPS を使ったクロスサイトスクリプティング攻撃を受けると，Web ブラウザでプログラムやスクリプトを実行しない設定にしても実行を禁止できなくなるので，悪意のある Web サイトからダウンロードされたプログラムやスクリプトが実行されてしまう。"
+   },
+   {
+    "label": "ウ",
+    "text": "HTTPS を使ったブルートフォース攻撃を受けると，ログイン試行のチェックができないので，Web アプリケーションでアカウントロックなどの対策が実行できなくなってしまう。"
+   },
+   {
+    "label": "エ",
+    "text": "攻撃者が社内ネットワークに仕掛けたマルウェアによって HTTPS が使われると，通信内容がチェックできないので，秘密情報が社外に送信されてしまう。"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "cyber-attack",
+   "security-devices"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "HTTPS は通信の途中では中身が見えないので、ファイアウォールやプロキシで内容を検査できず、情報の持ち出しを見逃すおそれがある。",
+   "perChoice": {
+    "ア": "Web アプリケーション側では復号後のデータを検査できる。",
+    "イ": "ブラウザの設定は暗号化と関係なく効く。",
+    "ウ": "Web アプリケーション側ではログイン試行を数えられる。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "暗号化は「途中の検査」を難しくする。端点（アプリ）では見える。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問44",
+   "short": "H29春 午前 問44",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-45",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 45,
+  "stem": "VPN で使用されるセキュアなプロトコルである IPsec，L2TP，TLS の，OSI 基本参照モデルにおける相対的な位置関係はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "A"
+   },
+   {
+    "label": "イ",
+    "text": "B"
+   },
+   {
+    "label": "ウ",
+    "text": "C"
+   },
+   {
+    "label": "エ",
+    "text": "D"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "技術要素",
+  "categoryMiddle": "セキュリティ",
+  "topicIds": [
+   "vpn"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "上から TLS（トランスポート層の上）、IPsec（ネットワーク層）、L2TP（データリンク層）。",
+   "perChoice": {
+    "ア": "順序が誤り。",
+    "イ": "順序が誤り。",
+    "ウ": "正しい。",
+    "エ": "IPsec と L2TP が逆。"
+   },
+   "pitfalls": "L2TP の L2＝レイヤ 2。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問45",
+   "short": "H29春 午前 問45",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q45.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-46",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 46,
+  "stem": "組込み機器のソフトウェア開発にプラットフォーム開発を適用する利点として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "機器ごとにソフトウェアを新規に設計するので，最小のコードサイズで最大の性能を実現できる。"
+   },
+   {
+    "label": "イ",
+    "text": "機器ごとのハードウェアとソフトウェアの結合テストを不要にできる。"
+   },
+   {
+    "label": "ウ",
+    "text": "ソフトウェアを複数の異なる機器に共通して利用することが可能になるので，ソフトウェア開発効率を向上できる。"
+   },
+   {
+    "label": "エ",
+    "text": "複数の機器に共通のバグが発生したとき，ソフトウェアのプラットフォーム部分をバグの原因から除外できる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "embedded",
+   "architecture"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "プラットフォーム開発では共通部分を作って複数の機器で再利用するので、開発効率が上がる。",
+   "perChoice": {
+    "ア": "新規に設計するのではない。",
+    "イ": "結合テストは必要。",
+    "ウ": "正しい。",
+    "エ": "共通部分が原因の可能性はむしろ高い。"
+   },
+   "pitfalls": "プラットフォーム＝共通の土台を再利用。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問46",
+   "short": "H29春 午前 問46",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-47",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 47,
+  "stem": "汎化の適切な例はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "",
+    "image": "data/img/ap-h29h/q47a.png"
+   },
+   {
+    "label": "イ",
+    "text": "",
+    "image": "data/img/ap-h29h/q47i.png"
+   },
+   {
+    "label": "ウ",
+    "text": "",
+    "image": "data/img/ap-h29h/q47u.png"
+   },
+   {
+    "label": "エ",
+    "text": "",
+    "image": "data/img/ap-h29h/q47e.png"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "oop",
+   "uml"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "汎化は「〜は〜の一種（is-a）」の関係。人・犬・猫は哺乳類の一種。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "アクセル・ブレーキは自動車の部品（集約）。",
+    "ウ": "受注・在庫は商品の一種ではない。",
+    "エ": "会社名・住所は取引先の属性。"
+   },
+   "pitfalls": "汎化＝is-a、集約＝part-of。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問47",
+   "short": "H29春 午前 問47",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-48",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 48,
+  "stem": "流れ図において，分岐網羅を満たし，かつ，条件網羅を満たすテストデータの組みはどれか。（選択肢は 2 枚目の表のア～エ）",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "(x, y)＝(2, 2), (1, 2)"
+   },
+   {
+    "label": "イ",
+    "text": "(x, y)＝(1, 2), (0, 0)"
+   },
+   {
+    "label": "ウ",
+    "text": "(x, y)＝(1, 2), (1, 1), (0, 1)"
+   },
+   {
+    "label": "エ",
+    "text": "(x, y)＝(1, 2), (0, 1), (0, 2)"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "システム開発技術",
+  "topicIds": [
+   "software-test"
+  ],
+  "questionType": "applied",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "エでは、1 つ目の判定が真・真・偽、2 つ目が真・偽・真で分岐網羅を満たす。条件 x≧1 は真・偽・偽、y＝1 は偽・真・偽、y＞1 は真・偽・真で、すべての条件が真と偽をとる。",
+   "perChoice": {
+    "ア": "1 つ目の判定が偽にならない。",
+    "イ": "条件 y＝1 が真にならない。",
+    "ウ": "1 つ目の判定が偽にならない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "分岐網羅＝各判定の真偽、条件網羅＝各条件の真偽。両方を表で確かめる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問48",
+   "short": "H29春 午前 問48",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q48.png",
+   "data/img/ap-h29h/q48t.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-49",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 49,
+  "stem": "アジャイル開発で“イテレーション”を行う目的のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "ソフトウェアに存在する顧客の要求との不一致を解消したり，要求の変化に柔軟に対応したりする。"
+   },
+   {
+    "label": "イ",
+    "text": "タスクの実施状況を可視化して，いつでも確認できるようにする。"
+   },
+   {
+    "label": "ウ",
+    "text": "ペアプログラミングのドライバとナビゲータを固定化させない。"
+   },
+   {
+    "label": "エ",
+    "text": "毎日決めた時刻にチームメンバが集まって開発の状況を共有し，問題が拡大したり，状況が悪化したりするのを避ける。"
+   }
+  ],
+  "answer": "ア",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "agile"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "イテレーションは短いサイクルの繰返しで、要求とのずれを解消し変化に対応する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "タスクボード。",
+    "ウ": "ペアの交代。",
+    "エ": "朝会。"
+   },
+   "pitfalls": "イテレーション＝反復。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問49",
+   "short": "H29春 午前 問49",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-50",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 50,
+  "stem": "日本において特許 A を取得した特許権者から，実施許諾を受けることが必要になるのはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "出願日から 25 年を超えた特許 A と同じ技術を新たに事業化する場合"
+   },
+   {
+    "label": "イ",
+    "text": "特許 A の出願日よりも前から特許 A と同じ技術を独自に開発して，特許 A の出願日に日本国内でその技術を用いた製品を製造し，市場で販売していたことが証明できる場合"
+   },
+   {
+    "label": "ウ",
+    "text": "特許 A を家庭内で個人的に利用するだけの場合"
+   },
+   {
+    "label": "エ",
+    "text": "日本国内で製造し，米国に輸出する製品に特許 A を利用する場合"
+   }
+  ],
+  "answer": "エ",
+  "field": "technology",
+  "categoryLarge": "開発技術",
+  "categoryMiddle": "ソフトウェア開発管理技術",
+  "topicIds": [
+   "ip-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "国内での製造は輸出向けでも特許の実施に当たる。",
+   "perChoice": {
+    "ア": "期間切れ（原則 20 年）。",
+    "イ": "先使用権がある。",
+    "ウ": "業としての実施ではない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "特許権＝業としての実施。存続期間は出願から 20 年。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問50",
+   "short": "H29春 午前 問50",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-51",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 51,
+  "stem": "期間 10 日間のプロジェクトを，5 日目の終了時にアーンドバリュー分析したところ，表のとおりであった。現在のコスト効率が今後も続く場合，完成時総コスト見積り（EAC）は何万円か。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "110"
+   },
+   {
+    "label": "イ",
+    "text": "120"
+   },
+   {
+    "label": "ウ",
+    "text": "135"
+   },
+   {
+    "label": "エ",
+    "text": "150"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "evm"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "CPI＝EV÷AC＝40÷60＝2/3。EAC＝BAC÷CPI＝100÷(2/3)＝150 万円。",
+   "perChoice": {
+    "ア": "計算が合わない。",
+    "イ": "残作業を予算どおりとしている（60＋60）。",
+    "ウ": "計算が合わない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "EAC＝BAC÷CPI。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問51",
+   "short": "H29春 午前 問51",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q51.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-52",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 52,
+  "stem": "図のアローダイアグラムから読み取ったことのうち，適切なものはどれか。ここで，プロジェクトの開始日は 0 日目とする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "作業 C を最も早く開始できるのは 5 日目である。"
+   },
+   {
+    "label": "イ",
+    "text": "作業 D はクリティカルパス上の作業である。"
+   },
+   {
+    "label": "ウ",
+    "text": "作業 E の余裕日数は 30 日である。"
+   },
+   {
+    "label": "エ",
+    "text": "作業 F を最も遅く開始できるのは 10 日目である。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-schedule"
+  ],
+  "questionType": "calculation",
+  "difficulty": 3,
+  "explanation": {
+   "basis": "C・D・E の前の結合点は、A（5 日）と B→ダミー（10 日）の遅い方で 10 日目。クリティカルパスは B→C→G→H の 60 日。E は 10〜20 日目、後続はダミーを経て 50 日目まで待てるので余裕は 30 日。",
+   "perChoice": {
+    "ア": "B→ダミーがあるので 10 日目。",
+    "イ": "D を通る経路は 10＋30＝40 日で、C→G の 50 日より短い。",
+    "ウ": "正しい。",
+    "エ": "F の最遅開始は 50－10＝40 日目。"
+   },
+   "pitfalls": "ダミーも依存関係として扱う。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問52",
+   "short": "H29春 午前 問52",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q52.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-53",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 53,
+  "stem": "PMBOK ガイド 第 5 版によれば，定量的リスク分析で実施することはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "特定したリスクがプロジェクト目標全体に与える影響を数量的に分析する。"
+   },
+   {
+    "label": "イ",
+    "text": "特定したリスクの発生確率や影響度を評価してリスクに優先順位を付ける。"
+   },
+   {
+    "label": "ウ",
+    "text": "特定したリスクへの対応計画を策定する。"
+   },
+   {
+    "label": "エ",
+    "text": "プロジェクトに影響を与える可能性があるリスクを洗い出す。"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-risk"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "定量的リスク分析は、リスクが目標全体に与える影響を数値で分析する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "定性的分析。",
+    "ウ": "リスク対応計画。",
+    "エ": "リスクの特定。"
+   },
+   "pitfalls": "定量＝数値で、定性＝優先順位付け。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問53",
+   "short": "H29春 午前 問53",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-54",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 54,
+  "stem": "PMBOK ガイド 第 5 版における，マイナスのリスクに対する戦略として用いられる“リスク転嫁”の説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "リスクの影響が及ばないようにするための対応策を実行する。"
+   },
+   {
+    "label": "イ",
+    "text": "リスクの影響や責任の一部又は全部を第三者に移す。"
+   },
+   {
+    "label": "ウ",
+    "text": "リスクの発生確率や影響度を許容可能なレベルに抑えるための対応策を実行する。"
+   },
+   {
+    "label": "エ",
+    "text": "リスクへの具体的な対応策は事前に設定せず，リスクが発生した時点で対処する。"
+   }
+  ],
+  "answer": "イ",
+  "field": "management",
+  "categoryLarge": "プロジェクトマネジメント",
+  "categoryMiddle": "プロジェクトマネジメント",
+  "topicIds": [
+   "pm-risk"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "転嫁は、保険や契約などでリスクの影響や責任を第三者に移すこと。",
+   "perChoice": {
+    "ア": "回避。",
+    "イ": "正しい。",
+    "ウ": "軽減。",
+    "エ": "受容。"
+   },
+   "pitfalls": "脅威への戦略：回避・転嫁・軽減・受容。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問54",
+   "short": "H29春 午前 問54",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-55",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 55,
+  "stem": "ITIL 2011 edition の可用性管理プロセスにおいて，IT サービスの可用性と信頼性の管理に関わる KPI として用いるものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "サービスの中断回数及びそのインパクトの削減率"
+   },
+   {
+    "label": "イ",
+    "text": "災害を想定した復旧テストの回数"
+   },
+   {
+    "label": "ウ",
+    "text": "処理能力不足に起因するインシデント数の削減率"
+   },
+   {
+    "label": "エ",
+    "text": "目標を達成できなかった SLA の項目数"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "availability-mgmt",
+   "kpi-csf"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "可用性・信頼性の KPI には、サービス中断の回数やその影響の削減率を使う。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "IT サービス継続性管理の KPI。",
+    "ウ": "キャパシティ管理の KPI。",
+    "エ": "サービスレベル管理の KPI。"
+   },
+   "pitfalls": "プロセスと KPI の対応を考える。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問55",
+   "short": "H29春 午前 問55",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-56",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 56,
+  "stem": "新システムの開発を計画している。提案された 4 案の中で，TCO（総所有費用）が最小のものはどれか。ここで，このシステムは開発後，3 年間使用されるものとする。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "A 案"
+   },
+   {
+    "label": "イ",
+    "text": "B 案"
+   },
+   {
+    "label": "ウ",
+    "text": "C 案"
+   },
+   {
+    "label": "エ",
+    "text": "D 案"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "investment-eval",
+   "it-operation"
+  ],
+  "questionType": "calculation",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "初期費用＋年間費用×3。A：65＋32×3＝161、B：85＋29×3＝172、C：75＋26×3＝153、D：85＋24×3＝157。最小は C 案。",
+   "perChoice": {
+    "ア": "161。",
+    "イ": "172。",
+    "ウ": "正しい（153）。",
+    "エ": "157。"
+   },
+   "pitfalls": "初期費用と年間費用を分けて、年数を掛ける。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問56",
+   "short": "H29春 午前 問56",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q56.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-57",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 57,
+  "stem": "IT サービスマネジメントにおける問題管理プロセスの活動はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "根本原因の特定"
+   },
+   {
+    "label": "イ",
+    "text": "サービス要求の優先度付け"
+   },
+   {
+    "label": "ウ",
+    "text": "変更要求の記録"
+   },
+   {
+    "label": "エ",
+    "text": "リリースの試験"
+   }
+  ],
+  "answer": "ア",
+  "field": "management",
+  "categoryLarge": "サービスマネジメント",
+  "categoryMiddle": "サービスマネジメント",
+  "topicIds": [
+   "service-process"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "問題管理はインシデントの根本原因を特定する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "サービス要求管理。",
+    "ウ": "変更管理。",
+    "エ": "リリース管理。"
+   },
+   "pitfalls": "問題管理＝根本原因。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問57",
+   "short": "H29春 午前 問57",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-58",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 58,
+  "stem": "システム監査人が監査報告書に記載する改善勧告に関する説明のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "改善の実現可能性は考慮せず，監査人が改善の必要があると判断した事項だけを記載する。"
+   },
+   {
+    "label": "イ",
+    "text": "監査証拠による裏付けの有無にかかわらず，監査人が改善の必要があると判断した事項を記載する。"
+   },
+   {
+    "label": "ウ",
+    "text": "監査人が改善の必要があると判断した事項のうち，被監査部門の責任者が承認した事項だけを記載する。"
+   },
+   {
+    "label": "エ",
+    "text": "調査結果に事実誤認がないことを被監査部門に確認した上で，監査人が改善の必要があると判断した事項を記載する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "監査報告の前に事実関係を被監査部門と確認し、誤りがないようにする。",
+   "perChoice": {
+    "ア": "実現可能性も考慮する。",
+    "イ": "監査証拠の裏付けが必要。",
+    "ウ": "被監査部門の承認は必要ない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "事実確認はするが、判断は監査人が独立して行う。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問58",
+   "short": "H29春 午前 問58",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-59",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 59,
+  "stem": "販売管理システムにおいて，起票された受注伝票の入力が，漏れなく，かつ，重複することなく実施されていることを確かめる監査手続として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "受注データから値引取引データなどの例外取引データを抽出し，承認の記録を確かめる。"
+   },
+   {
+    "label": "イ",
+    "text": "受注伝票の入力時に論理チェック及びフォーマットチェックが行われているか，テストデータ法で確かめる。"
+   },
+   {
+    "label": "ウ",
+    "text": "プルーフリストと受注伝票との照合が行われているか，プルーフリストと受注伝票上の照合印を確かめる。"
+   },
+   {
+    "label": "エ",
+    "text": "並行シミュレーション法を用いて，受注伝票を処理するプログラムの論理の正確性を確かめる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit"
+  ],
+  "questionType": "applied",
+  "difficulty": 2,
+  "explanation": {
+   "basis": "プルーフリストと伝票の照合で漏れや重複が分かる。",
+   "perChoice": {
+    "ア": "承認の確認。",
+    "イ": "入力値の正確性。",
+    "ウ": "正しい。",
+    "エ": "プログラムの正確性。"
+   },
+   "pitfalls": "漏れ・重複＝突合せ。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問59",
+   "short": "H29春 午前 問59",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-60",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 60,
+  "stem": "識別コード及びパスワードによるアクセスコントロール機能を情報システムに組み込むことによって，コントロールが可能なリスクはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "通信上のデータの盗聴"
+   },
+   {
+    "label": "イ",
+    "text": "データの入力エラー"
+   },
+   {
+    "label": "ウ",
+    "text": "ハードウェアの物理的な破壊"
+   },
+   {
+    "label": "エ",
+    "text": "ファイル，データ内容の改ざん"
+   }
+  ],
+  "answer": "エ",
+  "field": "management",
+  "categoryLarge": "システム監査",
+  "categoryMiddle": "システム監査",
+  "topicIds": [
+   "system-audit",
+   "authentication"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "アクセスコントロールで権限のない者の操作を防げば、ファイルやデータの改ざんを防げる。",
+   "perChoice": {
+    "ア": "暗号化で対策する。",
+    "イ": "入力チェックで対策する。",
+    "ウ": "物理的セキュリティで対策する。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "アクセス制御＝権限のない人に触らせない。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問60",
+   "short": "H29春 午前 問60",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-61",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 61,
+  "stem": "情報戦略の投資効果を評価するとき，利益額を分子に，投資額を分母にして算出するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "EVA"
+   },
+   {
+    "label": "イ",
+    "text": "IRR"
+   },
+   {
+    "label": "ウ",
+    "text": "NPV"
+   },
+   {
+    "label": "エ",
+    "text": "ROI"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "investment-eval"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ROI（投資利益率）＝利益額÷投資額。",
+   "perChoice": {
+    "ア": "経済的付加価値。",
+    "イ": "内部収益率。",
+    "ウ": "正味現在価値。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "ROI＝Return on Investment。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問61",
+   "short": "H29春 午前 問61",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-62",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 62,
+  "stem": "事業目標達成のためのプログラムマネジメントの考え方として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "活動全体を複数のプロジェクトの結合体と捉え，複数のプロジェクトの連携，統合，相互作用を通じて価値を高め，組織全体の戦略の実現を図る。"
+   },
+   {
+    "label": "イ",
+    "text": "個々のプロジェクト管理を更に細分化することによって，プロジェクトに必要な技術や確保すべき経営資源の明確化を図る。"
+   },
+   {
+    "label": "ウ",
+    "text": "システムの開発に使用するプログラム言語や開発手法を早期に検討することによって，開発リスクを低減し，投資効果の最大化を図る。"
+   },
+   {
+    "label": "エ",
+    "text": "リスクを最小化するように支援する専門組織を設けることによって，組織全体のプロジェクトマネジメントの能力と品質の向上を図る。"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム戦略",
+  "topicIds": [
+   "program-mgmt"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "プログラムマネジメントは、関連する複数のプロジェクトをまとめて管理し、戦略を実現する。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "細分化の話ではない。",
+    "ウ": "プログラム言語の話ではない。",
+    "エ": "PMO の説明。"
+   },
+   "pitfalls": "プログラム＝複数プロジェクトの束。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問62",
+   "short": "H29春 午前 問62",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-63",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 63,
+  "stem": "IT 投資に対する評価指標の設定に際し，バランススコアカードの手法を用いて KPI を設定する場合に，内部ビジネスプロセスの視点に立った KPI の例はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "売上高営業利益率を前年比 5% アップとする。"
+   },
+   {
+    "label": "イ",
+    "text": "顧客クレーム件数を 1 か月当たり 20 件以内とする。"
+   },
+   {
+    "label": "ウ",
+    "text": "新システムの利用者研修会の受講率を 100% とする。"
+   },
+   {
+    "label": "エ",
+    "text": "注文受付から製品出荷までの日数を 3 日短縮とする。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "kpi-csf",
+   "strategy-frameworks"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "業務の処理日数の短縮は内部ビジネスプロセスの視点。",
+   "perChoice": {
+    "ア": "財務の視点。",
+    "イ": "顧客の視点。",
+    "ウ": "学習と成長の視点。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "BSC の 4 視点に当てはめる。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問63",
+   "short": "H29春 午前 問63",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-64",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 64,
+  "stem": "業務要件定義において，業務フローを記述する際に，処理の分岐や並行処理，処理の同期などを表現できる図はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "アクティビティ図"
+   },
+   {
+    "label": "イ",
+    "text": "クラス図"
+   },
+   {
+    "label": "ウ",
+    "text": "状態遷移図"
+   },
+   {
+    "label": "エ",
+    "text": "ユースケース図"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "システム戦略",
+  "categoryMiddle": "システム企画",
+  "topicIds": [
+   "uml",
+   "requirements"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "アクティビティ図は処理の流れを表し、分岐・並行（フォーク・ジョイン）・同期を記述できる。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "クラスの構造。",
+    "ウ": "状態の変化。",
+    "エ": "機能と利用者の関係。"
+   },
+   "pitfalls": "業務フロー＝アクティビティ図。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問64",
+   "short": "H29春 午前 問64",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-65",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 65,
+  "stem": "組込みシステム開発において，製品に搭載する LSI を新規に開発したい。LSI 設計を自社で行い，LSI 製造を外部に委託する場合の委託先として，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "IP プロバイダ"
+   },
+   {
+    "label": "イ",
+    "text": "デザインハウス"
+   },
+   {
+    "label": "ウ",
+    "text": "ファウンドリ"
+   },
+   {
+    "label": "エ",
+    "text": "ファブレスメーカ"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "business-model"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ファウンドリは半導体の製造を受託する企業。",
+   "perChoice": {
+    "ア": "回路の設計資産（IP）を提供する企業。",
+    "イ": "設計を受託する企業。",
+    "ウ": "正しい。",
+    "エ": "工場を持たない企業（製造は委託する側）。"
+   },
+   "pitfalls": "ファブレス＝設計だけ、ファウンドリ＝製造だけ。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問65",
+   "short": "H29春 午前 問65",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-66",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 66,
+  "stem": "多角化戦略のうち，M&A による垂直統合に該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "銀行による保険会社の買収・合併"
+   },
+   {
+    "label": "イ",
+    "text": "自動車メーカによる軽自動車メーカの買収・合併"
+   },
+   {
+    "label": "ウ",
+    "text": "製鉄メーカによる鉄鋼石採掘会社の買収・合併"
+   },
+   {
+    "label": "エ",
+    "text": "電機メーカによる不動産会社の買収・合併"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "strategy-frameworks"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "垂直統合は、原材料から販売までの流れの上流・下流の企業を取り込むこと。製鉄会社が原料の採掘会社を取り込むのはその例。",
+   "perChoice": {
+    "ア": "水平統合（関連分野）。",
+    "イ": "水平統合（同業）。",
+    "ウ": "正しい。",
+    "エ": "コングロマリット型の多角化。"
+   },
+   "pitfalls": "垂直＝サプライチェーンの上下、水平＝同業・同じ段階。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問66",
+   "short": "H29春 午前 問66",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-67",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 67,
+  "stem": "SCM の目的はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "顧客情報や購買履歴，クレームなどを一元管理し，きめ細かな顧客対応を行うことによって，良好な顧客関係の構築を目的とする。"
+   },
+   {
+    "label": "イ",
+    "text": "顧客情報や商談スケジュール，進捗状況などの商談状況を一元管理することによって，営業活動の効率向上を目的とする。"
+   },
+   {
+    "label": "ウ",
+    "text": "生産，販売，在庫管理，財務会計，人事管理など基幹業務のあらゆる情報を統合管理することによって，経営効率の向上を目的とする。"
+   },
+   {
+    "label": "エ",
+    "text": "複数の企業や組織にまたがる調達から販売までの業務プロセス全ての情報を統合的に管理することによって，コスト低減や納期短縮などを目的とする。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "business-systems"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "SCM は調達から販売までを企業横断で最適化する。",
+   "perChoice": {
+    "ア": "CRM。",
+    "イ": "SFA。",
+    "ウ": "ERP。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "SCM＝供給の連鎖。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問67",
+   "short": "H29春 午前 問67",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-68",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 68,
+  "stem": "事業戦略のうち，浸透価格戦略に該当するものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "売上高をできるだけ維持しながら，製品や事業に掛けるコストを徐々に引き下げていくことによって，短期的なキャッシュフローの増大を図る。"
+   },
+   {
+    "label": "イ",
+    "text": "事業を分社化し，その会社を売却することによって，投下資金の回収を図る。"
+   },
+   {
+    "label": "ウ",
+    "text": "新規事業に進出することによって，企業を成長させ，利益の増大を図る。"
+   },
+   {
+    "label": "エ",
+    "text": "低価格戦略と積極的なプロモーションによって，新製品のマーケットシェアの増大を図る。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "marketing"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "浸透価格戦略は、新製品を低価格で売り出して市場シェアを素早く獲得する。",
+   "perChoice": {
+    "ア": "収穫戦略。",
+    "イ": "撤退（売却）戦略。",
+    "ウ": "多角化戦略。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "浸透価格（低価格でシェア）⇔ 上澄み吸収価格（高価格で早期回収）。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問68",
+   "short": "H29春 午前 問68",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-69",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 69,
+  "stem": "他の技法では答えが得られにくい，未来予測のような問題に多く用いられ，(1)～(3) の手順に従って行われる予測技法はどれか。\n\n(1) 複数の専門家を回答者として選定する。\n(2) 質問に対する回答結果を集約してフィードバックし，再度質問を行う。\n(3) 回答結果を統計的に処理し，分布とともに回答結果を示す。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "クロスセクション法"
+   },
+   {
+    "label": "イ",
+    "text": "シナリオライティング法"
+   },
+   {
+    "label": "ウ",
+    "text": "親和図法"
+   },
+   {
+    "label": "エ",
+    "text": "デルファイ法"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "技術戦略マネジメント",
+  "topicIds": [
+   "forecasting"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "専門家へのアンケートを、結果を戻しながら繰り返すのはデルファイ法。",
+   "perChoice": {
+    "ア": "横断的な比較分析。",
+    "イ": "将来のシナリオを複数描く手法。",
+    "ウ": "意見をグループ化する手法。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "専門家・繰返し・フィードバック。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問69",
+   "short": "H29春 午前 問69",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-70",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 70,
+  "stem": "セル生産方式の特徴はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "作業指示と現場管理を見えるようにするために，かんばんを使用する。"
+   },
+   {
+    "label": "イ",
+    "text": "生産ライン上の作業場所を通過するに従い製品の加工が進む。"
+   },
+   {
+    "label": "ウ",
+    "text": "必要とする部品，仕様，数量が後工程から前工程へと順次伝わる。"
+   },
+   {
+    "label": "エ",
+    "text": "部品の組立てから完成検査まで，ほとんどの工程を 1 人又は数人で作業する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "production-mgmt"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "セル生産方式は、少人数のチーム（セル）が組立てから検査までを受け持つ。多品種少量生産に向く。",
+   "perChoice": {
+    "ア": "かんばん方式。",
+    "イ": "ライン生産方式。",
+    "ウ": "かんばん方式（後工程引取り）。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "セル＝少人数で全工程。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問70",
+   "short": "H29春 午前 問70",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-71",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 71,
+  "stem": "インターネットオークションにおいて，出品者と落札者の間の決済で使用されるエスクローサービスはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "決済に関する情報の利用に関して，情報の保護基準が守られているかを第三者機関によって監視する仕組みのこと"
+   },
+   {
+    "label": "イ",
+    "text": "決済に関する電子メールなどの情報交換において，送信元とメールアドレスが正常であることを認証する仕組みのこと"
+   },
+   {
+    "label": "ウ",
+    "text": "決済に使用されるクレジットカード情報を暗号化したり，正規のショップであることを認証局によって確認したりすることによって，取引の安全を確保する仕組みのこと"
+   },
+   {
+    "label": "エ",
+    "text": "決済を仲介し，落札者から送金を受け，商品の受渡し完了後に出品者へ送金を行う仕組みのこと"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "ビジネスインダストリ",
+  "topicIds": [
+   "business-model"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "エスクローサービスは第三者が代金を一時預かり、商品の受渡しを確認してから出品者に支払う仕組み。",
+   "perChoice": {
+    "ア": "プライバシーマークなど。",
+    "イ": "送信ドメイン認証。",
+    "ウ": "SSL/TLS や 3D セキュアなど。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "エスクロー＝第三者預託。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問71",
+   "short": "H29春 午前 問71",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-72",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 72,
+  "stem": "インターネットを活用した広告手法のうち，行動ターゲティングの説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "インターネット検索エンジンで，利用者が入力した特定の検索キーワードに関連する商品の広告を表示する。"
+   },
+   {
+    "label": "イ",
+    "text": "サービス運営会社が発行する広告タグを埋め込んだ Web サイトを訪れた利用者に対して，その Web サイトのコンテンツに関連した広告を自動的に表示する。"
+   },
+   {
+    "label": "ウ",
+    "text": "スマートフォンなどの GPS 機能を使い，利用者の現在地に合わせて，近隣の商業施設の広告を，利用者が見ている Web サイトに表示する。"
+   },
+   {
+    "label": "エ",
+    "text": "利用者の Web サイトの検索履歴，アクセスしたページや購買履歴から利用者の興味・関心を解析し，関連した広告を利用者が見ている Web サイトに表示する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "経営戦略",
+  "categoryMiddle": "経営戦略マネジメント",
+  "topicIds": [
+   "marketing"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "行動ターゲティングは、利用者の閲覧・購買などの行動履歴から興味を推定して広告を出す。",
+   "perChoice": {
+    "ア": "リスティング広告（検索連動型）。",
+    "イ": "コンテンツ連動型広告。",
+    "ウ": "位置情報連動型広告（ジオターゲティング）。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "「行動」＝利用者の履歴。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問72",
+   "short": "H29春 午前 問72",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-73",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 73,
+  "stem": "製造業の企業が社会的責任を果たす活動の一環として，雇用創出や生産設備の環境対策に投資することによって，便益を享受するステークホルダは，株主，役員，従業員に加えて，どれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "近隣地域社会の住民"
+   },
+   {
+    "label": "イ",
+    "text": "原材料の輸入元企業"
+   },
+   {
+    "label": "ウ",
+    "text": "製品を購入している消費者"
+   },
+   {
+    "label": "エ",
+    "text": "取引をしている下請企業"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "ethics"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "雇用創出や工場の環境対策の恩恵を受けるのは、地域社会の住民。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "直接の便益はない。",
+    "ウ": "直接の便益は小さい。",
+    "エ": "直接の便益は小さい。"
+   },
+   "pitfalls": "雇用と環境＝地域社会。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問73",
+   "short": "H29春 午前 問73",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-74",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 74,
+  "stem": "ワークシェアリングの説明はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "企業が継続雇用の前提として，従業員に対して他社でも通用する技術・能力の維持責任を求める一方，企業も従業員の能力開発を積極的に支援する。"
+   },
+   {
+    "label": "イ",
+    "text": "従業員 1 人当たりの労働時間を短縮したり仕事の配分方法を見直したりするなど，労働者間で労働を分かち合うことで雇用維持・創出を図る。"
+   },
+   {
+    "label": "ウ",
+    "text": "専門業務や企画業務における労働時間は，実際の労働時間に関係なく，労使協定であらかじめ取り決めた労働時間とみなす。"
+   },
+   {
+    "label": "エ",
+    "text": "能力主義と実績主義の徹底，経営参加意識の醸成，業績向上へのインセンティブなどを目的に，職務と能力，業績を基準に報酬を決める。"
+   }
+  ],
+  "answer": "イ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "org-hr",
+   "labor-law"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "ワークシェアリングは、仕事を分け合って雇用を維持・創出すること。",
+   "perChoice": {
+    "ア": "エンプロイアビリティ。",
+    "イ": "正しい。",
+    "ウ": "裁量労働制。",
+    "エ": "成果主義賃金。"
+   },
+   "pitfalls": "シェア＝分け合う。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問74",
+   "short": "H29春 午前 問74",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-75",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 75,
+  "stem": "定量発注方式の特徴はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "在庫量の把握は発注時期だけでよい。"
+   },
+   {
+    "label": "イ",
+    "text": "需要変動が大きい重点管理品目などに適用する。"
+   },
+   {
+    "label": "ウ",
+    "text": "発注時に需要予測が必要である。"
+   },
+   {
+    "label": "エ",
+    "text": "発注量には経済的発注量を用いると効果的である。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "inventory"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "定量発注方式は在庫が発注点を下回ったら一定量を発注する。発注量に経済的発注量を使うと費用を抑えられる。",
+   "perChoice": {
+    "ア": "発注点を下回ったか常に監視する必要がある。",
+    "イ": "需要変動が大きい重点品目は定期発注方式向き。",
+    "ウ": "定期発注方式の特徴。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "定量＝発注点・経済的発注量、定期＝需要予測・重点品目。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問75",
+   "short": "H29春 午前 問75",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-76",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 76,
+  "stem": "いずれも時価 100 円の株式 A～D のうち，一つの株式に投資したい。経済の成長を高，中，低の三つに区分したときのそれぞれの株式の予想値上がり幅は，表のとおりである。マクシミン原理に従うとき，どの株式に投資することになるか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "A"
+   },
+   {
+    "label": "イ",
+    "text": "B"
+   },
+   {
+    "label": "ウ",
+    "text": "C"
+   },
+   {
+    "label": "エ",
+    "text": "D"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "game-theory"
+  ],
+  "questionType": "calculation",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "各株式の最小値は A＝10、B＝5、C＝5、D＝－10。最小値が最大の A を選ぶ。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "最小値 5。",
+    "ウ": "最小値 5。",
+    "エ": "最小値 －10。"
+   },
+   "pitfalls": "マクシミン＝最悪の中の最善。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問76",
+   "short": "H29春 午前 問76",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  },
+  "figures": [
+   "data/img/ap-h29h/q76.png"
+  ]
+ },
+ {
+  "id": "AP-H29H-AM-77",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 77,
+  "stem": "損益分岐点の特性を説明したものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "固定費が変わらないとき，変動費率が低くなると損益分岐点は高くなる。"
+   },
+   {
+    "label": "イ",
+    "text": "固定費が変わらないとき，変動費率の変化と損益分岐点の変化は正比例する。"
+   },
+   {
+    "label": "ウ",
+    "text": "損益分岐点での売上高は，固定費と変動費の和に等しい。"
+   },
+   {
+    "label": "エ",
+    "text": "変動費率が変わらないとき，固定費が小さくなると損益分岐点は高くなる。"
+   }
+  ],
+  "answer": "ウ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "企業活動",
+  "topicIds": [
+   "break-even"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "損益分岐点では利益が 0 なので、売上高＝固定費＋変動費。",
+   "perChoice": {
+    "ア": "変動費率が下がると損益分岐点は下がる。",
+    "イ": "固定費÷(1－変動費率) なので正比例ではない。",
+    "ウ": "正しい。",
+    "エ": "固定費が小さくなると損益分岐点は下がる。"
+   },
+   "pitfalls": "損益分岐点＝固定費÷(1－変動費率)。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問77",
+   "short": "H29春 午前 問77",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-78",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 78,
+  "stem": "Web ページの著作権に関する記述のうち，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "営利目的ではなく趣味として，個人が開設している Web ページに他人の著作物を無断掲載しても，私的使用であるから著作権の侵害とはならない。"
+   },
+   {
+    "label": "イ",
+    "text": "作成したプログラムをインターネット上でフリーウェアとして公開した場合，配布されたプログラムは，著作権法による保護の対象とはならない。"
+   },
+   {
+    "label": "ウ",
+    "text": "試用期間中のシェアウェアを使用して作成したデータを，試用期間終了後も Web ページに掲載することは，著作権の侵害に当たる。"
+   },
+   {
+    "label": "エ",
+    "text": "特定の分野ごとに Web ページの URL を収集し，独自の解釈を付けたリンク集は，著作権法で保護され得る。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "copyright"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "素材の選択や配列に創作性があれば、編集著作物として保護され得る。",
+   "perChoice": {
+    "ア": "Web 公開は私的使用の範囲を超える。",
+    "イ": "フリーウェアも著作物として保護される。",
+    "ウ": "作成したデータの著作権は作成者にある。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "編集著作物＝選び方・並べ方の創作性。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問78",
+   "short": "H29春 午前 問78",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-79",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 79,
+  "stem": "コンピュータウイルスを作成する行為を処罰の対象とする法律はどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "刑法"
+   },
+   {
+    "label": "イ",
+    "text": "不正アクセス禁止法"
+   },
+   {
+    "label": "ウ",
+    "text": "不正競争防止法"
+   },
+   {
+    "label": "エ",
+    "text": "プロバイダ責任制限法"
+   }
+  ],
+  "answer": "ア",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "unauthorized-access"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "刑法の不正指令電磁的記録作成罪（ウイルス作成罪）で処罰される。",
+   "perChoice": {
+    "ア": "正しい。",
+    "イ": "不正ログインなどが対象。",
+    "ウ": "営業秘密などが対象。",
+    "エ": "プロバイダの責任の範囲。"
+   },
+   "pitfalls": "ウイルス作成＝刑法。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問79",
+   "short": "H29春 午前 問79",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ },
+ {
+  "id": "AP-H29H-AM-80",
+  "kind": "past",
+  "examYear": 2017,
+  "season": "spring",
+  "section": "A",
+  "number": 80,
+  "stem": "発注者と受注者の間でソフトウェア開発における請負契約を締結した。ただし，発注者の事業所で作業を実施することになっている。この場合，指揮命令権と雇用契約に関して，適切なものはどれか。",
+  "choices": [
+   {
+    "label": "ア",
+    "text": "指揮命令権は発注者にあり，さらに，発注者の事業所での作業を実施可能にするために，受注者に所属する作業者は，新たな雇用契約を発注者と結ぶ。"
+   },
+   {
+    "label": "イ",
+    "text": "指揮命令権は発注者にあり，受注者に所属する作業者は，新たな雇用契約を発注者と結ぶことなく，発注者の事業所で作業を実施する。"
+   },
+   {
+    "label": "ウ",
+    "text": "指揮命令権は発注者にないが，発注者の事業所での作業を実施可能にするために，受注者に所属する作業者は，新たな雇用契約を発注者と結ぶ。"
+   },
+   {
+    "label": "エ",
+    "text": "指揮命令権は発注者になく，受注者に所属する作業者は，新たな雇用契約を発注者と結ぶことなく，発注者の事業所で作業を実施する。"
+   }
+  ],
+  "answer": "エ",
+  "field": "strategy",
+  "categoryLarge": "企業と法務",
+  "categoryMiddle": "法務",
+  "topicIds": [
+   "labor-law",
+   "contract-type"
+  ],
+  "questionType": "knowledge",
+  "difficulty": 1,
+  "explanation": {
+   "basis": "請負では、作業場所が発注者の事業所でも、指揮命令は受注者が行う。雇用契約も受注者との間のまま。",
+   "perChoice": {
+    "ア": "偽装請負になる。",
+    "イ": "偽装請負になる。",
+    "ウ": "雇用契約を結ぶ必要はない。",
+    "エ": "正しい。"
+   },
+   "pitfalls": "請負＝発注者に指揮命令権なし。"
+  },
+  "source": {
+   "label": "平成29年度 春期 応用情報技術者試験 午前 問80",
+   "short": "H29春 午前 問80",
+   "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2017h29.html"
+  },
+  "verification": {
+   "status": "verified",
+   "checks": [
+    "IPA公開の問題冊子から転記",
+    "IPA解答例と照合",
+    "独立に解き直して一致を確認"
+   ]
+  }
+ }
+]
