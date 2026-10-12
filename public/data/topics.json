@@ -954,6 +954,12 @@
   "category": "ハードウェア"
  },
  {
+  "id": "adder",
+  "name": "加算器（半加算器・全加算器）",
+  "field": "technology",
+  "category": "ハードウェア"
+ },
+ {
   "id": "electric-circuit",
   "name": "電気回路の計算（電力・抵抗）",
   "field": "technology",

@@ -42,6 +42,11 @@
       "file": "data/AP-R04H.json"
     },
     {
+      "id": "AP-R03A",
+      "label": "令和3年度 秋期 午前（80問）",
+      "file": "data/AP-R03A.json"
+    },
+    {
       "id": "SAMPLE-01",
       "label": "動作確認用サンプル",
       "file": "data/sample-01.json",
