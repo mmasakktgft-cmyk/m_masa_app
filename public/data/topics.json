@@ -996,6 +996,12 @@
   "category": "ユーザーインタフェース"
  },
  {
+  "id": "automaton",
+  "name": "有限オートマトン・状態遷移",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
   "id": "bit-operation",
   "name": "ビット演算・シフト演算",
   "field": "technology",
