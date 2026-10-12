@@ -52,6 +52,11 @@
       "file": "data/AP-R03H.json"
     },
     {
+      "id": "AP-R02O",
+      "label": "令和2年度 10月 午前（80問）",
+      "file": "data/AP-R02O.json"
+    },
+    {
       "id": "SAMPLE-01",
       "label": "動作確認用サンプル",
       "file": "data/sample-01.json",

@@ -1002,6 +1002,12 @@
   "category": "基礎理論"
  },
  {
+  "id": "coding-theory",
+  "name": "符号化（ハフマン符号・情報量）",
+  "field": "technology",
+  "category": "基礎理論"
+ },
+ {
   "id": "error-detection",
   "name": "誤り検出・訂正（パリティ・CRC・ハミング符号）",
   "field": "technology",
