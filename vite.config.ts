@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// GitHub Pages ではリポジトリ名のサブパスで配信されるため、CI から BASE_PATH を渡す
+// GitHub Pages では /<リポジトリ名>/ap-prep/ で配信されるため、CI から BASE_PATH を渡す
 const base = process.env.BASE_PATH ?? '/'
 
 export default defineConfig({
@@ -14,9 +14,6 @@ export default defineConfig({
       includeAssets: ['icons/icon.svg'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json,webp}'],
-        // 同じサイトの /meal/ には食事管理アプリ（meal-app/）を置くので、このアプリの index.html を返さない
-        globIgnores: ['meal/**'],
-        navigateFallbackDenylist: [/\/meal\//],
       },
       manifest: {
         name: 'AP 過去問トレーナー',
