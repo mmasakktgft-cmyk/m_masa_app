@@ -1,0 +1,1342 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#2E5B45"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="キャンプ場ノート"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-192.png"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>キャンプ場ノート</title>
+<style>
+:root{
+  --ground:#ECEEE6;
+  --surface:#F8F9F4;
+  --surface-2:#E2E6DA;
+  --ink:#1D2620;
+  --ink-2:#56625A;
+  --line:#C9CFC0;
+  --pine:#2E5B45;
+  --pine-ink:#F4F7F1;
+  --amber:#D69A1E;
+  --amber-soft:#F3E2B8;
+  --good:#2E7D4F;
+  --warn:#B7791F;
+  --bad:#B3473A;
+  --shadow:0 1px 2px rgba(29,38,32,.06),0 6px 20px rgba(29,38,32,.06);
+  --font:"Meiryo UI",Meiryo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#141A16;--surface:#1C241F;--surface-2:#27312A;--ink:#E6EBE3;--ink-2:#A1AEA4;
+    --line:#35413A;--pine:#7FBF9A;--pine-ink:#102018;--amber:#E7B24A;--amber-soft:#4A3B18;
+    --good:#6CC08E;--warn:#E0A94C;--bad:#E48375;--shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#141A16;--surface:#1C241F;--surface-2:#27312A;--ink:#E6EBE3;--ink-2:#A1AEA4;
+  --line:#35413A;--pine:#7FBF9A;--pine-ink:#102018;--amber:#E7B24A;--amber-soft:#4A3B18;
+  --good:#6CC08E;--warn:#E0A94C;--bad:#E48375;--shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--ground);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.65;padding:0 16px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 64px;display:grid;gap:24px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.brand h1{font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0;letter-spacing:.02em}
+.brand p{margin:6px 0 0;color:var(--ink-2);font-size:14px}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.backup-files{display:grid;gap:8px}
+.backup-files a{justify-content:center}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink)}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--pine);border-color:var(--pine);color:var(--pine-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.danger{color:var(--bad);border-color:var(--bad);background:transparent}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--ink-2)}
+.btn.small{padding:5px 10px;font-size:13px}
+.btn.map{color:var(--pine);border-color:var(--pine)}
+.btn svg{width:16px;height:16px;flex:none}
+.btn:disabled{opacity:.6;cursor:default}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.stat{padding:14px 18px;background:var(--surface)}
+.stat .k{font-size:12px;color:var(--ink-2);letter-spacing:.06em}
+.stat .v{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:13px;color:var(--ink-2);margin-left:2px;font-weight:400}
+
+.notice{border:1px dashed var(--amber);background:var(--amber-soft);border-radius:10px;padding:10px 14px;font-size:14px}
+
+/* toolbar */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tools input[type=search]{flex:1 1 220px;min-width:0}
+.field,.tools input,.tools select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 12px;min-width:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.card.sample{opacity:.8;border-style:dashed}
+.card:focus-within{outline:2px solid var(--amber);outline-offset:2px}
+.card-main{border:0;background:transparent;padding:0;margin:0;display:grid;cursor:pointer;text-align:left;width:100%;flex:1;align-content:start}
+.card-main:focus-visible{outline:none}
+.card-body{display:grid;gap:12px;padding:18px 18px 14px}
+.cover-wrap{position:relative}
+.cover{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface-2)}
+.cover-wrap span{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;border-radius:999px;padding:2px 10px}
+.card-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.card h3{margin:0;font-size:18px;line-height:1.35;text-wrap:balance}
+.meta{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.visits-line{font-size:13px;font-weight:700;color:var(--pine)}
+.score{font-weight:700;font-size:30px;line-height:1;text-align:right;font-variant-numeric:tabular-nums}
+.score small{display:block;font-size:11px;font-weight:400;color:var(--ink-2);letter-spacing:.04em;margin-top:4px;white-space:nowrap}
+.card-foot{padding:0 18px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.maplink{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--pine);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.maplink:hover{background:var(--surface-2)}
+.maplink svg{width:14px;height:14px;flex:none}
+
+.bars{display:grid;gap:4px}
+.bar{display:grid;grid-template-columns:92px 1fr 22px;gap:8px;align-items:center;font-size:12px}
+.bar .lbl{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .trk{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.bar .fil{height:100%;background:var(--amber);border-radius:3px}
+.bar .n{text-align:right;font-variant-numeric:tabular-nums}
+.bar.na .n{color:var(--ink-2)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{font-size:12px;border-radius:999px;padding:2px 10px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.rv{font-weight:700}
+.rv-yes,.v-good{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good);font-weight:700}
+.rv-maybe,.v-ok{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn);font-weight:700}
+.rv-no,.v-bad{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad);font-weight:700}
+.tag-sample{background:var(--amber-soft);color:var(--ink)}
+.seasons{display:inline-flex;gap:3px}
+.seasons i{font-style:normal;font-size:11px;width:20px;height:20px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);color:var(--ink-2)}
+.seasons i.on{background:var(--pine);border-color:var(--pine);color:var(--pine-ink);font-weight:700}
+.empty{padding:40px 16px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:12px}
+
+/* overlay */
+.ov{position:fixed;inset:0;background:rgba(10,14,12,.5);display:flex;align-items:flex-start;justify-content:center;padding:max(24px,env(safe-area-inset-top,0px)) 12px 24px;overflow-y:auto;z-index:10}
+.sheet{background:var(--surface);color:var(--ink);border-radius:14px;width:100%;max-width:760px;padding:24px;display:grid;gap:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);min-width:0}
+.sheet>*{min-width:0}
+.sheet h2{font-weight:700;font-size:24px;margin:0;line-height:1.3;text-wrap:balance}
+.sheet-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.x{border:0;background:transparent;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;color:var(--ink-2)}
+.back{border:0;background:transparent;cursor:pointer;color:var(--ink-2);font-size:13px;padding:0;text-align:left}
+.section-t{font-size:12px;letter-spacing:.1em;color:var(--ink-2);font-weight:700;margin:0 0 8px}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.kv{background:var(--surface-2);border-radius:8px;padding:8px 12px;min-width:0}
+.kv .k{font-size:11px;color:var(--ink-2);letter-spacing:.04em}
+.kv .v{font-size:15px;font-weight:700;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.kv .v small{font-weight:400;font-size:11px;color:var(--ink-2);display:block}
+.note{white-space:pre-wrap;background:var(--surface-2);border-radius:8px;padding:10px 14px;margin:0;overflow-wrap:anywhere}
+.callout{background:var(--amber-soft);border-radius:10px;padding:12px 16px}
+.callout .section-t{color:var(--ink)}
+.callout p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;align-items:center}
+.actions.left{justify-content:flex-start}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--bad)}
+
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:thin}
+.tab{border:0;background:transparent;padding:8px 12px;cursor:pointer;white-space:nowrap;font-size:14px;color:var(--ink-2);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--pine)}
+.tab .cnt{font-size:11px;background:var(--surface-2);border-radius:999px;padding:0 6px;margin-left:4px;font-variant-numeric:tabular-nums}
+.panel{display:grid;gap:14px}
+
+.visit{border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:10px}
+.visit-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.visit-head b{font-size:15px}
+.cost{font-size:13px;font-variant-numeric:tabular-nums}
+.cost b{font-size:15px}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.gallery a,.gallery .ph{display:block;border-radius:8px;overflow:hidden;background:var(--surface-2);aspect-ratio:4/3;position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .rm{position:absolute;top:4px;right:4px;border:0;border-radius:999px;width:26px;height:26px;background:rgba(0,0,0,.65);color:#fff;cursor:pointer;font-size:15px;line-height:1}
+.ph.busy{display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-2)}
+.upl{display:inline-flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:8px;aspect-ratio:4/3;cursor:pointer;color:var(--ink-2);font-size:13px;text-align:center;padding:8px;position:relative}
+.upl:hover{background:var(--surface-2)}
+.upl input{position:absolute;width:1px;height:1px;opacity:0}
+
+.trend-wrap{overflow-x:auto}
+table.trend{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;min-width:100%}
+.trend th,.trend td{padding:6px 8px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+.trend th:first-child,.trend td:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+.trend thead th{font-weight:700;color:var(--ink-2);font-size:12px}
+.trend tr.total td{font-weight:700}
+.trend .cell{display:inline-block;min-width:30px;border-radius:5px;padding:1px 6px}
+.up{color:var(--good);font-weight:700}.down{color:var(--bad);font-weight:700}.flat{color:var(--ink-2)}
+
+.row-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:10px}
+.row-item .t{font-weight:700;overflow-wrap:anywhere}
+.row-item .d{font-size:13px;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere}
+.row-item .ops{display:flex;gap:4px}
+.inline-form{background:var(--surface-2);border-radius:10px;padding:12px;display:grid;gap:10px}
+.inline-form .field{background:var(--surface)}
+.check{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:6px 0}
+.check label{flex:1;display:flex;gap:10px;align-items:center;cursor:pointer;overflow-wrap:anywhere;min-width:0}
+.check input{width:20px;height:20px;accent-color:var(--pine);flex:none}
+.check.done label span{text-decoration:line-through;color:var(--ink-2)}
+.progress{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-top:4px}
+.progress span{display:block;height:100%;background:var(--pine)}
+.season-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.season-box{border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:8px}
+.season-box h4{margin:0;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* form */
+form{display:grid;gap:18px}
+.inline-form,#packForm{gap:10px}
+.frow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+label.f{display:grid;gap:4px;font-size:13px;color:var(--ink-2);align-content:start}
+label.f .field{color:var(--ink);width:100%}
+textarea.field{min-height:72px;resize:vertical}
+.req{color:var(--bad)}
+.fieldset{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:14px}
+.fieldset>.section-t{margin:0}
+.rate-list{display:grid;gap:6px}
+.rate{display:grid;grid-template-columns:minmax(110px,160px) 1fr;gap:8px;align-items:center}
+.rate .nm{font-size:14px}
+.rate .nm small{display:block;font-size:11px;color:var(--ink-2);line-height:1.3}
+.stars{display:flex;gap:2px;align-items:center;flex-wrap:wrap}
+.star{border:0;background:transparent;font-size:24px;line-height:1;padding:2px;cursor:pointer;color:var(--line)}
+.star.on{color:var(--amber)}
+.clear{border:0;background:transparent;font-size:12px;color:var(--ink-2);cursor:pointer;margin-left:6px;text-decoration:underline}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:6px;background:var(--surface)}
+.seg input{accent-color:var(--pine)}
+.seg label:has(input:checked){background:var(--surface-2);border-color:var(--pine)}
+.hint{font-size:12px;color:var(--ink-2);margin:0}
+.calc{font-size:13px;background:var(--surface-2);border-radius:8px;padding:8px 12px;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--ground);padding:10px 18px;border-radius:8px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+@media (max-width:480px){.sheet{padding:18px}.row-item{grid-template-columns:1fr}.row-item .ops{justify-content:flex-end}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>キャンプ場ノート</h1>
+      <p>行ったキャンプ場を採点して、次のキャンプ場選びに使う記録帳</p>
+    </div>
+    <div class="top-actions">
+      <button class="btn" id="backupBtn" type="button">バックアップ</button>
+      <button class="btn primary" id="addBtn" type="button">＋ 新しいキャンプ場</button>
+    </div>
+  </header>
+
+  <section class="stats" aria-label="集計">
+    <div class="stat"><div class="k">行ったキャンプ場</div><div class="v" id="stCount">0<small>か所</small></div></div>
+    <div class="stat"><div class="k">訪問回数</div><div class="v" id="stVisits">0<small>回</small></div></div>
+    <div class="stat"><div class="k">合計泊数</div><div class="v" id="stNights">0<small>泊</small></div></div>
+    <div class="stat"><div class="k">平均スコア</div><div class="v" id="stAvg">–</div></div>
+    <div class="stat"><div class="k">また行きたい</div><div class="v" id="stRevisit">0<small>か所</small></div></div>
+  </section>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <div class="tools">
+    <input type="search" id="q" placeholder="名前・エリア・メモ・区画で検索" aria-label="検索">
+    <select id="sort" aria-label="並び替え"></select>
+    <div class="chips" id="rvFilter" role="group" aria-label="また行きたい度で絞り込み"></div>
+  </div>
+
+  <main class="grid" id="grid" aria-live="polite"></main>
+</div>
+
+<div class="ov" id="ov" hidden></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const CRITERIA = [
+  {k:"scenery", n:"景色・ロケーション", d:"眺望、自然の雰囲気"},
+  {k:"site",    n:"サイトの広さ・地面", d:"区画の広さ、水はけ、ペグの刺さり"},
+  {k:"quiet",   n:"静かさ・客層", d:"夜の静けさ、マナー"},
+  {k:"toilet",  n:"トイレ・炊事場", d:"清潔さ、距離"},
+  {k:"around",  n:"温泉・周辺施設", d:"風呂、買い出し、売店"},
+  {k:"access",  n:"アクセス", d:"道の運転しやすさ、所要時間"},
+  {k:"value",   n:"コスパ", d:"料金に見合うか"},
+];
+const TYPES = ["オートサイト(区画)","フリーサイト","林間","湖畔・川沿い","海沿い","高原","ソロ向け","コテージ・バンガロー"];
+const TAGS = ["AC電源","直火OK","ペット可","お風呂・シャワー","売店","電波良好","ゴミ回収あり","チェックアウト遅め"];
+const RV = {yes:"また行きたい", maybe:"条件次第", no:"もういいかな"};
+const SEASONS = [
+  {k:"spring", n:"春", m:[3,4,5]},
+  {k:"summer", n:"夏", m:[6,7,8]},
+  {k:"autumn", n:"秋", m:[9,10,11]},
+  {k:"winter", n:"冬", m:[12,1,2]},
+];
+const SPOT_KINDS = ["スーパー・買い出し","コンビニ","温泉・銭湯","薪・燃料","ホームセンター","飲食店","観光・遊び","その他"];
+const PLOT_V = {good:"◎ また取りたい", ok:"○ 普通", bad:"× 避けたい"};
+const TABS = [
+  {k:"visits", n:"訪問履歴"},
+  {k:"trend",  n:"スコア推移"},
+  {k:"plots",  n:"区画メモ"},
+  {k:"pack",   n:"持ち物"},
+  {k:"season", n:"季節"},
+  {k:"reserve",n:"予約情報"},
+  {k:"spots",  n:"周辺スポット"},
+];
+
+// shown only while nothing is registered; never saved
+const SAMPLES_RAW = [
+  {id:"s1", schema:2, name:"(例) 富士山麓の高原キャンプ場", area:"静岡県", type:"フリーサイト", tags:["お風呂・シャワー","売店"], revisit:"yes",
+   plots:[{id:"p1",name:"奥の展望エリア",verdict:"good",note:"富士山が正面。朝日が当たる"}],
+   checklist:[{id:"c1",text:"鍛造ペグ 30cm",done:false},{id:"c2",text:"防寒着（夜は5℃）",done:true}],
+   visits:[
+    {id:"v1",date:"2025-10-12",nights:1,price:3000,priceUnit:"night",adults:2,children:0,plot:"入口近く",weather:"晴れ",
+     ratings:{scenery:4,site:4,quiet:2,toilet:3,around:4,access:4,value:4},good:"広い。",bad:"入口近くは車の出入りでうるさい。",next:"奥の展望エリアを狙う。",photos:[]},
+    {id:"v2",date:"2026-05-03",nights:2,price:4000,priceUnit:"night",adults:2,children:1,plot:"奥の展望エリア",weather:"晴れ／夜は5℃",
+     ratings:{scenery:5,site:4,quiet:4,toilet:3,around:4,access:4,value:4},good:"富士山が正面。朝焼けが最高。",bad:"風が強い。",next:"平日に行く。張り綱を多めに。",photos:[]}]},
+  {id:"s2", name:"(例) 渓流沿いの林間キャンプ場", area:"山梨県", date:"2026-08-11", nights:1, price:3000, plot:"川沿い下段", type:"林間", tags:["直火OK","ペット可"], weather:"曇り", revisit:"maybe",
+   ratings:{scenery:4,site:2,quiet:4,toilet:2,around:3,access:3,value:5},
+   good:"直火ができて焚き火が楽しい。", bad:"地面がデコボコで石が多い。", next:"厚めのマットを持っていく。"},
+];
+
+let items = [];
+let loaded = false;
+let filterRv = "all";
+let openId = null, tab = "visits", dirty = false;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid = p => p + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+const MAP_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>`;
+// 写真は IndexedDB の Blob から作った表示用 URL で表示する（id → objectURL）
+const photoUrls = new Map();
+const blobUrl = id => photoUrls.get(id) || "";
+const clone = o => JSON.parse(JSON.stringify(o));
+
+/* ---------- data model ---------- */
+// A place holds its visits. A legacy one-visit record reads as a place with one visit.
+function normalize(raw, id){
+  if (raw.schema === 2 || raw.visits) {
+    return {
+      ...raw, id, schema:2,
+      tags: raw.tags || [], visits: (raw.visits || []).map(v => ({ratings:{}, ...v, photos: v.photos || []})),
+      plots: raw.plots || [], checklist: raw.checklist || [], spots: raw.spots || [],
+      seasons: raw.seasons || {}, reservation: raw.reservation || {},
+    };
+  }
+  return {
+    id, schema:2,
+    name: raw.name || "", area: raw.area || "", map: raw.map || "", url: raw.url || "",
+    type: raw.type || "", tags: raw.tags || [], revisit: raw.revisit || "",
+    plots: [], checklist: [], spots: [], seasons: {}, reservation: {},
+    visits: [{
+      id: "v1", date: raw.date || "", nights: raw.nights ?? "", price: raw.price ?? "", priceUnit: "night",
+      adults: "", children: "", plot: raw.plot || "", weather: raw.weather || "",
+      ratings: raw.ratings || {}, good: raw.good || "", bad: raw.bad || "", next: raw.next || "", photos: raw.photos || [],
+    }],
+    createdAt: raw.createdAt, updatedAt: raw.updatedAt,
+  };
+}
+const SAMPLES = SAMPLES_RAW.map(r => ({...normalize(r, r.id), sample:true}));
+
+function avg(r){
+  const v = CRITERIA.map(c => r?.[c.k]).filter(x => typeof x === "number" && x > 0);
+  return v.length ? v.reduce((a,b)=>a+b,0)/v.length : null;
+}
+const byDateAsc = (a,b) => (a.date||"9999").localeCompare(b.date||"9999");
+const visitsAsc = p => [...p.visits].sort(byDateAsc);
+function latest(p){ const v = visitsAsc(p); return v[v.length-1] || null; }
+const placeScore = p => avg(latest(p)?.ratings);
+function seasonOf(date){
+  if (!date) return null;
+  const m = +date.slice(5,7);
+  return SEASONS.find(s => s.m.includes(m))?.k || null;
+}
+const visitedSeasons = p => new Set(p.visits.map(v => seasonOf(v.date)).filter(Boolean));
+const n0 = v => (v === "" || v == null || isNaN(+v)) ? null : +v;
+function cost(v){
+  const price = n0(v.price), nights = n0(v.nights) || 1;
+  const people = (n0(v.adults) || 0) + (n0(v.children) || 0);
+  if (price == null) return {price:null, people};
+  const total = v.priceUnit === "total" ? price : price * nights;
+  const perNight = total / nights;
+  return {price, total, perNight, people,
+    perPersonNight: people ? perNight / people : null,
+    perPersonTotal: people ? total / people : null};
+}
+function placeTotals(p){
+  let nights = 0, spent = 0, missing = 0, ppnSum = 0, ppnCount = 0;
+  for (const v of p.visits) {
+    nights += n0(v.nights) || 0;
+    const c = cost(v);
+    if (c.total == null) missing++; else spent += c.total;
+    if (c.perPersonNight != null) { ppnSum += c.perPersonNight; ppnCount++; }
+  }
+  return {nights, spent, missing, ppn: ppnCount ? ppnSum / ppnCount : null, first: visitsAsc(p)[0]?.date || ""};
+}
+function mapHref(m){
+  m = (m || "").trim();
+  if (!m) return "";
+  if (/^https:\/\//i.test(m)) return m;
+  return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(m);
+}
+const fmtScore = x => x == null ? "–" : x.toFixed(1);
+const fmtDate = d => d ? d.replaceAll("-", ".") : "日付なし";
+const yen = n => n == null || isNaN(n) ? "–" : "¥" + Math.round(n).toLocaleString("ja-JP");
+function peopleLabel(v){
+  const a = n0(v.adults) || 0, c = n0(v.children) || 0;
+  if (!a && !c) return "";
+  return [a ? `大人${a}` : "", c ? `子ども${c}` : ""].filter(Boolean).join("・");
+}
+function toast(msg){
+  const t = $("#toast"); t.textContent = msg; t.hidden = false;
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 2800);
+}
+function saveErr(err){
+  toast(err?.name === "QuotaExceededError" ? "端末の保存容量がいっぱいです。不要な写真や記録を削除してください" :
+        "保存できませんでした。時間をおいてもう一度試してください");
+}
+
+/* ---------- storage ---------- */
+// 記録と写真はこの端末のブラウザ（IndexedDB）に保存する。
+// 記録の形は claude.ai 版と同じ（sites: {id, schema:2, name, visits, ...}、写真は visits[].photos に id を持つ）
+let idb = null;
+function openIdb(){
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open("camp-note", 1);
+    req.onupgradeneeded = () => {
+      const d = req.result;
+      if (!d.objectStoreNames.contains("sites")) d.createObjectStore("sites", {keyPath: "id"});
+      if (!d.objectStoreNames.contains("photos")) d.createObjectStore("photos", {keyPath: "id"});
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+function idbDo(store, mode, fn){
+  return new Promise((resolve, reject) => {
+    const tx = idb.transaction(store, mode);
+    const r = fn(tx.objectStore(store));
+    tx.oncomplete = () => resolve(r?.result);
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error || new Error("aborted"));
+  });
+}
+async function loadAll(){
+  const photos = await idbDo("photos", "readonly", s => s.getAll());
+  for (const u of photoUrls.values()) URL.revokeObjectURL(u);
+  photoUrls.clear();
+  for (const ph of photos) photoUrls.set(ph.id, URL.createObjectURL(ph.blob));
+  const rows = await idbDo("sites", "readonly", s => s.getAll());
+  items = rows.map(r => normalize(r, r.id));
+}
+
+const assets = {
+  async upload(blob){
+    const id = uid("ph");
+    await idbDo("photos", "readwrite", s => s.put({id, blob}));
+    photoUrls.set(id, URL.createObjectURL(blob));
+    return {id};
+  },
+  async delete(id){
+    await idbDo("photos", "readwrite", s => s.delete(id));
+    const u = photoUrls.get(id);
+    if (u) URL.revokeObjectURL(u);
+    photoUrls.delete(id);
+  },
+};
+
+function savePlace(p){
+  p.updatedAt = new Date().toISOString();
+  if (!p.createdAt) p.createdAt = p.updatedAt;
+  const i = items.findIndex(x => x.id === p.id);
+  if (i >= 0) items[i] = p; else items.push(p);
+  const {sample, ...body} = p;
+  body.schema = 2;
+  const run = idbDo("sites", "readwrite", s => s.put(clone(body)));
+  render();
+  return run;
+}
+const newPlaceId = () => uid("l");
+async function deleteAssets(ids){
+  for (const id of ids) { try { await assets.delete(id); } catch {} }
+}
+async function deletePlace(p){
+  const photos = p.visits.flatMap(v => v.photos || []);
+  await idbDo("sites", "readwrite", s => s.delete(p.id));
+  items = items.filter(x => x.id !== p.id);
+  deleteAssets(photos);
+}
+
+/* ---------- backup ---------- */
+// 書き出しファイル：{app:"camp-note", version:1, part, parts, sites?, photos:[{id, type, data(base64)}]}
+// 写真が多いと1つのファイルが大きくなりすぎるので、約12MBごとに分ける
+const PART_BYTES = 12 * 1024 * 1024;
+const blobToB64 = b => new Promise((resolve, reject) => {
+  const r = new FileReader();
+  r.onload = () => resolve(String(r.result).split(",")[1] || "");
+  r.onerror = () => reject(r.error);
+  r.readAsDataURL(b);
+});
+function b64ToBlob(data, type){
+  const bin = atob(data), buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return new Blob([buf], {type: type || "image/jpeg"});
+}
+async function buildBackup(withPhotos){
+  const sites = await idbDo("sites", "readonly", s => s.getAll());
+  const used = new Set(sites.flatMap(x => (x.visits || []).flatMap(v => v.photos || [])));
+  const chunks = [[]];
+  let size = 0;
+  if (withPhotos) {
+    const photos = (await idbDo("photos", "readonly", s => s.getAll())).filter(ph => used.has(ph.id));
+    for (const ph of photos) {
+      if (size > 0 && size + ph.blob.size > PART_BYTES) { chunks.push([]); size = 0; }
+      chunks[chunks.length - 1].push({id: ph.id, type: ph.blob.type, data: await blobToB64(ph.blob)});
+      size += ph.blob.size;
+    }
+  }
+  const stamp = new Date().toISOString().slice(0, 10);
+  return chunks.map((photos, i) => {
+    const body = {app: "camp-note", version: 1, exportedAt: new Date().toISOString(), part: i + 1, parts: chunks.length,
+      ...(i === 0 ? {sites} : {}), photos};
+    const name = chunks.length > 1 ? `camp-note-${stamp}-${i + 1}of${chunks.length}.json` : `camp-note-${stamp}.json`;
+    return {name, blob: new Blob([JSON.stringify(body)], {type: "application/json"})};
+  });
+}
+/** 書き出しファイルを取り込む。同じ id の記録・写真は上書きする */
+async function importBackup(files){
+  let sites = 0, photos = 0;
+  for (const f of files) {
+    let d;
+    try { d = JSON.parse(await f.text()); } catch { throw new Error(`「${f.name}」を読み込めませんでした`); }
+    if (d?.app !== "camp-note" || d.version !== 1) throw new Error(`「${f.name}」はキャンプ場ノートのバックアップではありません`);
+    for (const ph of d.photos || []) {
+      await idbDo("photos", "readwrite", s => s.put({id: ph.id, blob: b64ToBlob(ph.data, ph.type)}));
+      photos++;
+    }
+    if (Array.isArray(d.sites) && d.sites.length) {
+      await idbDo("sites", "readwrite", s => { for (const x of d.sites) if (x && x.id) s.put(x); });
+      sites += d.sites.length;
+    }
+  }
+  await loadAll();
+  return {sites, photos};
+}
+async function storageLine(){
+  try {
+    const e = await navigator.storage?.estimate?.();
+    if (!e?.usage) return "";
+    return `この端末での使用量：約${(e.usage / 1024 / 1024).toFixed(1)}MB`;
+  } catch { return ""; }
+}
+async function openBackup(){
+  runOnClose();
+  const missingPhotos = items.reduce((n, p) => n + p.visits.flatMap(v => v.photos).filter(id => !photoUrls.has(id)).length, 0);
+  openOv(`
+    <div class="sheet-head"><h2>バックアップ</h2><button class="x" type="button" aria-label="閉じる">×</button></div>
+    <p class="hint">記録と写真はこの端末のブラウザの中だけに保存されています。機種変更やブラウザのデータ削除の前に書き出してください。<span id="usage"></span></p>
+    <div class="fieldset">
+      <p class="section-t">書き出す</p>
+      <div class="actions left">
+        <button class="btn primary" type="button" id="exAll">記録と写真を書き出す</button>
+        <button class="btn" type="button" id="exText">記録だけ書き出す（写真なし）</button>
+      </div>
+      <div class="backup-files" id="exFiles"></div>
+    </div>
+    <div class="fieldset">
+      <p class="section-t">取り込む</p>
+      <p class="hint">書き出したファイルを選びます。ファイルが分かれている場合は、すべてまとめて選んでください（あとから追加で選んでも大丈夫です）。同じ記録は上書きされます。</p>
+      ${missingPhotos ? `<p class="notice">まだ取り込まれていない写真が ${missingPhotos} 枚あります。残りのファイルも取り込んでください。</p>` : ""}
+      <label class="btn">ファイルを選ぶ<input type="file" id="imFiles" accept=".json,application/json" multiple hidden></label>
+      <p class="hint" id="imStatus" role="status"></p>
+    </div>`, "backup");
+  storageLine().then(t => { const u = $("#usage"); if (u && t) u.textContent = " " + t; });
+  const ex = async withPhotos => {
+    const box = $("#exFiles");
+    box.innerHTML = `<p class="hint">作成中…</p>`;
+    try {
+      const files = await buildBackup(withPhotos);
+      box.innerHTML = (files.length > 1 ? `<p class="hint">${files.length}つのファイルに分かれています。すべて保存してください。</p>` : "")
+        + files.map(f => `<a class="btn" href="${URL.createObjectURL(f.blob)}" download="${esc(f.name)}">${esc(f.name)}（${(f.blob.size / 1024 / 1024).toFixed(1)}MB）を保存</a>`).join("");
+    } catch { box.innerHTML = `<p class="hint">書き出せませんでした。もう一度試してください。</p>`; }
+  };
+  $("#exAll").addEventListener("click", () => ex(true));
+  $("#exText").addEventListener("click", () => ex(false));
+  $("#imFiles").addEventListener("change", async ev => {
+    const files = [...ev.target.files]; ev.target.value = "";
+    if (!files.length) return;
+    const st = $("#imStatus");
+    st.textContent = "取り込み中…（写真が多いと少し時間がかかります）";
+    try {
+      const r = await importBackup(files);
+      render();
+      toast(`取り込みました（このファイルから 記録 ${r.sites} 件・写真 ${r.photos} 枚。いまの記録は ${items.length} か所）`);
+      openBackup();
+    } catch (err) { st.textContent = err?.name === "QuotaExceededError" ? "端末の保存容量が足りません。" : (err?.message || "取り込めませんでした"); }
+  });
+}
+
+const getPlace = id => items.find(i => i.id === id) || SAMPLES.find(i => i.id === id);
+
+/* ---------- toolbar ---------- */
+function buildTools(){
+  const sort = $("#sort");
+  const opts = [["date","最近行った順"],["score","総合スコアが高い順"],["count","訪問回数が多い順"],
+    ["ppn","1人1泊が安い順"],["price","1泊の料金が安い順"],
+    ...CRITERIA.map(c => ["c:"+c.k, c.n+"が高い順"])];
+  sort.innerHTML = opts.map(([v,t]) => `<option value="${v}">${esc(t)}</option>`).join("");
+  try { const s = localStorage.getItem("camp-notes-sort"); if (s && opts.some(o=>o[0]===s)) sort.value = s; } catch {}
+  sort.addEventListener("change", () => { try { localStorage.setItem("camp-notes-sort", sort.value); } catch {} render(); });
+  $("#q").addEventListener("input", render);
+  const f = $("#rvFilter");
+  const chips = [["all","すべて"],["yes","また行きたい"],["maybe","条件次第"],["no","もういいかな"]];
+  f.innerHTML = chips.map(([v,t]) => `<button type="button" class="chip" data-v="${v}" aria-pressed="${v===filterRv}">${t}</button>`).join("");
+  f.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    filterRv = b.dataset.v;
+    f.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.v === filterRv));
+    render();
+  });
+  $("#addBtn").addEventListener("click", () => openPlaceForm(null));
+  $("#backupBtn").addEventListener("click", openBackup);
+}
+
+/* ---------- list ---------- */
+function barsHTML(r){
+  return `<div class="bars">` + CRITERIA.map(c => {
+    const v = r?.[c.k];
+    const has = typeof v === "number" && v > 0;
+    return `<div class="bar ${has?"":"na"}"><span class="lbl">${esc(c.n)}</span><span class="trk"><span class="fil" style="width:${has? v*20 : 0}%"></span></span><span class="n">${has? v : "–"}</span></div>`;
+  }).join("") + `</div>`;
+}
+function seasonsHTML(p){
+  const vs = visitedSeasons(p);
+  return `<span class="seasons" aria-label="行った季節">${SEASONS.map(s => `<i class="${vs.has(s.k)?"on":""}" title="${s.n}${vs.has(s.k)?"：行った":"：まだ"}">${s.n}</i>`).join("")}</span>`;
+}
+function cover(p){
+  const v = visitsAsc(p).reverse().find(v => v.photos.length);
+  return v ? {id: v.photos[0], count: p.visits.reduce((a,v)=>a+v.photos.length,0)} : null;
+}
+function searchText(p){
+  return [p.name,p.area,p.type,p.tags.join(" "),
+    ...p.visits.flatMap(v => [v.plot,v.good,v.bad,v.next,v.weather]),
+    ...p.plots.flatMap(x => [x.name,x.note]), ...p.spots.flatMap(x => [x.name,x.note,x.kind]),
+    ...Object.values(p.seasons)].join(" ").toLowerCase();
+}
+
+function render(){
+  const isSample = loaded && items.length === 0;
+  const src = isSample ? SAMPLES : items;
+
+  $("#stCount").innerHTML = `${items.length}<small>か所</small>`;
+  $("#stVisits").innerHTML = `${items.reduce((a,p)=>a+p.visits.length,0)}<small>回</small>`;
+  $("#stNights").innerHTML = `${items.reduce((a,p)=>a+placeTotals(p).nights,0)}<small>泊</small>`;
+  const scores = items.map(placeScore).filter(x => x != null);
+  $("#stAvg").textContent = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2) : "–";
+  $("#stRevisit").innerHTML = `${items.filter(x=>x.revisit==="yes").length}<small>か所</small>`;
+
+  const msgs = [];
+  if (isSample) msgs.push("下のカードは表示例です。「＋ 新しいキャンプ場」で登録すると、例は消えてあなたの記録だけが並びます。");
+  if (isSample) msgs.push("以前の記録がある場合は、右上の「バックアップ」から取り込めます。");
+  $("#notice").hidden = !msgs.length; $("#notice").textContent = msgs.join(" ");
+
+  const q = $("#q").value.trim().toLowerCase();
+  let list = src.filter(x => filterRv === "all" || x.revisit === filterRv);
+  if (q) list = list.filter(x => searchText(x).includes(q));
+  const s = $("#sort").value;
+  const hi = v => (typeof v === "number" && !isNaN(v) ? v : -1);
+  const lo = v => (typeof v === "number" && !isNaN(v) ? v : 1e12);
+  list = [...list].sort((a,b) => {
+    if (s === "score") return hi(placeScore(b)) - hi(placeScore(a));
+    if (s === "count") return b.visits.length - a.visits.length || (latest(b)?.date||"").localeCompare(latest(a)?.date||"");
+    if (s === "ppn") return lo(placeTotals(a).ppn) - lo(placeTotals(b).ppn);
+    if (s === "price") return lo(cost(latest(a)||{}).perNight) - lo(cost(latest(b)||{}).perNight);
+    if (s.startsWith("c:")) { const k = s.slice(2); return hi(latest(b)?.ratings?.[k]) - hi(latest(a)?.ratings?.[k]); }
+    return (latest(b)?.date||"").localeCompare(latest(a)?.date||"");
+  });
+
+  const grid = $("#grid");
+  if (!loaded) grid.innerHTML = `<div class="empty">読み込み中…</div>`;
+  else if (!list.length) grid.innerHTML = `<div class="empty">条件に合う記録がありません</div>`;
+  else grid.innerHTML = list.map(p => {
+    const lv = latest(p), cv = cover(p), href = mapHref(p.map), t = placeTotals(p);
+    const lc = cost(lv || {});
+    return `<article class="card ${p.sample?"sample":""}">
+      <button type="button" class="card-main" data-id="${esc(p.id)}">
+        ${cv ? `<div class="cover-wrap"><img class="cover" src="${esc(blobUrl(cv.id))}" alt="" loading="lazy">${cv.count>1?`<span>写真 ${cv.count}枚</span>`:""}</div>` : ""}
+        <div class="card-body">
+          <div class="card-head">
+            <div>
+              <h3>${esc(p.name)}</h3>
+              <div class="meta">${esc(p.area||"エリア未設定")}</div>
+              <div class="visits-line">${p.visits.length}回訪問 · 前回 ${fmtDate(lv?.date)}</div>
+            </div>
+            <div class="score">${fmtScore(placeScore(p))}<small>直近の評価</small></div>
+          </div>
+          ${barsHTML(lv?.ratings)}
+          <div class="pills">
+            ${p.sample?`<span class="pill tag-sample">例</span>`:""}
+            ${p.revisit?`<span class="pill rv rv-${p.revisit}">${RV[p.revisit]}</span>`:""}
+            ${seasonsHTML(p)}
+            ${t.ppn!=null?`<span class="pill">1人1泊 ${yen(t.ppn)}</span>`:(lc.perNight!=null?`<span class="pill">${yen(lc.perNight)}/泊</span>`:"")}
+          </div>
+        </div>
+      </button>
+      ${href ? `<div class="card-foot"><a class="maplink" href="${esc(href)}" target="_blank" rel="noopener">${MAP_ICON}Googleマップ</a></div>` : ""}
+    </article>`;
+  }).join("");
+
+  // keep an open detail view in sync with other devices, unless the viewer is typing in it
+  if (openId && ov.dataset.view === "detail" && !dirty) {
+    if (getPlace(openId)) renderDetail(); else closeOv();
+  }
+}
+
+$("#grid").addEventListener("click", e => {
+  const c = e.target.closest(".card-main"); if (!c) return;
+  openDetail(c.dataset.id, "visits");
+});
+
+/* ---------- overlay ---------- */
+const ov = $("#ov");
+let lastFocus = null, onClose = null;
+function runOnClose(){ if (onClose) { const f = onClose; onClose = null; f(); } }
+function openOv(html, view){
+  if (ov.hidden) lastFocus = document.activeElement;
+  ov.dataset.view = view;
+  ov.innerHTML = `<div class="sheet" role="dialog" aria-modal="true">${html}</div>`;
+  ov.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeOv(){
+  runOnClose();
+  ov.hidden = true; ov.innerHTML = ""; ov.dataset.view = ""; openId = null; dirty = false;
+  document.body.style.overflow = "";
+  lastFocus?.focus?.();
+}
+ov.addEventListener("click", e => { if (e.target === ov || e.target.closest(".x")) closeOv(); });
+ov.addEventListener("input", () => { if (ov.dataset.view === "detail") dirty = true; });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !ov.hidden) closeOv(); });
+
+/* ---------- detail ---------- */
+function openDetail(id, t){
+  runOnClose();
+  openId = id; if (t) tab = t; dirty = false;
+  renderDetail(true);
+}
+function renderDetail(first){
+  const p = getPlace(openId); if (!p) return;
+  const scrollTop = ov.scrollTop;
+  const lv = latest(p), t = placeTotals(p), href = mapHref(p.map);
+  const url = p.url && /^https?:\/\//.test(p.url) ? p.url : "";
+  const counts = {visits:p.visits.length, plots:p.plots.length, pack:p.checklist.length, spots:p.spots.length};
+  openOv(`
+    <div class="sheet-head">
+      <div>
+        <h2>${esc(p.name)}</h2>
+        <div class="meta">${esc(p.area||"")}${p.type?` · ${esc(p.type)}`:""}</div>
+      </div>
+      <button class="x" type="button" aria-label="閉じる">×</button>
+    </div>
+    <div class="pills">
+      ${p.sample?`<span class="pill tag-sample">表示例</span>`:""}
+      ${p.revisit?`<span class="pill rv rv-${p.revisit}">${RV[p.revisit]}</span>`:""}
+      ${seasonsHTML(p)}
+      ${p.tags.map(x=>`<span class="pill">${esc(x)}</span>`).join("")}
+    </div>
+    <div class="actions left">
+      ${href ? `<a class="btn map" href="${esc(href)}" target="_blank" rel="noopener">${MAP_ICON}Googleマップで開く</a>` : ""}
+      ${url ? `<a class="btn" href="${esc(url)}" target="_blank" rel="noopener">公式・予約ページ ↗</a>` : ""}
+      ${p.sample ? "" : `<button class="btn primary" type="button" data-act="addVisit">＋ 訪問を記録</button>
+      <button class="btn" type="button" data-act="editPlace">場所の情報を編集</button>`}
+    </div>
+    ${lv?.next ? `<div class="callout"><p class="section-t">前回（${fmtDate(lv.date)}）の自分からのメモ</p><p>${esc(lv.next)}</p></div>` : ""}
+    <div class="detail-grid">
+      <div class="kv"><div class="k">直近の評価</div><div class="v">${fmtScore(placeScore(p))} / 5.0</div></div>
+      <div class="kv"><div class="k">訪問回数</div><div class="v">${p.visits.length}回</div></div>
+      <div class="kv"><div class="k">通算泊数</div><div class="v">${t.nights}泊</div></div>
+      <div class="kv"><div class="k">初めて行った日</div><div class="v">${fmtDate(t.first)}</div></div>
+      <div class="kv"><div class="k">使った金額</div><div class="v">${yen(t.spent)}${t.missing?`<small>料金未入力 ${t.missing}回分あり</small>`:""}</div></div>
+      <div class="kv"><div class="k">平均 1人1泊</div><div class="v">${yen(t.ppn)}${t.ppn==null?`<small>人数を入れると計算します</small>`:""}</div></div>
+    </div>
+    <div class="tabs" role="tablist">
+      ${TABS.map(x => `<button class="tab" type="button" role="tab" data-tab="${x.k}" aria-selected="${tab===x.k}">${x.n}${counts[x.k]!=null?`<span class="cnt">${counts[x.k]}</span>`:""}</button>`).join("")}
+    </div>
+    <div class="panel" id="panel">${panelHTML(p)}</div>
+    ${p.sample ? `<p class="hint">表示例は編集できません</p>` : `<div class="actions" id="placeDel"><button class="btn ghost small" type="button" data-act="delPlace">このキャンプ場を削除</button></div>`}
+  `, "detail");
+  ov.scrollTop = first ? 0 : scrollTop;
+  if (first) ov.querySelector(".x")?.focus();
+  wirePanel(p);
+}
+
+ov.addEventListener("click", e => {
+  if (ov.dataset.view !== "detail") return;
+  const p = getPlace(openId); if (!p) return;
+  const tb = e.target.closest(".tab");
+  if (tb) { tab = tb.dataset.tab; dirty = false; renderDetail(); return; }
+  const a = e.target.closest("[data-act]"); if (!a || p.sample) return;
+  const act = a.dataset.act;
+  if (act === "addVisit") openVisitForm(p, null);
+  else if (act === "editPlace") openPlaceForm(p);
+  else if (act === "delPlace") {
+    $("#placeDel").innerHTML = `<div class="confirm">「${esc(p.name)}」の全${p.visits.length}回分の記録と写真を削除しますか？
+      <button class="btn small" type="button" data-act="noDel">やめる</button>
+      <button class="btn small danger" type="button" data-act="yesDelPlace">削除する</button></div>`;
+  }
+  else if (act === "noDel") renderDetail();
+  else if (act === "yesDelPlace") {
+    deletePlace(p).then(() => { closeOv(); render(); toast("削除しました"); }).catch(saveErr);
+  }
+});
+
+/* ---------- panels ---------- */
+function panelHTML(p){
+  switch (tab) {
+    case "trend": return trendPanel(p);
+    case "plots": return plotsPanel(p);
+    case "pack": return packPanel(p);
+    case "season": return seasonPanel(p);
+    case "reserve": return reservePanel(p);
+    case "spots": return spotsPanel(p);
+    default: return visitsPanel(p);
+  }
+}
+
+function costLine(v){
+  const c = cost(v), ppl = peopleLabel(v), nights = n0(v.nights) || 1;
+  if (c.price == null) return ppl ? `<div class="cost">${ppl}（料金未入力）</div>` : "";
+  return `<div class="cost">${v.priceUnit==="total"?"合計":"1泊"} ${yen(c.price)}`
+    + (v.priceUnit!=="total" && nights>1 ? ` · 合計 <b>${yen(c.total)}</b>` : "")
+    + (ppl ? ` · ${ppl}` : "")
+    + (c.perPersonNight!=null ? ` → 1人1泊 <b>${yen(c.perPersonNight)}</b>${nights>1?`（1人合計 ${yen(c.perPersonTotal)}）`:""}` : "")
+    + `</div>`;
+}
+function visitsPanel(p){
+  return visitsAsc(p).map((v,i) => ({v, i})).reverse().map(({v,i}) => `
+    <div class="visit">
+      <div class="visit-head">
+        <div>
+          <b>${i+1}回目 · ${fmtDate(v.date)}</b>
+          <div class="meta">${[n0(v.nights)!=null?`${esc(v.nights)}泊`:"", v.plot?`区画：${esc(v.plot)}`:"", esc(v.weather||"")].filter(Boolean).join(" · ")}</div>
+        </div>
+        <div class="score" style="font-size:22px">${fmtScore(avg(v.ratings))}</div>
+      </div>
+      ${costLine(v)}
+      ${barsHTML(v.ratings)}
+      ${v.good?`<div><p class="section-t">良かった点</p><p class="note">${esc(v.good)}</p></div>`:""}
+      ${v.bad?`<div><p class="section-t">気になった点</p><p class="note">${esc(v.bad)}</p></div>`:""}
+      ${v.next?`<div><p class="section-t">次に行くときのメモ</p><p class="note" style="background:var(--amber-soft)">${esc(v.next)}</p></div>`:""}
+      ${v.photos.length?`<div class="gallery">${v.photos.map(id => `<a href="${esc(blobUrl(id))}" target="_blank" rel="noopener"><img src="${esc(blobUrl(id))}" alt="${esc(fmtDate(v.date))}の写真" loading="lazy"></a>`).join("")}</div>`:""}
+      ${p.sample?"":`<div class="actions vact">
+        ${p.visits.length>1?`<button class="btn ghost small" type="button" data-vdel="${esc(v.id)}">この訪問を削除</button>`:""}
+        <button class="btn small" type="button" data-vedit="${esc(v.id)}">編集</button>
+      </div>`}
+    </div>`).join("");
+}
+
+function trendPanel(p){
+  const asc = visitsAsc(p);
+  const cell = v => (typeof v === "number" && v > 0)
+    ? `<span class="cell" style="background:color-mix(in srgb,var(--amber) ${v*14}%,transparent)">${v}</span>` : `<span class="flat">–</span>`;
+  const arrow = (a,b) => {
+    if (a == null || b == null) return `<span class="flat">–</span>`;
+    const d = Math.round((b - a) * 10) / 10;
+    return d > 0 ? `<span class="up">▲${d}</span>` : d < 0 ? `<span class="down">▼${-d}</span>` : `<span class="flat">±0</span>`;
+  };
+  const r = (v,k) => (typeof v?.ratings?.[k] === "number" && v.ratings[k] > 0) ? v.ratings[k] : null;
+  const multi = asc.length > 1;
+  const prev = asc[asc.length-2], last = asc[asc.length-1];
+  const rows = CRITERIA.map(c => `<tr><td>${esc(c.n)}</td>${asc.map(v => `<td>${cell(v.ratings?.[c.k])}</td>`).join("")}${multi?`<td>${arrow(r(prev,c.k), r(last,c.k))}</td>`:""}</tr>`).join("");
+  const tot = asc.map(v => avg(v.ratings));
+  const rt = x => x == null ? null : Math.round(x*10)/10;
+  const totRow = `<tr class="total"><td>総合</td>${tot.map(x => `<td>${fmtScore(x)}</td>`).join("")}${multi?`<td>${arrow(rt(tot[tot.length-2]), rt(tot[tot.length-1]))}</td>`:""}</tr>`;
+  const ppnRow = `<tr><td>1人1泊</td>${asc.map(v => `<td>${yen(cost(v).perPersonNight)}</td>`).join("")}${multi?"<td></td>":""}</tr>`;
+  return `
+    <p class="hint">${multi ? `場所の総合スコアは直近の訪問（${fmtDate(last.date)}）の点数です。右端は前回からの変化です。` : "2回目の訪問を記録すると、前回からの変化（▲▼）が表示されます。"}</p>
+    <div class="trend-wrap"><table class="trend">
+      <thead><tr><th>項目</th>${asc.map((v,i) => `<th>${i+1}回目<br>${esc((v.date||"").slice(2).replaceAll("-","."))}</th>`).join("")}${multi?"<th>変化</th>":""}</tr></thead>
+      <tbody>${rows}${totRow}${ppnRow}</tbody>
+    </table></div>`;
+}
+
+function plotsPanel(p){
+  const order = {good:0, ok:1, bad:2};
+  const list = [...p.plots].sort((a,b) => (order[a.verdict]??3) - (order[b.verdict]??3));
+  return `
+    <p class="hint">区画ごとの良し悪しを残しておくと、次の予約で迷いません。</p>
+    ${list.length ? list.map(x => {
+      const used = visitsAsc(p).filter(v => v.plot && v.plot.trim() === x.name.trim()).map(v => fmtDate(v.date));
+      return `<div class="row-item" data-id="${esc(x.id)}">
+        <span class="pill v-${esc(x.verdict||"ok")}">${esc(PLOT_V[x.verdict]||PLOT_V.ok)}</span>
+        <div><div class="t">${esc(x.name)}</div>${x.note?`<div class="d">${esc(x.note)}</div>`:""}${used.length?`<div class="meta">使った日：${used.join("、")}</div>`:""}</div>
+        ${p.sample?"<span></span>":`<div class="ops"><button class="btn ghost small" type="button" data-edit="plot">編集</button><button class="btn ghost small" type="button" data-del="plot">削除</button></div>`}
+      </div>`;}).join("") : `<p class="hint">まだ区画メモはありません。</p>`}
+    ${p.sample?"":`<div id="plotFormSlot">${plotForm(p, null)}</div>`}`;
+}
+function plotForm(p, x){
+  const known = [...new Set([...p.visits.map(v => v.plot).filter(Boolean), ...p.plots.map(x => x.name)])];
+  return `<form class="inline-form" id="plotForm" data-id="${esc(x?.id||"")}">
+    <p class="section-t" style="margin:0">${x?"区画メモを編集":"区画メモを追加"}</p>
+    <label class="f">区画名・サイト番号<input class="field" id="pl-name" list="pl-known" value="${esc(x?.name||"")}" placeholder="例：B-12"></label>
+    <datalist id="pl-known">${known.map(k => `<option value="${esc(k)}">`).join("")}</datalist>
+    <div class="seg">${Object.entries(PLOT_V).map(([k,t]) => `<label><input type="radio" name="pl-v" value="${k}" ${(x?.verdict||"good")===k?"checked":""}>${t}</label>`).join("")}</div>
+    <label class="f">メモ<textarea class="field" id="pl-note" placeholder="日当たり、傾斜、トイレまでの距離、隣との間隔など">${esc(x?.note||"")}</textarea></label>
+    <div class="actions">${x?`<button class="btn small" type="button" data-cancel>キャンセル</button>`:""}<button class="btn primary small" type="submit">${x?"更新":"追加"}</button></div>
+  </form>`;
+}
+
+function packPanel(p){
+  const done = p.checklist.filter(c => c.done).length, n = p.checklist.length;
+  return `
+    <p class="hint">この場所に行くときだけ必要な物のリストです。出発前にチェックし、次回は「チェックを全部外す」で使い回せます。</p>
+    ${n ? `<div><div class="meta">${done} / ${n} 準備済み</div><div class="progress"><span style="width:${done/n*100}%"></span></div></div>` : ""}
+    <div>${p.checklist.map(c => `<div class="check ${c.done?"done":""}" data-id="${esc(c.id)}">
+      <label><input type="checkbox" ${c.done?"checked":""} ${p.sample?"disabled":""} data-toggle><span>${esc(c.text)}</span></label>
+      ${p.sample?"":`<button class="btn ghost small" type="button" data-del="pack" aria-label="${esc(c.text)}を削除">×</button>`}
+    </div>`).join("") || `<p class="hint">まだ持ち物はありません。</p>`}</div>
+    ${p.sample?"":`<form class="inline-form" id="packForm">
+      <label class="f">持ち物を追加<input class="field" id="pk-text" placeholder="例：延長コード10m、長いペグ"></label>
+      <div class="actions"><button class="btn primary small" type="submit">追加</button></div>
+    </form>
+    ${done?`<div class="actions"><button class="btn small" type="button" data-act2="resetPack">チェックを全部外す</button></div>`:""}`}`;
+}
+
+function seasonPanel(p){
+  return `<p class="hint">季節ごとの様子（虫、寒さ、混み具合、景色など）を残せます。緑色の季節は行ったことがある季節です。</p>
+  <form id="seasonForm" class="season-grid">
+    ${SEASONS.map(s => {
+      const ds = visitsAsc(p).filter(v => seasonOf(v.date) === s.k).map(v => fmtDate(v.date));
+      return `<div class="season-box">
+        <h4><span class="seasons"><i class="${ds.length?"on":""}">${s.n}</i></span>${s.n}（${s.m.join("・")}月）</h4>
+        <div class="meta">${ds.length ? "行った日：" + ds.join("、") : "まだ行っていません"}</div>
+        <textarea class="field" id="se-${s.k}" aria-label="${s.n}のメモ" ${p.sample?"disabled":""} placeholder="${s.k==="summer"?"例：虫が多い。日中は暑いので林間サイトへ":"メモ"}">${esc(p.seasons[s.k]||"")}</textarea>
+      </div>`;}).join("")}
+    ${p.sample?"":`<div class="actions" style="grid-column:1/-1"><button class="btn primary small" type="submit">季節メモを保存</button></div>`}
+  </form>`;
+}
+
+function reservePanel(p){
+  const r = p.reservation;
+  const ro = p.sample ? "disabled" : "";
+  return `<form id="reserveForm" class="panel">
+    <div class="frow">
+      <label class="f">予約の受付開始<input class="field" id="rs-opens" ${ro} value="${esc(r.opens||"")}" placeholder="例：2か月前の1日 9:00"></label>
+      <label class="f">予約方法<input class="field" id="rs-method" ${ro} value="${esc(r.method||"")}" placeholder="例：なっぷ、公式サイト、電話"></label>
+    </div>
+    <div class="frow">
+      <label class="f">電話番号<input class="field" id="rs-phone" ${ro} inputmode="tel" value="${esc(r.phone||"")}" placeholder="例：0000-00-0000"></label>
+      <label class="f">チェックイン<input class="field" id="rs-in" ${ro} value="${esc(r.checkin||"")}" placeholder="例：13:00"></label>
+      <label class="f">チェックアウト<input class="field" id="rs-out" ${ro} value="${esc(r.checkout||"")}" placeholder="例：11:00"></label>
+    </div>
+    ${r.phone?`<div class="actions left"><span class="num" style="user-select:all">${esc(r.phone)}</span><button class="btn small" type="button" data-act2="copyPhone">番号をコピー</button><a class="btn small" href="tel:${esc(r.phone.replace(/[^0-9+]/g,""))}">電話をかける</a></div>`:""}
+    <label class="f">予約のコツ・注意点<textarea class="field" id="rs-note" ${ro} placeholder="例：連休は受付開始から30分で埋まる。キャンセル料は3日前から">${esc(r.note||"")}</textarea></label>
+    ${p.sample?"":`<div class="actions"><button class="btn primary small" type="submit">予約情報を保存</button></div>`}
+  </form>`;
+}
+
+function spotsPanel(p){
+  return `<p class="hint">買い出し先や温泉など、キャンプ場の周りで使うお店や場所です。</p>
+    ${p.spots.length ? p.spots.map(x => {
+      const h = mapHref(x.map);
+      return `<div class="row-item" data-id="${esc(x.id)}">
+        <span class="pill">${esc(x.kind||"その他")}</span>
+        <div><div class="t">${esc(x.name)}</div>${x.note?`<div class="d">${esc(x.note)}</div>`:""}${h?`<div style="margin-top:6px"><a class="maplink" href="${esc(h)}" target="_blank" rel="noopener">${MAP_ICON}Googleマップ</a></div>`:""}</div>
+        ${p.sample?"<span></span>":`<div class="ops"><button class="btn ghost small" type="button" data-edit="spot">編集</button><button class="btn ghost small" type="button" data-del="spot">削除</button></div>`}
+      </div>`;}).join("") : `<p class="hint">まだ周辺スポットはありません。</p>`}
+    ${p.sample?"":`<div id="spotFormSlot">${spotForm(null)}</div>`}`;
+}
+function spotForm(x){
+  return `<form class="inline-form" id="spotForm" data-id="${esc(x?.id||"")}">
+    <p class="section-t" style="margin:0">${x?"スポットを編集":"スポットを追加"}</p>
+    <div class="frow">
+      <label class="f">種類<select class="field" id="sp-kind">${SPOT_KINDS.map(k => `<option ${(x?.kind||SPOT_KINDS[0])===k?"selected":""}>${esc(k)}</option>`).join("")}</select></label>
+      <label class="f">名前<input class="field" id="sp-name" value="${esc(x?.name||"")}" placeholder="例：〇〇スーパー"></label>
+    </div>
+    <label class="f">Googleマップのリンク<input class="field" id="sp-map" value="${esc(x?.map||"")}" placeholder="https://maps.app.goo.gl/… または店名・住所"></label>
+    <label class="f">メモ<textarea class="field" id="sp-note" placeholder="例：車で10分。営業は17時まで">${esc(x?.note||"")}</textarea></label>
+    <div class="actions">${x?`<button class="btn small" type="button" data-cancel>キャンセル</button>`:""}<button class="btn primary small" type="submit">${x?"更新":"追加"}</button></div>
+  </form>`;
+}
+
+async function commit(p, msg){
+  try { await savePlace(p); dirty = false; renderDetail(); if (msg) toast(msg); }
+  catch (err) { saveErr(err); }
+}
+
+function wirePanel(p0){
+  const panel = $("#panel"); if (!panel || p0.sample) return;
+  const fresh = () => clone(getPlace(openId));
+
+  panel.addEventListener("click", e => {
+    const t = e.target;
+    const ve = t.closest("[data-vedit]");
+    if (ve) { const p = fresh(); openVisitForm(p, p.visits.find(v => v.id === ve.dataset.vedit)); return; }
+    const vd = t.closest("[data-vdel]");
+    if (vd) {
+      vd.closest(".vact").innerHTML = `<div class="confirm">この訪問の記録と写真を削除しますか？
+        <button class="btn small" type="button" data-vno>やめる</button>
+        <button class="btn small danger" type="button" data-vyes="${esc(vd.dataset.vdel)}">削除する</button></div>`;
+      dirty = true; return;
+    }
+    if (t.closest("[data-vno]")) { dirty = false; renderDetail(); return; }
+    const vy = t.closest("[data-vyes]");
+    if (vy) {
+      const p = fresh(); const v = p.visits.find(v => v.id === vy.dataset.vyes);
+      p.visits = p.visits.filter(x => x.id !== vy.dataset.vyes);
+      commit(p, "訪問を削除しました").then(() => deleteAssets(v?.photos || []));
+      return;
+    }
+    const ed = t.closest("[data-edit]");
+    if (ed) {
+      const id = ed.closest(".row-item").dataset.id, p = fresh();
+      if (ed.dataset.edit === "plot") { $("#plotFormSlot").innerHTML = plotForm(p, p.plots.find(x => x.id === id)); $("#pl-name").focus(); }
+      else { $("#spotFormSlot").innerHTML = spotForm(p.spots.find(x => x.id === id)); $("#sp-name").focus(); }
+      dirty = true; return;
+    }
+    if (t.closest("[data-cancel]")) { dirty = false; renderDetail(); return; }
+    const dl = t.closest("[data-del]");
+    if (dl) {
+      const p = fresh();
+      if (dl.dataset.del === "plot") { const id = dl.closest(".row-item").dataset.id; p.plots = p.plots.filter(x => x.id !== id); }
+      if (dl.dataset.del === "spot") { const id = dl.closest(".row-item").dataset.id; p.spots = p.spots.filter(x => x.id !== id); }
+      if (dl.dataset.del === "pack") { const id = dl.closest(".check").dataset.id; p.checklist = p.checklist.filter(x => x.id !== id); }
+      commit(p, "削除しました"); return;
+    }
+    const a2 = t.closest("[data-act2]");
+    if (a2?.dataset.act2 === "resetPack") { const p = fresh(); p.checklist.forEach(c => c.done = false); commit(p, "チェックを外しました"); return; }
+    if (a2?.dataset.act2 === "copyPhone") {
+      const ph = fresh().reservation?.phone || "";
+      try {
+        navigator.clipboard.writeText(ph).then(() => toast("電話番号をコピーしました"), () => toast("コピーできませんでした。番号を長押しで選択してください"));
+      } catch { toast("コピーできませんでした。番号を長押しで選択してください"); }
+    }
+  });
+
+  panel.addEventListener("change", e => {
+    if (!e.target.matches("[data-toggle]")) return;
+    const id = e.target.closest(".check").dataset.id, p = fresh();
+    const c = p.checklist.find(x => x.id === id); if (!c) return;
+    c.done = e.target.checked; commit(p);
+  });
+
+  panel.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = e.target, p = fresh();
+    if (f.id === "plotForm") {
+      const name = $("#pl-name").value.trim();
+      if (!name) { $("#pl-name").focus(); toast("区画名を入力してください"); return; }
+      const data = {name, verdict: f.querySelector('input[name="pl-v"]:checked')?.value || "ok", note: $("#pl-note").value.trim()};
+      const id = f.dataset.id, cur = id && p.plots.find(x => x.id === id);
+      if (cur) Object.assign(cur, data); else p.plots.push({id: uid("p"), ...data});
+      commit(p, cur ? "区画メモを更新しました" : "区画メモを追加しました");
+    }
+    if (f.id === "packForm") {
+      const text = $("#pk-text").value.trim(); if (!text) return;
+      p.checklist.push({id: uid("c"), text, done:false});
+      commit(p).then(() => $("#pk-text")?.focus());
+    }
+    if (f.id === "seasonForm") {
+      p.seasons = Object.fromEntries(SEASONS.map(s => [s.k, $("#se-"+s.k).value.trim()]));
+      commit(p, "季節メモを保存しました");
+    }
+    if (f.id === "reserveForm") {
+      p.reservation = {opens:$("#rs-opens").value.trim(), method:$("#rs-method").value.trim(), phone:$("#rs-phone").value.trim(),
+        checkin:$("#rs-in").value.trim(), checkout:$("#rs-out").value.trim(), note:$("#rs-note").value.trim()};
+      commit(p, "予約情報を保存しました");
+    }
+    if (f.id === "spotForm") {
+      const name = $("#sp-name").value.trim();
+      if (!name) { $("#sp-name").focus(); toast("名前を入力してください"); return; }
+      const data = {kind:$("#sp-kind").value, name, map:$("#sp-map").value.trim(), note:$("#sp-note").value.trim()};
+      const id = f.dataset.id, cur = id && p.spots.find(x => x.id === id);
+      if (cur) Object.assign(cur, data); else p.spots.push({id: uid("s"), ...data});
+      commit(p, cur ? "スポットを更新しました" : "スポットを追加しました");
+    }
+  });
+}
+
+/* ---------- forms ---------- */
+function placeFieldsHTML(p){
+  return `
+    <label class="f"><span>キャンプ場の名前 <span class="req">*</span></span>
+      <input class="field" id="f-name" required value="${esc(p.name||"")}" placeholder="例：〇〇高原キャンプ場"></label>
+    <div class="hint" id="dupHint" hidden></div>
+    <div class="frow">
+      <label class="f">エリア<input class="field" id="f-area" value="${esc(p.area||"")}" placeholder="例：長野県南佐久郡"></label>
+      <label class="f">サイトの種類<select class="field" id="f-type"><option value="">選択しない</option>${TYPES.map(t=>`<option ${p.type===t?"selected":""}>${esc(t)}</option>`).join("")}</select></label>
+    </div>
+    <label class="f">Googleマップのリンク
+      <input class="field" id="f-map" value="${esc(p.map||"")}" placeholder="https://maps.app.goo.gl/…">
+      <span class="hint">Googleマップの「共有」→「リンクをコピー」で貼り付けます。住所や施設名を入れると、その言葉で地図を検索します。</span></label>
+    <label class="f">公式サイト・予約ページ<input class="field" type="url" id="f-url" value="${esc(p.url||"")}" placeholder="https://"></label>
+    <div>
+      <p class="section-t">また行きたい？（今の気持ち）</p>
+      <div class="seg">${Object.entries(RV).map(([v,t]) => `<label><input type="radio" name="rv" value="${v}" ${p.revisit===v?"checked":""}>${t}</label>`).join("")}</div>
+    </div>
+    <div>
+      <p class="section-t">設備・特徴</p>
+      <div class="seg" id="f-tags">${TAGS.map((t,i) => `<label><input type="checkbox" id="tag-${i}" value="${esc(t)}" ${(p.tags||[]).includes(t)?"checked":""}>${esc(t)}</label>`).join("")}</div>
+    </div>`;
+}
+function readPlaceFields(p){
+  p.name = $("#f-name").value.trim();
+  p.area = $("#f-area").value.trim();
+  p.type = $("#f-type").value;
+  p.map = $("#f-map").value.trim();
+  p.url = $("#f-url").value.trim();
+  p.revisit = document.querySelector('input[name="rv"]:checked')?.value || "";
+  p.tags = [...document.querySelectorAll("#f-tags input:checked")].map(i => i.value);
+}
+
+function visitFieldsHTML(v, p){
+  const plots = [...new Set([...(p?.visits||[]).map(x => x.plot).filter(Boolean), ...(p?.plots||[]).map(x => x.name)])];
+  return `
+    <div class="frow">
+      <label class="f">訪問日<input class="field" type="date" id="v-date" value="${esc(v.date||"")}"></label>
+      <label class="f">泊数<input class="field" type="number" min="0" inputmode="numeric" id="v-nights" value="${esc(v.nights??"")}"></label>
+      <label class="f">天気・気温<input class="field" id="v-weather" value="${esc(v.weather||"")}" placeholder="例：晴れ、気温24-18"></label>
+    </div>
+    <label class="f">サイト・区画<input class="field" id="v-plot" list="v-plots" value="${esc(v.plot||"")}" placeholder="例：B-12、展望フリーサイト"></label>
+    <datalist id="v-plots">${plots.map(k => `<option value="${esc(k)}">`).join("")}</datalist>
+    <div class="fieldset">
+      <p class="section-t">料金と人数</p>
+      <div class="frow">
+        <label class="f">料金（円）<input class="field" type="number" min="0" step="1" inputmode="numeric" id="v-price" value="${esc(v.price??"")}"></label>
+        <label class="f">料金の単位<select class="field" id="v-unit">
+          <option value="night" ${v.priceUnit!=="total"?"selected":""}>1泊あたり</option>
+          <option value="total" ${v.priceUnit==="total"?"selected":""}>滞在の合計</option></select></label>
+        <label class="f">大人（人）<input class="field" type="number" min="0" inputmode="numeric" id="v-adults" value="${esc(v.adults??"")}"></label>
+        <label class="f">子ども（人）<input class="field" type="number" min="0" inputmode="numeric" id="v-children" value="${esc(v.children??"")}"></label>
+      </div>
+      <div class="calc" id="v-calc"></div>
+      <p class="hint">1人あたりは、子どもも1人として数えて計算します。</p>
+    </div>
+    <div>
+      <p class="section-t">項目別の評価（★をタップ。未評価の項目は平均に入りません）</p>
+      <div class="rate-list" id="rates">
+        ${CRITERIA.map(c => `<div class="rate" data-k="${c.k}">
+          <div class="nm">${esc(c.n)}<small>${esc(c.d)}</small></div>
+          <div class="stars" role="radiogroup" aria-label="${esc(c.n)}"></div>
+        </div>`).join("")}
+      </div>
+    </div>
+    <label class="f">良かった点<textarea class="field" id="v-good">${esc(v.good||"")}</textarea></label>
+    <label class="f">気になった点<textarea class="field" id="v-bad">${esc(v.bad||"")}</textarea></label>
+    <label class="f">次に行くときのメモ（次回の訪問を記録するときに表示されます）<textarea class="field" id="v-next">${esc(v.next||"")}</textarea></label>
+    <div>
+      <p class="section-t">写真</p>
+      <div class="gallery" id="photoList"></div>
+      <p class="hint" id="photoHint" style="margin-top:6px"></p>
+    </div>`;
+}
+
+// wires ratings, the cost preview and photo upload inside the current form
+function wireVisitFields(v, originalPhotos){
+  const ratings = {...(v.ratings||{})};
+  const photos = [...(v.photos||[])];
+  const added = [];
+  const st = {uploading:0};
+
+  const paintStars = () => {
+    document.querySelectorAll("#rates .rate").forEach(row => {
+      const k = row.dataset.k, val = ratings[k] || 0;
+      row.querySelector(".stars").innerHTML = [1,2,3,4,5].map(n =>
+        `<button type="button" class="star ${n<=val?"on":""}" data-n="${n}" role="radio" aria-checked="${n===val}" aria-label="${n}点">★</button>`).join("")
+        + (val ? `<button type="button" class="clear">未評価に戻す</button>` : "");
+    });
+    const a = avg(ratings);
+    $("#avgPreview").textContent = a == null ? "" : `総合 ${a.toFixed(1)} / 5.0`;
+  };
+  $("#rates").addEventListener("click", ev => {
+    const row = ev.target.closest(".rate"); if (!row) return;
+    if (ev.target.closest(".clear")) { delete ratings[row.dataset.k]; paintStars(); return; }
+    const s = ev.target.closest(".star"); if (!s) return;
+    ratings[row.dataset.k] = +s.dataset.n; paintStars();
+    row.querySelector(`.star[data-n="${s.dataset.n}"]`)?.focus();
+  });
+  paintStars();
+
+  const numVal = id => $("#"+id).value === "" ? "" : +$("#"+id).value;
+  const readCost = () => ({nights:numVal("v-nights"), price:numVal("v-price"), priceUnit:$("#v-unit").value,
+    adults:numVal("v-adults"), children:numVal("v-children")});
+  const paintCalc = () => {
+    const rc = readCost(), c = cost(rc), nights = n0(rc.nights) || 1;
+    const el = $("#v-calc");
+    if (c.price == null) { el.textContent = "料金を入れると、合計と1人あたりを計算します。"; return; }
+    el.innerHTML = `合計 <b>${yen(c.total)}</b>（1泊 ${yen(c.perNight)}${nights>1?` × ${nights}泊`:""}）`
+      + (c.people ? ` · ${c.people}人 → 1人1泊 <b>${yen(c.perPersonNight)}</b>${nights>1?`、1人合計 ${yen(c.perPersonTotal)}`:""}` : " · 人数を入れると1人あたりを計算します");
+  };
+  ["v-nights","v-price","v-adults","v-children"].forEach(id => $("#"+id).addEventListener("input", paintCalc));
+  $("#v-unit").addEventListener("change", paintCalc);
+  paintCalc();
+
+  const paintPhotos = () => {
+    $("#photoList").innerHTML = photos.map((id,i) => `<div class="ph"><img src="${esc(blobUrl(id))}" alt="写真 ${i+1}"><button type="button" class="rm" data-i="${i}" aria-label="写真 ${i+1} を外す">×</button></div>`).join("")
+      + Array.from({length:st.uploading}, () => `<div class="ph busy">アップロード中…</div>`).join("")
+      + (assets ? `<label class="upl">＋ 写真を追加<input type="file" id="f-photos" accept="image/*" multiple></label>` : "");
+    $("#photoHint").textContent = "複数枚まとめて選べます。大きい写真は自動で縮小します。";
+    $("#f-photos")?.addEventListener("change", async ev => {
+      const files = [...ev.target.files]; ev.target.value = "";
+      st.uploading += files.length; paintPhotos();
+      for (const f of files) {
+        try {
+          const blob = await shrink(f);
+          const r = await assets.upload(blob, blob.type ? undefined : {type:"image/jpeg"});
+          photos.push(r.id); added.push(r.id);
+        } catch (err) {
+          toast(err?.name === "QuotaExceededError" ? "端末の保存容量がいっぱいです。不要な写真を削除してください" :
+                "写真を追加できませんでした。もう一度試してください");
+        }
+        st.uploading--; if ($("#photoList")) paintPhotos();
+      }
+    });
+  };
+  paintPhotos();
+  $("#photoList").addEventListener("click", ev => {
+    const b = ev.target.closest(".rm"); if (!b) return;
+    photos.splice(+b.dataset.i, 1); paintPhotos();
+  });
+
+  return {
+    st,
+    read: () => ({
+      ...v, ...readCost(),
+      date: $("#v-date").value, weather: $("#v-weather").value.trim(), plot: $("#v-plot").value.trim(),
+      ratings: {...ratings}, good: $("#v-good").value.trim(), bad: $("#v-bad").value.trim(), next: $("#v-next").value.trim(),
+      photos: [...photos],
+    }),
+    removed: () => (originalPhotos||[]).filter(id => !photos.includes(id)),
+    discard: () => deleteAssets(added),
+  };
+}
+
+function formShell(title, body, backTo){
+  return `
+    <div class="sheet-head">
+      <div>${backTo?`<button class="back" type="button" id="backBtn">← ${esc(backTo)}</button>`:""}<h2>${esc(title)}</h2></div>
+      <button class="x" type="button" aria-label="閉じる">×</button>
+    </div>
+    <form id="form" novalidate>
+      ${body}
+      <div class="actions">
+        <span class="meta" id="avgPreview"></span>
+        <button class="btn" type="button" id="cancelBtn">キャンセル</button>
+        <button class="btn primary" type="submit" id="saveBtn">保存</button>
+      </div>
+    </form>`;
+}
+
+// a new place (with its first visit), or editing an existing place's info
+function openPlaceForm(p){
+  runOnClose();
+  const isNew = !p;
+  const place = p ? clone(p) : {schema:2, name:"", tags:[], visits:[], plots:[], checklist:[], spots:[], seasons:{}, reservation:{}};
+  const v = {id: uid("v"), date: new Date().toISOString().slice(0,10), nights:1, priceUnit:"night", ratings:{}, photos:[]};
+  openOv(formShell(isNew ? "新しいキャンプ場を記録" : "場所の情報を編集",
+    isNew ? `${placeFieldsHTML(place)}<div class="fieldset"><p class="section-t">1回目の訪問</p>${visitFieldsHTML(v, null)}</div>` : placeFieldsHTML(place),
+    isNew ? "" : place.name), "form");
+  $("#f-name").focus();
+  let vf = null, saved = false;
+  if (isNew) {
+    vf = wireVisitFields(v, []);
+    onClose = () => { if (!saved) vf.discard(); };
+    $("#f-name").addEventListener("input", () => {
+      const nm = $("#f-name").value.trim();
+      const hit = nm && items.find(x => x.name.trim() === nm);
+      const h = $("#dupHint");
+      h.hidden = !hit;
+      if (!hit) return;
+      h.innerHTML = `「${esc(hit.name)}」はすでに登録されています。 <button class="btn small" type="button" id="goDup">そちらに訪問を追加</button>`;
+      $("#goDup").addEventListener("click", () => { runOnClose(); openId = hit.id; openVisitForm(clone(hit), null); });
+    });
+  }
+  const back = () => { if (isNew) closeOv(); else openDetail(place.id); };
+  $("#cancelBtn").addEventListener("click", back);
+  $("#backBtn")?.addEventListener("click", back);
+  $("#form").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    readPlaceFields(place);
+    if (!place.name) { $("#f-name").focus(); toast("キャンプ場の名前を入力してください"); return; }
+    if (vf?.st.uploading) { toast("写真のアップロードが終わるまでお待ちください"); return; }
+    if (isNew) { place.id = newPlaceId(); place.visits = [vf.read()]; }
+    const btn = $("#saveBtn"); btn.disabled = true; btn.textContent = "保存中…";
+    try {
+      await savePlace(place);
+      saved = true; onClose = null;
+      toast(isNew ? "記録しました" : "更新しました");
+      openDetail(place.id, isNew ? "visits" : undefined);
+    } catch (err) { btn.disabled = false; btn.textContent = "保存"; saveErr(err); }
+  });
+}
+
+function openVisitForm(p, v){
+  runOnClose();
+  const place = clone(p);
+  const isNew = !v;
+  const lv = latest(place);
+  // a new visit starts from last time's price and party size
+  const visit = v ? clone(v) : {
+    id: uid("v"), date: new Date().toISOString().slice(0,10), nights:1, priceUnit: lv?.priceUnit || "night",
+    price: lv?.price ?? "", adults: lv?.adults ?? "", children: lv?.children ?? "", ratings:{}, photos:[],
+  };
+  const idx = visitsAsc(place).findIndex(x => x.id === visit.id);
+  const title = isNew ? `${place.visits.length+1}回目の訪問を記録` : `${idx+1}回目の訪問を編集`;
+  const memo = isNew && lv?.next ? `<div class="callout"><p class="section-t">前回（${fmtDate(lv.date)}）の自分からのメモ</p><p>${esc(lv.next)}</p></div>` : "";
+  const pack = isNew && place.checklist.length ? `<p class="hint">この場所の持ち物リストが ${place.checklist.length} 件あります（詳細の「持ち物」タブ）。</p>` : "";
+  openOv(formShell(title, memo + pack + visitFieldsHTML(visit, place), place.name), "form");
+  $("#v-date").focus();
+  let saved = false;
+  const vf = wireVisitFields(visit, v?.photos || []);
+  onClose = () => { if (!saved) vf.discard(); };
+  const back = () => openDetail(place.id);
+  $("#cancelBtn").addEventListener("click", back);
+  $("#backBtn").addEventListener("click", back);
+  $("#form").addEventListener("submit", async ev => {
+    ev.preventDefault();
+    if (vf.st.uploading) { toast("写真のアップロードが終わるまでお待ちください"); return; }
+    const nv = vf.read();
+    const cur = clone(getPlace(place.id) || place);
+    const i = cur.visits.findIndex(x => x.id === nv.id);
+    if (i >= 0) cur.visits[i] = nv; else cur.visits.push(nv);
+    const btn = $("#saveBtn"); btn.disabled = true; btn.textContent = "保存中…";
+    try {
+      await savePlace(cur);
+      saved = true; onClose = null;
+      deleteAssets(vf.removed());
+      toast(isNew ? "訪問を記録しました" : "更新しました");
+      openDetail(cur.id, "visits");
+    } catch (err) { btn.disabled = false; btn.textContent = "保存"; saveErr(err); }
+  });
+}
+
+/* ---------- photo resize ---------- */
+function shrink(file, max = 1280){
+  return new Promise(resolve => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const r = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.naturalWidth * r); c.height = Math.round(img.naturalHeight * r);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob(b => resolve(b && b.size ? b : file), "image/jpeg", 0.8);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); resolve(file); };
+    img.src = url;
+  });
+}
+
+/* ---------- boot ---------- */
+buildTools();
+render();
+(async () => {
+  try {
+    idb = await openIdb();
+    await loadAll();
+    // ブラウザが容量不足のときに勝手に消さないよう、永続保存をお願いしておく
+    navigator.storage?.persist?.().catch(() => {});
+  } catch {
+    toast("記録を読み込めませんでした。ページを開き直してください");
+  }
+  loaded = true; render();
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
+})();
+</script>
+
+</body></html>
