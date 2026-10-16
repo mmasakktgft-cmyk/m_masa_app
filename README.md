@@ -4,6 +4,8 @@
 
 仕様は [docs/SPEC.md](docs/SPEC.md) を参照。
 
+> 同じリポジトリの [`meal-app/`](meal-app/README.md) には、別アプリの食事管理 PWA「ごはん記録」がある（公開先は `/meal/`）。
+
 ## 開発
 
 ```bash

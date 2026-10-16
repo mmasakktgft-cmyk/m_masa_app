@@ -14,6 +14,9 @@ export default defineConfig({
       includeAssets: ['icons/icon.svg'],
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,json,webp}'],
+        // 同じサイトの /meal/ には食事管理アプリ（meal-app/）を置くので、このアプリの index.html を返さない
+        globIgnores: ['meal/**'],
+        navigateFallbackDenylist: [/\/meal\//],
       },
       manifest: {
         name: 'AP 過去問トレーナー',
