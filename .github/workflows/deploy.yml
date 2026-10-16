@@ -39,11 +39,13 @@ jobs:
         env:
           BASE_PATH: /${{ github.event.repository.name }}/meal/
       # 直下（/<リポジトリ名>/）にはアプリ一覧と、古い Service Worker を片付ける sw.js を置く
+      # キャンプ場ノート（camp-note/）はビルド不要の1ページなので、そのまま /<リポジトリ名>/camp-note/ に置く
       - run: |
           mkdir site
           cp -r pages-root/. site/
           cp -r dist site/ap-prep
           cp -r meal-app/dist site/meal
+          cp -r camp-note site/camp-note
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site

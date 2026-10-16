@@ -1,0 +1,16 @@
+{
+  "name": "キャンプ場ノート",
+  "short_name": "キャンプ場ノート",
+  "description": "行ったキャンプ場を採点して、次のキャンプ場選びに使う記録帳",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#2E5B45",
+  "background_color": "#ECEEE6",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
