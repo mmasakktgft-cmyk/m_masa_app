@@ -1,5 +1,6 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { parseReply, readClipboard, type ParsedReply } from '../logic/claude'
+import { formatNum, normalizeNumText, parseNumText } from '../logic/numText'
 import { goBack, type RouteName } from '../router'
 
 export function TopBar({
@@ -150,6 +151,11 @@ export function ReplyImporter({ expect, onParsed }: { expect: ParsedReply['kind'
   )
 }
 
+/**
+ * 数値の入力欄。入力中の文字列は欄の中で持ち、親には数値（空欄なら undefined）だけを渡す。
+ * 親が値を補っても入力中の表示は書き換えない（消したはずの数字が残る、"072" になる、を防ぐ）。
+ * type="number" は全角数字を受け付けず、"72." の途中で値が消える端末もあるため、文字入力＋数字キーボードにしている。
+ */
 export function NumInput({
   value,
   onChange,
@@ -165,17 +171,36 @@ export function NumInput({
   label: string
   className?: string
 }) {
+  const allowDecimal = step < 1
+  const [text, setText] = useState(() => formatNum(value))
+  /** この欄の入力が親の値を変えた直後かどうか */
+  const fromInput = useRef(false)
+
+  // 日付の切り替えや取り込みなど、外から値が変わったときだけ表示を合わせる
+  useEffect(() => {
+    if (fromInput.current) return
+    if (parseNumText(text) !== value) setText(formatNum(value))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value])
+  useEffect(() => {
+    fromInput.current = false
+  })
+
   return (
     <input
       className={className}
-      type="number"
-      inputMode="decimal"
-      step={step}
-      min={0}
+      type="text"
+      inputMode={allowDecimal ? 'decimal' : 'numeric'}
+      autoComplete="off"
       aria-label={label}
       placeholder={placeholder}
-      value={value ?? ''}
-      onChange={(e) => onChange(e.target.value === '' ? undefined : Number(e.target.value))}
+      value={text}
+      onChange={(e) => {
+        const next = normalizeNumText(e.target.value, allowDecimal)
+        setText(next)
+        fromInput.current = true
+        onChange(parseNumText(next))
+      }}
     />
   )
 }
