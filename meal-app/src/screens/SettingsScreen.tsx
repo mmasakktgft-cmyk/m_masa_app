@@ -8,19 +8,42 @@ import { navigate } from '../router'
 import { useStore } from '../store'
 import { DEFAULT_PROFILE, type Goal, type MyMenu, type Profile, type Sex } from '../types'
 
+type NumKey = 'age' | 'heightCm' | 'weightKg' | 'waterTargetMl' | 'cupMl'
+/** 入力途中は数値欄が空のことがあるので、数値の項目は省略可にしたフォーム用の型 */
+type Form = Omit<Profile, NumKey> & Partial<Pick<Profile, NumKey>>
+
+const REQUIRED: { key: NumKey; label: string }[] = [
+  { key: 'age', label: '年齢' },
+  { key: 'heightCm', label: '身長' },
+  { key: 'weightKg', label: '体重' },
+  { key: 'waterTargetMl', label: '水分の目標' },
+  { key: 'cupMl', label: 'コップ1杯' },
+]
+
+/** 必須の数値がすべて正の値なら Profile にする */
+function toProfile(f: Form, manual: boolean): Profile | null {
+  if (REQUIRED.some(({ key }) => !(f[key]! > 0))) return null
+  return { ...(f as Profile), kcalOverride: manual && f.kcalOverride ? f.kcalOverride : undefined }
+}
+
 export default function SettingsScreen({ setup }: { setup: boolean }) {
   const { profile, updateProfile, toast } = useStore()
-  const [p, setP] = useState<Profile>(profile ?? DEFAULT_PROFILE)
+  const [p, setP] = useState<Form>(profile ?? DEFAULT_PROFILE)
   const [manual, setManual] = useState(!!profile?.kcalOverride)
   useEffect(() => {
     if (profile) setP(profile)
   }, [profile])
-  const t = calcTargets({ ...p, kcalOverride: manual ? p.kcalOverride : undefined })
-  const set = (patch: Partial<Profile>) => setP((x) => ({ ...x, ...patch }))
+  const complete = toProfile(p, manual)
+  const missing = REQUIRED.filter(({ key }) => !(p[key]! > 0)).map((r) => r.label)
+  // 目標カロリーの計算に要るのは年齢・身長・体重だけ（水分の欄が空でも表示する）
+  const bodyReady = p.age! > 0 && p.heightCm! > 0 && p.weightKg! > 0
+  const t = bodyReady ? calcTargets({ ...DEFAULT_PROFILE, ...p, kcalOverride: manual ? p.kcalOverride : undefined } as Profile) : null
+  const set = (patch: Partial<Form>) => setP((x) => ({ ...x, ...patch }))
   const menus = useLive(() => db.myMenus.orderBy('lastUsedAt').reverse().toArray(), [], [] as MyMenu[])
 
   const save = async () => {
-    const next = { ...p, kcalOverride: manual ? p.kcalOverride : undefined }
+    const next = toProfile(p, manual)
+    if (!next) return
     await updateProfile(next)
     // 今日の体重が未記録なら、入力した体重を記録にも入れておく
     if (!(await db.weights.get(todayKey()))) await db.weights.put({ date: todayKey(), kg: next.weightKg })
@@ -71,15 +94,15 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
           <div className="grid3">
             <label className="field">
               <span>年齢</span>
-              <NumInput label="年齢" value={p.age} onChange={(v) => set({ age: v ?? 0 })} />
+              <NumInput label="年齢" value={p.age} onChange={(v) => set({ age: v })} />
             </label>
             <label className="field">
               <span>身長 cm</span>
-              <NumInput label="身長" step={0.1} value={p.heightCm} onChange={(v) => set({ heightCm: v ?? 0 })} />
+              <NumInput label="身長" step={0.1} value={p.heightCm} onChange={(v) => set({ heightCm: v })} />
             </label>
             <label className="field">
               <span>体重 kg</span>
-              <NumInput label="体重" step={0.1} value={p.weightKg} onChange={(v) => set({ weightKg: v ?? 0 })} />
+              <NumInput label="体重" step={0.1} value={p.weightKg} onChange={(v) => set({ weightKg: v })} />
             </label>
           </div>
           <div className="field">
@@ -110,19 +133,25 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
 
       <section className="card target-card">
         <h2 className="card-title">1日の目標</h2>
-        <div className="target-big">
-          <b>{t.kcal.toLocaleString()}</b> kcal
-        </div>
-        <div className="target-pfc">
-          <span className="pfc p">P {t.p}g</span>
-          <span className="pfc f">F {t.f}g</span>
-          <span className="pfc c">C {t.c}g</span>
-        </div>
-        <p className="hint">
-          基礎代謝 {t.bmr}kcal × 活動量 {p.activity} ＝ 消費 {t.tdee}kcal
-          {p.goal === 'lose' ? ' − 400kcal（減量）' : p.goal === 'gain' ? ' ＋ 300kcal（増量）' : ''}
-          。目安なので、体重の変化を見ながら調整してください。
-        </p>
+        {t ? (
+          <>
+            <div className="target-big">
+              <b>{t.kcal.toLocaleString()}</b> kcal
+            </div>
+            <div className="target-pfc">
+              <span className="pfc p">P {t.p}g</span>
+              <span className="pfc f">F {t.f}g</span>
+              <span className="pfc c">C {t.c}g</span>
+            </div>
+            <p className="hint">
+              基礎代謝 {t.bmr}kcal × 活動量 {p.activity} ＝ 消費 {t.tdee}kcal
+              {p.goal === 'lose' ? ' − 400kcal（減量）' : p.goal === 'gain' ? ' ＋ 300kcal（増量）' : ''}
+              。目安なので、体重の変化を見ながら調整してください。
+            </p>
+          </>
+        ) : (
+          <p className="hint">年齢・身長・体重を入れると計算します。</p>
+        )}
         <label className="check">
           <input type="checkbox" checked={manual} onChange={(e) => setManual(e.target.checked)} />
           目標カロリーを自分で決める
@@ -130,7 +159,7 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
         {manual && (
           <label className="field">
             <span>目標カロリー kcal</span>
-            <NumInput label="目標カロリー" value={p.kcalOverride} placeholder={String(t.tdee)} onChange={(v) => set({ kcalOverride: v })} />
+            <NumInput label="目標カロリー" value={p.kcalOverride} placeholder={t ? String(t.tdee) : ''} onChange={(v) => set({ kcalOverride: v })} />
           </label>
         )}
       </section>
@@ -140,17 +169,18 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
         <div className="grid2">
           <label className="field">
             <span>1日の目標 ml</span>
-            <NumInput label="水分の目標" step={100} value={p.waterTargetMl} onChange={(v) => set({ waterTargetMl: v ?? 2000 })} />
+            <NumInput label="水分の目標" step={100} value={p.waterTargetMl} onChange={(v) => set({ waterTargetMl: v })} />
           </label>
           <label className="field">
             <span>コップ1杯 ml</span>
-            <NumInput label="コップ1杯" step={50} value={p.cupMl} onChange={(v) => set({ cupMl: v && v > 0 ? v : 200 })} />
+            <NumInput label="コップ1杯" step={50} value={p.cupMl} onChange={(v) => set({ cupMl: v })} />
           </label>
         </div>
       </section>
 
       <div className="sticky-save">
-        <button className="btn btn-primary block" onClick={save} disabled={!p.age || !p.heightCm || !p.weightKg}>
+        {missing.length > 0 && <p className="save-missing">{missing.join('・')}を入力してください</p>}
+        <button className="btn btn-primary block" onClick={save} disabled={!complete}>
           {setup ? '保存してはじめる' : '保存する'}
         </button>
       </div>

@@ -3,6 +3,7 @@ import { DEFAULT_PROFILE } from '../types'
 import { claudeUrl, parseReply, photoPrompt, planPrompt } from './claude'
 import { addDays, relativeDay, weekStart } from './date'
 import { calcBmr, calcTargets, sumItems } from './nutrition'
+import { formatNum, normalizeNumText, parseNumText } from './numText'
 import { aggregateIngredients, splitIngredient } from './shopping'
 
 describe('nutrition', () => {
@@ -96,5 +97,23 @@ describe('買い物リスト', () => {
     expect(
       aggregateIngredients([{ ingredients: ['鶏むね肉 200g', '塩 少々'] }, { ingredients: ['鶏むね肉 150g', 'キャベツ'] }]),
     ).toEqual(['鶏むね肉 200g＋150g', '塩 少々', 'キャベツ'])
+  })
+})
+
+describe('数値入力欄', () => {
+  it('全角数字・全角ピリオドを半角にし、数字以外は捨てる', () => {
+    expect(normalizeNumText('７２．５', true)).toBe('72.5')
+    expect(normalizeNumText('72.5.1', true)).toBe('72.51')
+    expect(normalizeNumText('2,000ml', false)).toBe('2000')
+    expect(normalizeNumText('1.5', false)).toBe('15')
+  })
+
+  it('空欄は undefined、入力途中の "72." は 72', () => {
+    expect(parseNumText('')).toBeUndefined()
+    expect(parseNumText('.')).toBeUndefined()
+    expect(parseNumText('72.')).toBe(72)
+    expect(parseNumText('072')).toBe(72)
+    expect(formatNum(undefined)).toBe('')
+    expect(formatNum(0)).toBe('0')
   })
 })
