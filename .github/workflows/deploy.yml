@@ -29,18 +29,24 @@ jobs:
       - run: npm ci
       - run: npm run validate-data
       - run: npm test
+      # 試験アプリは /<リポジトリ名>/ap-prep/ に置く
       - run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /${{ github.event.repository.name }}/ap-prep/
       # 食事管理アプリ（meal-app/）は /<リポジトリ名>/meal/ に置く
       - run: npm ci && npm test && npm run build
         working-directory: meal-app
         env:
           BASE_PATH: /${{ github.event.repository.name }}/meal/
-      - run: cp -r meal-app/dist dist/meal
+      # 直下（/<リポジトリ名>/）にはアプリ一覧と、古い Service Worker を片付ける sw.js を置く
+      - run: |
+          mkdir site
+          cp -r pages-root/. site/
+          cp -r dist site/ap-prep
+          cp -r meal-app/dist site/meal
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build
