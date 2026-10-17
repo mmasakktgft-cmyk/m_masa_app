@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { DEFAULT_PROFILE } from '../types'
-import { claudeUrl, parseReply, photoPrompt, planPrompt } from './claude'
+import { makeBackup, readBackup } from './backup'
+import { photoPrompt, planPrompt, readEstimate, readPlans } from './claude'
 import { addDays, relativeDay, weekStart } from './date'
 import { calcBmr, calcTargets, sumItems } from './nutrition'
 import { formatNum, normalizeNumText, parseNumText } from './numText'
@@ -42,46 +43,86 @@ describe('date', () => {
   })
 })
 
-describe('Claude の回答の取り込み', () => {
-  it('json コードブロックから品目を読む', () => {
-    const text = `推定結果です。\n\n\`\`\`json\n{"items":[{"name":"ごはん","amount":"150g","kcal":234,"p":3.8,"f":0.5,"c":55.7},{"name":"味噌汁","kcal":"40kcal","p":"2.5g"}]}\n\`\`\`\n以上です。`
-    const r = parseReply(text)
+describe('Claude の回答の読み取り', () => {
+  it('品目と note を読む（"40kcal" のような表記も数値にする）', () => {
+    const r = readEstimate({
+      items: [
+        { name: 'ごはん', amount: '150g', kcal: 234, p: 3.8, f: 0.5, c: 55.7 },
+        { name: '味噌汁', kcal: '40kcal', p: '2.5g' },
+        { name: '', kcal: 10 },
+      ],
+      note: '茶碗1杯と仮定',
+    })
     expect(r).toEqual({
-      kind: 'items',
       items: [
         { name: 'ごはん', amount: '150g', kcal: 234, p: 3.8, f: 0.5, c: 55.7 },
         { name: '味噌汁', kcal: 40, p: 2.5 },
       ],
+      note: '茶碗1杯と仮定',
     })
   })
 
-  it('コードブロックが崩れていても、全角数字や配列直書きでも読む', () => {
-    const r = parseReply('結果 [{"name":"納豆","kcal":"９０","protein":7.4}] です')
-    expect(r).toEqual({ kind: 'items', items: [{ name: '納豆', kcal: 90, p: 7.4 }] })
+  it('配列だけ・全角数字・別名のキーも受け付ける', () => {
+    expect(readEstimate([{ name: '納豆', kcal: '９０', protein: 7.4 }])).toEqual({ items: [{ name: '納豆', kcal: 90, p: 7.4 }] })
+  })
+
+  it('食べ物がなければ空', () => {
+    expect(readEstimate({ items: [], note: '食べ物が写っていません' })).toEqual({ items: [], note: '食べ物が写っていません' })
+    expect(readEstimate(null)).toEqual({ items: [] })
   })
 
   it('献立を読み、日本語の区分も受け付ける', () => {
-    const r = parseReply('```json\n{"plans":[{"date":"2026-10-17","slot":"夕食","title":"鮭の塩焼き","kcal":550,"ingredients":["鮭 1切れ",""]},{"date":"bad","slot":"lunch","title":"x"}]}\n```')
-    expect(r).toEqual({
-      kind: 'plans',
-      plans: [{ date: '2026-10-17', slot: 'dinner', title: '鮭の塩焼き', kcal: 550, ingredients: ['鮭 1切れ'] }],
-    })
+    expect(
+      readPlans({
+        plans: [
+          { date: '2026-10-17', slot: '夕食', title: '鮭の塩焼き', kcal: 550, ingredients: ['鮭 1切れ', ''] },
+          { date: 'bad', slot: 'lunch', title: 'x' },
+        ],
+      }),
+    ).toEqual([{ date: '2026-10-17', slot: 'dinner', title: '鮭の塩焼き', kcal: 550, ingredients: ['鮭 1切れ'] }])
   })
 
-  it('JSON がなければ null', () => {
-    expect(parseReply('こんにちは')).toBeNull()
-    expect(parseReply('```json\n{"items":[{"name":"x"}]}\n```')).toBeNull()
-  })
-
-  it('プロンプトには取り込み用の形式が含まれる', () => {
+  it('プロンプトには返してほしい JSON の形が含まれる', () => {
     expect(photoPrompt('lunch')).toContain('"items"')
     const targets = calcTargets(DEFAULT_PROFILE)
     expect(planPrompt({ startDate: '2026-10-17', days: 3, slots: ['dinner'], targets })).toContain('"plans"')
   })
+})
 
-  it('長すぎるプロンプトは URL に載せない', () => {
-    expect(claudeUrl('短い')).toMatch(/\?q=/)
-    expect(claudeUrl('あ'.repeat(1000))).toBe('https://claude.ai/new')
+describe('バックアップ', () => {
+  it('GitHub 版のバックアップを日ごとの記録にまとめる', () => {
+    const r = readBackup({
+      app: 'meal-log',
+      version: 1,
+      meals: [
+        { id: 1, date: '2026-10-16', slot: 'lunch', items: [{ name: 'ごはん', kcal: 234 }], createdAt: 1 },
+        { id: 2, date: '2026-10-16', slot: 'dinner', items: [{ name: '鮭', kcal: 200 }], createdAt: 2 },
+      ],
+      weights: [{ date: '2026-10-16', kg: 68 }],
+      water: [{ date: '2026-10-15', ml: 600 }],
+      myMenus: [{ id: 3, name: '朝の定番', items: [{ name: 'パン', kcal: 150 }], useCount: 2, lastUsedAt: 5 }],
+      plans: [{ id: 4, date: '2026-10-17', slot: 'dinner', title: '親子丼', ingredients: ['卵 2個'] }],
+      shopping: [{ id: 5, name: '牛乳', done: false, fromPlan: false, createdAt: 9 }],
+      profile: null,
+    })
+    expect(r.days.map((d) => d.date)).toEqual(['2026-10-15', '2026-10-16', '2026-10-17'])
+    const d16 = r.days[1]
+    expect(d16.meals.map((m) => m.id)).toEqual(['v1m1', 'v1m2'])
+    expect(d16.weight).toEqual({ kg: 68 })
+    expect(r.days[0].waterMl).toBe(600)
+    expect(r.days[2].plans[0]).toMatchObject({ id: 'v1p4', title: '親子丼', slot: 'dinner' })
+    expect(r.lists.menus[0]).toMatchObject({ id: 'v1mm3', name: '朝の定番' })
+    expect(r.lists.shopping[0]).toMatchObject({ id: 'v1s5', name: '牛乳' })
+  })
+
+  it('このアプリのバックアップは書き出した形のまま戻る', () => {
+    const day = { date: '2026-10-16', meals: [], plans: [], waterMl: 400 }
+    const b = makeBackup(null, { '2026-10-16': day }, { menus: [], shopping: [] })
+    expect(readBackup(JSON.parse(JSON.stringify(b))).days).toEqual([day])
+  })
+
+  it('別のアプリのファイルは断る', () => {
+    expect(() => readBackup({ app: 'camp-note', version: 1 })).toThrow()
   })
 })
 

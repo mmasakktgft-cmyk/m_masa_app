@@ -1,29 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { LineChart } from '../components/Charts'
 import { NumInput, Segmented, TopBar } from '../components/ui'
-import { db, useLive } from '../db'
 import { addDays, formatDay, todayKey } from '../logic/date'
 import { bmi, round1 } from '../logic/nutrition'
 import { useStore } from '../store'
-import { DEFAULT_PROFILE, type WeightEntry } from '../types'
+import { DEFAULT_PROFILE } from '../types'
 
 type Span = '30' | '90' | '365'
 
 export default function BodyScreen() {
-  const { profile, updateProfile, toast } = useStore()
+  const { profile, updateProfile, toast, days, dayOf, changeDay } = useStore()
   const p = profile ?? DEFAULT_PROFILE
   const [date, setDate] = useState(todayKey())
   const [kg, setKg] = useState<number | undefined>()
   const [fat, setFat] = useState<number | undefined>()
   const [span, setSpan] = useState<Span>('30')
-  const all = useLive(() => db.weights.orderBy('date').toArray(), [], [] as WeightEntry[])
+  const all = useMemo(
+    () =>
+      Object.values(days)
+        .filter((d) => d.weight)
+        .map((d) => ({ date: d.date, kg: d.weight!.kg, bodyFat: d.weight!.bodyFat }))
+        .sort((a, b) => a.date.localeCompare(b.date)),
+    [days],
+  )
 
   // 選んだ日に記録があれば入力欄に出す（上書き編集できるように）
   useEffect(() => {
-    db.weights.get(date).then((w) => {
-      setKg(w?.kg)
-      setFat(w?.bodyFat)
-    })
+    const w = dayOf(date).weight
+    setKg(w?.kg)
+    setFat(w?.bodyFat)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date])
 
   const from = addDays(todayKey(), -Number(span) + 1)
@@ -34,7 +40,10 @@ export default function BodyScreen() {
 
   const save = async () => {
     if (!kg) return
-    await db.weights.put({ date, kg: round1(kg), ...(fat ? { bodyFat: round1(fat) } : {}) })
+    await changeDay(date, (d) => {
+      d.weight = { kg: round1(kg), ...(fat ? { bodyFat: round1(fat) } : {}) }
+      return d
+    })
     // 最新の体重で目標カロリーを計算し直す
     if (profile && (!latest || date >= latest.date)) await updateProfile({ ...profile, weightKg: round1(kg) })
     toast('体重を記録しました')
@@ -46,9 +55,9 @@ export default function BodyScreen() {
 
       <section className="card">
         <div className="weight-form">
-          <label className="field">
+          <label className="field" htmlFor="weight-date">
             <span>日付</span>
-            <input type="date" value={date} max={todayKey()} onChange={(e) => e.target.value && setDate(e.target.value)} />
+            <input id="weight-date" type="date" value={date} max={todayKey()} onChange={(e) => e.target.value && setDate(e.target.value)} />
           </label>
           <div className="weight-inputs">
             <label className="field big">

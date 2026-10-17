@@ -1,55 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
+/**
+ * 画面の切り替え。claude.ai 上のページでは URL に状態を載せられないため、アプリの中だけで持つ。
+ */
 export type RouteName = 'today' | 'meal' | 'plan' | 'body' | 'settings'
-const ROUTES: RouteName[] = ['today', 'meal', 'plan', 'body', 'settings']
+
+export type Params = Record<string, string | number | undefined>
 
 export interface Route {
   name: RouteName
   params: Record<string, string>
 }
 
-function parse(): Route {
-  const raw = location.hash.replace(/^#\/?/, '')
-  const [path, query = ''] = raw.split('?')
-  const name = (ROUTES.includes(path as RouteName) ? path : 'today') as RouteName
-  return { name, params: Object.fromEntries(new URLSearchParams(query)) }
-}
+const clean = (p: Params): Record<string, string> =>
+  Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined && v !== '').map(([k, v]) => [k, String(v)]))
 
-export function href(name: RouteName, params: Record<string, string | number | undefined> = {}): string {
-  const q = new URLSearchParams()
-  for (const [k, v] of Object.entries(params)) if (v !== undefined && v !== '') q.set(k, String(v))
-  const qs = q.toString()
-  return `#/${name === 'today' ? '' : name}${qs ? `?${qs}` : ''}`
-}
+let stack: Route[] = [{ name: 'today', params: {} }]
+const listeners = new Set<() => void>()
+const emit = () => listeners.forEach((l) => l())
 
-/** アプリ内で積んだ履歴の数。直接開いた画面で「戻る」を押してもアプリ外へ出ないようにする */
-let depth = 0
-
-export function navigate(name: RouteName, params: Record<string, string | number | undefined> = {}, replace = false): void {
-  const h = href(name, params)
-  if (replace) {
-    history.replaceState(null, '', h)
-    window.dispatchEvent(new HashChangeEvent('hashchange'))
-  } else {
-    depth++
-    location.hash = h
-  }
+export function navigate(name: RouteName, params: Params = {}, replace = false): void {
+  const r = { name, params: clean(params) }
+  stack = replace ? [...stack.slice(0, -1), r] : [...stack, r]
+  emit()
   window.scrollTo(0, 0)
 }
 
-export function goBack(fallback: RouteName = 'today', params: Record<string, string | number | undefined> = {}): void {
-  if (depth > 0) {
-    depth--
-    history.back()
-  } else navigate(fallback, params, true)
+/** 前の画面へ。積んだ履歴がなければ fallback へ */
+export function goBack(fallback: RouteName = 'today', params: Params = {}): void {
+  if (stack.length > 1) stack = stack.slice(0, -1)
+  else stack = [{ name: fallback, params: clean(params) }]
+  emit()
+  window.scrollTo(0, 0)
+}
+
+/** 下のタブからの移動：履歴を積まずに切り替える */
+export function switchTab(name: RouteName, params: Params = {}): void {
+  stack = [{ name, params: clean(params) }]
+  emit()
+  window.scrollTo(0, 0)
 }
 
 export function useRoute(): Route {
-  const [route, setRoute] = useState(parse)
-  useEffect(() => {
-    const on = () => setRoute(parse())
-    window.addEventListener('hashchange', on)
-    return () => window.removeEventListener('hashchange', on)
-  }, [])
-  return route
+  return useSyncExternalStore(
+    (cb) => {
+      listeners.add(cb)
+      return () => listeners.delete(cb)
+    },
+    () => stack[stack.length - 1],
+  )
 }

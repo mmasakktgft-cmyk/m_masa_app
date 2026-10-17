@@ -1,63 +1,59 @@
+import { useRef, useState } from 'react'
 import { CalorieRing, Meter } from '../components/Charts'
-import { SparkIcon } from '../components/ui'
-import { addWater, db, useLive } from '../db'
-import { advicePrompt, openClaude } from '../logic/claude'
+import { Sheet, SparkIcon, Thinking } from '../components/ui'
+import { advicePrompt } from '../logic/claude'
 import { addDays, relativeDay, todayKey } from '../logic/date'
-import { useObjectUrl } from '../logic/image'
 import { sumItems, type Totals } from '../logic/nutrition'
+import { photoUrl, sampleErrorText } from '../platform'
 import { navigate } from '../router'
 import { useStore } from '../store'
 import { DEFAULT_PROFILE, SLOT_ICON, SLOT_LABEL, SLOTS, type Meal, type Slot } from '../types'
 
 export default function TodayScreen({ date }: { date: string }) {
-  const { targets, profile, toast } = useStore()
+  const { targets, profile, dayOf, days, addWater, platform } = useStore()
   const p = profile ?? DEFAULT_PROFILE
-  const meals = useLive(() => db.meals.where('date').equals(date).sortBy('createdAt'), [date], [] as Meal[])
-  const water = useLive(async () => (await db.water.get(date))?.ml ?? 0, [date], 0)
+  const day = dayOf(date)
+  const meals = [...day.meals].sort((a, b) => a.createdAt - b.createdAt)
+  const water = day.waterMl ?? 0
   const total = sumItems(meals.flatMap((m) => m.items))
   const isToday = date === todayKey()
+  const go = (d: string) => navigate('today', { d: d === todayKey() ? undefined : d }, true)
 
-  const askClaude = async () => {
-    const from = addDays(date, -7)
-    const prev = await db.meals.where('date').between(from, date, true, false).toArray()
-    const days = new Set(prev.map((m) => m.date)).size
-    let weekAvg: Totals | null = null
-    if (days > 0) {
-      const t = sumItems(prev.flatMap((m) => m.items))
-      weekAvg = { kcal: Math.round(t.kcal / days), p: t.p / days, f: t.f / days, c: t.c / days }
+  const buildPrompt = () => {
+    let count = 0
+    let all: Meal[] = []
+    for (let i = 1; i <= 7; i++) {
+      const ms = days[addDays(date, -i)]?.meals ?? []
+      if (ms.length) {
+        count++
+        all = all.concat(ms)
+      }
     }
-    const latest = await db.weights.orderBy('date').last()
-    const prompt = advicePrompt({ date, meals, targets, profile: p, waterMl: water, weekAvg, latestWeight: latest?.kg })
-    await openClaude(prompt)
-    toast('食事の内容をコピーしました。Claude に貼り付けて送信してください')
+    let weekAvg: Totals | null = null
+    if (count > 0) {
+      const t = sumItems(all.flatMap((m) => m.items))
+      weekAvg = { kcal: Math.round(t.kcal / count), p: t.p / count, f: t.f / count, c: t.c / count }
+    }
+    const latest = Object.values(days)
+      .filter((d) => d.weight)
+      .sort((a, b) => a.date.localeCompare(b.date))
+      .pop()?.weight?.kg
+    return advicePrompt({ date, meals, targets, profile: p, waterMl: water, weekAvg, latestWeight: latest })
   }
 
   return (
     <div className="screen">
       <header className="date-bar">
-        <button className="icon-btn" aria-label="前の日" onClick={() => navigate('today', { d: addDays(date, -1) }, true)}>
+        <button className="icon-btn" aria-label="前の日" onClick={() => go(addDays(date, -1))}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
         <label className="date-title">
           <span>{relativeDay(date)}</span>
-          <input
-            type="date"
-            value={date}
-            aria-label="日付を選ぶ"
-            onChange={(e) => e.target.value && navigate('today', { d: e.target.value === todayKey() ? undefined : e.target.value }, true)}
-          />
+          <input id="day-picker" type="date" value={date} aria-label="日付を選ぶ" onChange={(e) => e.target.value && go(e.target.value)} />
         </label>
-        <button
-          className="icon-btn"
-          aria-label="次の日"
-          disabled={isToday}
-          onClick={() => {
-            const next = addDays(date, 1)
-            navigate('today', { d: next === todayKey() ? undefined : next }, true)
-          }}
-        >
+        <button className="icon-btn" aria-label="次の日" disabled={isToday} onClick={() => go(addDays(date, 1))}>
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -65,10 +61,10 @@ export default function TodayScreen({ date }: { date: string }) {
       </header>
 
       {!profile && (
-        <a className="card notice" href="#/settings?setup=1">
+        <button className="card notice" onClick={() => navigate('settings', { setup: 1 })}>
           <b>はじめに目標を設定しましょう</b>
           <span>身長・体重などから、1日の目標カロリーを自動で計算します →</span>
-        </a>
+        </button>
       )}
 
       <section className="card summary">
@@ -115,28 +111,81 @@ export default function TodayScreen({ date }: { date: string }) {
         </div>
       </section>
 
-      <section className="card ai-card">
-        <div className="ai-head">
-          <span className="ai-badge">
-            <SparkIcon />
-          </span>
-          <div>
-            <h2>Claude にアドバイスをもらう</h2>
-            <p>この日の食事・目標・直近の傾向をまとめて Claude に送ります（無料プランで利用できます）。</p>
-          </div>
-        </div>
-        <button className="btn btn-claude block" onClick={askClaude}>
-          <SparkIcon /> 食事内容をコピーして Claude を開く
-        </button>
-      </section>
+      {platform?.sample && <AdviceCard buildPrompt={buildPrompt} />}
     </div>
+  )
+}
+
+function AdviceCard({ buildPrompt }: { buildPrompt: () => string }) {
+  const { platform } = useStore()
+  const [open, setOpen] = useState(false)
+  const [text, setText] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
+  const ctl = useRef<AbortController | null>(null)
+
+  const ask = async () => {
+    const sample = platform?.sample
+    if (!sample) return
+    setOpen(true)
+    setText('')
+    setError('')
+    setBusy(true)
+    ctl.current = new AbortController()
+    try {
+      const r = await sample(buildPrompt(), { signal: ctl.current.signal, onText: ({ text }) => setText(text) })
+      setText(r.text)
+      if (r.truncated) setError('回答が途中で切れました')
+    } catch (e) {
+      setText((e as { text?: string }).text ?? '')
+      setError(sampleErrorText(e))
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  const close = () => {
+    ctl.current?.abort()
+    setOpen(false)
+  }
+
+  return (
+    <section className="card ai-card">
+      <div className="ai-head">
+        <span className="ai-badge">
+          <SparkIcon />
+        </span>
+        <div>
+          <h2>Claude にアドバイスをもらう</h2>
+          <p>この日の食事・目標・直近の傾向から、良い点と改善点を教えてくれます。</p>
+        </div>
+      </div>
+      <button className="btn btn-claude block" onClick={ask} disabled={busy}>
+        <SparkIcon /> アドバイスをもらう
+      </button>
+      <Sheet open={open} onClose={close} title="Claude からのアドバイス">
+        {busy && !text && <Thinking label="考えています…（数十秒かかることがあります）" onStop={() => ctl.current?.abort()} />}
+        {text && <div className="advice">{text}</div>}
+        {busy && text && <Thinking label="書いています…" onStop={() => ctl.current?.abort()} />}
+        {error && (
+          <p className="error" role="alert">
+            {error}
+          </p>
+        )}
+        {!busy && (
+          <button className="btn btn-outline block" onClick={close}>
+            閉じる
+          </button>
+        )}
+      </Sheet>
+    </section>
   )
 }
 
 function SlotCard({ slot, date, meals }: { slot: Slot; date: string; meals: Meal[] }) {
   const items = meals.flatMap((m) => m.items)
   const t = sumItems(items)
-  const open = (id?: number) => navigate('meal', { date, slot, id })
+  const open = (id?: string) => navigate('meal', { date, slot, id })
   return (
     <article className="card slot-card">
       <header className="slot-head">
@@ -164,12 +213,17 @@ function SlotCard({ slot, date, meals }: { slot: Slot; date: string; meals: Meal
 }
 
 function MealRow({ meal, onClick }: { meal: Meal; onClick: () => void }) {
-  const url = useObjectUrl(meal.photo)
   const t = sumItems(meal.items)
   return (
     <li>
       <button className="meal-row" onClick={onClick}>
-        {url ? <img src={url} alt="" className="thumb" /> : <span className="thumb thumb-empty" aria-hidden="true">🍽️</span>}
+        {meal.photoId ? (
+          <img src={photoUrl(meal.photoId)} alt="" className="thumb" loading="lazy" />
+        ) : (
+          <span className="thumb thumb-empty" aria-hidden="true">
+            🍽️
+          </span>
+        )}
         <span className="meal-row-main">
           <span className="meal-row-names">{meal.items.length ? meal.items.map((i) => i.name).join('、') : '（品目なし）'}</span>
           <span className="meal-row-sub">

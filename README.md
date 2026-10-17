@@ -4,7 +4,7 @@
 
 仕様は [docs/SPEC.md](docs/SPEC.md) を参照。
 
-> 同じリポジトリの [`meal-app/`](meal-app/README.md) には、別アプリの食事管理 PWA「ごはん記録」がある（公開先は `/meal/`）。
+> 同じリポジトリの [`meal-app/`](meal-app/README.md) には、別アプリの食事管理アプリ「ごはん記録」がある（claude.ai 上で公開）。
 
 ## 開発
 
@@ -67,9 +67,8 @@ npm run build          # 本番ビルド（dist/）
 
 | URL | 内容 |
 |---|---|
-| `/<リポジトリ名>/` | アプリ一覧（`pages-root/`） |
+| `/<リポジトリ名>/` | アプリ一覧（`pages-root/`）。ごはん記録（`meal-app/`）は claude.ai 上のページへのリンク |
 | `/<リポジトリ名>/ap-prep/` | この試験アプリ |
-| `/<リポジトリ名>/meal/` | 食事管理アプリ（`meal-app/`） |
 | `/<リポジトリ名>/camp-note/` | キャンプ場ノート（`camp-note/`。ビルド不要の1ページ） |
 
 以前は試験アプリを直下に置いていた。直下の `pages-root/sw.js` は、そのころの Service Worker を置き換えて片付けるためのもの（学習データは同じドメインに保存されているので引き継がれる）。

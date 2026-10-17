@@ -27,55 +27,61 @@ export interface FoodItem {
 }
 
 export interface Meal {
-  id?: number
-  /** YYYY-MM-DD（端末のローカル日付） */
-  date: string
+  id: string
   slot: Slot
   items: FoodItem[]
-  photo?: Blob
+  /** 写真（アプリの写真置き場の id） */
+  photoId?: string
   memo?: string
-  /** 写真から Claude で推定した値かどうか（目安であることを表示するため） */
+  /** Claude で推定した値かどうか（目安であることを表示するため） */
   estimated?: boolean
   createdAt: number
 }
 
-export interface WeightEntry {
-  date: string
-  kg: number
-  bodyFat?: number
-}
-
-export interface WaterEntry {
-  date: string
-  ml: number
-}
-
-export interface MyMenu {
-  id?: number
-  name: string
-  items: FoodItem[]
-  useCount: number
-  lastUsedAt: number
-}
-
 export interface PlanEntry {
-  id?: number
+  id: string
   date: string
   slot: Slot
   title: string
   kcal?: number
   ingredients: string[]
   /** 記録に反映済みなら meal の id */
-  loggedMealId?: number
+  loggedMealId?: string
+}
+
+/**
+ * 1日分の記録。保存できる件数に上限があるため、食事・水分・体重・献立を1日1件にまとめる。
+ * 保存先：data/users/<自分>/app/days/<YYYY-MM-DD>
+ */
+export interface Day {
+  date: string
+  meals: Meal[]
+  waterMl?: number
+  weight?: { kg: number; bodyFat?: number }
+  plans: Omit<PlanEntry, 'date'>[]
+}
+
+export interface MyMenu {
+  id: string
+  name: string
+  items: FoodItem[]
+  useCount: number
+  lastUsedAt: number
 }
 
 export interface ShoppingItem {
-  id?: number
+  id: string
   name: string
   done: boolean
   /** 献立から自動で作られた行は手入力行と区別して再生成できるようにする */
   fromPlan: boolean
   createdAt: number
+}
+
+/** Myメニューと買い物リスト。保存先：data/users/<自分>/lists */
+export interface Lists {
+  menus: MyMenu[]
+  shopping: ShoppingItem[]
 }
 
 export type Sex = 'male' | 'female'
@@ -106,3 +112,8 @@ export const DEFAULT_PROFILE: Profile = {
   waterTargetMl: 2000,
   cupMl: 200,
 }
+
+export const emptyDay = (date: string): Day => ({ date, meals: [], plans: [] })
+
+export const newId = (prefix: string): string =>
+  prefix + Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4)

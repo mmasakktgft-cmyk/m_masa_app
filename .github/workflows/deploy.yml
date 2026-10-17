@@ -23,9 +23,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            meal-app/package-lock.json
+          cache-dependency-path: package-lock.json
       - run: npm ci
       - run: npm run validate-data
       - run: npm test
@@ -33,18 +31,15 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/ap-prep/
-      # 食事管理アプリ（meal-app/）は /<リポジトリ名>/meal/ に置く
-      - run: npm ci && npm test && npm run build
+      # 食事管理アプリ（meal-app/）は claude.ai 上で公開するため、ここではテストだけ行う
+      - run: npm ci && npm test
         working-directory: meal-app
-        env:
-          BASE_PATH: /${{ github.event.repository.name }}/meal/
       # 直下（/<リポジトリ名>/）にはアプリ一覧と、古い Service Worker を片付ける sw.js を置く
       # キャンプ場ノート（camp-note/）はビルド不要の1ページなので、そのまま /<リポジトリ名>/camp-note/ に置く
       - run: |
           mkdir site
           cp -r pages-root/. site/
           cp -r dist site/ap-prep
-          cp -r meal-app/dist site/meal
           cp -r camp-note site/camp-note
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,6 +1,6 @@
 import { useEffect, type ReactNode } from 'react'
 import { todayKey, weekStart } from './logic/date'
-import { href, navigate, useRoute, type RouteName } from './router'
+import { navigate, switchTab, useRoute, type RouteName } from './router'
 import BodyScreen from './screens/BodyScreen'
 import MealEditor from './screens/MealEditor'
 import PlanScreen from './screens/PlanScreen'
@@ -18,27 +18,45 @@ function slotByTime(d = new Date()): Slot {
   return 'snack'
 }
 
+/** 初回の目標設定へは、1回の起動につき1度だけ案内する */
+let setupShown = false
+
 function Screens() {
   const { name, params } = useRoute()
-  const { ready, profile } = useStore()
+  const { status, profile } = useStore()
 
-  // 初回は目標設定へ案内する
   useEffect(() => {
-    if (ready && !profile && name === 'today' && !sessionStorageGet('meal-log:setup-shown')) {
-      sessionStorageSet('meal-log:setup-shown')
+    if (status === 'ready' && !profile && name === 'today' && !setupShown) {
+      setupShown = true
       navigate('settings', { setup: 1 }, true)
     }
-  }, [ready, profile, name])
+  }, [status, profile, name])
 
-  if (!ready) return null
+  if (status === 'loading') {
+    return (
+      <main className="main center-screen">
+        <p className="hint">記録を読み込んでいます…</p>
+      </main>
+    )
+  }
+  if (status === 'unavailable') {
+    return (
+      <main className="main center-screen">
+        <div className="card unavailable">
+          <h1>ごはん記録</h1>
+          <p>このアプリは claude.ai にログインした状態で開くと使えます。記録はあなたの claude.ai の領域に保存されます。</p>
+          <p className="hint">Claude アプリ、または claude.ai をブラウザで開き、このページのリンクを開き直してください。</p>
+        </div>
+      </main>
+    )
+  }
 
   const date = params.d ?? params.date ?? todayKey()
   let screen: ReactNode
   switch (name) {
     case 'meal': {
       const slot = SLOTS.includes(params.slot as Slot) ? (params.slot as Slot) : slotByTime()
-      const id = params.id ? Number(params.id) : undefined
-      screen = <MealEditor key={`${date}-${slot}-${id ?? 'new'}`} date={date} slot={slot} id={id} />
+      screen = <MealEditor key={`${date}-${slot}-${params.id ?? 'new'}`} date={date} slot={slot} id={params.id} />
       break
     }
     case 'plan':
@@ -48,7 +66,7 @@ function Screens() {
       screen = <BodyScreen />
       break
     case 'settings':
-      screen = <SettingsScreen setup={params.setup === '1'} />
+      screen = <SettingsScreen key={params.setup ?? 'settings'} setup={params.setup === '1'} />
       break
     default:
       screen = <TodayScreen date={date} />
@@ -60,21 +78,6 @@ function Screens() {
       {name !== 'meal' && <TabBar current={name} date={name === 'today' ? date : todayKey()} />}
     </>
   )
-}
-
-function sessionStorageGet(k: string): string | null {
-  try {
-    return sessionStorage.getItem(k)
-  } catch {
-    return null
-  }
-}
-function sessionStorageSet(k: string): void {
-  try {
-    sessionStorage.setItem(k, '1')
-  } catch {
-    /* 保存できなくても動作に支障はない */
-  }
 }
 
 const TABS: { name: RouteName; label: string; icon: ReactNode }[] = [
@@ -112,21 +115,12 @@ const TABS: { name: RouteName; label: string; icon: ReactNode }[] = [
 
 function TabBar({ current, date }: { current: RouteName; date: string }) {
   const tab = (t: (typeof TABS)[number]) => (
-    <a
-      key={t.name}
-      href={href(t.name)}
-      className={current === t.name ? 'tab on' : 'tab'}
-      aria-current={current === t.name ? 'page' : undefined}
-      onClick={(e) => {
-        e.preventDefault()
-        navigate(t.name, {}, true)
-      }}
-    >
+    <button key={t.name} className={current === t.name ? 'tab on' : 'tab'} aria-current={current === t.name ? 'page' : undefined} onClick={() => switchTab(t.name)}>
       <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
         {t.icon}
       </svg>
       <span>{t.label}</span>
-    </a>
+    </button>
   )
   return (
     <nav className="tabbar" aria-label="メイン">
