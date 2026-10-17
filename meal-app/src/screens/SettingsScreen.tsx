@@ -269,7 +269,18 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
               <li>利用枠の上限に達したときは、しばらくしてから試すか、手入力で記録してください。</li>
               <li>推定値は目安です。「推定」のついた記録は、必要に応じて数値を直してください。</li>
             </ul>
-            {!platform?.sample && <p className="error">この画面では Claude を使えません。claude.ai で開いてください。</p>}
+            <p className={platform?.sample && platform.canSendImages ? 'status ok' : 'status ng'}>
+              {!platform?.sample
+                ? '状態：この画面では Claude を使えません（claude.ai で開いてください）'
+                : platform.canSendImages
+                  ? '状態：使えます（写真からの推定にも対応）'
+                  : '状態：文章からの推定は使えます。写真は送れません'}
+            </p>
+            {platform?.permissions && (
+              <button className="btn btn-outline block" onClick={() => platform.permissions?.manage().catch(() => toast('画面右上のメニューの「権限」から設定してください'))}>
+                Claude の利用の許可を確認する
+              </button>
+            )}
           </section>
 
           <section className="card">
