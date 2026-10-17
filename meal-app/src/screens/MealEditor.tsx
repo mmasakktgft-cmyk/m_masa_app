@@ -1,73 +1,83 @@
-import { useEffect, useRef, useState } from 'react'
-import { NumInput, ReplyImporter, Segmented, Sheet, SparkIcon, TopBar } from '../components/ui'
-import { db, recentItems, touchMyMenu, useLive } from '../db'
-import { canSharePhoto, copyText, openClaude, photoPrompt, sharePhotoToClaude, textEstimatePrompt } from '../logic/claude'
+import { useMemo, useRef, useState } from 'react'
+import { NumInput, Segmented, Sheet, SparkIcon, Thinking, TopBar } from '../components/ui'
+import { estimateFromPhoto, estimateFromText, type Estimate } from '../logic/claude'
 import { formatDay } from '../logic/date'
 import { shrinkImage, useObjectUrl } from '../logic/image'
 import { sumItems } from '../logic/nutrition'
+import { photoUrl, sampleErrorText } from '../platform'
 import { goBack } from '../router'
 import { useStore } from '../store'
-import { SLOT_LABEL, SLOTS, type FoodItem, type Meal, type MyMenu, type Slot } from '../types'
+import { newId, SLOT_LABEL, SLOTS, type FoodItem, type Meal, type MyMenu, type Slot } from '../types'
 
 const emptyItem = (): FoodItem => ({ name: '', kcal: 0 })
 
-export default function MealEditor({ date, slot: initialSlot, id }: { date: string; slot: Slot; id?: number }) {
-  const { toast } = useStore()
-  const [loaded, setLoaded] = useState(id === undefined)
-  const [slot, setSlot] = useState<Slot>(initialSlot)
-  const [items, setItems] = useState<FoodItem[]>([])
+export default function MealEditor({ date, slot: initialSlot, id }: { date: string; slot: Slot; id?: string }) {
+  const { platform, dayOf, upsertMeal, deleteMeal, changeLists, uploadPhoto, deletePhoto, toast, confirm } = useStore()
+  // 開いた時点の記録を下書きの元にする（保存までは画面の中だけで編集する）
+  const original = useMemo(() => (id ? dayOf(date).meals.find((m) => m.id === id) : undefined), []) // eslint-disable-line react-hooks/exhaustive-deps
+  const [slot, setSlot] = useState<Slot>(original?.slot ?? initialSlot)
+  const [items, setItems] = useState<FoodItem[]>(original?.items ?? [])
+  /** 新しく選んだ写真（保存時に写真置き場へ送る） */
   const [photo, setPhoto] = useState<Blob | undefined>()
-  const [memo, setMemo] = useState('')
-  const [estimated, setEstimated] = useState(false)
+  /** 保存済みの写真 */
+  const [photoId, setPhotoId] = useState<string | undefined>(original?.photoId)
+  const [memo, setMemo] = useState(original?.memo ?? '')
+  const [estimated, setEstimated] = useState(!!original?.estimated)
   const [saveMenu, setSaveMenu] = useState(false)
   const [picker, setPicker] = useState(false)
   const [describe, setDescribe] = useState('')
-  const [sentToClaude, setSentToClaude] = useState(false)
+  const [busy, setBusy] = useState<'photo' | 'text' | null>(null)
+  const [note, setNote] = useState('')
+  const [error, setError] = useState('')
+  const [saving, setSaving] = useState(false)
+  const ctl = useRef<AbortController | null>(null)
   const camera = useRef<HTMLInputElement>(null)
   const album = useRef<HTMLInputElement>(null)
-  const photoUrl = useObjectUrl(photo)
+  const localUrl = useObjectUrl(photo)
+  const shownPhoto = localUrl ?? (photoId ? photoUrl(photoId) : undefined)
+  const sample = platform?.sample ?? null
+  const canPhoto = !!sample && !!platform?.canSendImages
   const back = () => goBack('today', { d: date })
 
-  useEffect(() => {
-    if (id === undefined) return
-    db.meals.get(id).then((m) => {
-      if (m) {
-        setSlot(m.slot)
-        setItems(m.items)
-        setPhoto(m.photo)
-        setMemo(m.memo ?? '')
-        setEstimated(!!m.estimated)
-      }
-      setLoaded(true)
-    })
-  }, [id])
-
-  const onFile = async (file: File | undefined) => {
-    if (!file) return
-    setPhoto(await shrinkImage(file))
-    setSentToClaude(false)
+  const applyEstimate = (r: Estimate) => {
+    setNote(r.note ?? '')
+    if (r.items.length === 0) {
+      setError(r.note ? '' : '食べ物を見つけられませんでした。写真を変えるか、文章で推定してください')
+      return
+    }
+    setItems((xs) => [...xs.filter((x) => x.name.trim()), ...r.items])
+    setEstimated(true)
+    toast(`${r.items.length}品を推定しました。数値は目安なので必要なら直してください`)
   }
 
-  const sendPhoto = async () => {
-    if (!photo) return
-    const prompt = photoPrompt(slot, memo || undefined)
-    const r = await sharePhotoToClaude(photo, prompt)
-    if (r === 'shared') {
-      setSentToClaude(true)
-      toast('送信先で Claude を選んでください。指示文はコピー済みです')
-    } else if (r === 'unsupported') {
-      // PC など共有できない環境：指示文をコピーして claude.ai を開き、写真は手動で添付してもらう
-      await openClaude(prompt)
-      setSentToClaude(true)
-      toast('指示文をコピーしました。claude.ai で写真を添付して送信してください')
+  const runEstimate = async (kind: 'photo' | 'text', blob?: Blob) => {
+    if (!sample) return
+    setError('')
+    setNote('')
+    setBusy(kind)
+    ctl.current = new AbortController()
+    try {
+      if (kind === 'photo') {
+        let b = blob ?? photo
+        if (!b && photoId) b = await (await fetch(photoUrl(photoId))).blob()
+        if (!b) return
+        applyEstimate(await estimateFromPhoto(sample, b, slot, memo.trim() || undefined, ctl.current.signal))
+      } else {
+        applyEstimate(await estimateFromText(sample, describe.trim(), ctl.current.signal))
+      }
+    } catch (e) {
+      setError(sampleErrorText(e))
+    } finally {
+      setBusy(null)
     }
   }
 
-  const sendText = async () => {
-    if (!describe.trim()) return
-    await openClaude(textEstimatePrompt(describe.trim()))
-    setSentToClaude(true)
-    toast('指示文をコピーしました。Claude で送信してください')
+  const onFile = async (file: File | undefined) => {
+    if (!file) return
+    const small = await shrinkImage(file)
+    setPhoto(small)
+    // 写真を選んだら、そのまま推定する（ボタンを押す手間を省く）
+    if (canPhoto) runEstimate('photo', small)
   }
 
   const update = (i: number, patch: Partial<FoodItem>) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, ...patch } : x)))
@@ -75,40 +85,45 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
 
   const valid = items.filter((i) => i.name.trim())
   const total = sumItems(valid)
-  const canSave = valid.length > 0 || !!photo
+  const canSave = (valid.length > 0 || !!photo || !!photoId) && !busy && !saving
 
   const save = async () => {
-    const meal: Meal = {
-      date,
-      slot,
-      items: valid.map((i) => ({ ...i, name: i.name.trim() })),
-      photo,
-      memo: memo.trim() || undefined,
-      estimated,
-      createdAt: Date.now(),
+    setSaving(true)
+    try {
+      let nextPhotoId = photoId
+      if (photo) nextPhotoId = (await uploadPhoto(photo)) ?? undefined
+      const meal: Meal = {
+        id: original?.id ?? newId('m'),
+        slot,
+        items: valid.map((i) => ({ ...i, name: i.name.trim() })),
+        photoId: nextPhotoId,
+        memo: memo.trim() || undefined,
+        estimated,
+        createdAt: original?.createdAt ?? Date.now(),
+      }
+      await upsertMeal(date, meal)
+      // 差し替えた・外した古い写真は消す
+      if (original?.photoId && original.photoId !== nextPhotoId) deletePhoto(original.photoId)
+      if (saveMenu && meal.items.length) {
+        const name = meal.items.length === 1 ? meal.items[0].name : `${meal.items[0].name} ほか${meal.items.length - 1}品`
+        await changeLists((l) => ({ ...l, menus: [...l.menus, { id: newId('mm'), name, items: meal.items, useCount: 0, lastUsedAt: Date.now() }] }))
+      }
+      toast(original ? '更新しました' : '記録しました')
+      back()
+    } catch {
+      setSaving(false)
     }
-    if (id !== undefined) {
-      const prev = await db.meals.get(id)
-      await db.meals.put({ ...meal, id, createdAt: prev?.createdAt ?? meal.createdAt })
-    } else {
-      await db.meals.add(meal)
-    }
-    if (saveMenu && valid.length) {
-      const name = valid.length === 1 ? valid[0].name : `${valid[0].name} ほか${valid.length - 1}品`
-      await db.myMenus.add({ name, items: meal.items, useCount: 0, lastUsedAt: Date.now() })
-    }
-    toast(id !== undefined ? '更新しました' : '記録しました')
-    back()
   }
 
   const del = async () => {
-    if (id === undefined || !confirm('この記録を削除しますか？')) return
-    await db.meals.delete(id)
+    if (!original) return
+    const ok = await confirm({ title: 'この記録を削除しますか？', message: '写真も一緒に削除されます。', okLabel: '削除する', danger: true })
+    if (!ok) return
+    await deleteMeal(date, original.id)
+    if (original.photoId) deletePhoto(original.photoId)
     toast('削除しました')
     back()
   }
-
-  if (!loaded) return null
 
   return (
     <div className="screen editor">
@@ -116,7 +131,7 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
         title={`${formatDay(date)}の記録`}
         back={{ fallback: 'today', params: { d: date } }}
         right={
-          id !== undefined ? (
+          original ? (
             <button className="text-btn danger" onClick={del}>
               削除
             </button>
@@ -126,85 +141,85 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
 
       <Segmented label="食事の区分" value={slot} onChange={setSlot} options={SLOTS.map((s) => ({ value: s, label: SLOT_LABEL[s] }))} />
 
-      {/* 写真 */}
+      {/* 写真 → そのまま Claude が推定 */}
       <section className="card">
-        <input ref={camera} type="file" accept="image/*" capture="environment" hidden onChange={(e) => onFile(e.target.files?.[0])} />
-        <input ref={album} type="file" accept="image/*" hidden onChange={(e) => onFile(e.target.files?.[0])} />
-        {photoUrl ? (
+        <input id="photo-camera" ref={camera} type="file" accept="image/*" capture="environment" hidden onChange={(e) => onFile(e.target.files?.[0])} />
+        <input id="photo-album" ref={album} type="file" accept="image/*" hidden onChange={(e) => onFile(e.target.files?.[0])} />
+        {shownPhoto ? (
           <div className="photo-preview">
-            <img src={photoUrl} alt="食事の写真" />
+            <img src={shownPhoto} alt="食事の写真" />
             <div className="photo-actions">
-              <button className="chip" onClick={() => camera.current?.click()}>
+              <button className="chip" onClick={() => camera.current?.click()} disabled={!!busy}>
                 撮り直す
               </button>
-              <button className="chip" onClick={() => setPhoto(undefined)}>
+              <button
+                className="chip"
+                disabled={!!busy}
+                onClick={() => {
+                  setPhoto(undefined)
+                  setPhotoId(undefined)
+                }}
+              >
                 写真を外す
               </button>
+              {canPhoto && !busy && (
+                <button className="chip chip-claude" onClick={() => runEstimate('photo')}>
+                  <SparkIcon size={14} /> もう一度推定
+                </button>
+              )}
             </div>
           </div>
         ) : (
-          <div className="photo-pick">
-            <button className="photo-btn" onClick={() => camera.current?.click()}>
-              <span aria-hidden="true">📷</span>
-              写真を撮る
-            </button>
-            <button className="photo-btn" onClick={() => album.current?.click()}>
-              <span aria-hidden="true">🖼️</span>
-              アルバムから
-            </button>
-          </div>
+          <>
+            <div className="photo-pick">
+              <button className="photo-btn" onClick={() => camera.current?.click()}>
+                <span aria-hidden="true">📷</span>
+                写真を撮る
+              </button>
+              <button className="photo-btn" onClick={() => album.current?.click()}>
+                <span aria-hidden="true">🖼️</span>
+                アルバムから
+              </button>
+            </div>
+            {canPhoto && (
+              <p className="hint center">
+                <SparkIcon size={13} /> 写真を選ぶと、Claude がカロリーと PFC を自動で推定します
+              </p>
+            )}
+          </>
         )}
+        {busy === 'photo' && <Thinking label="Claude が写真から推定しています…" onStop={() => ctl.current?.abort()} />}
       </section>
 
-      {/* Claude で推定 */}
-      <section className="card ai-card">
-        <div className="ai-head">
-          <span className="ai-badge">
-            <SparkIcon />
-          </span>
-          <div>
-            <h2>Claude でカロリーを推定</h2>
-            <p>{photo ? '写真を Claude に送り、返ってきた回答を貼り付けると品目が自動で入ります。' : '食べたものを書いて Claude に送ると、カロリーと PFC を推定します。'}</p>
+      {/* 文章で推定 */}
+      {sample && (
+        <section className="card">
+          <label className="field" htmlFor="describe">
+            <span>
+              <SparkIcon size={13} /> 文章で推定（写真がないとき・外食など）
+            </span>
+          </label>
+          <div className="describe-row">
+            <textarea id="describe" rows={2} value={describe} placeholder="例：牛丼並盛、味噌汁、サラダ" onChange={(e) => setDescribe(e.target.value)} />
+            <button className="btn btn-claude" disabled={!describe.trim() || !!busy} onClick={() => runEstimate('text')}>
+              推定
+            </button>
           </div>
-        </div>
-        <ol className="steps">
-          <li className={sentToClaude ? 'done' : ''}>
-            <span className="step-no">1</span>
-            {photo ? (
-              <button className="btn btn-claude block" onClick={sendPhoto}>
-                <SparkIcon /> {canSharePhoto() ? '写真を Claude アプリに送る' : '指示文をコピーして Claude を開く'}
-              </button>
-            ) : (
-              <div className="describe">
-                <textarea rows={2} value={describe} placeholder="例：牛丼並盛、味噌汁、サラダ" onChange={(e) => setDescribe(e.target.value)} />
-                <button className="btn btn-claude block" disabled={!describe.trim()} onClick={sendText}>
-                  <SparkIcon /> Claude で推定する
-                </button>
-              </div>
-            )}
-          </li>
-          <li>
-            <span className="step-no">2</span>
-            <div className="grow">
-              <p className="step-text">Claude の回答の「コピー」ボタンを押してから、ここに戻って取り込み</p>
-              <ReplyImporter
-                expect="items"
-                onParsed={(r) => {
-                  if (r.kind !== 'items') return
-                  setItems((xs) => [...xs.filter((x) => x.name.trim()), ...r.items])
-                  setEstimated(true)
-                  toast(`${r.items.length}品を取り込みました。数値は目安なので必要に応じて直してください`)
-                }}
-              />
-            </div>
-          </li>
-        </ol>
-        {photo && (
-          <button className="text-btn small" onClick={() => copyText(photoPrompt(slot, memo || undefined)).then(() => toast('指示文をコピーしました'))}>
-            指示文だけコピー
-          </button>
-        )}
-      </section>
+          {busy === 'text' && <Thinking label="Claude が推定しています…" onStop={() => ctl.current?.abort()} />}
+        </section>
+      )}
+
+      {(note || error) && (
+        <section className={error ? 'card error-card' : 'card note-card'} role={error ? 'alert' : 'status'}>
+          {error && <p>{error}</p>}
+          {note && (
+            <p>
+              <b>Claude のメモ：</b>
+              {note}
+            </p>
+          )}
+        </section>
+      )}
 
       {/* 品目 */}
       <section className="card">
@@ -214,12 +229,12 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
             ⭐ Myメニュー・履歴から
           </button>
         </div>
-        {items.length === 0 && <p className="hint">手入力するか、Claude の推定結果や Myメニューから追加してください。</p>}
+        {items.length === 0 && <p className="hint">写真か文章で推定するか、手入力・Myメニューから追加してください。</p>}
         <ul className="item-edit-list">
           {items.map((it, i) => (
             <li key={i} className="item-edit">
               <div className="item-edit-row">
-                <input className="grow" aria-label="品名" placeholder="品名（例：ごはん）" value={it.name} onChange={(e) => update(i, { name: e.target.value })} />
+                <input id={`item-name-${i}`} className="grow" aria-label="品名" placeholder="品名（例：ごはん）" value={it.name} onChange={(e) => update(i, { name: e.target.value })} />
                 <button className="icon-btn small" aria-label={`${it.name || '品目'}を削除`} onClick={() => remove(i)}>
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                     <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
@@ -229,7 +244,7 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
               <div className="item-edit-grid">
                 <label>
                   量
-                  <input aria-label="量" placeholder="150g" value={it.amount ?? ''} onChange={(e) => update(i, { amount: e.target.value || undefined })} />
+                  <input id={`item-amount-${i}`} aria-label="量" placeholder="150g" value={it.amount ?? ''} onChange={(e) => update(i, { amount: e.target.value || undefined })} />
                 </label>
                 <label className="kcal">
                   kcal
@@ -257,12 +272,12 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
       </section>
 
       <section className="card">
-        <label className="field">
-          <span>メモ</span>
-          <textarea rows={2} value={memo} placeholder="外食先、気づいたことなど" onChange={(e) => setMemo(e.target.value)} />
+        <label className="field" htmlFor="memo">
+          <span>メモ（写真の推定にも使われます）</span>
+          <textarea id="memo" rows={2} value={memo} placeholder="外食先、ごはん少なめ、など" onChange={(e) => setMemo(e.target.value)} />
         </label>
         <label className="check">
-          <input type="checkbox" checked={saveMenu} onChange={(e) => setSaveMenu(e.target.checked)} />
+          <input id="save-menu" type="checkbox" checked={saveMenu} onChange={(e) => setSaveMenu(e.target.checked)} />
           この組み合わせを Myメニューに登録する
         </label>
       </section>
@@ -275,7 +290,7 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
           </span>
         </div>
         <button className="btn btn-primary" disabled={!canSave} onClick={save}>
-          {id !== undefined ? '更新する' : '記録する'}
+          {saving ? '保存中…' : original ? '更新する' : '記録する'}
         </button>
       </div>
 
@@ -284,7 +299,12 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
         onClose={() => setPicker(false)}
         onPick={(picked, menuId) => {
           setItems((xs) => [...xs.filter((x) => x.name.trim()), ...picked])
-          if (menuId !== undefined) touchMyMenu(menuId)
+          if (menuId) {
+            changeLists((l) => ({
+              ...l,
+              menus: l.menus.map((m) => (m.id === menuId ? { ...m, useCount: m.useCount + 1, lastUsedAt: Date.now() } : m)),
+            }))
+          }
           setPicker(false)
           toast(`${picked.length}品を追加しました`)
         }}
@@ -293,11 +313,27 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
   )
 }
 
-function QuickPicker({ open, onClose, onPick }: { open: boolean; onClose: () => void; onPick: (items: FoodItem[], menuId?: number) => void }) {
+function QuickPicker({ open, onClose, onPick }: { open: boolean; onClose: () => void; onPick: (items: FoodItem[], menuId?: string) => void }) {
+  const { lists, days } = useStore()
   const [tab, setTab] = useState<'menu' | 'recent'>('menu')
   const [q, setQ] = useState('')
-  const menus = useLive(() => db.myMenus.orderBy('lastUsedAt').reverse().toArray(), [], [] as MyMenu[])
-  const recent = useLive(() => recentItems(40), [], [] as FoodItem[])
+  const menus: MyMenu[] = [...lists.menus].sort((a, b) => b.lastUsedAt - a.lastUsedAt)
+  // 最近食べたもの（同じ名前は新しいものだけ）
+  const recent = useMemo(() => {
+    const meals = Object.values(days)
+      .flatMap((d) => d.meals)
+      .sort((a, b) => b.createdAt - a.createdAt)
+      .slice(0, 80)
+    const seen = new Set<string>()
+    const out: FoodItem[] = []
+    for (const m of meals)
+      for (const it of m.items) {
+        if (seen.has(it.name)) continue
+        seen.add(it.name)
+        out.push(it)
+      }
+    return out.slice(0, 40)
+  }, [days])
   const match = (s: string) => !q.trim() || s.includes(q.trim())
 
   return (
@@ -311,7 +347,7 @@ function QuickPicker({ open, onClose, onPick }: { open: boolean; onClose: () => 
           { value: 'recent', label: '最近食べたもの' },
         ]}
       />
-      <input className="search" type="search" placeholder="絞り込み" value={q} onChange={(e) => setQ(e.target.value)} />
+      <input id="picker-search" className="search" type="search" placeholder="絞り込み" value={q} onChange={(e) => setQ(e.target.value)} />
       {tab === 'menu' ? (
         menus.length === 0 ? (
           <p className="empty">記録画面の「Myメニューに登録」で、よく食べる組み合わせを登録できます。</p>

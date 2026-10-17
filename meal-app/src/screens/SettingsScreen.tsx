@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import { NumInput, Segmented, SparkIcon, TopBar } from '../components/ui'
-import { db, exportAll, importAll, resetAll, useLive } from '../db'
-import { CLAUDE_NEW_URL } from '../logic/claude'
+import { NumInput, Segmented, Sheet, SparkIcon, TopBar } from '../components/ui'
+import { makeBackup, readBackup } from '../logic/backup'
 import { todayKey } from '../logic/date'
 import { ACTIVITY_LEVELS, calcTargets, GOAL_LABEL, sumItems } from '../logic/nutrition'
-import { navigate } from '../router'
+import { switchTab } from '../router'
 import { useStore } from '../store'
 import { DEFAULT_PROFILE, type Goal, type MyMenu, type Profile, type Sex } from '../types'
 
@@ -27,7 +26,9 @@ function toProfile(f: Form, manual: boolean): Profile | null {
 }
 
 export default function SettingsScreen({ setup }: { setup: boolean }) {
-  const { profile, updateProfile, toast } = useStore()
+  const { profile, updateProfile, toast, confirm, lists, changeLists, days, dayOf, changeDay, platform, resetAll } = useStore()
+  const [renaming, setRenaming] = useState<MyMenu | null>(null)
+  const [busy, setBusy] = useState('')
   const [p, setP] = useState<Form>(profile ?? DEFAULT_PROFILE)
   const [manual, setManual] = useState(!!profile?.kcalOverride)
   useEffect(() => {
@@ -39,36 +40,75 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
   const bodyReady = p.age! > 0 && p.heightCm! > 0 && p.weightKg! > 0
   const t = bodyReady ? calcTargets({ ...DEFAULT_PROFILE, ...p, kcalOverride: manual ? p.kcalOverride : undefined } as Profile) : null
   const set = (patch: Partial<Form>) => setP((x) => ({ ...x, ...patch }))
-  const menus = useLive(() => db.myMenus.orderBy('lastUsedAt').reverse().toArray(), [], [] as MyMenu[])
+  const menus = [...lists.menus].sort((a, b) => b.lastUsedAt - a.lastUsedAt)
 
   const save = async () => {
     const next = toProfile(p, manual)
     if (!next) return
     await updateProfile(next)
     // 今日の体重が未記録なら、入力した体重を記録にも入れておく
-    if (!(await db.weights.get(todayKey()))) await db.weights.put({ date: todayKey(), kg: next.weightKg })
+    if (!dayOf(todayKey()).weight)
+      await changeDay(todayKey(), (d) => {
+        d.weight = { kg: next.weightKg }
+        return d
+      })
     toast('保存しました')
-    if (setup) navigate('today', {}, true)
+    if (setup) switchTab('today')
   }
 
   const doExport = async () => {
-    const data = await exportAll()
-    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' })
-    const a = document.createElement('a')
-    a.href = URL.createObjectURL(blob)
-    a.download = `meal-log-${todayKey()}.json`
-    a.click()
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000)
+    const dl = platform?.downloads
+    if (!dl) {
+      toast('この画面ではファイルを保存できません')
+      return
+    }
+    try {
+      await dl.save({ filename: `meal-log-${todayKey()}.json`, data: JSON.stringify(makeBackup(profile, days, lists)) })
+    } catch (e) {
+      if ((e as { code?: string })?.code !== 'cancelled') toast('保存できませんでした')
+    }
   }
 
   const doImport = async (file: File | undefined) => {
-    if (!file || !confirm('現在のデータをすべて置き換えます。よろしいですか？')) return
+    if (!file) return
+    let data: ReturnType<typeof readBackup>
     try {
-      await importAll(JSON.parse(await file.text()))
-      toast('読み込みました')
-      setTimeout(() => location.reload(), 600)
+      data = readBackup(JSON.parse(await file.text()))
     } catch (e) {
-      toast(e instanceof Error ? e.message : '読み込めませんでした')
+      toast(e instanceof Error && !(e instanceof SyntaxError) ? e.message : 'ファイルを読み込めませんでした')
+      return
+    }
+    const ok = await confirm({
+      title: 'バックアップを取り込みますか？',
+      message: `${data.days.length}日分の記録を取り込みます。同じ日付の記録は、バックアップの内容で置き換えます。`,
+      okLabel: '取り込む',
+    })
+    if (!ok) return
+    setBusy('取り込み中…')
+    try {
+      for (const d of data.days) await changeDay(d.date, () => d)
+      await changeLists((l) => ({
+        menus: [...l.menus, ...data.lists.menus.filter((m) => !l.menus.some((x) => x.id === m.id))],
+        shopping: [...l.shopping, ...data.lists.shopping.filter((m) => !l.shopping.some((x) => x.id === m.id))],
+      }))
+      if (data.profile && !profile) await updateProfile({ ...DEFAULT_PROFILE, ...data.profile })
+      toast(`${data.days.length}日分の記録を取り込みました`)
+    } catch {
+      // 保存の失敗は store が知らせる
+    } finally {
+      setBusy('')
+    }
+  }
+
+  const doReset = async () => {
+    const ok = await confirm({ title: 'すべてのデータを削除しますか？', message: '記録・設定・Myメニュー・買い物リストを削除します。元に戻せません。', okLabel: 'すべて削除する', danger: true })
+    if (!ok) return
+    setBusy('削除中…')
+    try {
+      await resetAll()
+      toast('すべてのデータを削除しました')
+    } finally {
+      setBusy('')
     }
   }
 
@@ -201,16 +241,16 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
                         {sumItems(m.items).kcal}kcal · {m.useCount}回使用
                       </small>
                     </span>
-                    <button
-                      className="chip"
-                      onClick={() => {
-                        const name = prompt('メニュー名', m.name)
-                        if (name?.trim()) db.myMenus.update(m.id!, { name: name.trim() })
-                      }}
-                    >
+                    <button className="chip" onClick={() => setRenaming(m)}>
                       名前
                     </button>
-                    <button className="chip danger" onClick={() => confirm(`「${m.name}」を削除しますか？`) && db.myMenus.delete(m.id!)}>
+                    <button
+                      className="chip danger"
+                      onClick={async () => {
+                        if (await confirm({ title: `「${m.name}」を削除しますか？`, okLabel: '削除する', danger: true }))
+                          changeLists((l) => ({ ...l, menus: l.menus.filter((x) => x.id !== m.id) }))
+                      }}
+                    >
                       削除
                     </button>
                   </li>
@@ -224,41 +264,51 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
               <SparkIcon /> Claude 連携について
             </h2>
             <ul className="about-list">
-              <li>このアプリは AI の API を使わないため、利用料はかかりません。</li>
-              <li>写真の推定・アドバイス・献立づくりは、あなたの Claude（claude.ai／Claude アプリ。無料プランでも可）で行います。</li>
-              <li>アプリが指示文を作ってコピーし、Claude を開きます。回答の「コピー」を押して戻り、「貼り付けて取り込む」で反映されます。</li>
-              <li>スマホでは写真の共有先から Claude アプリを選べます。PC では claude.ai に写真を添付してください。</li>
+              <li>写真の推定・アドバイス・献立づくりは、あなたの Claude の利用枠を使います。追加料金はかかりません。</li>
+              <li>初めて使うときに、Claude の利用を許可するか確認されます。</li>
+              <li>利用枠の上限に達したときは、しばらくしてから試すか、手入力で記録してください。</li>
+              <li>推定値は目安です。「推定」のついた記録は、必要に応じて数値を直してください。</li>
             </ul>
-            <a className="btn btn-outline block" href={CLAUDE_NEW_URL} target="_blank" rel="noreferrer">
-              claude.ai を開く
-            </a>
+            {!platform?.sample && <p className="error">この画面では Claude を使えません。claude.ai で開いてください。</p>}
           </section>
 
           <section className="card">
             <h2 className="card-title">データ</h2>
-            <p className="hint">データはこの端末のブラウザ内だけに保存されます。機種変更の前にバックアップしてください（写真は含まれません）。</p>
+            <p className="hint">記録は claude.ai 上のあなた専用の領域に保存され、他の人からは見えません。スマホでも PC でも同じ記録を使えます。</p>
             <div className="btn-col">
-              <button className="btn btn-outline block" onClick={doExport}>
-                バックアップを保存
+              <button className="btn btn-outline block" onClick={doExport} disabled={!!busy}>
+                バックアップを保存（写真は含みません）
               </button>
               <label className="btn btn-outline block">
-                バックアップから復元
-                <input type="file" accept="application/json" hidden onChange={(e) => doImport(e.target.files?.[0])} />
+                バックアップから取り込む
+                <input id="import-file" type="file" accept="application/json,.json" hidden onChange={(e) => doImport(e.target.files?.[0])} />
               </label>
-              <button
-                className="btn btn-ghost danger block"
-                onClick={async () => {
-                  if (!confirm('すべての記録と設定を削除します。元に戻せません。よろしいですか？')) return
-                  await resetAll()
-                  location.reload()
-                }}
-              >
+              <p className="hint">GitHub 版（端末に保存する版）のバックアップも取り込めます。</p>
+              <button className="btn btn-ghost danger block" onClick={doReset} disabled={!!busy}>
                 すべてのデータを削除
               </button>
+              {busy && <p className="hint">{busy}</p>}
             </div>
           </section>
         </>
       )}
+
+      <Sheet open={renaming !== null} onClose={() => setRenaming(null)} title="メニュー名を変える">
+        {renaming && (
+          <form
+            className="form"
+            onSubmit={(e) => {
+              e.preventDefault()
+              const name = (new FormData(e.currentTarget).get('menu-name') as string).trim()
+              if (name) changeLists((l) => ({ ...l, menus: l.menus.map((x) => (x.id === renaming.id ? { ...x, name } : x)) }))
+              setRenaming(null)
+            }}
+          >
+            <input id="menu-name" name="menu-name" defaultValue={renaming.name} aria-label="メニュー名" />
+            <button className="btn btn-primary block">保存</button>
+          </form>
+        )}
+      </Sheet>
     </div>
   )
 }
