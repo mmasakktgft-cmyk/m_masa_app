@@ -38,7 +38,7 @@ npm run build   # dist/meal-log.html（公開する1枚のページ）を作る
 ```
 
 `npm run build` は Vite でビルドしたあと、`scripts/inline.mjs` で JS と CSS を1枚の HTML にまとめる。
-公開（更新）は、このファイルを Claude の Artifact ツールで同じ URL に publish する。宣言する機能は `db`・`user`・`assets`・`sample`・`downloads`。
+公開（更新）は、このファイルを Claude の Artifact ツールで同じ URL に publish する。宣言する機能は `db`・`user`・`assets`・`sample`（写真を送るので `{"images": true}`）・`downloads`。
 
 claude.ai の外（`npm run dev` など）で開くと `window.claude` がないため、「claude.ai で開いてください」と表示される。
 
