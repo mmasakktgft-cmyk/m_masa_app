@@ -1,7 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Sheet } from './components/ui'
+import { addDays, todayKey } from './logic/date'
 import { calcTargets, type Targets } from './logic/nutrition'
-import { connectPlatform, type DbError, type DocRef, type Platform } from './platform'
+import { checkCanSendImages, connectPlatform, type DbError, type DbQuerySnapshot, type DocRef, type Platform } from './platform'
 import type { Day, Lists, Meal, Profile } from './types'
 import { DEFAULT_PROFILE, emptyDay } from './types'
 
@@ -10,7 +11,13 @@ import { DEFAULT_PROFILE, emptyDay } from './types'
  *   data/users/<自分>/app            { profile }
  *   data/users/<自分>/app/days/<日付> Day（食事・水分・体重・献立）
  *   data/users/<自分>/lists          Lists（Myメニュー・買い物リスト）
+ *
+ * 起動を速くするため、日ごとの記録は直近の分だけ先に読んで画面を出し、
+ * 全期間の分はそのあと裏で読み込む（historyLoaded で分かる）。
  */
+
+/** 起動時に先に読む日数（これより前の記録は、画面を出したあとに読む） */
+const RECENT_DAYS = 60
 
 export type Status = 'loading' | 'ready' | 'unavailable'
 
@@ -28,6 +35,10 @@ interface Store {
   profile: Profile | null
   targets: Targets
   days: Record<string, Day>
+  /** 全期間の記録を読み終えたか（false の間は直近の分だけ） */
+  historyLoaded: boolean
+  /** 全期間の記録を読み終えるのを待ち、その時点の全記録を返す（読めなかったら失敗する） */
+  whenHistoryLoaded: () => Promise<Record<string, Day>>
   lists: Lists
   dayOf: (date: string) => Day
   updateProfile: (p: Profile) => Promise<void>
@@ -66,6 +77,19 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [platform, setPlatform] = useState<Platform | null>(null)
   const [profile, setProfile] = useState<Profile | null>(null)
   const [days, setDays] = useState<Record<string, Day>>({})
+  const [historyLoaded, setHistoryLoaded] = useState(false)
+  const history = useRef(
+    (() => {
+      let resolve!: () => void
+      let reject!: (e: unknown) => void
+      const promise = new Promise<void>((res, rej) => {
+        resolve = res
+        reject = rej
+      })
+      promise.catch(() => {})
+      return { promise, resolve, reject }
+    })(),
+  )
   const [lists, setLists] = useState<Lists>(EMPTY_LISTS)
   const [message, setMessage] = useState<string | null>(null)
   const [ask, setAsk] = useState<(ConfirmOptions & { resolve: (ok: boolean) => void }) | null>(null)
@@ -90,13 +114,20 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let unsubs: (() => void)[] = []
     let cancelled = false
+    const t0 = performance.now()
+    const mark = (label: string) => console.info(`[ごはん記録] ${label}: ${Math.round(performance.now() - t0)}ms`)
     connectPlatform().then((p) => {
       if (cancelled) return
+      mark('claude.ai に接続')
       setPlatform(p)
       if (!p.db || !p.uid) {
         setStatus('unavailable')
         return
       }
+      // 写真を送れるかは表示に関係ないので、読み込みを待たせずに調べて後から反映する
+      checkCanSendImages(p.sample).then((ok) => {
+        if (!cancelled && ok) setPlatform((cur) => (cur ? { ...cur, canSendImages: true } : cur))
+      })
       const base = `data/users/${p.uid}`
       const app = p.db.doc(`${base}/app`)
       const listsDoc = p.db.doc(`${base}/lists`)
@@ -106,7 +137,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       let pending = 3
       const loaded = () => {
         pending -= 1
-        if (pending === 0) setStatus('ready')
+        if (pending === 0) {
+          setStatus('ready')
+          mark('画面を表示')
+        }
       }
       const once = () => {
         let done = false
@@ -142,25 +176,69 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           f2()
         }, onErr(f2)),
       )
+
+      /** 届いた日ごとの記録で手元を置き換える（書き込み待ちの日は手元を優先） */
+      const applyDays = (snap: DbQuerySnapshot) => {
+        const next: Record<string, Day> = {}
+        for (const doc of snap.docs) {
+          const d = doc.data() as Partial<Day> | undefined
+          if (!d) continue
+          next[doc.id] = { ...emptyDay(doc.id), ...d, date: doc.id }
+        }
+        for (const date of new Set([...Object.keys(next), ...Object.keys(daysRef.current)])) {
+          if (!isPending(daysCol.doc(date).path)) continue
+          if (daysRef.current[date]) next[date] = daysRef.current[date]
+          else delete next[date]
+        }
+        daysRef.current = next
+        setDays(next)
+      }
+
+      // 1) 直近の記録だけ先に読んで画面を出す
+      // 2) 続けて全期間を購読し、届いたら直近だけの購読はやめる
       const f3 = once()
-      unsubs.push(
-        daysCol.onSnapshot((snap) => {
-          const next: Record<string, Day> = {}
-          for (const doc of snap.docs) {
-            const d = doc.data() as Partial<Day> | undefined
-            if (!d) continue
-            next[doc.id] = { ...emptyDay(doc.id), ...d, date: doc.id }
-          }
-          for (const date of new Set([...Object.keys(next), ...Object.keys(daysRef.current)])) {
-            if (!isPending(daysCol.doc(date).path)) continue
-            if (daysRef.current[date]) next[date] = daysRef.current[date]
-            else delete next[date]
-          }
-          daysRef.current = next
-          setDays(next)
+      let stopRecent: (() => void) | null = null
+      let fullStarted = false
+      const startFull = () => {
+        if (fullStarted || cancelled) return
+        fullStarted = true
+        let first = true
+        unsubs.push(
+          daysCol.onSnapshot(
+            (snap) => {
+              stopRecent?.()
+              stopRecent = null
+              applyDays(snap)
+              f3()
+              if (first) {
+                first = false
+                setHistoryLoaded(true)
+                history.current.resolve()
+                mark(`全期間の記録（${snap.docs.length}日分）`)
+              }
+            },
+            (e) => {
+              history.current.reject(e)
+              onErr(f3)(e)
+            },
+          ),
+        )
+      }
+      stopRecent = daysCol.where('date', '>=', addDays(todayKey(), -RECENT_DAYS)).onSnapshot(
+        (snap) => {
+          applyDays(snap)
+          if (!fullStarted) mark(`直近の記録（${snap.docs.length}日分）`)
           f3()
-        }, onErr(f3)),
+          startFull()
+        },
+        (e) => {
+          // 絞り込みで読めなかったときは、従来どおり全期間を読む
+          console.error(e)
+          stopRecent = null
+          startFull()
+        },
       )
+      unsubs.push(() => stopRecent?.())
     })
     return () => {
       cancelled = true
@@ -284,16 +362,20 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     [platform],
   )
 
+  const whenHistoryLoaded = useCallback(() => history.current.promise.then(() => daysRef.current), [])
+
   const resetAll = useCallback(async () => {
     const r = refs.current
     if (!r) return
+    // 古い記録や写真を消し残さないよう、全期間を読み終えてから消す
+    await whenHistoryLoaded()
     const photoIds = Object.values(daysRef.current).flatMap((d) => d.meals.map((m) => m.photoId).filter((x): x is string => !!x))
     for (const date of Object.keys(daysRef.current)) await changeDay(date, () => emptyDay(date))
     await changeLists(() => EMPTY_LISTS)
     setProfile(null)
     await enqueue(r.app.path, () => r.app.set({}))
     for (const id of photoIds) await deletePhoto(id)
-  }, [changeDay, changeLists, enqueue, deletePhoto])
+  }, [changeDay, changeLists, enqueue, deletePhoto, whenHistoryLoaded])
 
   const confirm = useCallback((o: ConfirmOptions) => new Promise<boolean>((resolve) => setAsk({ ...o, resolve })), [])
   const closeAsk = (ok: boolean) => {
@@ -308,6 +390,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       profile,
       targets: calcTargets(profile ?? DEFAULT_PROFILE),
       days,
+      historyLoaded,
+      whenHistoryLoaded,
       lists,
       dayOf,
       updateProfile,
@@ -322,7 +406,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       toast,
       confirm,
     }),
-    [status, platform, profile, days, lists, dayOf, updateProfile, changeDay, upsertMeal, deleteMeal, addWater, changeLists, uploadPhoto, deletePhoto, resetAll, toast, confirm],
+    [status, platform, profile, days, historyLoaded, whenHistoryLoaded, lists, dayOf, updateProfile, changeDay, upsertMeal, deleteMeal, addWater, changeLists, uploadPhoto, deletePhoto, resetAll, toast, confirm],
   )
 
   return (
