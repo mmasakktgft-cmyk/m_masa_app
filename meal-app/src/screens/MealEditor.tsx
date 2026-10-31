@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { NumInput, Segmented, Sheet, SparkIcon, Thinking, TopBar } from '../components/ui'
 import { estimateFromPhoto, estimateFromText, type Estimate } from '../logic/claude'
 import { formatDay } from '../logic/date'
@@ -39,6 +39,10 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
   const shownPhoto = localUrl ?? (photoId ? photoUrl(photoId) : undefined)
   const sample = platform?.sample ?? null
   const [canPhoto, setCanPhoto] = useState(!!sample && !!platform?.canSendImages)
+  // 写真を送れるかは起動後に分かるので、分かった時点で反映する
+  useEffect(() => {
+    if (sample && platform?.canSendImages) setCanPhoto(true)
+  }, [sample, platform?.canSendImages])
   const back = () => goBack('today', { d: date })
 
   const applyEstimate = (r: Estimate) => {
