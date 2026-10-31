@@ -26,7 +26,7 @@ function toProfile(f: Form, manual: boolean): Profile | null {
 }
 
 export default function SettingsScreen({ setup }: { setup: boolean }) {
-  const { profile, updateProfile, toast, confirm, lists, changeLists, days, dayOf, changeDay, platform, resetAll } = useStore()
+  const { profile, updateProfile, toast, confirm, lists, changeLists, days, dayOf, changeDay, platform, resetAll, historyLoaded, whenHistoryLoaded } = useStore()
   const [renaming, setRenaming] = useState<MyMenu | null>(null)
   const [busy, setBusy] = useState('')
   const [p, setP] = useState<Form>(profile ?? DEFAULT_PROFILE)
@@ -62,8 +62,21 @@ export default function SettingsScreen({ setup }: { setup: boolean }) {
       toast('この画面ではファイルを保存できません')
       return
     }
+    // 起動直後は直近の記録しか手元にないので、全期間を読み終えてから書き出す
+    let all = days
+    if (!historyLoaded) {
+      setBusy('過去の記録を読み込み中…')
+      try {
+        all = await whenHistoryLoaded()
+      } catch {
+        toast('過去の記録を読み込めませんでした。ページを開き直してください')
+        return
+      } finally {
+        setBusy('')
+      }
+    }
     try {
-      await dl.save({ filename: `meal-log-${todayKey()}.json`, data: JSON.stringify(makeBackup(profile, days, lists)) })
+      await dl.save({ filename: `meal-log-${todayKey()}.json`, data: JSON.stringify(makeBackup(profile, all, lists)) })
     } catch (e) {
       if ((e as { code?: string })?.code !== 'cancelled') toast('保存できませんでした')
     }

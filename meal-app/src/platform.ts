@@ -24,11 +24,16 @@ export interface DocRef {
   onSnapshot(next: (s: DbSnapshot) => void, error?: (e: DbError) => void): () => void
   collection(path: string): CollectionRef
 }
-export interface CollectionRef {
-  path: string
-  doc(id?: string): DocRef
+export interface Query {
+  where(field: string, op: string, value: unknown): Query
+  orderBy(field: string, dir?: 'asc' | 'desc'): Query
+  limit(n: number): Query
   onSnapshot(next: (s: DbQuerySnapshot) => void, error?: (e: DbError) => void): () => void
   get(): Promise<DbQuerySnapshot>
+}
+export interface CollectionRef extends Query {
+  path: string
+  doc(id?: string): DocRef
 }
 export interface Db {
   doc(path: string): DocRef
@@ -81,7 +86,7 @@ export interface Platform {
   db: Db | null
   uid: string | null
   sample: Sample | null
-  /** 写真を Claude に送れるか */
+  /** 写真を Claude に送れるか（起動を待たせないよう、接続後に調べて反映する） */
   canSendImages: boolean
   assets: Assets | null
   downloads: Downloads | null
@@ -109,13 +114,16 @@ export async function connectPlatform(): Promise<Platform> {
   } catch {
     uid = null
   }
-  let canSendImages = false
+  return { db, uid, sample, canSendImages: false, assets, downloads }
+}
+
+/** 写真を Claude に送れるか。起動時の読み込みとは別に調べる */
+export async function checkCanSendImages(sample: Sample | null): Promise<boolean> {
   try {
-    canSendImages = !!(await sample?.limits())?.images
+    return !!(await sample?.limits())?.images
   } catch {
-    canSendImages = false
+    return false
   }
-  return { db, uid, sample, canSendImages, assets, downloads }
 }
 
 /** 保存してある写真の表示用 URL（どの画面からでも同じ形） */
