@@ -1,10 +1,10 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { NumInput, Segmented, Sheet, SparkIcon, Thinking, TopBar } from '../components/ui'
 import { estimateFromPhoto, estimateFromText, type Estimate } from '../logic/claude'
 import { formatDay } from '../logic/date'
 import { shrinkImage, useObjectUrl } from '../logic/image'
 import { sumItems } from '../logic/nutrition'
-import { photoUrl, sampleErrorText } from '../platform'
+import { imagesAvailable, isPermissionError, photoUrl, sampleErrorText } from '../platform'
 import { goBack } from '../router'
 import { useStore } from '../store'
 import { newId, SLOT_LABEL, SLOTS, type FoodItem, type Meal, type MyMenu, type Slot } from '../types'
@@ -29,6 +29,8 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
   const [busy, setBusy] = useState<'photo' | 'text' | null>(null)
   const [note, setNote] = useState('')
   const [error, setError] = useState('')
+  /** 許可がオフのときは、許可の設定を開くボタンを出す */
+  const [needPermission, setNeedPermission] = useState(false)
   const [saving, setSaving] = useState(false)
   const ctl = useRef<AbortController | null>(null)
   const camera = useRef<HTMLInputElement>(null)
@@ -36,7 +38,11 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
   const localUrl = useObjectUrl(photo)
   const shownPhoto = localUrl ?? (photoId ? photoUrl(photoId) : undefined)
   const sample = platform?.sample ?? null
-  const canPhoto = !!sample && !!platform?.canSendImages
+  const [canPhoto, setCanPhoto] = useState(!!sample && !!platform?.canSendImages)
+  // 写真を送れるかは起動後に分かるので、分かった時点で反映する
+  useEffect(() => {
+    if (sample && platform?.canSendImages) setCanPhoto(true)
+  }, [sample, platform?.canSendImages])
   const back = () => goBack('today', { d: date })
 
   const applyEstimate = (r: Estimate) => {
@@ -54,6 +60,7 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
     if (!sample) return
     setError('')
     setNote('')
+    setNeedPermission(false)
     setBusy(kind)
     ctl.current = new AbortController()
     try {
@@ -67,6 +74,8 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
       }
     } catch (e) {
       setError(sampleErrorText(e))
+      setNeedPermission(isPermissionError(e))
+      if ((e as { code?: string })?.code === 'images_unavailable') setCanPhoto(false)
     } finally {
       setBusy(null)
     }
@@ -76,8 +85,13 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
     if (!file) return
     const small = await shrinkImage(file)
     setPhoto(small)
-    // 写真を選んだら、そのまま推定する（ボタンを押す手間を省く）
-    if (canPhoto) runEstimate('photo', small)
+    // 写真を選んだら、そのまま推定する（ボタンを押す手間を省く）。
+    // 起動時に判定できなかった場合に備えて、ここでもう一度確かめる
+    const ok = canPhoto || (await imagesAvailable(sample))
+    setCanPhoto(ok)
+    if (ok) runEstimate('photo', small)
+    else if (!sample) setError('この画面では Claude を使えないため、写真から推定できません。claude.ai で開くか、手入力で記録してください')
+    else setError('この画面では写真を Claude に送れません。下の「文章で推定」に食べたものを書いて推定してください')
   }
 
   const update = (i: number, patch: Partial<FoodItem>) => setItems((xs) => xs.map((x, j) => (j === i ? { ...x, ...patch } : x)))
@@ -212,6 +226,11 @@ export default function MealEditor({ date, slot: initialSlot, id }: { date: stri
       {(note || error) && (
         <section className={error ? 'card error-card' : 'card note-card'} role={error ? 'alert' : 'status'}>
           {error && <p>{error}</p>}
+          {needPermission && platform?.permissions && (
+            <button className="btn btn-outline block" onClick={() => platform.permissions?.manage().catch(() => setError('画面右上のメニューの「権限」から、Claude の利用を許可してください'))}>
+              許可の設定を開く
+            </button>
+          )}
           {note && (
             <p>
               <b>Claude のメモ：</b>

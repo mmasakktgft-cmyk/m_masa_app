@@ -67,6 +67,11 @@ export interface Downloads {
   save(req: { filename: string; data: string | Blob }): Promise<{ status: 'saved' | 'delivered' }>
 }
 
+export interface Permissions {
+  /** 許可の設定画面を開く（拒否した許可を戻すための入口） */
+  manage(): Promise<void>
+}
+
 export interface User {
   id(): Promise<string | null>
   isOwner(): Promise<boolean>
@@ -90,6 +95,7 @@ export interface Platform {
   canSendImages: boolean
   assets: Assets | null
   downloads: Downloads | null
+  permissions: Permissions | null
 }
 
 async function use<T>(name: string): Promise<T | null> {
@@ -101,12 +107,13 @@ async function use<T>(name: string): Promise<T | null> {
 }
 
 export async function connectPlatform(): Promise<Platform> {
-  const [db, user, sample, assets, downloads] = await Promise.all([
+  const [db, user, sample, assets, downloads, permissions] = await Promise.all([
     use<Db>('db'),
     use<User>('user'),
     use<Sample>('sample'),
     use<Assets>('assets'),
     use<Downloads>('downloads'),
+    use<Permissions>('permissions'),
   ])
   let uid: string | null = null
   try {
@@ -114,16 +121,25 @@ export async function connectPlatform(): Promise<Platform> {
   } catch {
     uid = null
   }
-  return { db, uid, sample, canSendImages: false, assets, downloads }
+  return { db, uid, sample, canSendImages: false, assets, downloads, permissions }
 }
 
-/** 写真を Claude に送れるか。起動時の読み込みとは別に調べる */
-export async function checkCanSendImages(sample: Sample | null): Promise<boolean> {
+/**
+ * 写真を Claude に送れるか。ページが写真を送ると宣言していて（capabilities の sample.images）、
+ * 開いている画面が対応しているときだけ true。起動時の読み込みを待たせないよう、別に調べる
+ */
+export async function imagesAvailable(sample: Sample | null): Promise<boolean> {
   try {
     return !!(await sample?.limits())?.images
   } catch {
     return false
   }
+}
+
+/** 許可がない・取り消された、を表すエラーか（許可の設定画面へ案内する） */
+export const isPermissionError = (e: unknown): boolean => {
+  const code = (e as SampleError)?.code
+  return code === 'not_granted' || code === 'capability_disabled'
 }
 
 /** 保存してある写真の表示用 URL（どの画面からでも同じ形） */
@@ -140,7 +156,7 @@ export function sampleErrorText(e: unknown): string {
     case 'not_declared':
     case 'capability_disabled':
     case 'capability_removed':
-      return 'Claude を使う許可がないため推定できません。手入力で記録してください'
+      return 'Claude を使う許可がオフになっています。下のボタンから許可するか、手入力で記録してください'
     case 'images_unavailable':
       return 'この画面では写真を Claude に送れません。食べたものを文章で書いて推定してください'
     case 'image_rejected':

@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { Sheet } from './components/ui'
 import { addDays, todayKey } from './logic/date'
 import { calcTargets, type Targets } from './logic/nutrition'
-import { checkCanSendImages, connectPlatform, type DbError, type DbQuerySnapshot, type DocRef, type Platform } from './platform'
+import { imagesAvailable, connectPlatform, type DbError, type DbQuerySnapshot, type DocRef, type Platform } from './platform'
 import type { Day, Lists, Meal, Profile } from './types'
 import { DEFAULT_PROFILE, emptyDay } from './types'
 
@@ -125,7 +125,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         return
       }
       // 写真を送れるかは表示に関係ないので、読み込みを待たせずに調べて後から反映する
-      checkCanSendImages(p.sample).then((ok) => {
+      imagesAvailable(p.sample).then((ok) => {
         if (!cancelled && ok) setPlatform((cur) => (cur ? { ...cur, canSendImages: true } : cur))
       })
       const base = `data/users/${p.uid}`

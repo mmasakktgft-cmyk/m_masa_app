@@ -1626,3 +1626,22 @@ textarea:focus {
 .share-text {
   font-size: 15px;
 }
+
+.status {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.status.ok {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.status.ng {
+  background: var(--claude-soft);
+  color: var(--claude);
+}
+.error-card .btn {
+  margin-top: 10px;
+}
